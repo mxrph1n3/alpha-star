@@ -8,4 +8,6 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  // ОБЯЗАТЕЛЬНО: добавьте эту строку (замените alpha-star на имя вашего репозитория)
+  base: '/alpha-star/', 
 })
