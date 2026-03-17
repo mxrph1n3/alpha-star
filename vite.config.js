@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
+import tailwindcss from '@tailwindcss/vite' // Если вы используете новый Tailwind
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -8,6 +8,6 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  // ОБЯЗАТЕЛЬНО: добавьте эту строку (замените alpha-star на имя вашего репозитория)
+  // ЭТА СТРОКА КРИТИЧЕСКИ ВАЖНА:
   base: '/alpha-star/', 
 })
