@@ -3,12 +3,17 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://mxrph1n3.github.io/alpha-star/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
+  // ... дальше идут ваши зависимости (dependencies)
+}
   "dependencies": {
     "framer-motion": "^12.38.0",
     "lucide-react": "^0.577.0",
