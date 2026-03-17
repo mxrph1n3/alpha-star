@@ -6,7 +6,7 @@ import {
   Heart, Home as HomeIcon, TrendingUp, Coins, Globe, Download, 
   MapPin, Phone, Mail, MessageCircle, ChevronDown, 
   ShieldCheck, Search, FileCheck, Key, ArrowRight, Quote, Star, 
-  Calendar, Clock, ArrowLeft, Menu, X
+  Calendar, Clock, ArrowLeft, Menu, X, ArrowUp
 } from 'lucide-react';
 
 // --- Стили ---
@@ -273,7 +273,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                         animate={{ scale: 1, opacity: 1, y: 0 }} 
                         exit={{ scale: 0.95, opacity: 0, y: 20 }} 
                         transition={{ duration: 0.3 }}
-                        className="relative w-full max-w-2xl m-auto"
+                        className="relative w-full max-w-2xl m-auto max-h-[95vh] overflow-y-auto rounded-sm"
                         onClick={e => e.stopPropagation()}
                     >
                         <button onClick={onClose} className="absolute top-2 right-2 md:top-4 md:right-4 text-gray-400 hover:text-[#C5A059] transition-colors z-[60] bg-gray-50 rounded-full p-2 shadow-sm">
@@ -690,7 +690,7 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                         <div className="w-8 md:w-12 h-px gold-bg"></div>
                         <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.5em] gold-text font-bold">Boutique Agency</span>
                     </div>
-                    <h1 className="font-montserrat text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold leading-tight mb-6 md:mb-8 uppercase tracking-tight text-center md:text-left">
+                    <h1 className="font-montserrat text-[8.5vw] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] mb-6 md:mb-8 uppercase tracking-tight text-center md:text-left">
                         Ваш путь к <br />
                         <span className="relative inline-block mt-1 md:mt-2">
                             <span className="font-playfair italic font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#C5A059] via-[#E2C384] to-[#C5A059] drop-shadow-[0_4px_12px_rgba(197,160,89,0.3)]">Недвижимости</span>
@@ -940,13 +940,17 @@ const HomePage = ({ isLoading, onOpenModal }) => {
 const AppContent = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [scrolled, setScrolled] = useState(false);
+    const [showTopBtn, setShowTopBtn] = useState(false);
     const [isContactModalOpen, setIsContactModalOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
 
     useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 50);
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+            setShowTopBtn(window.scrollY > 500);
+        };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
@@ -1148,7 +1152,21 @@ const AppContent = () => {
                 </div>
             </footer>
 
-            <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[1500]">
+            <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[1500] flex flex-col gap-3">
+                <AnimatePresence>
+                    {showTopBtn && (
+                        <motion.div 
+                            initial={{ opacity: 0, scale: 0.5, y: 20 }} 
+                            animate={{ opacity: 1, scale: 1, y: 0 }} 
+                            exit={{ opacity: 0, scale: 0.5, y: 20 }} 
+                            transition={{ duration: 0.3 }}
+                        >
+                            <button type="button" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="w-10 h-10 md:w-12 md:h-12 bg-[#121212] text-[#C5A059] border border-white/10 rounded-full flex items-center justify-center shadow-lg hover:bg-[#C5A059] hover:text-white active:scale-95 transition-all mx-auto">
+                                <ArrowUp size={20} className="md:w-6 md:h-6" />
+                            </button>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
                 <button type="button" onClick={() => setIsContactModalOpen(true)} className="w-12 h-12 md:w-14 md:h-14 bg-[#C5A059] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform duration-300">
                     <MessageCircle size={24} className="md:w-7 md:h-7" />
                 </button>
