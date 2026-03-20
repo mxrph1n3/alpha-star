@@ -132,7 +132,7 @@ const blogPosts = [
         title: "Рынок недвижимости Дубая 2026: Главные прогнозы, цифры и новые тренды",
         date: "14 Октября, 2025",
         readTime: "6 мин",
-        img: "./images/blog1.png", // 
+        img: "./images/blog1.jpg",
         alt: "Панорама рынка недвижимости Дубая, аналитика",
         excerpt: "Глубокий аналитический разбор тенденций рынка недвижимости ОАЭ. Узнайте, в каких районах ожидается максимальный рост капитала (ROI) и почему фокус смещается на Ultra-Luxury.",
         content: `
@@ -198,7 +198,7 @@ const blogPosts = [
         title: "Пошаговое руководство: Как безопасно купить недвижимость в Дубае",
         date: "05 Сентября, 2025",
         readTime: "7 мин",
-        img: "./images/blog3.png", // 
+        img: "./images/blog3.jpg",
         alt: "Процесс покупки недвижимости в Дубае",
         excerpt: "Подробный разбор каждого этапа сделки: от выбора объекта и налогов до получения Title Deed. Узнайте, как защищены деньги иностранных покупателей в ОАЭ.",
         content: `
@@ -777,7 +777,7 @@ const BlogPage = () => {
     );
 };
 
-const BlogPostPage = () => {
+const BlogPostPage = ({ onOpenModal }) => {
     const { id } = useParams();
     const post = blogPosts.find(p => p.id === id);
 
@@ -820,16 +820,17 @@ const BlogPostPage = () => {
                     )}
                 </div>
 
+                {/* Контент статьи из HTML строки */}
                 <div 
-                    className="seo-article text-left px-2 md:px-0"
+                    className="seo-article text-left"
                     dangerouslySetInnerHTML={{ __html: post.content }}
                 />
 
-                <div className="mt-16 md:mt-20 pt-8 md:pt-10 border-t border-gray-100 text-center">
-                    <p className="font-montserrat text-base md:text-lg font-bold mb-4 md:mb-6 px-4">Готовы сделать шаг к успешным инвестициям?</p>
-                    <Link to="/" onClick={() => setTimeout(() => document.getElementById('contact-form')?.scrollIntoView({behavior: 'smooth'}), 100)} className="btn-premium px-8 md:px-12 py-4 md:py-5 bg-[#121212] text-white uppercase text-[10px] md:text-[11px] tracking-widest font-bold w-full md:w-auto">
-                        Получить консультацию
-                    </Link>
+                <div className="mt-20 pt-10 border-t border-gray-100 text-center">
+                    <p className="font-montserrat text-lg font-bold mb-6">Готовы сделать шаг к успешным инвестициям?</p>
+                    <button type="button" onClick={onOpenModal} className="btn-premium px-12 py-5 bg-[#121212] text-white uppercase text-[11px] tracking-widest font-bold">
+                        Получить консультацию эксперта
+                    </button>
                 </div>
             </article>
         </div>
@@ -1312,7 +1313,7 @@ const AppContent = () => {
                         
                         <Route path="/valuation" element={<PageWrapper><ValuationPage /></PageWrapper>} />
                         <Route path="/blog" element={<PageWrapper><BlogPage /></PageWrapper>} />
-                        <Route path="/blog/:id" element={<PageWrapper><BlogPostPage /></PageWrapper>} />
+                        <Route path="/blog/:id" element={<PageWrapper><BlogPostPage onOpenModal={() => setIsContactModalOpen(true)} /></PageWrapper>} />
                     </Routes>
                 </AnimatePresence>
             </main>
