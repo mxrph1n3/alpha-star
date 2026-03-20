@@ -11,8 +11,6 @@ import {
 
 // --- Стили ---
 const styles = `
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap');
-
     :root {
         --color-gold: #C5A059;
         --color-gold-dark: #A67C37;
@@ -192,37 +190,6 @@ const SectionHeading = ({ top, main, light = false }) => (
     </motion.div>
 );
 
-const MortgageInfo = () => (
-    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="bg-[#121212] p-6 md:p-12 rounded-sm shadow-2xl mb-12 md:mb-16 flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-8 border border-[#C5A059]/20 mx-5 md:mx-0">
-        <div className="text-left flex-1">
-            <h3 className="font-cormorant text-2xl md:text-3xl mb-3 md:mb-4 gold-text font-bold">Ипотека для нерезидентов в ОАЭ</h3>
-            <p className="text-white/60 text-xs md:text-sm leading-relaxed max-w-3xl font-raleway">
-                Официальное финансирование до 50% от стоимости объекта. Процентная ставка от 4.5% годовых. Минимальный пакет документов. Мы полностью берем на себя процесс одобрения кредита (Mortgage Approval) в ведущих банках Дубая.
-            </p>
-        </div>
-        <button type="button" className="btn-premium bg-[#C5A059] text-white px-8 py-4 md:px-12 w-full lg:w-auto text-[10px] font-bold uppercase tracking-widest whitespace-nowrap">Рассчитать ипотеку</button>
-    </motion.div>
-);
-
-const FAQItem = ({ question, answer }) => {
-    const [isOpen, setIsOpen] = useState(false);
-    return (
-        <div className="border-b border-gray-100 last:border-0" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-            <button type="button" onClick={() => setIsOpen(!isOpen)} className="w-full py-5 md:py-6 flex items-center justify-between text-left group outline-none">
-                <span itemProp="name" className="font-montserrat font-bold text-xs md:text-sm uppercase tracking-wider group-hover:text-[#C5A059] transition-colors pr-4">{question}</span>
-                <ChevronDown className={`w-4 h-4 text-gray-300 transition-transform duration-500 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`} />
-            </button>
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.4 }} className="overflow-hidden" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                        <p itemProp="text" className="pb-5 md:pb-6 text-gray-400 text-xs md:text-sm leading-relaxed">{answer}</p>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </div>
-    );
-};
-
 const LeadForm = ({ title, subtitle, isModal = false }) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [selectedGoal, setSelectedGoal] = useState('Выберите цель');
@@ -273,6 +240,59 @@ const LeadForm = ({ title, subtitle, isModal = false }) => {
                     <button type="submit" className="btn-premium w-full md:w-3/4 py-4 md:py-6 bg-[#C5A059] text-white font-montserrat uppercase tracking-widest font-bold shadow-lg text-xs md:text-sm">Отправить заявку</button>
                 </div>
             </form>
+        </div>
+    );
+};
+
+const MortgageInfo = () => {
+    const [showForm, setShowForm] = useState(false);
+
+    return (
+        <div className="mb-12 md:mb-16 mx-5 md:mx-0">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="bg-[#121212] p-6 md:p-12 rounded-sm shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-8 border border-[#C5A059]/20">
+                <div className="text-left flex-1">
+                    <h3 className="font-cormorant text-2xl md:text-3xl mb-3 md:mb-4 gold-text font-bold">Ипотека для нерезидентов в ОАЭ</h3>
+                    <p className="text-white/60 text-xs md:text-sm leading-relaxed max-w-3xl font-raleway">
+                        Официальное финансирование до 50% от стоимости объекта. Процентная ставка от 4.5% годовых. Минимальный пакет документов. Мы полностью берем на себя процесс одобрения кредита (Mortgage Approval) в ведущих банках Дубая.
+                    </p>
+                </div>
+                <button type="button" onClick={() => setShowForm(!showForm)} className="btn-premium bg-[#C5A059] text-white px-8 py-4 md:px-12 w-full lg:w-auto text-[10px] font-bold uppercase tracking-widest whitespace-nowrap">
+                    {showForm ? 'Скрыть анкету' : 'Рассчитать ипотеку'}
+                </button>
+            </motion.div>
+            
+            <AnimatePresence>
+                {showForm && (
+                    <motion.div 
+                        initial={{ opacity: 0, height: 0, marginTop: 0 }} 
+                        animate={{ opacity: 1, height: 'auto', marginTop: '2rem' }} 
+                        exit={{ opacity: 0, height: 0, marginTop: 0 }} 
+                        transition={{ duration: 0.4 }}
+                        className="overflow-hidden"
+                    >
+                        <LeadForm title="Заявка на ипотеку" subtitle="Оставьте данные, и наш ипотечный брокер свяжется с вами для расчета платежей" isModal={false} />
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </div>
+    );
+};
+
+const FAQItem = ({ question, answer }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    return (
+        <div className="border-b border-gray-100 last:border-0" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+            <button type="button" onClick={() => setIsOpen(!isOpen)} className="w-full py-5 md:py-6 flex items-center justify-between text-left group outline-none">
+                <span itemProp="name" className="font-montserrat font-bold text-xs md:text-sm uppercase tracking-wider group-hover:text-[#C5A059] transition-colors pr-4">{question}</span>
+                <ChevronDown className={`w-4 h-4 text-gray-300 transition-transform duration-500 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`} />
+            </button>
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.4 }} className="overflow-hidden" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                        <p itemProp="text" className="pb-5 md:pb-6 text-gray-400 text-xs md:text-sm leading-relaxed">{answer}</p>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 };
@@ -754,12 +774,12 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                 </div>
             </section>
 
-            {/* 2.5. НАГРАДЫ (Светлый дизайн с картинками без подписей) */}
+            {/* 2.5. НАГРАДЫ */}
             <section className="py-16 lg:py-24 bg-white px-5 md:px-8 border-y border-gray-100">
                 <div className="max-w-7xl mx-auto">
                     <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 gap-4 md:gap-6">
                         <div className="text-left">
-                            <h2 className="text-[9px] md:text-[10px] gold-text uppercase tracking-[0.4em] md:tracking-[0.5em] font-bold font-montserrat mb-3">Recognition</h2>
+                            <h2 className="text-[9px] md:text-[10px] gold-text uppercase tracking-[0.4em] md:tracking-[0.5em] font-bold font-montserrat mb-3">Наши награды</h2>
                             <h3 className="font-cormorant text-3xl md:text-4xl text-[#121212] font-bold">Признание на высшем уровне</h3>
                         </div>
                         <p className="text-gray-400 text-xs md:text-sm max-w-sm font-raleway leading-relaxed text-left md:text-right hidden sm:block">
@@ -1262,6 +1282,11 @@ const AppContent = () => {
 export default function App() {
     return (
         <HelmetProvider>
+            <Helmet>
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+                <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600&display=block" rel="stylesheet" />
+            </Helmet>
             <Router>
                 <style>{styles}</style>
                 <AppContent />
