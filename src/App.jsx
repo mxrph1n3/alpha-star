@@ -148,10 +148,10 @@ const steps = [
 ];
 
 const caseStudies = [
-    { roi: '120-200%', location: 'Bluewaters Island', title: 'BLUEWATERS RESIDENCES', project: '1 BEDROOM (РАЙОН)', launch: '1.9М — 2.2М AED', now: '4.7М — 6.8М AED' },
-    { roi: '60-70%', location: 'Dubai Hills Estate', title: 'ELLINGTON HOUSE', project: '3 BEDROOM (ПРОЕКТ)', launch: '3.3М — 4.0М AED', now: '5.5М — 6.5М AED' },
-    { roi: '90-120%', location: 'Emaar Beachfront', title: 'BEACH ISLE', project: '3 BEDROOM (ПРОЕКТ)', launch: '4.5М AED', now: '8.5М — 10.3М AED' },
-    { roi: '70%', location: 'JVC', title: 'BINGHATTI CORNER', project: '1 BEDROOM (ПРОЕКТ)', launch: '600,000 AED', now: '1М AED' }
+    { img: "/images/case1.png", roi: '120-200%', location: 'Bluewaters Island', title: 'BLUEWATERS RESIDENCES', project: '1 BEDROOM (РАЙОН)', launch: '1.9М — 2.2М AED', now: '4.7М — 6.8М AED' },
+    { img: "/images/case2.png", roi: '60-70%', location: 'Dubai Hills Estate', title: 'ELLINGTON HOUSE', project: '3 BEDROOM (ПРОЕКТ)', launch: '3.3М — 4.0М AED', now: '5.5М — 6.5М AED' },
+    { img: "/images/case3.png", roi: '90-120%', location: 'Emaar Beachfront', title: 'BEACH ISLE', project: '3 BEDROOM (ПРОЕКТ)', launch: '4.5М AED', now: '8.5М — 10.3М AED' },
+    { img: "/images/case4.png", roi: '70%', location: 'JVC', title: 'BINGHATTI CORNER', project: '1 BEDROOM (ПРОЕКТ)', launch: '600,000 AED', now: '1М AED' }
 ];
 
 const awardsList = [
@@ -774,7 +774,7 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                 </div>
             </section>
 
-            {/* 2.5. НАГРАДЫ */}
+            {/* 2.5. НАГРАДЫ (Светлый дизайн с картинками без подписей) */}
             <section className="py-16 lg:py-24 bg-white px-5 md:px-8 border-y border-gray-100">
                 <div className="max-w-7xl mx-auto">
                     <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 gap-4 md:gap-6">
