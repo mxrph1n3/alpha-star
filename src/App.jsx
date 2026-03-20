@@ -150,8 +150,8 @@ const steps = [
 const caseStudies = [
     { img: "./images/case1.png", roi: '120-200%', location: 'Bluewaters Island', title: 'BLUEWATERS RESIDENCES', project: '1 BEDROOM (РАЙОН)', launch: '1.9М — 2.2М AED', now: '4.7М — 6.8М AED' },
     { img: "./images/case2.png", roi: '60-70%', location: 'Dubai Hills Estate', title: 'ELLINGTON HOUSE', project: '3 BEDROOM (ПРОЕКТ)', launch: '3.3М — 4.0М AED', now: '5.5М — 6.5М AED' },
-    { img: "./images/case1.png", roi: '90-120%', location: 'Emaar Beachfront', title: 'BEACH ISLE', project: '3 BEDROOM (ПРОЕКТ)', launch: '4.5М AED', now: '8.5М — 10.3М AED' },
-    { img: "", roi: '70%', location: 'JVC', title: 'BINGHATTI CORNER', project: '1 BEDROOM (ПРОЕКТ)', launch: '600,000 AED', now: '1М AED' }
+    { img: "./images/case3.png", roi: '90-120%', location: 'Emaar Beachfront', title: 'BEACH ISLE', project: '3 BEDROOM (ПРОЕКТ)', launch: '4.5М AED', now: '8.5М — 10.3М AED' },
+    { img: "./images/case4.png", roi: '70%', location: 'JVC', title: 'BINGHATTI CORNER', project: '1 BEDROOM (ПРОЕКТ)', launch: '600,000 AED', now: '1М AED' }
 ];
 
 const awardsList = [
