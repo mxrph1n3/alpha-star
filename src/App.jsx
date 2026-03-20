@@ -241,7 +241,12 @@ const LeadForm = ({ title, subtitle, isModal = false }) => {
                 </div>
                 <div className="space-y-1 md:space-y-2 font-montserrat">
                     <label className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 ml-1">Номер телефона</label>
-                    <input type="tel" className="w-full p-3 md:p-4 bg-gray-50 border border-gray-100 focus:border-[#C5A059] outline-none font-bold text-sm transition-all duration-300 focus:bg-white focus:shadow-md" placeholder="+7 / +971" />
+                    <input 
+                        type="tel" 
+                        onInput={(e) => e.target.value = e.target.value.replace(/[^0-9+]/g, '')}
+                        className="w-full p-3 md:p-4 bg-gray-50 border border-gray-100 focus:border-[#C5A059] outline-none font-bold text-sm transition-all duration-300 focus:bg-white focus:shadow-md" 
+                        placeholder="+7 / +971" 
+                    />
                 </div>
                 <div className="md:col-span-2 space-y-1 md:space-y-2 font-montserrat relative">
                     <label className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 ml-1 mb-1 md:mb-2 block">Цель запроса</label>
@@ -590,7 +595,15 @@ const ValuationPage = () => {
                             <div className="space-y-1 md:space-y-2"><label className="text-[9px] md:text-[10px] uppercase font-bold text-white/40 tracking-widest">Локация / Комплекс</label><input type="text" className="w-full bg-transparent border-b border-white/20 p-3 md:p-4 outline-none focus:border-[#C5A059] transition-colors text-sm" placeholder="Dubai Marina" /></div>
                             <div className="space-y-1 md:space-y-2"><label className="text-[9px] md:text-[10px] uppercase font-bold text-white/40 tracking-widest">Площадь (Sq.ft) / Спален</label><input type="text" className="w-full bg-transparent border-b border-white/20 p-3 md:p-4 outline-none focus:border-[#C5A059] transition-colors text-sm" placeholder="1200 sq.ft, 2 BR" /></div>
                             <div className="space-y-1 md:space-y-2"><label className="text-[9px] md:text-[10px] uppercase font-bold text-white/40 tracking-widest">Ваш Email</label><input type="email" className="w-full bg-transparent border-b border-white/20 p-3 md:p-4 outline-none focus:border-[#C5A059] transition-colors text-sm" placeholder="email@example.com" /></div>
-                            <div className="space-y-1 md:space-y-2"><label className="text-[9px] md:text-[10px] uppercase font-bold text-white/40 tracking-widest">Телефон / WhatsApp</label><input type="tel" className="w-full bg-transparent border-b border-white/20 p-3 md:p-4 outline-none focus:border-[#C5A059] transition-colors text-sm" placeholder="+971 50..." /></div>
+                            <div className="space-y-1 md:space-y-2">
+                                <label className="text-[9px] md:text-[10px] uppercase font-bold text-white/40 tracking-widest">Телефон / WhatsApp</label>
+                                <input 
+                                    type="tel" 
+                                    onInput={(e) => e.target.value = e.target.value.replace(/[^0-9+]/g, '')}
+                                    className="w-full bg-transparent border-b border-white/20 p-3 md:p-4 outline-none focus:border-[#C5A059] transition-colors text-sm" 
+                                    placeholder="+971 50..." 
+                                />
+                            </div>
                         </div>
                         <div className="flex justify-center pt-4 md:pt-8">
                             <button type="submit" className="btn-premium px-12 md:px-24 py-4 md:py-6 bg-[#C5A059] text-white uppercase font-bold text-[10px] md:text-[11px] tracking-widest shadow-2xl w-full md:w-auto">Запросить оценку</button>
