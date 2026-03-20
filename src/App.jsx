@@ -6,12 +6,12 @@ import {
   Heart, Home as HomeIcon, TrendingUp, Coins, Globe, Download, 
   MapPin, Phone, Mail, MessageCircle, ChevronDown, 
   ShieldCheck, Search, FileCheck, Key, ArrowRight, Quote, Star, 
-  Calendar, Clock, ArrowLeft, Menu, X, ArrowUp
+  Calendar, Clock, ArrowLeft, Menu, X, ArrowUp, Award, Trophy, Crown
 } from 'lucide-react';
 
 // --- Стили ---
 const styles = `
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Raleway:wght@300;400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap');
 
     :root {
         --color-gold: #C5A059;
@@ -26,7 +26,7 @@ const styles = `
         overflow-x: hidden;
     }
 
-    .font-playfair { font-family: 'Playfair Display', serif; }
+    .font-cormorant { font-family: 'Cormorant Garamond', serif; }
     .font-montserrat { font-family: 'Montserrat', sans-serif; }
     
     .gold-text { color: var(--color-gold) !important; }
@@ -34,6 +34,15 @@ const styles = `
     .lining-nums { font-variant-numeric: lining-nums; }
 
     .hero-mask { clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%); }
+    .premium-underline {
+        position: absolute;
+        bottom: 8px;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background-color: rgba(197, 160, 89, 0.6);
+        transform-origin: left;
+    }
 
     .strategy-card { transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
     .strategy-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px -12px rgba(197, 160, 89, 0.25); }
@@ -92,7 +101,7 @@ const styles = `
     ::-webkit-scrollbar-thumb { background: var(--color-gold); border-radius: 10px; }
 
     /* Поля для SEO-статей */
-    .seo-article h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: #121212; margin-top: 2rem; margin-bottom: 1rem; line-height: 1.3; }
+    .seo-article h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; color: #121212; margin-top: 2rem; margin-bottom: 1rem; line-height: 1.3; }
     @media (min-width: 768px) {
         .seo-article h3 { font-size: 1.75rem; margin-top: 2.5rem; margin-bottom: 1.25rem; }
     }
@@ -147,6 +156,13 @@ const caseStudies = [
     { roi: '70%', location: 'JVC', title: 'BINGHATTI CORNER', project: '1 BEDROOM (ПРОЕКТ)', launch: '600,000 AED', now: '1М AED' }
 ];
 
+const awardsList = [
+    { img: "" },
+    { img: "" },
+    { img: "" },
+    { img: "" }
+];
+
 const testimonials = [
     { name: "Александр В.", role: "Инвестор", initial: "А", text: "Сотрудничество с Alpha Star превзошло все ожидания. Мы зашли в проект на стадии ланча, и уже через год капитализация составила 45%. Отдельное спасибо за безупречное юридическое сопровождение." },
     { name: "Елена С.", role: "Предприниматель", initial: "Е", text: "Для меня была критична полная конфиденциальность. Команда работает по высшим стандартам Private Banking. Подобрали виллу off-market, закрыли сделку за 3 дня без лишней бюрократии." },
@@ -172,14 +188,14 @@ const ScrollToTop = () => {
 const SectionHeading = ({ top, main, light = false }) => (
     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className={`text-center mb-10 md:mb-16 ${light ? 'text-white' : 'text-[#121212]'}`}>
         {top && <h2 className="text-[9px] md:text-[10px] gold-text uppercase tracking-[0.5em] font-bold font-montserrat mb-3 md:mb-4">{top}</h2>}
-        <h3 className="font-playfair text-3xl md:text-4xl italic px-4">{main}</h3>
+        <h3 className="font-cormorant text-3xl md:text-4xl px-4 font-bold">{main}</h3>
     </motion.div>
 );
 
 const MortgageInfo = () => (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="bg-[#121212] p-6 md:p-12 rounded-sm shadow-2xl mb-12 md:mb-16 flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-8 border border-[#C5A059]/20 mx-5 md:mx-0">
         <div className="text-left flex-1">
-            <h3 className="font-playfair text-2xl md:text-3xl italic mb-3 md:mb-4 gold-text">Ипотека для нерезидентов в ОАЭ</h3>
+            <h3 className="font-cormorant text-2xl md:text-3xl mb-3 md:mb-4 gold-text font-bold">Ипотека для нерезидентов в ОАЭ</h3>
             <p className="text-white/60 text-xs md:text-sm leading-relaxed max-w-3xl font-raleway">
                 Официальное финансирование до 50% от стоимости объекта. Процентная ставка от 4.5% годовых. Минимальный пакет документов. Мы полностью берем на себя процесс одобрения кредита (Mortgage Approval) в ведущих банках Дубая.
             </p>
@@ -216,7 +232,7 @@ const LeadForm = ({ title, subtitle, isModal = false }) => {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1 gold-bg opacity-30"></div>
             <div className="text-center mb-6 md:mb-8">
                 <h2 className="font-montserrat text-xl md:text-4xl uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold mb-2 md:mb-3 text-[#121212]">{title}</h2>
-                <p className="font-playfair italic text-sm md:text-base text-gray-400">{subtitle}</p>
+                <p className="font-cormorant text-base md:text-lg text-gray-400">{subtitle}</p>
             </div>
             <form className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 text-left" onSubmit={e => e.preventDefault()}>
                 <div className="space-y-1 md:space-y-2 font-montserrat">
@@ -304,7 +320,7 @@ const InvestmentCalculator = () => {
         <div className="bg-white border border-gray-100 shadow-2xl overflow-hidden rounded-sm flex flex-col lg:flex-row text-left">
             <div className="w-full lg:w-3/5 p-6 md:p-10 lg:p-16 text-left">
                 <h4 className="font-montserrat text-[9px] md:text-[10px] gold-text uppercase font-bold tracking-[0.4em] mb-3 md:mb-4">Расчет прибыли</h4>
-                <h3 className="font-playfair text-2xl md:text-3xl mb-6 md:mb-8">Рассчитайте параметры успеха</h3>
+                <h3 className="font-cormorant text-3xl md:text-4xl mb-6 md:mb-8 font-bold">Рассчитайте параметры успеха</h3>
                 <div className="space-y-8 md:space-y-10 text-left">
                     <div className="space-y-4">
                         <div className="flex justify-between items-center">
@@ -423,7 +439,7 @@ const Preloader = ({ onFinish }) => {
                         exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.4 } }}
                         className="relative z-10 text-center px-6 flex flex-col items-center"
                     >
-                        <div className="font-playfair text-2xl md:text-5xl font-bold uppercase text-white tracking-[0.3em] md:tracking-[0.4em] mb-2 flex justify-center overflow-hidden">
+                        <div className="font-cormorant text-3xl md:text-6xl font-bold uppercase text-white tracking-[0.3em] md:tracking-[0.4em] mb-2 flex justify-center overflow-hidden">
                             {"ALPHASTAR".split('').map((char, i) => (
                                 <motion.span 
                                     key={i} 
@@ -493,12 +509,12 @@ const ListingPage = ({ category, onOpenModal }) => {
             </Helmet>
 
             <div className="max-w-7xl mx-auto text-center">
-                <h1 className="font-playfair text-4xl md:text-5xl lg:text-7xl italic mb-4 md:mb-6 text-[#121212]">{seo.heading}</h1>
+                <h1 className="font-cormorant text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 text-[#121212]">{seo.heading}</h1>
                 <p className="max-w-2xl mx-auto text-gray-500 mb-8 md:mb-10 text-sm md:text-lg px-2">{seo.subtitle}</p>
 
                 {seo.seoText && (
                     <div className="max-w-4xl mx-auto mb-12 md:mb-16 text-left border-l-2 border-[#C5A059] pl-4 md:pl-6 mx-2">
-                        <p className="text-gray-600 font-raleway leading-relaxed italic text-sm md:text-base">{seo.seoText}</p>
+                        <p className="text-gray-600 font-raleway leading-relaxed text-sm md:text-base">{seo.seoText}</p>
                     </div>
                 )}
 
@@ -564,7 +580,7 @@ const ValuationPage = () => {
                 <meta name="description" content={seo.description} />
             </Helmet>
             <div className="max-w-4xl mx-auto text-center w-full">
-                <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl italic mb-4 md:mb-6">{seo.heading}</h1>
+                <h1 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">{seo.heading}</h1>
                 <p className="text-white/60 mb-10 md:mb-16 text-sm md:text-lg font-raleway max-w-2xl mx-auto px-2">{seo.subtitle}</p>
                 
                 <div className="bg-white/5 p-6 md:p-10 lg:p-16 border border-white/10 text-left shadow-2xl relative overflow-hidden">
@@ -608,7 +624,7 @@ const BlogPage = () => {
                                     <span className="text-gray-400 flex items-center gap-1 text-[8px] md:text-[9px] uppercase font-bold tracking-widest"><Clock size={12} /> {post.readTime}</span>
                                 </div>
                                 <Link to={`/blog/${post.id}`} className="block">
-                                    <h4 className="font-playfair text-2xl md:text-3xl font-bold mb-4 md:mb-6 italic group-hover:text-[#C5A059] transition-colors">{post.title}</h4>
+                                    <h4 className="font-cormorant text-3xl font-bold mb-4 md:mb-6 group-hover:text-[#C5A059] transition-colors">{post.title}</h4>
                                 </Link>
                                 <p className="text-gray-500 mb-6 md:mb-8 font-raleway leading-relaxed text-sm md:text-base">{post.excerpt}</p>
                                 <Link to={`/blog/${post.id}`} className="text-[#121212] border-b border-[#121212] pb-1 text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:text-[#C5A059] hover:border-[#C5A059] transition-colors inline-block">Читать статью</Link>
@@ -628,7 +644,7 @@ const BlogPostPage = () => {
     if (!post) {
         return (
             <div className="pt-40 pb-24 text-center min-h-[60vh] flex flex-col items-center justify-center px-5">
-                <h1 className="font-playfair text-3xl md:text-4xl mb-6">Статья не найдена</h1>
+                <h1 className="font-cormorant text-3xl md:text-4xl font-bold mb-6">Статья не найдена</h1>
                 <Link to="/blog" className="text-[#C5A059] border-b border-[#C5A059] pb-1 uppercase text-[10px] font-bold tracking-widest">Вернуться в блог</Link>
             </div>
         );
@@ -651,7 +667,7 @@ const BlogPostPage = () => {
                         <span className="flex items-center gap-1 md:gap-2 text-[#C5A059]"><Calendar size={14} /> {post.date}</span>
                         <span className="flex items-center gap-1 md:gap-2"><Clock size={14} /> {post.readTime} чтения</span>
                     </div>
-                    <h1 className="font-playfair text-3xl md:text-4xl lg:text-6xl font-bold leading-tight text-[#121212]">{post.title}</h1>
+                    <h1 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#121212]">{post.title}</h1>
                 </div>
 
                 <div className="aspect-video w-full mb-10 md:mb-16 overflow-hidden shadow-2xl rounded-sm">
@@ -693,7 +709,7 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                     <h1 className="font-montserrat text-[8.5vw] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] mb-6 md:mb-8 uppercase tracking-tight text-center md:text-left">
                         Ваш путь к <br />
                         <span className="relative inline-block mt-1 md:mt-2">
-                            <span className="font-playfair italic font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#C5A059] via-[#E2C384] to-[#C5A059] drop-shadow-[0_4px_12px_rgba(197,160,89,0.3)]">Недвижимости</span>
+                            <span className="font-cormorant font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#C5A059] via-[#E2C384] to-[#C5A059] drop-shadow-[0_4px_12px_rgba(197,160,89,0.3)]">Недвижимости</span>
                         </span>
                         <br /> в Дубае
                     </h1>
@@ -710,7 +726,7 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                     <div className="text-left order-2 lg:order-1">
                         <h2 className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.4em] md:tracking-[0.5em] gold-text mb-3 md:mb-4 font-montserrat text-center lg:text-left">Кто мы такие?</h2>
                         <h3 className="font-montserrat text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 leading-tight text-center lg:text-left tracking-[0.2em] md:tracking-[0.3em] uppercase">ALPHASTAR PROPERTIES</h3>
-                        <p className="text-gray-600 text-base md:text-lg italic border-l-2 border-[#C5A059] pl-4 md:pl-6 mb-6 md:mb-8 leading-relaxed">«Мы превращаем недвижимость в инструмент сохранения и приумножения капитала в самом стремительно растущем рынке мира.»</p>
+                        <p className="text-gray-600 text-base md:text-lg border-l-2 border-[#C5A059] pl-4 md:pl-6 mb-6 md:mb-8 leading-relaxed font-cormorant font-medium">«Мы превращаем недвижимость в инструмент сохранения и приумножения капитала в самом стремительно растущем рынке мира.»</p>
                         <p className="text-gray-400 mb-8 md:mb-10 text-sm md:text-base leading-relaxed font-medium px-2 lg:px-0 text-center lg:text-left">Наше адвокатское сопровождение строится по принципам частного семейного офиса: максимальная конфиденциальность, прямой доступ к off-market активам и контроль каждой стадии сделки.</p>
                         <div className="flex justify-center lg:justify-start">
                             <button type="button" onClick={() => document.getElementById('strategy-section').scrollIntoView({behavior:'smooth'})} className="btn-premium px-12 md:px-24 lg:px-32 py-4 md:py-5 border border-gray-200 text-[#121212] text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] md:tracking-[0.25em] hover:bg-gray-50 transition-all w-full md:w-auto">Наш подход</button>
@@ -721,6 +737,44 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                             <img src="https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?auto=format&fit=crop&q=80&w=800" alt="Архитектура Дубая премиум класс" className="w-full h-full object-cover" />
                         </div>
                         <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 w-32 h-32 md:w-48 md:h-48 bg-[#C5A059]/10 -z-10 rounded-full blur-2xl md:blur-3xl"></div>
+                    </div>
+                </div>
+            </section>
+
+            {/* 2.5. НАГРАДЫ (Светлый дизайн с картинками без подписей) */}
+            <section className="py-16 lg:py-24 bg-white px-5 md:px-8 border-y border-gray-100">
+                <div className="max-w-7xl mx-auto">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 gap-4 md:gap-6">
+                        <div className="text-left">
+                            <h2 className="text-[9px] md:text-[10px] gold-text uppercase tracking-[0.4em] md:tracking-[0.5em] font-bold font-montserrat mb-3">Recognition</h2>
+                            <h3 className="font-cormorant text-3xl md:text-4xl text-[#121212] font-bold">Признание на высшем уровне</h3>
+                        </div>
+                        <p className="text-gray-400 text-xs md:text-sm max-w-sm font-raleway leading-relaxed text-left md:text-right hidden sm:block">
+                            Наша экспертиза подтверждена ведущими девелоперами и агентствами ОАЭ.
+                        </p>
+                    </div>
+                    
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-10">
+                        {awardsList.map((award, i) => (
+                            <motion.div 
+                                key={i}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                                className="group flex flex-col items-center w-full"
+                            >
+                                <div className="w-full aspect-[3/2] sm:aspect-[4/3] relative flex items-center justify-center">
+                                    {award.img ? (
+                                        <img src={award.img} alt={`Награда ${i + 1}`} className="w-full h-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" />
+                                    ) : (
+                                        <div className="absolute inset-0 bg-transparent border border-dashed border-gray-200 group-hover:border-[#C5A059] transition-colors duration-500 flex items-center justify-center p-4 rounded-sm">
+                                            <span className="text-gray-300 text-[8px] md:text-[10px] uppercase font-bold tracking-widest leading-relaxed text-center">Место для лого<br/>(PNG/JPG)</span>
+                                        </div>
+                                    )}
+                                </div>
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -776,7 +830,7 @@ const HomePage = ({ isLoading, onOpenModal }) => {
             <section id="real-deals" className="py-20 lg:py-32 bg-[#FBFBFB] px-5 md:px-8 overflow-hidden text-left">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-12 md:mb-24 text-center">
-                        <h3 className="font-playfair text-3xl md:text-5xl lg:text-6xl italic tracking-tighter uppercase font-bold text-[#121212]">Реальные сделки</h3>
+                        <h3 className="font-cormorant text-4xl md:text-5xl lg:text-6xl uppercase font-bold text-[#121212]">Реальные сделки</h3>
                     </div>
                     
                     <div className="space-y-8 md:space-y-12">
@@ -791,7 +845,7 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                                     ) : (
                                         <>
                                             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#C5A059]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                                            <span className="font-playfair text-white/20 text-2xl md:text-3xl lg:text-4xl tracking-[0.3em] lg:tracking-[0.4em] uppercase group-hover:scale-105 transition-transform duration-700 relative z-10 text-center">Private</span>
+                                            <span className="font-cormorant text-white/20 text-3xl md:text-4xl lg:text-5xl tracking-[0.3em] lg:tracking-[0.4em] uppercase group-hover:scale-105 transition-transform duration-700 relative z-10 text-center font-bold">Private</span>
                                             <span className="font-montserrat text-[#C5A059] text-[8px] md:text-[9px] uppercase tracking-[0.2em] lg:tracking-[0.3em] mt-3 md:mt-4 opacity-50 group-hover:opacity-100 transition-opacity relative z-10">Confidential Asset</span>
                                         </>
                                     )}
@@ -800,7 +854,7 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                                     <div className="flex flex-col sm:flex-row sm:items-start justify-between mb-6 md:mb-8 gap-4 md:gap-6">
                                         <div>
                                             <h4 className="font-montserrat text-[9px] md:text-[10px] gold-text uppercase font-bold tracking-[0.3em] lg:tracking-[0.4em] mb-2 md:mb-3">{item.location}</h4>
-                                            <h3 className="font-playfair text-2xl md:text-3xl lg:text-4xl font-bold italic text-[#121212] mb-2 md:mb-3">{item.title}</h3>
+                                            <h3 className="font-cormorant text-2xl md:text-3xl lg:text-4xl font-bold text-[#121212] mb-2 md:mb-3">{item.title}</h3>
                                             <p className="text-gray-400 text-[9px] md:text-[10px] font-bold uppercase tracking-widest">{item.project}</p>
                                         </div>
                                         <div className="sm:text-right bg-gray-50 sm:bg-transparent p-4 sm:p-0 rounded-sm flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-start">
@@ -853,7 +907,7 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                         <Globe size={300} className="translate-x-1/2 -translate-y-1/4 lg:w-[400px] lg:h-[400px]" />
                     </div>
                     <div className="w-full lg:w-2/3 relative z-10 text-left">
-                        <h3 className="font-playfair text-2xl md:text-4xl lg:text-5xl italic mb-4 md:mb-6 lining-nums">Аналитический отчет 2026</h3>
+                        <h3 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 lining-nums">Аналитический отчет 2026</h3>
                         <p className="mb-6 md:mb-10 opacity-90 text-sm md:text-lg leading-relaxed max-w-lg font-raleway text-left">Узнайте, какие районы Дубая покажут рост в 25% за следующий год и как избежать типичных ошибок при покупке.</p>
                         <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
                             <input type="email" placeholder="Ваш Email" className="bg-white/20 border border-white/30 p-4 md:p-5 px-5 md:px-6 outline-none placeholder:text-white/60 flex-grow text-white font-montserrat rounded-sm transition-all focus:bg-white/30 text-sm" />
@@ -865,12 +919,12 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                     <div className="w-full lg:w-1/3 flex justify-center relative h-64 md:h-80 mt-8 lg:mt-0 hidden sm:flex">
                         <div className="absolute w-40 md:w-48 h-56 md:h-64 bg-[#121212] shadow-2xl border-4 border-white/10 p-5 md:p-6 flex flex-col justify-between z-10 -rotate-12 translate-x-[-20px] md:translate-x-[-40px]">
                             <span className="text-[6px] md:text-[7px] gold-text uppercase font-bold">Guide 2026</span>
-                            <h5 className="font-playfair text-xs md:text-sm italic">Top Locations</h5>
+                            <h5 className="font-cormorant text-sm md:text-base font-bold">Top Locations</h5>
                         </div>
                         <div className="absolute w-44 md:w-52 h-64 md:h-72 bg-[#121212] shadow-2xl border-8 border-white p-6 md:p-8 flex flex-col justify-between z-30 rotate-3 translate-x-[20px] md:translate-x-0">
                             <div className="flex flex-col gap-2">
                                 <span className="text-[8px] md:text-[10px] gold-text uppercase font-bold tracking-[0.2em] md:tracking-[0.3em]">Инвест-гайд</span>
-                                <h5 className="font-playfair text-lg md:text-xl italic leading-tight lining-nums">Dubai 2026</h5>
+                                <h5 className="font-cormorant text-xl md:text-2xl leading-tight lining-nums font-bold">Dubai 2026</h5>
                             </div>
                             <div className="h-0.5 w-10 md:w-12 gold-bg"></div>
                         </div>
@@ -895,7 +949,7 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                                 <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                                 
                                 <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6 border-b border-gray-100 pb-4 md:pb-6 relative z-10">
-                                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#121212] flex items-center justify-center text-[#C5A059] font-playfair font-bold text-base md:text-lg shadow-inner flex-shrink-0">
+                                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#121212] flex items-center justify-center text-[#C5A059] font-cormorant font-bold text-lg md:text-xl shadow-inner flex-shrink-0">
                                         {t.initial}
                                     </div>
                                     <div>
@@ -904,7 +958,7 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                                     </div>
                                 </div>
                                 
-                                <p className="text-gray-600 font-playfair text-sm md:text-base leading-relaxed mb-6 md:mb-8 flex-grow relative z-10 italic">
+                                <p className="text-gray-600 font-cormorant text-base md:text-lg leading-relaxed mb-6 md:mb-8 flex-grow relative z-10">
                                     "{t.text}"
                                 </p>
                                 
@@ -994,7 +1048,7 @@ const AppContent = () => {
             <header className={`fixed w-full z-[1000] transition-all duration-500 ${headerClass}`}>
                 <div className="max-w-7xl mx-auto px-5 md:px-8 flex justify-between items-center">
                     <Link to="/" className="flex flex-col cursor-pointer" onClick={() => setIsMobileMenuOpen(false)}>
-                        <span className="font-playfair text-lg md:text-xl lg:text-2xl font-bold tracking-[0.15em] uppercase">ALPHA<span className="gold-text">STAR</span></span>
+                        <span className="font-cormorant text-xl md:text-2xl lg:text-3xl font-bold tracking-[0.15em] uppercase">ALPHA<span className="gold-text">STAR</span></span>
                         <span className="text-[6px] md:text-[7px] lg:text-[8px] tracking-[0.4em] lg:tracking-[0.55em] font-bold uppercase gold-text -mt-1 text-left">PROPERTIES</span>
                     </Link>
                     
@@ -1050,7 +1104,7 @@ const AppContent = () => {
                     >
                         <div className="flex justify-between items-center mb-10">
                             <div className="flex flex-col cursor-pointer text-white">
-                                <span className="font-playfair text-xl font-bold tracking-[0.15em] uppercase">ALPHA<span className="gold-text">STAR</span></span>
+                                <span className="font-cormorant text-2xl font-bold tracking-[0.15em] uppercase">ALPHA<span className="gold-text">STAR</span></span>
                             </div>
                             <button onClick={() => setIsMobileMenuOpen(false)} className="text-white/50 hover:text-[#C5A059] p-2 -mr-2 bg-white/5 rounded-full">
                                 <X size={24} />
@@ -1124,10 +1178,10 @@ const AppContent = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 md:gap-16 mb-16 md:mb-20 text-left">
                         <div className="lg:col-span-5 space-y-6 md:space-y-8 text-left">
                             <div className="flex flex-col text-left">
-                                <span className="font-playfair text-2xl md:text-3xl font-bold tracking-[0.15em] uppercase">ALPHA<span className="gold-text">STAR</span></span>
+                                <span className="font-cormorant text-2xl md:text-3xl font-bold tracking-[0.15em] uppercase">ALPHA<span className="gold-text">STAR</span></span>
                                 <span className="text-[7px] md:text-[9px] tracking-[0.7em] md:tracking-[0.8em] font-bold uppercase gold-text -mt-1 ml-1 text-left">PROPERTIES</span>
                             </div>
-                            <p className="text-white/40 text-sm md:text-base leading-relaxed max-w-md font-medium italic border-l border-[#C5A059] pl-4 md:pl-6 text-left">Мы защищаем ваш капитал и создаем преимущество на самом динамичном рынке мира.</p>
+                            <p className="text-white/40 text-sm md:text-base leading-relaxed max-w-md font-medium font-cormorant border-l border-[#C5A059] pl-4 md:pl-6 text-left">Мы защищаем ваш капитал и создаем преимущество на самом динамичном рынке мира.</p>
                         </div>
                         <div className="lg:col-span-3 space-y-6 md:space-y-8 text-left hidden md:block">
                             <h6 className="font-montserrat text-[9px] md:text-[10px] font-bold uppercase tracking-[0.4em] md:tracking-[0.5em] gold-text">Навигация</h6>
