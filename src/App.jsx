@@ -461,24 +461,59 @@ const StarField = () => {
 
 const Preloader = ({ onFinish }) => {
     const [phase, setPhase] = useState(0);
+    const [isVisible, setIsVisible] = useState(true);
+
     useEffect(() => {
         const t1 = setTimeout(() => setPhase(1), 100);
         const t2 = setTimeout(() => setPhase(2), 900);
-        const t3 = setTimeout(() => onFinish(), 2400); 
-        return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
+        const t3 = setTimeout(() => setIsVisible(false), 2400); 
+        const t4 = setTimeout(() => onFinish(), 3400); 
+        return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); };
     }, [onFinish]);
 
     return (
         <AnimatePresence>
-            {phase < 3 && (
-                <motion.div exit={{ y: "-100%", transition: { duration: 1, ease: [0.82, 0, 0.18, 1] } }} className="fixed inset-0 z-[9999] bg-[#0A0A0A] flex items-center justify-center">
-                    <motion.div exit={{ opacity: 0, scale: 0.95 }} className="relative z-10 text-center px-6 flex flex-col items-center">
+            {isVisible && (
+                <motion.div 
+                    initial={{ y: 0 }}
+                    exit={{ y: "-100%", transition: { duration: 1, ease: [0.82, 0, 0.18, 1] } }}
+                    className="fixed inset-0 z-[9999] bg-[#0A0A0A] flex items-center justify-center"
+                >
+                    <motion.div 
+                        exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.4 } }}
+                        className="relative z-10 text-center px-6 flex flex-col items-center"
+                    >
                         <div className="font-cormorant text-3xl md:text-6xl font-bold uppercase text-white tracking-[0.3em] md:tracking-[0.4em] mb-2 flex justify-center overflow-hidden">
                             {"ALPHASTAR".split('').map((char, i) => (
-                                <motion.span key={i} initial={{ opacity: 0, y: 40 }} animate={phase >= 1 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay: i * 0.08 }} className={`inline-block ${i > 4 ? 'text-[#C5A059]' : ''}`}>{char}</motion.span>
+                                <motion.span 
+                                    key={i} 
+                                    initial={{ opacity: 0, filter: 'blur(12px)', y: 40, rotateX: -90 }}
+                                    animate={phase >= 1 ? { opacity: 1, filter: 'blur(0px)', y: 0, rotateX: 0 } : {}}
+                                    transition={{ duration: 0.8, delay: i * 0.08, ease: [0.19, 1, 0.22, 1] }}
+                                    className={`inline-block ${i > 4 ? 'text-[#C5A059]' : ''}`}
+                                    style={{ transformOrigin: "bottom" }}
+                                >
+                                    {char}
+                                </motion.span>
                             ))}
                         </div>
-                        <motion.div initial={{ width: 0 }} animate={phase >= 2 ? { width: '140px' } : {}} className="h-px mx-auto mt-4 md:mt-6 md:!w-[180px]" style={{ background: 'linear-gradient(90deg, transparent, #C5A059, transparent)', boxShadow: '0 0 15px rgba(197, 160, 89, 0.4)' }} />
+                        
+                        <motion.div 
+                            initial={{ width: 0, opacity: 0 }}
+                            animate={phase >= 2 ? { width: '140px', opacity: 1 } : {}}
+                            transition={{ duration: 1, ease: [0.65, 0, 0.35, 1] }}
+                            className="h-px mx-auto mt-4 md:mt-6 md:!w-[180px]"
+                            style={{ background: 'linear-gradient(90deg, transparent, #C5A059, transparent)', boxShadow: '0 0 15px rgba(197, 160, 89, 0.4)' }}
+                        />
+                        
+                        <motion.div 
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={phase >= 2 ? { opacity: 1, y: 0 } : {}}
+                            transition={{ duration: 1 }}
+                            className="text-[7px] md:text-[8px] tracking-[2em] ml-2 md:ml-3 text-white/30 mt-6 md:mt-8 uppercase font-bold"
+                        >
+                            Properties
+                        </motion.div>
                     </motion.div>
                 </motion.div>
             )}
@@ -1112,6 +1147,8 @@ const AppContent = () => {
                                 <span className="text-[7px] md:text-[9px] tracking-[0.7em] md:tracking-[0.8em] font-bold uppercase gold-text -mt-1 ml-1 text-left">PROPERTIES</span>
                             </div>
                             <p className="text-white/40 text-sm md:text-base leading-relaxed max-w-md font-medium font-cormorant border-l border-[#C5A059] pl-4 md:pl-6 text-left">{t.footer.quote}</p>
+                            
+                            {/* Иконки соцсетей */}
                             <div className="flex flex-wrap items-center gap-4 pt-4">
                                 <a href="https://wa.me/971521208414" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-[#C5A059] hover:text-[#C5A059] hover:bg-[#C5A059]/5 transition-all duration-500 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:-translate-y-1 group">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-500 group-hover:scale-110"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
@@ -1157,12 +1194,21 @@ const AppContent = () => {
             <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[1500] flex flex-col gap-3">
                 <AnimatePresence>
                     {showTopBtn && (
-                        <motion.div initial={{ opacity: 0, scale: 0.5, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.5, y: 20 }} transition={{ duration: 0.3 }}>
-                            <button type="button" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="w-10 h-10 md:w-12 md:h-12 bg-[#121212] text-[#C5A059] border border-white/10 rounded-full flex items-center justify-center shadow-lg hover:bg-[#C5A059] hover:text-white active:scale-95 transition-all mx-auto"><ArrowUp size={20} className="md:w-6 md:h-6" /></button>
+                        <motion.div 
+                            initial={{ opacity: 0, scale: 0.5, y: 20 }} 
+                            animate={{ opacity: 1, scale: 1, y: 0 }} 
+                            exit={{ opacity: 0, scale: 0.5, y: 20 }} 
+                            transition={{ duration: 0.3 }}
+                        >
+                            <button type="button" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="w-10 h-10 md:w-12 md:h-12 bg-[#121212] text-[#C5A059] border border-white/10 rounded-full flex items-center justify-center shadow-lg hover:bg-[#C5A059] hover:text-white active:scale-95 transition-all mx-auto">
+                                <ArrowUp size={20} className="md:w-6 md:h-6" />
+                            </button>
                         </motion.div>
                     )}
                 </AnimatePresence>
-                <button type="button" onClick={() => setIsContactModalOpen(true)} className="w-12 h-12 md:w-14 md:h-14 bg-[#C5A059] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform duration-300"><MessageCircle size={24} className="md:w-7 md:h-7" /></button>
+                <button type="button" onClick={() => setIsContactModalOpen(true)} className="w-12 h-12 md:w-14 md:h-14 bg-[#C5A059] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform duration-300">
+                    <MessageCircle size={24} className="md:w-7 md:h-7" />
+                </button>
             </div>
         </>
     );
