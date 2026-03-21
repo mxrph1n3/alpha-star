@@ -956,35 +956,51 @@ const HomePage = ({ isLoading, onOpenModal }) => {
             </section>
 
             {/* 6. КАЛЬКУЛЯТОР */}
-            <section className="py-16 lg:py-24 bg-white px-5 md:px-8">
-                <div className="max-w-7xl mx-auto"><InvestmentCalculator /></div>
+            <section className="py-24 bg-white px-8">
+                <div className="max-w-7xl mx-auto">
+                    <InvestmentCalculator />
+                </div>
             </section>
 
             {/* 7. АНАЛИТИКА */}
-            <section id="guide-section" className="py-16 lg:py-24 bg-white px-5 md:px-8">
-                <div className="max-w-7xl mx-auto bg-[#C5A059] rounded-sm p-6 md:p-10 lg:p-16 text-white flex flex-col lg:flex-row items-center gap-8 lg:gap-12 relative overflow-hidden text-left">
-                    <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none hidden md:block"><Globe size={300} className="translate-x-1/2 -translate-y-1/4 lg:w-[400px] lg:h-[400px]" /></div>
-                    <div className="w-full lg:w-2/3 relative z-10 text-left">
-                        <h3 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 lining-nums">{t.guide.title}</h3>
-                        <p className="mb-6 md:mb-10 opacity-90 text-sm md:text-lg leading-relaxed max-w-lg font-raleway text-left">{t.guide.desc}</p>
-                        <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-                            <input type="email" placeholder={t.guide.email} className="bg-white/20 border border-white/30 p-4 md:p-5 px-5 md:px-6 outline-none placeholder:text-white/60 flex-grow text-white font-montserrat rounded-sm transition-all focus:bg-white/30 text-sm" />
-                            <button type="button" className="btn-premium !bg-[#121212] !text-white whitespace-nowrap !py-4 px-8 md:px-12 uppercase tracking-widest font-bold text-xs w-full sm:w-auto">
-                                <span className="flex items-center justify-center gap-2 md:gap-3">{t.guide.btn} <Download size={14} className="md:w-4 md:h-4" /></span>
+            <section id="guide-section" className="py-24 bg-white px-8">
+                <div className="max-w-7xl mx-auto bg-[#C5A059] rounded-sm p-10 md:p-16 text-white flex flex-col md:flex-row items-center gap-12 relative overflow-hidden text-left">
+                    <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+                        <Globe size={400} className="translate-x-1/2 -translate-y-1/4" />
+                    </div>
+                    <div className="md:w-2/3 relative z-10 text-left">
+                        <h3 className="font-playfair text-3xl md:text-5xl italic mb-6 lining-nums">{t.guide.title}</h3>
+                        <p className="mb-10 opacity-90 text-lg leading-relaxed max-w-lg font-raleway text-left">{t.guide.desc}</p>
+                        <div className="flex flex-col sm:flex-row gap-4">
+                            <input type="email" placeholder={t.guide.email} className="bg-white/20 border border-white/30 p-5 px-6 outline-none placeholder:text-white/60 flex-grow text-white font-montserrat rounded-sm transition-all focus:bg-white/30" />
+                            <button type="button" className="btn-premium !bg-[#121212] !text-white whitespace-nowrap !py-4 px-12 uppercase tracking-widest font-bold">
+                                <span className="flex items-center justify-center gap-3">{t.guide.btn} <Download size={16} /></span>
                             </button>
                         </div>
                     </div>
-                    <div className="w-full lg:w-1/3 flex justify-center relative h-64 md:h-80 mt-8 lg:mt-0 hidden sm:flex">
-                        <div className="absolute w-40 md:w-48 h-56 md:h-64 bg-[#121212] shadow-2xl border-4 border-white/10 p-5 md:p-6 flex flex-col justify-between z-10 -rotate-12 translate-x-[-20px] md:translate-x-[-40px]">
-                            <span className="text-[6px] md:text-[7px] gold-text uppercase font-bold">Guide 2026</span>
-                            <h5 className="font-cormorant text-sm md:text-base font-bold">Top Locations</h5>
-                        </div>
-                        <div className="absolute w-44 md:w-52 h-64 md:h-72 bg-[#121212] shadow-2xl border-8 border-white p-6 md:p-8 flex flex-col justify-between z-30 rotate-3 translate-x-[20px] md:translate-x-0">
-                            <div className="flex flex-col gap-2">
-                                <span className="text-[8px] md:text-[10px] gold-text uppercase font-bold tracking-[0.2em] md:tracking-[0.3em]">Alpha Star</span>
-                                <h5 className="font-cormorant text-xl md:text-2xl leading-tight lining-nums font-bold">Dubai 2026</h5>
+                    <div className="md:w-1/3 flex justify-center relative h-80 w-full mt-12 md:mt-0">
+                        <div className="absolute w-48 h-64 bg-[#121212] shadow-2xl border-4 border-white/10 p-6 flex flex-col justify-between z-10 -rotate-12 translate-x-[-40px] overflow-hidden group">
+                            <div className="absolute inset-0 z-0">
+                                <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black/80 z-10"></div>
+                                <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=400" className="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700" alt="Guide Cover" />
                             </div>
-                            <div className="h-0.5 w-10 md:w-12 gold-bg"></div>
+                            <div className="relative z-20 flex flex-col h-full justify-between">
+                                <span className="text-[7px] gold-text uppercase font-bold">Guide 2026</span>
+                                <h5 className="font-playfair text-sm italic">Top Locations</h5>
+                            </div>
+                        </div>
+                        <div className="absolute w-52 h-72 bg-[#121212] shadow-2xl border-8 border-white p-8 flex flex-col justify-between z-30 rotate-3 overflow-hidden group">
+                            <div className="absolute inset-0 z-0">
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/70 z-10"></div>
+                                <img src="https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?auto=format&fit=crop&q=80&w=400" className="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700" alt="Guide Cover 2" />
+                            </div>
+                            <div className="relative z-20 flex flex-col h-full justify-between">
+                                <div className="flex flex-col gap-2">
+                                    <span className="text-[10px] gold-text uppercase font-bold tracking-[0.3em]">Инвест-гайд</span>
+                                    <h5 className="font-playfair text-xl italic leading-tight lining-nums font-bold">Dubai 2026</h5>
+                                </div>
+                                <div className="h-0.5 w-12 gold-bg"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
