@@ -173,6 +173,44 @@ const getBlogPosts = (lang) => lang === 'RU' ? [
     { id: "buy-property-dubai-step-by-step", title: "Step-by-step Guide: Safe Property Buying in Dubai", date: "Sep 05, 2025", readTime: "7", img: "./images/blog3.jpg", excerpt: "Detailed breakdown of each stage: from object selection to getting the Title Deed.", content: `<p>Dubai has one of the most transparent legal systems.</p><h3>Step 1: Booking (EOI)</h3><p>Making a refundable deposit.</p><h3>Step 2: Agreement (SPA)</h3><p>Official agreement with a payment plan.</p><h3>Step 3: Escrow Accounts</h3><p>Money is held in state-controlled escrow accounts.</p><h3>Step 4: Taxes</h3><p>One-time DLD fee — 4% of the value.</p>` }
 ];
 
+const categoryImages = {
+    novostroyki: [
+        { src: 'https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?auto=format&fit=crop&q=80&w=2000' },
+        { src: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=2000' },
+        { src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000' }
+    ],
+    villas: [
+        { src: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=2000' },
+        { src: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=2000' },
+        { src: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=2000' }
+    ],
+    commercial: [
+        { src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000' },
+        { src: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=2000' },
+        { src: 'https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&q=80&w=2000' }
+    ],
+    invest: [
+        { src: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=2000' },
+        { src: 'https://images.unsplash.com/photo-1522050212171-61b017285bf4?auto=format&fit=crop&q=80&w=2000' },
+        { src: 'https://images.unsplash.com/photo-1460472178825-e5240623afd5?auto=format&fit=crop&q=80&w=2000' }
+    ],
+    plots: [
+        { src: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000' },
+        { src: 'https://images.unsplash.com/photo-1485081669829-bacb8c7bb1f3?auto=format&fit=crop&q=80&w=2000' },
+        { src: 'https://images.unsplash.com/photo-1433838552652-f9a46b332c40?auto=format&fit=crop&q=80&w=2000' }
+    ],
+    distress: [
+        { src: 'https://images.unsplash.com/photo-1628611225249-6c170d10c14a?auto=format&fit=crop&q=80&w=2000' },
+        { src: 'https://images.unsplash.com/photo-1582482329399-52e008ba7b30?auto=format&fit=crop&q=80&w=2000' },
+        { src: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=2000' }
+    ],
+    default: [
+        { src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000' },
+        { src: 'https://images.unsplash.com/photo-1502672260266-1c1c2c44158d?auto=format&fit=crop&q=80&w=2000' },
+        { src: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=2000' }
+    ]
+};
+
 
 // --- КОНТЕКСТ ЛОКАЛИЗАЦИИ ---
 const LanguageContext = createContext();
@@ -410,17 +448,20 @@ const InvestmentCalculator = () => {
     );
 };
 
-const HeroSlider = () => {
+const HeroSlider = ({ customImages }) => {
     const [current, setCurrent] = useState(0);
-    const images = [
+    const defaultImages = [
         { src: 'https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&q=80&w=2000' },
         { src: 'https://images.unsplash.com/photo-1549944850-84e00be4203b?auto=format&fit=crop&q=80&w=2000' },
         { src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000' }
     ];
+    const images = customImages || defaultImages;
+
     useEffect(() => {
         const timer = setInterval(() => setCurrent(c => (c + 1) % images.length), 6000);
         return () => clearInterval(timer);
-    }, []);
+    }, [images.length]);
+
     return (
         <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-black/60 z-10"></div>
@@ -540,13 +581,25 @@ const ListingPage = ({ category, onOpenModal }) => {
     const seo = getSeoData(lang)[category] || getSeoData(lang).novostroyki;
     const showBeds = category !== 'commercial' && category !== 'invest' && category !== 'plots' && category !== 'distress' && category !== 'empty';
 
-    return (
-        <div className="pt-32 pb-16 md:pt-40 md:pb-24 px-5 md:px-8 bg-[#FBFBFB] min-h-screen">
-            <Helmet><title>{seo.title}</title></Helmet>
-            <div className="max-w-7xl mx-auto text-center">
-                <h1 className="font-cormorant text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 text-[#121212]">{seo.heading}</h1>
-                <p className="max-w-2xl mx-auto text-gray-500 mb-8 md:mb-10 text-sm md:text-lg px-2">{seo.subtitle}</p>
+    const imagesToUse = categoryImages[category] || categoryImages.default;
 
+    return (
+        <div className="bg-[#FBFBFB] min-h-screen">
+            <Helmet><title>{seo.title}</title></Helmet>
+
+            {/* HERO SECTION ДЛЯ КАТАЛОГА */}
+            <section className="relative pt-32 pb-24 md:pt-48 md:pb-32 px-5 md:px-8 flex items-center justify-center overflow-hidden bg-[#121212] text-white text-center">
+                <HeroSlider customImages={imagesToUse} />
+                <div className="relative z-30 max-w-4xl mx-auto mt-10 md:mt-0">
+                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+                        <h2 className="text-[9px] md:text-[11px] gold-text uppercase tracking-[0.4em] md:tracking-[0.6em] mb-4 font-bold font-montserrat">{seo.heading}</h2>
+                        <h1 className="font-cormorant text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 text-white">{seo.heading}</h1>
+                        <p className="max-w-2xl mx-auto text-white/80 text-sm md:text-lg px-2 font-raleway">{seo.subtitle}</p>
+                    </motion.div>
+                </div>
+            </section>
+
+            <div className="max-w-7xl mx-auto text-center py-16 md:py-24 px-5 md:px-8">
                 {seo.seoText && (
                     <div className="max-w-4xl mx-auto mb-12 md:mb-16 text-left border-l-2 border-[#C5A059] pl-4 md:pl-6 mx-2">
                         <p className="text-gray-600 font-raleway leading-relaxed text-sm md:text-base">{seo.seoText}</p>
@@ -993,7 +1046,7 @@ const AppContent = () => {
     }, []);
 
     const isHome = location.pathname === '/';
-    const headerClass = isHome ? (scrolled ? 'bg-white text-[#121212] shadow-md py-3 md:py-4' : 'bg-transparent text-white py-4 md:py-6') : 'bg-[#0A0A0A] text-white shadow-lg py-3 md:py-4 border-b border-white/5';
+    const headerClass = isHome ? (scrolled ? 'bg-white text-[#121212] shadow-md py-3 md:py-4' : 'bg-transparent text-white py-4 md:py-6 border-b border-white/10') : 'bg-[#0A0A0A] text-white shadow-lg py-3 md:py-4 border-b border-white/5';
 
     const handleNav = (path, anchor) => {
         setIsMobileMenuOpen(false);
