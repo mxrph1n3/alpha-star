@@ -11,12 +11,14 @@ import {
 
 // --- СТИЛИ ---
 const styles = `
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Raleway:wght@300;400;500;600&display=swap');
 
     :root { --color-gold: #C5A059; --color-gold-dark: #A67C37; --color-dark: #121212; }
     body { font-family: 'Raleway', sans-serif; background-color: #ffffff; color: var(--color-dark); overflow-x: hidden; }
     .font-cormorant { font-family: 'Cormorant Garamond', serif; }
     .font-montserrat { font-family: 'Montserrat', sans-serif; }
+    .font-playfair { font-family: 'Playfair Display', serif; }
+    
     .gold-text { color: var(--color-gold) !important; }
     .gold-bg { background-color: var(--color-gold) !important; }
     .lining-nums { font-variant-numeric: lining-nums; }
@@ -47,10 +49,10 @@ const styles = `
     ::-webkit-scrollbar-thumb { background: var(--color-gold); border-radius: 10px; }
 
     /* Поля для SEO-статей */
-    .seo-article h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 700; color: #121212; margin-top: 2.5rem; margin-bottom: 1.25rem; line-height: 1.3; }
+    .seo-article h3 { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 700; color: #121212; margin-top: 2.5rem; margin-bottom: 1.25rem; line-height: 1.3; }
     .seo-article p { margin-bottom: 1.5rem; line-height: 1.8; color: #4b5563; font-size: 1.05rem; }
     .seo-article ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 2rem; color: #4b5563; font-size: 1.05rem; }
-    .seo-article li { margin-bottom: 0.75rem; line-height: 1.6; }
+    .seo-article li { margin-bottom: 0.75rem; leading-relaxed; }
     .seo-article strong { color: #121212; font-weight: 700; }
 `;
 
@@ -107,17 +109,20 @@ const translations = {
 };
 
 // --- DATA ARRAYS ---
-const getSeoData = (lang) => ({
-    home: { title: lang==='RU'?"Элитная недвижимость в Дубае | Alpha Star":"Luxury Real Estate in Dubai | Alpha Star", heading: "Boutique Agency", subtitle: "" },
-    novostroyki: { title: lang==='RU'?"Новостройки Дубая | Off-plan":"Off-plan Properties in Dubai", heading: lang==='RU'?"Новостройки":"Off-Plan Properties", subtitle: lang==='RU'?"Эксклюзивные предложения от топовых застройщиков ОАЭ.":"Exclusive offers from top UAE developers." },
-    secondary: { title: lang==='RU'?"Вторичное жилье в Дубае":"Secondary Market in Dubai", heading: lang==='RU'?"Вторичное жилье":"Secondary Market", subtitle: lang==='RU'?"Готовые объекты с полной юридической проверкой для заселения.":"Ready-to-move properties with full legal audit." },
-    villas: { title: lang==='RU'?"Виллы в Дубае":"Villas in Dubai", heading: lang==='RU'?"Виллы и Таунхаусы":"Villas & Townhouses", subtitle: lang==='RU'?"Премиальные резиденции для вашей семьи.":"Premium residences for your family." },
-    commercial: { title: lang==='RU'?"Коммерческая недвижимость в Дубае":"Commercial Property in Dubai", heading: lang==='RU'?"Коммерческая недвижимость":"Commercial Real Estate", subtitle: lang==='RU'?"Офисы, ритейл и склады в деловых районах Дубая.":"Offices, retail and warehouses in Dubai's business districts." },
-    invest: { title: lang==='RU'?"Инвестиции в недвижимость Дубая":"Investments in Dubai Real Estate", heading: lang==='RU'?"Инвестиционные пакеты":"Investment Packages", subtitle: lang==='RU'?"Высокодоходные активы с гарантированным ROI.":"High-yield assets with guaranteed ROI." },
-    plots: { title: lang==='RU'?"Участки под застройку":"Plots for Development", heading: lang==='RU'?"Участки под застройку":"Development Plots", subtitle: lang==='RU'?"Земля в престижных локациях.":"Land in prestigious locations." },
-    distress: { title: lang==='RU'?"Дистресс недвижимость":"Distress Deals", heading: lang==='RU'?"Дистресс-активы":"Distress Deals", subtitle: lang==='RU'?"Срочные продажи недвижимости ниже рыночной стоимости.":"Urgent property sales below market value." },
-    apartments_rent: { title: lang==='RU'?"Аренда апартаментов":"Apartments for Rent", heading: lang==='RU'?"Аренда апартаментов":"Apartments for Rent", subtitle: lang==='RU'?"Долгосро аренда в премиальных локациях.":"Long-term rental in premium locations." },
-});
+const seoData = {
+    home: { title: "Элитная недвижимость в Дубае | Купить квартиру и виллу | Alpha Star", description: "Инвестиции в недвижимость Дубая. Элитные квартиры, виллы и таунхаусы. Сопровождение сделок Private Office, доступ к off-market лотам и высокая доходность (ROI)." },
+    novostroyki: { title: "Новостройки Дубая от застройщика | Купить недвижимость Off-plan", heading: "Новостройки", subtitle: "Эксклюзивные предложения от топовых застройщиков ОАЭ.", seoText: "Покупка недвижимости на стадии строительства (Off-plan) — это один из самых надежных инструментов для получения максимальной доходности в Дубае. Прирост стоимости актива к моменту сдачи объекта может составлять от 20% до 50%." },
+    secondary: { title: "Вторичное жилье в Дубае | Купить готовую квартиру", heading: "Вторичное жилье", subtitle: "Готовые объекты с полной юридической проверкой для заселения.", seoText: "Вторичный рынок недвижимости Дубая идеально подходит для инвесторов, желающих получать пассивный доход сразу после покупки, а также для тех, кто планирует быстрый переезд по программе резидентской визы (Golden Visa)." },
+    villas: { title: "Купить элитную виллу в Дубае | Таунхаусы премиум-класса", heading: "Виллы и Таунхаусы", subtitle: "Премиальные резиденции для вашей семьи.", seoText: "Рынок роскошных вилл и таунхаусов в Дубае переживает беспрецедентный бум. Элитные комьюнити, такие как Palm Jumeirah, Dubai Hills Estate и Emirates Hills, предлагают непревзойденный уровень приватности." },
+    commercial: { title: "Коммерческая недвижимость в Дубае | Купить офис", heading: "Коммерческая недвижимость", subtitle: "Офисы, ритейл и склады в лучших деловых районах Дубая.", seoText: "Коммерческая недвижимость в деловых центрах Дубая демонстрирует стабильно высокую доходность от аренды (до 8-12% годовых). Мы предлагаем премиальные офисные пространства." },
+    invest: { title: "Инвестиции в недвижимость Дубая | Высокий ROI", heading: "Инвестиционные пакеты", subtitle: "Высокодоходные активы с гарантированным ROI.", seoText: "Грамотно сформированный портфель недвижимости в Дубае позволяет не только сохранить капитал, но и диверсифицировать доходы за счет привязки к стабильной валюте." },
+    plots: { title: "Участки под застройку в Дубае | Купить землю", heading: "Участки под застройку", subtitle: "Земля в престижных локациях для девелоперских проектов.", seoText: "Приобретение земельного участка в Дубае — это редкая возможность создать премиальный проект по индивидуальному дизайну или реализовать прибыльный девелоперский проект." },
+    apartments_rent: { title: "Аренда элитных апартаментов в Дубае", heading: "Аренда апартаментов", subtitle: "Долгосрочная аренда в премиальных локациях.", seoText: "Мы предоставляем полный спектр услуг по подбору элитной недвижимости для долгосрочной аренды. Наши брокеры организуют просмотры и помогут согласовать условия." },
+    valuation: { title: "Оценка стоимости недвижимости в Дубае", heading: "Оценка вашей недвижимости", subtitle: "Наши аналитики подготовят точный отчет о рыночной стоимости вашего актива на основе актуальных транзакций Земельного Департамента Дубая." },
+    blog: { title: "Блог о недвижимости Дубая | Аналитика рынка ОАЭ 2026", description: "Свежие новости рынка недвижимости ОАЭ, аналитика цен, прогнозы на 2026 год." }
+};
+
+const getSeoData = (lang) => seoData;
 
 const getSteps = (lang) => [
     { icon: Search, title: lang==='RU'?"Глубокий анализ":"Deep Analysis", desc: lang==='RU'?"Анализируем лоты по 54 параметрам ликвидности до их выхода в паблик.":"We analyze lots by 54 liquidity parameters before public release." },
@@ -161,28 +166,6 @@ const getFaqs = (lang) => lang === 'RU' ? [
     { question: "Can I open a UAE bank account after buying?", answer: "Yes, upon buying property and getting a residency visa, you become a UAE tax resident and can freely open personal and corporate accounts in top banks." },
     { question: "What is an NOC (No Objection Certificate)?", answer: "A certificate of no dues from the developer. It is mandatory when selling a secondary market property, proving the seller has no outstanding service charges." },
     { question: "How can a non-resident get a mortgage in the UAE?", answer: "UAE banks lend to non-residents. The down payment is usually 40% to 50%, with interest rates from 4.5% to 5.5% per annum. Our brokers help secure approval." }
-];
-
-const getMockProps = (lang) => [
-    { id: 1, type: 'novostroyki', beds: 1, title: 'Emaar Beachfront Residence', price: '1,500,000', location: 'Dubai Harbour', img: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800' },
-    { id: 2, type: 'novostroyki', beds: 2, title: 'Cavalli Couture', price: '2,800,000', location: 'Dubai Water Canal', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800' },
-    { id: 3, type: 'villas', beds: 3, title: 'District One Villa', price: '5,500,000', location: 'MBR City', img: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800' },
-    { id: 4, type: 'secondary', beds: 1, title: 'Downtown Views', price: '950,000', location: 'Downtown Dubai', img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800' },
-    { id: 5, type: 'commercial', beds: 0, title: 'Business Bay Office', price: '3,200,000', location: 'Business Bay', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800' },
-    { id: 6, type: 'distress', beds: 2, title: 'Distress Apartment Below Market', price: '980,000', location: 'JVC', img: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=800' },
-    { id: 7, type: 'plots', beds: 0, title: 'Pearl Jumeirah Plot', price: '12,500,000', location: 'Pearl Jumeirah', img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800' }
-];
-
-const getBlogPosts = (lang) => lang === 'RU' ? [
-    { id: "dubai-market-2026", title: "Рынок недвижимости Дубая 2026: Главные прогнозы и тренды", date: "14 Октября, 2025", img: "./images/blog1.png", excerpt: "Узнайте, в каких районах ожидается максимальный рост капитала (ROI) и почему фокус смещается на Ultra-Luxury.", content: `<p>Вступая в 2026 год, многие задаются вопросом: сохранится ли двузначный рост стоимости активов? Разберем ключевые тренды.</p><h3>Смещение фокуса на Ultra-Luxury</h3><p>Спрос на элитную недвижимость со стороны HNWI бьет рекорды. Проекты от мировых брендов распродаются на пресейлах.</p><h3>Топ-3 района (ROI) в 2026 году</h3><ul><li><strong>Dubai Maritime City:</strong> Огромный потенциал для краткосрочной аренды.</li><li><strong>Dubai South:</strong> Лидеры по долгосрочной аренде (7.5% – 9.5% чистого ROI).</li><li><strong>Palm Jebel Ali:</strong> Флагманский мегапроект с гарантированной высокой капитализацией.</li></ul>` },
-    { id: "golden-visa-uae", title: "Как получить Золотую визу ОАЭ (Golden Visa) за инвестиции", date: "28 Сентября, 2025", img: "./images/blog2.png", excerpt: "Условия для инвесторов, налоги, порог входа и преимущества долгосрочного резидентства в 2026 году.", content: `<p>Государственная программа Golden Visa сроком на 10 лет стала магнитом для международных инвесторов.</p><h3>Главные преимущества</h3><ul><li>Долгосрочная безопасность и право продления.</li><li>Спонсирование семьи и персонала.</li><li>0% налога на доходы физических лиц.</li></ul><h3>Условия получения</h3><p>Необходимо купить недвижимость в Дубае на общую сумму не менее <strong>2 000 000 дирхамов</strong>. Допускается ипотека и объекты Off-plan.</p>` },
-    { id: "buy-property-dubai-step-by-step", title: "Пошаговое руководство: Как безопасно купить недвижимость в Дубае", date: "05 Сентября, 2025", img: "./images/blog3.png", excerpt: "Разбор каждого этапа сделки: от выбора объекта до получения Title Deed. Узнайте, как защищены деньги.", content: `<p>Дубай обладает одной из самых прозрачных правовых систем.</p><h3>Шаг 1: Бронирование (EOI)</h3><p>Внесение возвращаемого депозита.</p><h3>Шаг 2: Договор (SPA)</h3><p>Официальный договор с графиком платежей.</p><h3>Шаг 3: Escrow-счета</h3><p>Деньги лежат на эскроу-счетах, контролируемых государством.</p><h3>Шаг 4: Налоги</h3><p>Разовый сбор DLD — 4% от стоимости.</p>` },
-    { id: "dubai-taxes", title: "Налоги на недвижимость в Дубае: Полное руководство", date: "10 Августа, 2025", img: "./images/blog4.png", excerpt: "Все, что нужно знать инвестору о налогах в ОАЭ. Скрытые платежи, сборы DLD и налог на прибыль.", content: `<p>ОАЭ привлекает инвесторов благодаря отсутствию налогов на прибыль, однако существуют другие важные сборы.</p><h3>Регистрационный сбор DLD</h3><p>Главный платеж при покупке недвижимости в Дубае составляет 4% от стоимости объекта. Он уплачивается в Земельный Департамент.</p><h3>Содержание недвижимости</h3><p>Владельцы обязаны оплачивать Maintenance Fee — сбор за обслуживание здания, который зависит от площади и престижности комплекса.</p>` }
-] : [
-    { id: "dubai-market-2026", title: "Dubai Real Estate Market 2026: Forecasts and Trends", date: "Oct 14, 2025", img: "./images/blog1.png", excerpt: "Find out which areas expect maximum capital growth (ROI) and why the focus is shifting to Ultra-Luxury.", content: `<p>Entering 2026, many wonder: will the double-digit asset growth continue? Let's analyze key trends.</p><h3>Shift to Ultra-Luxury</h3><p>Demand for luxury real estate from HNWIs breaks records. World-brand projects sell out at pre-sales.</p><h3>Top 3 ROI Areas in 2026</h3><ul><li><strong>Dubai Maritime City:</strong> Huge short-term rental potential.</li><li><strong>Dubai South:</strong> Long-term rental leaders (7.5% – 9.5% net ROI).</li><li><strong>Palm Jebel Ali:</strong> Flagship megaproject with guaranteed high capitalization.</li></ul>` },
-    { id: "golden-visa-uae", title: "How to Get a UAE Golden Visa through Investments", date: "Sep 28, 2025", img: "./images/blog2.png", excerpt: "Conditions for investors, taxes, entry threshold, and benefits of long-term residency in 2026.", content: `<p>The 10-year Golden Visa program has become a magnet for international investors.</p><h3>Main Benefits</h3><ul><li>Long-term security and renewal rights.</li><li>Sponsorship of family and staff.</li><li>0% personal income tax.</li></ul><h3>Conditions</h3><p>Must buy property in Dubai worth at least <strong>2,000,000 AED</strong>. Mortgages and Off-plan objects are allowed.</p>` },
-    { id: "buy-property-dubai-step-by-step", title: "Step-by-step Guide: Safe Property Buying in Dubai", date: "Sep 05, 2025", img: "./images/blog3.png", excerpt: "Detailed breakdown of each stage: from object selection to getting the Title Deed.", content: `<p>Dubai has one of the most transparent legal systems.</p><h3>Step 1: Booking (EOI)</h3><p>Making a refundable deposit.</p><h3>Step 2: Agreement (SPA)</h3><p>Official agreement with a payment plan.</p><h3>Step 3: Escrow Accounts</h3><p>Money is held in state-controlled escrow accounts.</p><h3>Step 4: Taxes</h3><p>One-time DLD fee — 4% of the value.</p>` },
-    { id: "dubai-taxes", title: "Real Estate Taxes in Dubai: A Complete Guide", date: "Aug 10, 2025", img: "./images/blog4.png", excerpt: "Everything an investor needs to know about UAE taxes. Hidden fees, DLD charges, and income tax.", content: `<p>The UAE attracts investors due to the absence of income tax, but there are other important fees.</p><h3>DLD Registration Fee</h3><p>The main payment when buying property in Dubai is 4% of the property value, payable to the Land Department.</p><h3>Property Maintenance</h3><p>Owners must pay a Maintenance Fee for building upkeep, which depends on the size and prestige of the complex.</p>` }
 ];
 
 const categoryImages = {
@@ -287,7 +270,7 @@ const LeadForm = ({ title, subtitle, isModal = false }) => {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1 gold-bg opacity-30"></div>
             <div className="text-center mb-6 md:mb-8">
                 <h2 className="font-montserrat text-xl md:text-3xl uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold mb-2 md:mb-3 text-[#121212]">{title}</h2>
-                <p className="font-cormorant text-base md:text-lg text-gray-400">{subtitle}</p>
+                <p className="font-playfair italic text-base md:text-lg text-gray-400">{subtitle}</p>
             </div>
             <form className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 text-left" onSubmit={e => e.preventDefault()}>
                 <div className="space-y-1 md:space-y-2 font-montserrat">
@@ -411,7 +394,7 @@ const CallbackModal = ({ isOpen, onClose }) => {
                             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1 gold-bg opacity-30"></div>
                             <div className="text-center mb-6 md:mb-8">
                                 <h2 className="font-montserrat text-xl md:text-2xl uppercase tracking-[0.2em] font-bold mb-2 md:mb-3 text-[#121212]">{t.autoPopup ? t.autoPopup.title : "Инвестируете в Дубай?"}</h2>
-                                <p className="font-cormorant text-base md:text-lg text-gray-400">{t.autoPopup ? t.autoPopup.subtitle : "Оставьте номер, и наш эксперт перезвонит, чтобы рассказать о скрытых жемчужинах рынка."}</p>
+                                <p className="font-playfair italic text-base md:text-lg text-gray-400">{t.autoPopup ? t.autoPopup.subtitle : "Оставьте номер, и наш эксперт перезвонит, чтобы рассказать о скрытых жемчужинах рынка."}</p>
                             </div>
                             <form className="flex flex-col gap-4 md:gap-5 text-left" onSubmit={e => { e.preventDefault(); onClose(); }}>
                                 <div className="space-y-1 md:space-y-2 font-montserrat">
@@ -513,10 +496,15 @@ const HeroSlider = ({ customImages }) => {
     }, [images.length]);
 
     return (
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 overflow-hidden">
             <div className="absolute inset-0 bg-black/60 z-10"></div>
             {images.map((img, i) => (
-                <img key={i} src={img.src} alt="bg" className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${i === current ? 'opacity-100' : 'opacity-0'}`} />
+                <img 
+                    key={i} 
+                    src={img.src} 
+                    alt="bg" 
+                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-[10000ms] ease-out ${i === current ? 'opacity-100 scale-105' : 'opacity-0 scale-100'}`} 
+                />
             ))}
         </div>
     );
@@ -530,15 +518,23 @@ const StarField = () => {
         const ctx = canvas.getContext('2d');
         let w = canvas.width = window.innerWidth;
         let h = canvas.height = window.innerHeight;
-        const stars = Array.from({length: 100}, () => ({ x: Math.random() * w, y: Math.random() * h, size: Math.random() * 1.5, speed: Math.random() * 0.5 }));
+        const stars = Array.from({length: 150}, () => ({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            size: Math.random() * 1.5,
+            speed: Math.random() * 0.5
+        }));
         let id;
         const render = () => {
             ctx.clearRect(0,0,w,h);
             ctx.fillStyle = '#C5A059';
             stars.forEach(s => {
                 ctx.globalAlpha = Math.random() * 0.5 + 0.2;
-                ctx.beginPath(); ctx.arc(s.x, s.y, s.size, 0, Math.PI*2); ctx.fill();
-                s.y -= s.speed; if(s.y < 0) s.y = h;
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.size, 0, Math.PI*2);
+                ctx.fill();
+                s.y -= s.speed;
+                if(s.y < 0) s.y = h;
             });
             id = requestAnimationFrame(render);
         };
@@ -550,61 +546,98 @@ const StarField = () => {
     return <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none opacity-40"></canvas>;
 };
 
-// ОБНОВЛЕННЫЙ ПРЕМИАЛЬНЫЙ ПРЕЛОАДЕР
 const Preloader = ({ onFinish }) => {
-    const [isVisible, setIsVisible] = useState(true);
+    const [fontsLoaded, setFontsLoaded] = useState(false);
+    const [phase, setPhase] = useState(0);
+
+    // Дожидаемся загрузки шрифта, чтобы избежать скачков и FOUT
+    useEffect(() => {
+        let isMounted = true;
+        document.fonts.ready.then(() => {
+            if (isMounted) setFontsLoaded(true);
+        });
+        const fallback = setTimeout(() => {
+            if (isMounted) setFontsLoaded(true);
+        }, 1500);
+        return () => {
+            isMounted = false;
+            clearTimeout(fallback);
+        };
+    }, []);
 
     useEffect(() => {
-        const hideTimer = setTimeout(() => setIsVisible(false), 2400);
-        const finishTimer = setTimeout(() => onFinish(), 3400); 
-        return () => { clearTimeout(hideTimer); clearTimeout(finishTimer); };
-    }, [onFinish]);
+        if (!fontsLoaded) return;
+        const t1 = setTimeout(() => setPhase(1), 100);   // Анимация вылета букв снизу
+        const t2 = setTimeout(() => setPhase(2), 2200);  // Экран уезжает вверх
+        const t3 = setTimeout(() => onFinish(), 3200);   // Демонтаж компонента
+        return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
+    }, [fontsLoaded, onFinish]);
+
+    if (!fontsLoaded) return <div className="fixed inset-0 z-[9999] bg-[#0A0A0A]" />;
 
     return (
-        <AnimatePresence>
-            {isVisible && (
-                <motion.div
-                    initial={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                    className="fixed inset-0 z-[9999] bg-[#0A0A0A] flex flex-col items-center justify-center overflow-hidden"
-                >
+        <motion.div 
+            initial={{ y: 0 }}
+            animate={phase >= 2 ? { y: "-100%" } : { y: 0 }}
+            transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+            className="fixed inset-0 z-[9999] bg-[#0A0A0A] flex flex-col items-center justify-center overflow-hidden"
+        >
+            <motion.div 
+                animate={phase >= 2 ? { opacity: 0, scale: 0.9 } : { opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="relative z-10 flex flex-col items-center justify-center w-full"
+            >
+                {/* Фоновое премиальное свечение */}
+                <motion.div 
+                    initial={{ opacity: 0, scale: 0.8 }} 
+                    animate={{ opacity: 0.15, scale: 1 }} 
+                    transition={{ duration: 2.5, ease: "easeOut" }}
+                    className="absolute w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-[#C5A059] rounded-full blur-[100px] md:blur-[150px] pointer-events-none"
+                />
+
+                <div className="relative z-10 flex flex-col items-center justify-center mt-4">
+                    {/* ЛОГОТИП (Шрифт Playfair Display, отступы ИДЕАЛЬНО совпадают с хедером) */}
                     <motion.div 
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        animate={{ opacity: 0.15, scale: 1 }}
-                        transition={{ duration: 2, ease: "easeOut" }}
-                        className="absolute w-[300px] h-[300px] bg-[#C5A059] rounded-full blur-[100px] pointer-events-none"
-                    />
-                    <div className="relative z-10 flex flex-col items-center">
-                        <motion.div 
-                            initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
-                            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                            className="font-cormorant text-4xl md:text-6xl font-bold uppercase tracking-[0.2em] text-white flex gap-3"
+                        initial="hidden"
+                        animate="visible"
+                        variants={{
+                            hidden: { opacity: 1 },
+                            visible: { transition: { staggerChildren: 0.08 } }
+                        }}
+                        className="font-playfair text-5xl md:text-7xl tracking-[0.15em] uppercase flex overflow-hidden px-4 pb-2 relative z-10"
+                    >
+                        {"ALPHASTAR".split('').map((char, i) => (
+                            <motion.span
+                                key={i}
+                                variants={{
+                                    hidden: { opacity: 0, y: 50 },
+                                    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
+                                }}
+                                className={`inline-block origin-bottom ${i >= 5 ? 'text-[#C5A059]' : 'text-white'}`}
+                            >
+                                {char}
+                            </motion.span>
+                        ))}
+                    </motion.div>
+
+                    {/* Слово PROPERTIES без линии, плавно выезжает снизу */}
+                    <div className="overflow-hidden mt-1 md:mt-2">
+                        <motion.div
+                            initial={{ y: "100%", opacity: 0 }}
+                            animate={phase >= 1 ? { y: 0, opacity: 1 } : {}}
+                            transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                            className="text-[10px] md:text-[12px] font-bold uppercase gold-text tracking-[0.55em] text-center ml-2"
                         >
-                            <span>ALPHA</span><span className="gold-text">STAR</span>
-                        </motion.div>
-                        <motion.div 
-                            initial={{ scaleX: 0 }} 
-                            animate={{ scaleX: 1 }} 
-                            transition={{ duration: 1.5, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                            className="h-px w-[160px] md:w-[240px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent mt-5 mb-4 origin-center"
-                        />
-                        <motion.div 
-                            initial={{ opacity: 0, letterSpacing: "0em" }} 
-                            animate={{ opacity: 1, letterSpacing: "0.8em" }} 
-                            transition={{ duration: 1.2, delay: 0.8, ease: "easeOut" }}
-                            className="text-[8px] md:text-[10px] text-white/40 uppercase font-bold ml-2"
-                        >
-                            Properties
+                            PROPERTIES
                         </motion.div>
                     </div>
-                </motion.div>
-            )}
-        </AnimatePresence>
+                </div>
+            </motion.div>
+        </motion.div>
     );
 };
 
+// --- WRAPPER FOR PAGE TRANSITIONS ---
 const PageWrapper = ({ children }) => (
     <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }} transition={{ duration: 0.4 }} className="w-full">
         {children}
@@ -1014,7 +1047,7 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                                     
                                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-8 md:mb-12 bg-gray-50/50 p-4 md:p-6 border border-gray-50 rounded-sm">
                                         <div className="flex-1 w-full flex justify-between sm:block">
-                                            <span className="text-[8px] md:text-[9px] uppercase font-bold text-gray-400 tracking-widest block mb-1 sm:mb-2">{item.launchTitle || t.deals.entry}</span>
+                                            <span className="text-[8px] md:text-[9px] uppercase font-bold text-gray-400 tracking-widest block mb-1 sm:mb-2">1) {item.launchTitle || t.deals.entry}</span>
                                             <span className="text-sm md:text-lg lg:text-xl font-montserrat font-bold text-[#121212] lining-nums whitespace-nowrap">{item.launch}</span>
                                         </div>
                                         <div className="hidden sm:block w-8 md:w-16 lg:w-24 h-px bg-gray-300 relative mx-2">
@@ -1022,7 +1055,7 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                                         </div>
                                         <div className="w-full sm:hidden h-px bg-gray-200 my-1"></div>
                                         <div className="flex-1 w-full sm:text-right md:text-left flex justify-between sm:block">
-                                            <span className="text-[8px] md:text-[9px] uppercase font-bold gold-text tracking-widest block mb-1 sm:mb-2">{item.nowTitle || t.deals.exit}</span>
+                                            <span className="text-[8px] md:text-[9px] uppercase font-bold gold-text tracking-widest block mb-1 sm:mb-2">2) {item.nowTitle || t.deals.exit}</span>
                                             <span className="text-sm md:text-lg lg:text-xl font-montserrat font-bold text-[#121212] lining-nums whitespace-nowrap">{item.now}</span>
                                         </div>
                                     </div>
@@ -1152,7 +1185,7 @@ const AppContent = () => {
             const timer = setTimeout(() => {
                 setIsAutoModalOpen(true);
                 sessionStorage.setItem('popupShown', 'true');
-            }, 21000);
+            }, 21000); // Ровно 21 секунда до автопопапа
             return () => clearTimeout(timer);
         }
     }, []);
@@ -1186,7 +1219,10 @@ const AppContent = () => {
 
     return (
         <>
-            {isLoading && <Preloader onFinish={() => setIsLoading(false)} />}
+            <AnimatePresence>
+                {isLoading && <Preloader key="preloader" onFinish={() => setIsLoading(false)} />}
+            </AnimatePresence>
+
             <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
             <CallbackModal isOpen={isAutoModalOpen} onClose={() => setIsAutoModalOpen(false)} />
 
@@ -1404,7 +1440,7 @@ export default function App() {
                     
                     <link rel="preconnect" href="https://fonts.googleapis.com" />
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-                    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600&display=block" rel="stylesheet" />
+                    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Raleway:wght@300;400;500;600&display=block" rel="stylesheet" />
                 </Helmet>
                 <Router>
                     <style>{styles}</style>
