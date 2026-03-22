@@ -1330,8 +1330,11 @@ export default function App() {
         <HelmetProvider>
             <LanguageProvider>
                 <Helmet>
-                    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2" />
-                    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=2" />
+                    {/* Принудительное обновление кэша фавикона */}
+                    <link rel="icon" type="image/x-icon" href="./favicon.ico?v=3" />
+                    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico?v=3" />
+                    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=3" />
+                    
                     <link rel="preconnect" href="https://fonts.googleapis.com" />
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
                     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600&display=block" rel="stylesheet" />
