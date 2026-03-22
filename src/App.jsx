@@ -170,15 +170,15 @@ const getMockProps = (lang) => [
 ];
 
 const getBlogPosts = (lang) => lang === 'RU' ? [
-    { id: "dubai-market-2026", title: "Рынок недвижимости Дубая 2026: Главные прогнозы и тренды", date: "14 Октября, 2025", readTime: "6", img: "./images/blog1.png", excerpt: "Узнайте, в каких районах ожидается максимальный рост капитала (ROI) и почему фокус смещается на Ultra-Luxury.", content: `<p>Вступая в 2026 год, многие задаются вопросом: сохранится ли двузначный рост стоимости активов? Разберем ключевые тренды.</p><h3>Смещение фокуса на Ultra-Luxury</h3><p>Спрос на элитную недвижимость со стороны HNWI бьет рекорды. Проекты от мировых брендов распродаются на пресейлах.</p><h3>Топ-3 района (ROI) в 2026 году</h3><ul><li><strong>Dubai Maritime City:</strong> Огромный потенциал для краткосрочной аренды.</li><li><strong>Dubai South:</strong> Лидеры по долгосрочной аренде (7.5% – 9.5% чистого ROI).</li><li><strong>Palm Jebel Ali:</strong> Флагманский мегапроект с гарантированной высокой капитализацией.</li></ul>` },
-    { id: "golden-visa-uae", title: "Как получить Золотую визу ОАЭ (Golden Visa) за инвестиции", date: "28 Сентября, 2025", readTime: "5", img: "./images/blog2.png", excerpt: "Условия для инвесторов, налоги, порог входа и преимущества долгосрочного резидентства в 2026 году.", content: `<p>Государственная программа Golden Visa сроком на 10 лет стала магнитом для международных инвесторов.</p><h3>Главные преимущества</h3><ul><li>Долгосрочная безопасность и право продления.</li><li>Спонсирование семьи и персонала.</li><li>0% налога на доходы физических лиц.</li></ul><h3>Условия получения</h3><p>Необходимо купить недвижимость в Дубае на общую сумму не менее <strong>2 000 000 дирхамов</strong>. Допускается ипотека и объекты Off-plan.</p>` },
-    { id: "buy-property-dubai-step-by-step", title: "Пошаговое руководство: Как безопасно купить недвижимость в Дубае", date: "05 Сентября, 2025", readTime: "7", img: "./images/blog3.png", excerpt: "Разбор каждого этапа сделки: от выбора объекта до получения Title Deed. Узнайте, как защищены деньги.", content: `<p>Дубай обладает одной из самых прозрачных правовых систем.</p><h3>Шаг 1: Бронирование (EOI)</h3><p>Внесение возвращаемого депозита.</p><h3>Шаг 2: Договор (SPA)</h3><p>Официальный договор с графиком платежей.</p><h3>Шаг 3: Escrow-счета</h3><p>Деньги лежат на эскроу-счетах, контролируемых государством.</p><h3>Шаг 4: Налоги</h3><p>Разовый сбор DLD — 4% от стоимости.</p>` },
-    { id: "dubai-taxes", title: "Налоги на недвижимость в Дубае: Полное руководство", date: "10 Августа, 2025", readTime: "4", img: "./images/blog4.png", excerpt: "Все, что нужно знать инвестору о налогах в ОАЭ. Скрытые платежи, сборы DLD и налог на прибыль.", content: `<p>ОАЭ привлекает инвесторов благодаря отсутствию налогов на прибыль, однако существуют другие важные сборы.</p><h3>Регистрационный сбор DLD</h3><p>Главный платеж при покупке недвижимости в Дубае составляет 4% от стоимости объекта. Он уплачивается в Земельный Департамент.</p><h3>Содержание недвижимости</h3><p>Владельцы обязаны оплачивать Maintenance Fee — сбор за обслуживание здания, который зависит от площади и престижности комплекса.</p>` }
+    { id: "dubai-market-2026", title: "Рынок недвижимости Дубая 2026: Главные прогнозы и тренды", date: "14 Октября, 2025", img: "./images/blog1.png", excerpt: "Узнайте, в каких районах ожидается максимальный рост капитала (ROI) и почему фокус смещается на Ultra-Luxury.", content: `<p>Вступая в 2026 год, многие задаются вопросом: сохранится ли двузначный рост стоимости активов? Разберем ключевые тренды.</p><h3>Смещение фокуса на Ultra-Luxury</h3><p>Спрос на элитную недвижимость со стороны HNWI бьет рекорды. Проекты от мировых брендов распродаются на пресейлах.</p><h3>Топ-3 района (ROI) в 2026 году</h3><ul><li><strong>Dubai Maritime City:</strong> Огромный потенциал для краткосрочной аренды.</li><li><strong>Dubai South:</strong> Лидеры по долгосрочной аренде (7.5% – 9.5% чистого ROI).</li><li><strong>Palm Jebel Ali:</strong> Флагманский мегапроект с гарантированной высокой капитализацией.</li></ul>` },
+    { id: "golden-visa-uae", title: "Как получить Золотую визу ОАЭ (Golden Visa) за инвестиции", date: "28 Сентября, 2025", img: "./images/blog2.png", excerpt: "Условия для инвесторов, налоги, порог входа и преимущества долгосрочного резидентства в 2026 году.", content: `<p>Государственная программа Golden Visa сроком на 10 лет стала магнитом для международных инвесторов.</p><h3>Главные преимущества</h3><ul><li>Долгосрочная безопасность и право продления.</li><li>Спонсирование семьи и персонала.</li><li>0% налога на доходы физических лиц.</li></ul><h3>Условия получения</h3><p>Необходимо купить недвижимость в Дубае на общую сумму не менее <strong>2 000 000 дирхамов</strong>. Допускается ипотека и объекты Off-plan.</p>` },
+    { id: "buy-property-dubai-step-by-step", title: "Пошаговое руководство: Как безопасно купить недвижимость в Дубае", date: "05 Сентября, 2025", img: "./images/blog3.png", excerpt: "Разбор каждого этапа сделки: от выбора объекта до получения Title Deed. Узнайте, как защищены деньги.", content: `<p>Дубай обладает одной из самых прозрачных правовых систем.</p><h3>Шаг 1: Бронирование (EOI)</h3><p>Внесение возвращаемого депозита.</p><h3>Шаг 2: Договор (SPA)</h3><p>Официальный договор с графиком платежей.</p><h3>Шаг 3: Escrow-счета</h3><p>Деньги лежат на эскроу-счетах, контролируемых государством.</p><h3>Шаг 4: Налоги</h3><p>Разовый сбор DLD — 4% от стоимости.</p>` },
+    { id: "dubai-taxes", title: "Налоги на недвижимость в Дубае: Полное руководство", date: "10 Августа, 2025", img: "./images/blog4.png", excerpt: "Все, что нужно знать инвестору о налогах в ОАЭ. Скрытые платежи, сборы DLD и налог на прибыль.", content: `<p>ОАЭ привлекает инвесторов благодаря отсутствию налогов на прибыль, однако существуют другие важные сборы.</p><h3>Регистрационный сбор DLD</h3><p>Главный платеж при покупке недвижимости в Дубае составляет 4% от стоимости объекта. Он уплачивается в Земельный Департамент.</p><h3>Содержание недвижимости</h3><p>Владельцы обязаны оплачивать Maintenance Fee — сбор за обслуживание здания, который зависит от площади и престижности комплекса.</p>` }
 ] : [
-    { id: "dubai-market-2026", title: "Dubai Real Estate Market 2026: Forecasts and Trends", date: "Oct 14, 2025", readTime: "6", img: "./images/blog1.png", excerpt: "Find out which areas expect maximum capital growth (ROI) and why the focus is shifting to Ultra-Luxury.", content: `<p>Entering 2026, many wonder: will the double-digit asset growth continue? Let's analyze key trends.</p><h3>Shift to Ultra-Luxury</h3><p>Demand for luxury real estate from HNWIs breaks records. World-brand projects sell out at pre-sales.</p><h3>Top 3 ROI Areas in 2026</h3><ul><li><strong>Dubai Maritime City:</strong> Huge short-term rental potential.</li><li><strong>Dubai South:</strong> Long-term rental leaders (7.5% – 9.5% net ROI).</li><li><strong>Palm Jebel Ali:</strong> Flagship megaproject with guaranteed high capitalization.</li></ul>` },
-    { id: "golden-visa-uae", title: "How to Get a UAE Golden Visa through Investments", date: "Sep 28, 2025", readTime: "5", img: "./images/blog2.png", excerpt: "Conditions for investors, taxes, entry threshold, and benefits of long-term residency in 2026.", content: `<p>The 10-year Golden Visa program has become a magnet for international investors.</p><h3>Main Benefits</h3><ul><li>Long-term security and renewal rights.</li><li>Sponsorship of family and staff.</li><li>0% personal income tax.</li></ul><h3>Conditions</h3><p>Must buy property in Dubai worth at least <strong>2,000,000 AED</strong>. Mortgages and Off-plan objects are allowed.</p>` },
-    { id: "buy-property-dubai-step-by-step", title: "Step-by-step Guide: Safe Property Buying in Dubai", date: "Sep 05, 2025", readTime: "7", img: "./images/blog3.png", excerpt: "Detailed breakdown of each stage: from object selection to getting the Title Deed.", content: `<p>Dubai has one of the most transparent legal systems.</p><h3>Step 1: Booking (EOI)</h3><p>Making a refundable deposit.</p><h3>Step 2: Agreement (SPA)</h3><p>Official agreement with a payment plan.</p><h3>Step 3: Escrow Accounts</h3><p>Money is held in state-controlled escrow accounts.</p><h3>Step 4: Taxes</h3><p>One-time DLD fee — 4% of the value.</p>` },
-    { id: "dubai-taxes", title: "Real Estate Taxes in Dubai: A Complete Guide", date: "Aug 10, 2025", readTime: "4", img: "./images/blog4.png", excerpt: "Everything an investor needs to know about UAE taxes. Hidden fees, DLD charges, and income tax.", content: `<p>The UAE attracts investors due to the absence of income tax, but there are other important fees.</p><h3>DLD Registration Fee</h3><p>The main payment when buying property in Dubai is 4% of the property value, payable to the Land Department.</p><h3>Property Maintenance</h3><p>Owners must pay a Maintenance Fee for building upkeep, which depends on the size and prestige of the complex.</p>` }
+    { id: "dubai-market-2026", title: "Dubai Real Estate Market 2026: Forecasts and Trends", date: "Oct 14, 2025", img: "./images/blog1.png", excerpt: "Find out which areas expect maximum capital growth (ROI) and why the focus is shifting to Ultra-Luxury.", content: `<p>Entering 2026, many wonder: will the double-digit asset growth continue? Let's analyze key trends.</p><h3>Shift to Ultra-Luxury</h3><p>Demand for luxury real estate from HNWIs breaks records. World-brand projects sell out at pre-sales.</p><h3>Top 3 ROI Areas in 2026</h3><ul><li><strong>Dubai Maritime City:</strong> Huge short-term rental potential.</li><li><strong>Dubai South:</strong> Long-term rental leaders (7.5% – 9.5% net ROI).</li><li><strong>Palm Jebel Ali:</strong> Flagship megaproject with guaranteed high capitalization.</li></ul>` },
+    { id: "golden-visa-uae", title: "How to Get a UAE Golden Visa through Investments", date: "Sep 28, 2025", img: "./images/blog2.png", excerpt: "Conditions for investors, taxes, entry threshold, and benefits of long-term residency in 2026.", content: `<p>The 10-year Golden Visa program has become a magnet for international investors.</p><h3>Main Benefits</h3><ul><li>Long-term security and renewal rights.</li><li>Sponsorship of family and staff.</li><li>0% personal income tax.</li></ul><h3>Conditions</h3><p>Must buy property in Dubai worth at least <strong>2,000,000 AED</strong>. Mortgages and Off-plan objects are allowed.</p>` },
+    { id: "buy-property-dubai-step-by-step", title: "Step-by-step Guide: Safe Property Buying in Dubai", date: "Sep 05, 2025", img: "./images/blog3.png", excerpt: "Detailed breakdown of each stage: from object selection to getting the Title Deed.", content: `<p>Dubai has one of the most transparent legal systems.</p><h3>Step 1: Booking (EOI)</h3><p>Making a refundable deposit.</p><h3>Step 2: Agreement (SPA)</h3><p>Official agreement with a payment plan.</p><h3>Step 3: Escrow Accounts</h3><p>Money is held in state-controlled escrow accounts.</p><h3>Step 4: Taxes</h3><p>One-time DLD fee — 4% of the value.</p>` },
+    { id: "dubai-taxes", title: "Real Estate Taxes in Dubai: A Complete Guide", date: "Aug 10, 2025", img: "./images/blog4.png", excerpt: "Everything an investor needs to know about UAE taxes. Hidden fees, DLD charges, and income tax.", content: `<p>The UAE attracts investors due to the absence of income tax, but there are other important fees.</p><h3>DLD Registration Fee</h3><p>The main payment when buying property in Dubai is 4% of the property value, payable to the Land Department.</p><h3>Property Maintenance</h3><p>Owners must pay a Maintenance Fee for building upkeep, which depends on the size and prestige of the complex.</p>` }
 ];
 
 const categoryImages = {
@@ -408,8 +408,8 @@ const CallbackModal = ({ isOpen, onClose }) => {
                         <div className="relative bg-white shadow-2xl overflow-visible w-full p-8 md:p-12 rounded-sm border border-gray-100">
                             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1 gold-bg opacity-30"></div>
                             <div className="text-center mb-6 md:mb-8">
-                                <h2 className="font-montserrat text-xl md:text-2xl uppercase tracking-[0.2em] font-bold mb-2 md:mb-3 text-[#121212]">{t.autoPopup.title}</h2>
-                                <p className="font-cormorant text-base md:text-lg text-gray-400">{t.autoPopup.subtitle}</p>
+                                <h2 className="font-montserrat text-xl md:text-2xl uppercase tracking-[0.2em] font-bold mb-2 md:mb-3 text-[#121212]">{t.autoPopup ? t.autoPopup.title : "Инвестируете в Дубай?"}</h2>
+                                <p className="font-cormorant text-base md:text-lg text-gray-400">{t.autoPopup ? t.autoPopup.subtitle : "Оставьте номер, и наш эксперт перезвонит, чтобы рассказать о скрытых жемчужинах рынка."}</p>
                             </div>
                             <form className="flex flex-col gap-4 md:gap-5 text-left" onSubmit={e => { e.preventDefault(); onClose(); }}>
                                 <div className="space-y-1 md:space-y-2 font-montserrat">
@@ -425,7 +425,7 @@ const CallbackModal = ({ isOpen, onClose }) => {
                                     <label htmlFor="auto-consent" className="text-[9px] md:text-[10px] text-gray-400 font-montserrat leading-relaxed cursor-pointer">{t.form.consent}</label>
                                 </div>
                                 <div className="flex justify-center mt-2 md:mt-4">
-                                    <button type="submit" className="btn-premium w-full py-4 md:py-6 bg-[#C5A059] text-white font-montserrat uppercase tracking-widest font-bold shadow-lg text-xs md:text-sm">{t.autoPopup.btn}</button>
+                                    <button type="submit" className="btn-premium w-full py-4 md:py-6 bg-[#C5A059] text-white font-montserrat uppercase tracking-widest font-bold shadow-lg text-xs md:text-sm">{t.autoPopup ? t.autoPopup.btn : "Жду звонка"}</button>
                                 </div>
                             </form>
                         </div>
@@ -696,6 +696,49 @@ const ListingPage = ({ category, onOpenModal }) => {
                 <div className="mt-20 md:mt-32">
                     <LeadForm title={t.listing.missing} subtitle={t.listing.missingSub} />
                 </div>
+                
+                {/* АНАЛИТИКА (Guide) НА СТРАНИЦЕ КАТАЛОГА */}
+                <div className="mt-16 md:mt-24 text-left">
+                    <div className="bg-[#C5A059] rounded-sm p-6 md:p-10 lg:p-16 text-white flex flex-col lg:flex-row items-center gap-8 lg:gap-12 relative overflow-hidden text-left">
+                        <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none hidden md:block"><Globe size={300} className="translate-x-1/2 -translate-y-1/4 lg:w-[400px] lg:h-[400px]" /></div>
+                        <div className="w-full lg:w-2/3 relative z-10 text-left">
+                            <h3 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 lining-nums">{t.guide.title}</h3>
+                            <p className="mb-6 md:mb-10 opacity-90 text-sm md:text-lg leading-relaxed max-w-lg font-raleway text-left">{t.guide.desc}</p>
+                            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+                                <input type="email" placeholder={t.guide.email} className="bg-white/20 border border-white/30 p-4 md:p-5 px-5 md:px-6 outline-none placeholder:text-white/60 flex-grow text-white font-montserrat rounded-sm transition-all focus:bg-white/30 text-sm" />
+                                <button type="button" className="btn-premium !bg-[#121212] !text-white whitespace-nowrap !py-4 px-8 md:px-12 uppercase tracking-widest font-bold text-xs w-full sm:w-auto">
+                                    <span className="flex items-center justify-center gap-2 md:gap-3">{t.guide.btn} <Download size={14} className="md:w-4 md:h-4" /></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div className="w-full lg:w-1/3 flex justify-center relative h-64 md:h-80 mt-8 lg:mt-0 hidden sm:flex">
+                            <div className="absolute w-40 md:w-48 h-56 md:h-64 bg-[#121212] shadow-2xl border-4 border-white/10 p-5 md:p-6 flex flex-col justify-between z-10 -rotate-12 translate-x-[-20px] md:translate-x-[-40px] overflow-hidden group">
+                                <div className="absolute inset-0 z-0">
+                                    <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black/80 z-10"></div>
+                                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=400" className="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700" alt="Guide Cover" />
+                                </div>
+                                <div className="relative z-20 flex flex-col h-full justify-between">
+                                    <span className="text-[6px] md:text-[7px] gold-text uppercase font-bold">Guide 2026</span>
+                                    <h5 className="font-cormorant text-sm md:text-base font-bold">Top Locations</h5>
+                                </div>
+                            </div>
+                            <div className="absolute w-44 md:w-52 h-64 md:h-72 bg-[#121212] shadow-2xl border-8 border-white p-6 md:p-8 flex flex-col justify-between z-30 rotate-3 translate-x-[20px] md:translate-x-0 overflow-hidden group">
+                                <div className="absolute inset-0 z-0">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/70 z-10"></div>
+                                    <img src="https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?auto=format&fit=crop&q=80&w=400" className="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700" alt="Guide Cover 2" />
+                                </div>
+                                <div className="relative z-20 flex flex-col h-full justify-between">
+                                    <div className="flex flex-col gap-2">
+                                        <span className="text-[8px] md:text-[10px] gold-text uppercase font-bold tracking-[0.2em] md:tracking-[0.3em]">Alpha Star</span>
+                                        <h5 className="font-cormorant text-xl md:text-2xl leading-tight lining-nums font-bold">Dubai 2026</h5>
+                                    </div>
+                                    <div className="h-0.5 w-10 md:w-12 gold-bg"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     );
@@ -751,6 +794,7 @@ const BlogPage = () => {
                             <div className="text-left order-2 md:order-none">
                                 <div className="flex flex-wrap items-center gap-3 md:gap-4 mb-3 md:mb-4">
                                     <span className="gold-text font-bold text-[8px] md:text-[9px] uppercase tracking-widest block">{t.nav.blog}</span>
+                                    <span className="text-gray-400 flex items-center gap-1 text-[8px] md:text-[9px] uppercase font-bold tracking-widest"><Calendar size={12} /> {post.date}</span>
                                 </div>
                                 <Link to={`/blog/${post.id}`} className="block">
                                     <h4 className="font-cormorant text-3xl font-bold mb-4 md:mb-6 group-hover:text-[#C5A059] transition-colors">{post.title}</h4>
@@ -1015,16 +1059,28 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                         </div>
                     </div>
                     <div className="w-full lg:w-1/3 flex justify-center relative h-64 md:h-80 mt-8 lg:mt-0 hidden sm:flex">
-                        <div className="absolute w-40 md:w-48 h-56 md:h-64 bg-[#121212] shadow-2xl border-4 border-white/10 p-5 md:p-6 flex flex-col justify-between z-10 -rotate-12 translate-x-[-20px] md:translate-x-[-40px]">
-                            <span className="text-[6px] md:text-[7px] gold-text uppercase font-bold">Guide 2026</span>
-                            <h5 className="font-cormorant text-sm md:text-base font-bold">Top Locations</h5>
-                        </div>
-                        <div className="absolute w-44 md:w-52 h-64 md:h-72 bg-[#121212] shadow-2xl border-8 border-white p-6 md:p-8 flex flex-col justify-between z-30 rotate-3 translate-x-[20px] md:translate-x-0">
-                            <div className="flex flex-col gap-2">
-                                <span className="text-[8px] md:text-[10px] gold-text uppercase font-bold tracking-[0.2em] md:tracking-[0.3em]">Alpha Star</span>
-                                <h5 className="font-cormorant text-xl md:text-2xl leading-tight lining-nums font-bold">Dubai 2026</h5>
+                        <div className="absolute w-40 md:w-48 h-56 md:h-64 bg-[#121212] shadow-2xl border-4 border-white/10 p-5 md:p-6 flex flex-col justify-between z-10 -rotate-12 translate-x-[-20px] md:translate-x-[-40px] overflow-hidden group">
+                            <div className="absolute inset-0 z-0">
+                                <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black/80 z-10"></div>
+                                <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=400" className="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700" alt="Guide Cover" />
                             </div>
-                            <div className="h-0.5 w-10 md:w-12 gold-bg"></div>
+                            <div className="relative z-20 flex flex-col h-full justify-between">
+                                <span className="text-[6px] md:text-[7px] gold-text uppercase font-bold">Guide 2026</span>
+                                <h5 className="font-cormorant text-sm md:text-base font-bold">Top Locations</h5>
+                            </div>
+                        </div>
+                        <div className="absolute w-44 md:w-52 h-64 md:h-72 bg-[#121212] shadow-2xl border-8 border-white p-6 md:p-8 flex flex-col justify-between z-30 rotate-3 translate-x-[20px] md:translate-x-0 overflow-hidden group">
+                            <div className="absolute inset-0 z-0">
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/70 z-10"></div>
+                                <img src="https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?auto=format&fit=crop&q=80&w=400" className="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700" alt="Guide Cover 2" />
+                            </div>
+                            <div className="relative z-20 flex flex-col h-full justify-between">
+                                <div className="flex flex-col gap-2">
+                                    <span className="text-[8px] md:text-[10px] gold-text uppercase font-bold tracking-[0.2em] md:tracking-[0.3em]">Alpha Star</span>
+                                    <h5 className="font-cormorant text-xl md:text-2xl leading-tight lining-nums font-bold">Dubai 2026</h5>
+                                </div>
+                                <div className="h-0.5 w-10 md:w-12 gold-bg"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
