@@ -5,12 +5,14 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { 
   Heart, Home as HomeIcon, TrendingUp, Coins, Globe, Download, 
   MapPin, Phone, Mail, MessageCircle, ChevronDown, 
-  ShieldCheck, Search, FileCheck, Key, ArrowRight, Star, 
+  ShieldCheck, Search, FileCheck, Key, ArrowRight, Quote, Star, 
   Calendar, Clock, ArrowLeft, Menu, X, ArrowUp
 } from 'lucide-react';
 
 // --- СТИЛИ ---
 const styles = `
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap');
+
     :root { --color-gold: #C5A059; --color-gold-dark: #A67C37; --color-dark: #121212; }
     body { font-family: 'Raleway', sans-serif; background-color: #ffffff; color: var(--color-dark); overflow-x: hidden; }
     .font-cormorant { font-family: 'Cormorant Garamond', serif; }
@@ -28,6 +30,7 @@ const styles = `
     .btn-premium::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: 0.6s; }
     .btn-premium:hover::after { left: 100%; }
     .btn-premium:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(197, 160, 89, 0.3); }
+    
     .nav-item { position: relative; padding: 20px 0; }
     .nav-dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(15px); background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); border: 1px solid rgba(197, 160, 89, 0.2); min-width: 260px; opacity: 0; visibility: hidden; transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1); box-shadow: 0 20px 40px rgba(0,0,0,0.1); padding: 15px 0; z-index: 500; }
     .nav-item:hover .nav-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
@@ -35,19 +38,19 @@ const styles = `
     .dropdown-link:hover { color: var(--color-gold); background: rgba(197, 160, 89, 0.05); padding-left: 30px; }
     .dropdown-special-btn { background: var(--color-gold); color: white !important; margin: 10px 20px 0; text-align: center; font-size: 9px; padding: 12px; border-radius: 2px; }
     .dropdown-special-btn:hover { background: var(--color-gold-dark); transform: translateY(-2px); }
+
     input[type="range"] { -webkit-appearance: none; width: 100%; height: 6px; background: #f1f1f1; border-radius: 5px; outline: none; }
     input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; background: linear-gradient(135deg, var(--color-gold), var(--color-gold-dark)); cursor: pointer; border-radius: 50%; border: 2px solid #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.2); margin-top: -9px; transition: transform 0.2s; }
     input[type="range"]:active::-webkit-slider-thumb { transform: scale(1.15); }
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #f1f1f1; }
     ::-webkit-scrollbar-thumb { background: var(--color-gold); border-radius: 10px; }
-    .seo-article h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; color: #121212; margin-top: 2rem; margin-bottom: 1rem; line-height: 1.3; }
-    @media (min-width: 768px) { .seo-article h3 { font-size: 1.75rem; margin-top: 2.5rem; margin-bottom: 1.25rem; } }
-    .seo-article p { margin-bottom: 1.5rem; line-height: 1.8; color: #4b5563; font-size: 1rem; }
-    @media (min-width: 768px) { .seo-article p { font-size: 1.05rem; } }
-    .seo-article ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 2rem; color: #4b5563; font-size: 1rem; }
-    @media (min-width: 768px) { .seo-article ul { font-size: 1.05rem; } }
-    .seo-article li { margin-bottom: 0.75rem; }
+
+    /* Поля для SEO-статей */
+    .seo-article h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 700; color: #121212; margin-top: 2.5rem; margin-bottom: 1.25rem; line-height: 1.3; }
+    .seo-article p { margin-bottom: 1.5rem; line-height: 1.8; color: #4b5563; font-size: 1.05rem; }
+    .seo-article ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 2rem; color: #4b5563; font-size: 1.05rem; }
+    .seo-article li { margin-bottom: 0.75rem; line-height: 1.6; }
     .seo-article strong { color: #121212; font-weight: 700; }
 `;
 
@@ -60,7 +63,7 @@ const translations = {
         awards: { top: 'Наши награды', title: 'Признание на высшем уровне' },
         strategy: { top: 'Наша стратегия', title: 'Два вектора успеха', card1Title: 'Дом для вашей семьи', card1Desc: 'Подбор районов от $300,000 с фокусом на инфраструктуру, лучшие школы и безопасность. Мы найдем место, которое вы назовете домом.', card1Btn: 'Подобрать локацию', card2Title: 'Инвестиционный капитал', card2Desc: 'Стратегии от $300,000. Формируем арендный доход и капитализацию объектов в самых ликвидных зонах Дубая.', card2Btn: 'Инвест-пакеты' },
         process: { top: 'Нас выбирают', title: 'Контроль на каждом этапе' },
-        deals: { title: 'Реальные сделки', private: 'Private', conf: 'Confidential Asset', roi: 'Total ROI', entry: 'Вход (Ланч)', exit: 'Выход (Продажа)', cycle: 'Цикл завершен', reqBtn: 'Запросить детали' },
+        deals: { title: 'Реальные сделки', private: 'Private', conf: 'Confidential Asset', roi: 'ROI (Годовых)', entry: 'Вход (Ланч)', exit: 'Выход (Продажа)', cycle: 'Цикл завершен', reqBtn: 'Запросить детали' },
         calc: { top: 'Расчет прибыли', title: 'Рассчитайте параметры успеха', invest: 'Инвестиции ($)', roi: 'ROI (Прогноз)', profit: 'Прибыль', term: 'Срок', stOffplan: 'Новостройки', stRental: 'Аренда', stFlip: 'Перепродажа' },
         guide: { top: 'Guide 2026', title: 'Аналитический отчет 2026', desc: 'Узнайте, какие районы Дубая покажут рост в 25% за следующий год и как избежать типичных ошибок при покупке.', email: 'Ваш Email', btn: 'Получить гайд' },
         testim: { title: 'Что говорят наши клиенты', more: 'Развернуть больше' },
@@ -84,7 +87,7 @@ const translations = {
         awards: { top: 'Our Awards', title: 'Top-tier Recognition' },
         strategy: { top: 'Our Strategy', title: 'Two Vectors of Success', card1Title: 'A Home for Your Family', card1Desc: 'Selection of areas from $300,000 focusing on infrastructure, top schools, and safety. We will find a place you can call home.', card1Btn: 'Find a Location', card2Title: 'Investment Capital', card2Desc: 'Strategies from $300,000. We generate rental income and capital appreciation in Dubai\'s most liquid zones.', card2Btn: 'Investment Packages' },
         process: { top: 'Why Choose Us', title: 'Control at Every Stage' },
-        deals: { title: 'Real Deals', private: 'Private', conf: 'Confidential Asset', roi: 'Total ROI', entry: 'Entry (Launch)', exit: 'Exit (Sale)', cycle: 'Deal Completed', reqBtn: 'Request Details' },
+        deals: { title: 'Real Deals', private: 'Private', conf: 'Confidential Asset', roi: 'Annual ROI', entry: 'Entry', exit: 'Exit', cycle: 'Deal Completed', reqBtn: 'Request Details' },
         calc: { top: 'Profit Calculation', title: 'Calculate Your Success', invest: 'Investment ($)', roi: 'ROI (Forecast)', profit: 'Profit', term: 'Term', stOffplan: 'Off-plan', stRental: 'Rental', stFlip: 'Flipping' },
         guide: { top: 'Guide 2026', title: '2026 Analytical Report', desc: 'Find out which Dubai areas will show a 25% growth next year and how to avoid typical buying mistakes.', email: 'Your Email', btn: 'Get the Guide' },
         testim: { title: 'What Our Clients Say', more: 'Show More' },
@@ -113,7 +116,7 @@ const getSeoData = (lang) => ({
     invest: { title: lang==='RU'?"Инвестиции в недвижимость Дубая":"Investments in Dubai Real Estate", heading: lang==='RU'?"Инвестиционные пакеты":"Investment Packages", subtitle: lang==='RU'?"Высокодоходные активы с гарантированным ROI.":"High-yield assets with guaranteed ROI." },
     plots: { title: lang==='RU'?"Участки под застройку":"Plots for Development", heading: lang==='RU'?"Участки под застройку":"Development Plots", subtitle: lang==='RU'?"Земля в престижных локациях.":"Land in prestigious locations." },
     distress: { title: lang==='RU'?"Дистресс недвижимость":"Distress Deals", heading: lang==='RU'?"Дистресс-активы":"Distress Deals", subtitle: lang==='RU'?"Срочные продажи недвижимости ниже рыночной стоимости.":"Urgent property sales below market value." },
-    apartments_rent: { title: lang==='RU'?"Аренда апартаментов":"Apartments for Rent", heading: lang==='RU'?"Аренда апартаментов":"Apartments for Rent", subtitle: lang==='RU'?"Долгосрочная аренда в премиальных локациях.":"Long-term rental in premium locations." },
+    apartments_rent: { title: lang==='RU'?"Аренда апартаментов":"Apartments for Rent", heading: lang==='RU'?"Аренда апартаментов":"Apartments for Rent", subtitle: lang==='RU'?"Долгосро аренда в премиальных локациях.":"Long-term rental in premium locations." },
 });
 
 const getSteps = (lang) => [
@@ -124,10 +127,11 @@ const getSteps = (lang) => [
 ];
 
 const getCaseStudies = (lang) => [
-    { img: "./images/case1.png", roi: '120-200%', location: 'Bluewaters Island', title: 'BLUEWATERS RESIDENCES', project: lang==='RU'?'1 BEDROOM (РАЙОН)':'1 BEDROOM (AREA)', launch: '1.9М — 2.2М AED', now: '4.7М — 6.8М AED' },
-    { img: "./images/case2.png", roi: '60-70%', location: 'Dubai Hills Estate', title: 'ELLINGTON HOUSE', project: lang==='RU'?'3 BEDROOM (ПРОЕКТ)':'3 BEDROOM (PROJECT)', launch: '3.3М — 4.0М AED', now: '5.5М — 6.5М AED' },
-    { img: "./images/case3.png", roi: '90-120%', location: 'Emaar Beachfront', title: 'BEACH ISLE', project: lang==='RU'?'3 BEDROOM (ПРОЕКТ)':'3 BEDROOM (PROJECT)', launch: '4.5М AED', now: '8.5М — 10.3М AED' },
-    { img: "./images/case4.png", roi: '70%', location: 'JVC', title: 'BINGHATTI CORNER', project: lang==='RU'?'1 BEDROOM (ПРОЕКТ)':'1 BEDROOM (PROJECT)', launch: '600,000 AED', now: '1М AED' }
+    { img: "./images/case1.png", roi: '25%', location: 'Bluewaters Island', title: 'BLUEWATERS RESIDENCES', project: lang==='RU'?'1 BEDROOM (РАЙОН)':'1 BEDROOM (AREA)', launchTitle: lang==='RU'?'Вход (Ланч 2018)':'Entry (Launch 2018)', launch: '1.9М — 2.2М AED', nowTitle: lang==='RU'?'Выход (Продажа 2025)':'Exit (Sale 2025)', now: '4.7М — 6.8М AED' },
+    { img: "./images/case2.png", roi: '21%', location: 'Dubai Hills Estate', title: 'ELLINGTON HOUSE', project: lang==='RU'?'3 BEDROOM (ПРОЕКТ)':'3 BEDROOM (PROJECT)', launchTitle: lang==='RU'?'Вход (Ланч 2022)':'Entry (Launch 2022)', launch: '3.3М — 4.0М AED', nowTitle: lang==='RU'?'Выход (Продажа 2025)':'Exit (Sale 2025)', now: '5.5М — 6.5М AED' },
+    { img: "./images/case3.png", roi: '22%', location: 'Emaar Beachfront', title: 'BEACH ISLE', project: lang==='RU'?'3 BEDROOM (ПРОЕКТ)':'3 BEDROOM (PROJECT)', launchTitle: lang==='RU'?'Вход (Ланч 2020)':'Entry (Launch 2020)', launch: '4.5М AED', nowTitle: lang==='RU'?'Выход (Продажа 2025)':'Exit (Sale 2025)', now: '8.5М — 10.3М AED' },
+    { img: "./images/case4.png", roi: '20%', location: 'JVC', title: 'BINGHATTI CORNER', project: lang==='RU'?'1 BEDROOM (ПРОЕКТ)':'1 BEDROOM (PROJECT)', launchTitle: lang==='RU'?'Вход (Ланч 2022)':'Entry (Launch 2022)', launch: '600,000 AED', nowTitle: lang==='RU'?'Выход (Продажа 2025)':'Exit (Sale 2025)', now: '1М AED' },
+    { img: "./images/case5.png", roi: '18%', location: 'Dubai Creek Harbour', title: 'DUBAI CREEK HARBOUR', project: lang==='RU'?'2 BEDROOM (РАЙОН)':'2 BEDROOM (AREA)', launchTitle: lang==='RU'?'Вход (Ланч 2019)':'Entry (Launch 2019)', launch: '1.3M — 1.7M AED', nowTitle: lang==='RU'?'Выход (Продажа 2025)':'Exit (Sale 2025)', now: '2.5М — 3.3M AED' }
 ];
 
 const getTestimonials = (lang) => [
@@ -219,7 +223,6 @@ const categoryImages = {
     ]
 };
 
-
 // --- КОНТЕКСТ ЛОКАЛИЗАЦИИ ---
 const LanguageContext = createContext();
 
@@ -233,7 +236,6 @@ const LanguageProvider = ({ children }) => {
     );
 };
 const useLang = () => useContext(LanguageContext);
-
 
 // --- КОМПОНЕНТЫ ---
 const LanguageSwitcher = () => {
@@ -548,62 +550,55 @@ const StarField = () => {
     return <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none opacity-40"></canvas>;
 };
 
+// ОБНОВЛЕННЫЙ ПРЕМИАЛЬНЫЙ ПРЕЛОАДЕР
 const Preloader = ({ onFinish }) => {
-    const [phase, setPhase] = useState(0);
     const [isVisible, setIsVisible] = useState(true);
 
     useEffect(() => {
-        const t1 = setTimeout(() => setPhase(1), 100);
-        const t2 = setTimeout(() => setPhase(2), 900);
-        const t3 = setTimeout(() => setIsVisible(false), 2400); 
-        const t4 = setTimeout(() => onFinish(), 3400); 
-        return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); };
+        const hideTimer = setTimeout(() => setIsVisible(false), 2400);
+        const finishTimer = setTimeout(() => onFinish(), 3400); 
+        return () => { clearTimeout(hideTimer); clearTimeout(finishTimer); };
     }, [onFinish]);
 
     return (
         <AnimatePresence>
             {isVisible && (
-                <motion.div 
-                    initial={{ y: 0 }}
-                    exit={{ y: "-100%", transition: { duration: 1, ease: [0.82, 0, 0.18, 1] } }}
-                    className="fixed inset-0 z-[9999] bg-[#0A0A0A] flex items-center justify-center"
+                <motion.div
+                    initial={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+                    className="fixed inset-0 z-[9999] bg-[#0A0A0A] flex flex-col items-center justify-center overflow-hidden"
                 >
                     <motion.div 
-                        exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.4 } }}
-                        className="relative z-10 text-center px-6 flex flex-col items-center"
-                    >
-                        <div className="font-cormorant text-3xl md:text-6xl font-bold uppercase text-white tracking-[0.3em] md:tracking-[0.4em] mb-2 flex justify-center overflow-hidden">
-                            {"ALPHASTAR".split('').map((char, i) => (
-                                <motion.span 
-                                    key={i} 
-                                    initial={{ opacity: 0, filter: 'blur(12px)', y: 40, rotateX: -90 }}
-                                    animate={phase >= 1 ? { opacity: 1, filter: 'blur(0px)', y: 0, rotateX: 0 } : {}}
-                                    transition={{ duration: 0.8, delay: i * 0.08, ease: [0.19, 1, 0.22, 1] }}
-                                    className={`inline-block ${i > 4 ? 'text-[#C5A059]' : ''}`}
-                                    style={{ transformOrigin: "bottom" }}
-                                >
-                                    {char}
-                                </motion.span>
-                            ))}
-                        </div>
-                        
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 0.15, scale: 1 }}
+                        transition={{ duration: 2, ease: "easeOut" }}
+                        className="absolute w-[300px] h-[300px] bg-[#C5A059] rounded-full blur-[100px] pointer-events-none"
+                    />
+                    <div className="relative z-10 flex flex-col items-center">
                         <motion.div 
-                            initial={{ width: 0, opacity: 0 }}
-                            animate={phase >= 2 ? { width: '140px', opacity: 1 } : {}}
-                            transition={{ duration: 1, ease: [0.65, 0, 0.35, 1] }}
-                            className="h-px mx-auto mt-4 md:mt-6 md:!w-[180px]"
-                            style={{ background: 'linear-gradient(90deg, transparent, #C5A059, transparent)', boxShadow: '0 0 15px rgba(197, 160, 89, 0.4)' }}
+                            initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
+                            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+                            className="font-cormorant text-4xl md:text-6xl font-bold uppercase tracking-[0.2em] text-white flex gap-3"
+                        >
+                            <span>ALPHA</span><span className="gold-text">STAR</span>
+                        </motion.div>
+                        <motion.div 
+                            initial={{ scaleX: 0 }} 
+                            animate={{ scaleX: 1 }} 
+                            transition={{ duration: 1.5, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                            className="h-px w-[160px] md:w-[240px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent mt-5 mb-4 origin-center"
                         />
-                        
                         <motion.div 
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={phase >= 2 ? { opacity: 1, y: 0 } : {}}
-                            transition={{ duration: 1 }}
-                            className="text-[7px] md:text-[8px] tracking-[2em] ml-2 md:ml-3 text-white/30 mt-6 md:mt-8 uppercase font-bold"
+                            initial={{ opacity: 0, letterSpacing: "0em" }} 
+                            animate={{ opacity: 1, letterSpacing: "0.8em" }} 
+                            transition={{ duration: 1.2, delay: 0.8, ease: "easeOut" }}
+                            className="text-[8px] md:text-[10px] text-white/40 uppercase font-bold ml-2"
                         >
                             Properties
                         </motion.div>
-                    </motion.div>
+                    </div>
                 </motion.div>
             )}
         </AnimatePresence>
@@ -991,7 +986,7 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                 </div>
             </section>
 
-            {/* 5. КЕЙСЫ */}
+            {/* 5. КЕЙСЫ ДОСЬЕ */}
             <section id="real-deals" className="py-20 lg:py-32 bg-[#FBFBFB] px-5 md:px-8 overflow-hidden text-left">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-12 md:mb-24 text-center">
@@ -1013,21 +1008,25 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                                         </div>
                                         <div className="sm:text-right bg-gray-50 sm:bg-transparent p-4 sm:p-0 rounded-sm flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-start">
                                             <span className="text-[8px] md:text-[9px] uppercase font-bold text-gray-400 tracking-widest block sm:mb-1">{t.deals.roi}</span>
-                                            <span className="text-xl md:text-2xl lg:text-3xl font-montserrat font-bold gold-text lining-nums">{item.roi}</span>
+                                            <span className="text-xl md:text-2xl lg:text-3xl font-montserrat font-bold gold-text lining-nums whitespace-nowrap">{item.roi}</span>
                                         </div>
                                     </div>
+                                    
                                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-8 md:mb-12 bg-gray-50/50 p-4 md:p-6 border border-gray-50 rounded-sm">
                                         <div className="flex-1 w-full flex justify-between sm:block">
-                                            <span className="text-[8px] md:text-[9px] uppercase font-bold text-gray-400 tracking-widest block mb-1 sm:mb-2">{t.deals.entry}</span>
-                                            <span className="text-sm md:text-lg lg:text-xl font-montserrat font-bold text-[#121212] lining-nums">{item.launch}</span>
+                                            <span className="text-[8px] md:text-[9px] uppercase font-bold text-gray-400 tracking-widest block mb-1 sm:mb-2">{item.launchTitle || t.deals.entry}</span>
+                                            <span className="text-sm md:text-lg lg:text-xl font-montserrat font-bold text-[#121212] lining-nums whitespace-nowrap">{item.launch}</span>
                                         </div>
-                                        <div className="hidden sm:block w-8 md:w-16 lg:w-24 h-px bg-gray-300 relative mx-2"><div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 border-t border-r border-[#C5A059] rotate-45"></div></div>
+                                        <div className="hidden sm:block w-8 md:w-16 lg:w-24 h-px bg-gray-300 relative mx-2">
+                                            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 border-t border-r border-[#C5A059] rotate-45"></div>
+                                        </div>
                                         <div className="w-full sm:hidden h-px bg-gray-200 my-1"></div>
                                         <div className="flex-1 w-full sm:text-right md:text-left flex justify-between sm:block">
-                                            <span className="text-[8px] md:text-[9px] uppercase font-bold gold-text tracking-widest block mb-1 sm:mb-2">{t.deals.exit}</span>
-                                            <span className="text-sm md:text-lg lg:text-xl font-montserrat font-bold text-[#121212] lining-nums">{item.now}</span>
+                                            <span className="text-[8px] md:text-[9px] uppercase font-bold gold-text tracking-widest block mb-1 sm:mb-2">{item.nowTitle || t.deals.exit}</span>
+                                            <span className="text-sm md:text-lg lg:text-xl font-montserrat font-bold text-[#121212] lining-nums whitespace-nowrap">{item.now}</span>
                                         </div>
                                     </div>
+                                    
                                     <div className="mt-auto pt-4 md:pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                                         <span className="text-[9px] md:text-[10px] text-gray-400 uppercase tracking-widest font-bold flex items-center gap-2"><ShieldCheck size={14} className="text-[#C5A059] flex-shrink-0" /> {t.deals.cycle}</span>
                                         <button type="button" onClick={onOpenModal} className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-[#121212] hover:text-[#C5A059] border-b border-[#121212] hover:border-[#C5A059] pb-1 transition-all flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-start">{t.deals.reqBtn} <ArrowRight size={14} /></button>
@@ -1339,7 +1338,19 @@ const AppContent = () => {
                         <div className="lg:col-span-4 space-y-6 md:space-y-8 text-left">
                             <h6 className="font-montserrat text-[9px] md:text-[10px] font-bold uppercase tracking-[0.4em] md:tracking-[0.5em] gold-text">{t.footer.contacts}</h6>
                             <div className="space-y-5 md:space-y-6 text-left">
-                                <div className="flex items-start gap-4 text-left"><MapPin className="gold-text mt-1 flex-shrink-0" size={18} /><p className="text-white/60 text-[10px] md:text-xs font-medium uppercase tracking-wider text-left">EMAAR Business Park - Building 4<br/>Office 112, Floor 1, Dubai</p></div>
+                                <div className="flex items-start gap-4 text-left">
+                                    <MapPin className="gold-text mt-1 flex-shrink-0" size={18} />
+                                    <div className="space-y-3">
+                                        <p className="text-white/60 text-[10px] md:text-xs font-medium uppercase tracking-wider text-left">
+                                            <span className="text-[#C5A059] block mb-1 text-[8px] md:text-[9px]">Офис в Дубае:</span>
+                                            EMAAR Business Park - Building 4<br/>Office 112, Floor 1, Dubai
+                                        </p>
+                                        <p className="text-white/60 text-[10px] md:text-xs font-medium uppercase tracking-wider text-left">
+                                            <span className="text-[#C5A059] block mb-1 text-[8px] md:text-[9px]">Офис в Москве:</span>
+                                            ЗАО, район Можайский,<br/>метро Кунцевская
+                                        </p>
+                                    </div>
+                                </div>
                                 <div className="flex items-center gap-4 group cursor-pointer text-left"><Phone className="gold-text flex-shrink-0" size={18} /><p className="text-white font-montserrat font-bold text-lg md:text-xl tracking-tighter group-hover:text-[#C5A059] transition-colors text-left">+971 52 120 8414</p></div>
                                 <div className="flex items-center gap-4 group cursor-pointer text-left"><Mail className="gold-text flex-shrink-0" size={18} /><p className="text-white/60 font-bold uppercase text-[9px] md:text-[10px] tracking-[0.2em] md:tracking-[0.3em] group-hover:text-white transition-colors text-left break-all">sales@alphastardubai.ae</p></div>
                             </div>
