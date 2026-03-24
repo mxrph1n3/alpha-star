@@ -11,45 +11,90 @@ import {
 
 // --- СТИЛИ ---
 const styles = `
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Raleway:wght@300;400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap');
 
-    :root { --color-gold: #C5A059; --color-gold-dark: #A67C37; --color-dark: #121212; }
-    
+    :root {
+        --color-gold: #C5A059;
+        --color-gold-dark: #A67C37;
+        --color-dark: #121212;
+    }
+
     /* ПРИНУДИТЕЛЬНО РОВНЫЕ ЦИФРЫ ДЛЯ ВСЕГО САЙТА */
     *, *::before, *::after {
         font-variant-numeric: lining-nums tabular-nums;
         font-feature-settings: "lnum" 1, "tnum" 1;
     }
 
-    body { 
-        font-family: 'Raleway', sans-serif; 
-        background-color: #ffffff; 
-        color: var(--color-dark); 
-        overflow-x: hidden; 
+    body {
+        font-family: 'Raleway', sans-serif;
+        background-color: #ffffff;
+        color: var(--color-dark);
+        overflow-x: hidden;
         font-variant-numeric: lining-nums;
         font-feature-settings: "lnum" 1;
     }
-    
+
     .font-cormorant { font-family: 'Cormorant Garamond', serif; }
     .font-montserrat { font-family: 'Montserrat', sans-serif; }
-    .font-playfair { font-family: 'Playfair Display', serif; }
     
     .gold-text { color: var(--color-gold) !important; }
     .gold-bg { background-color: var(--color-gold) !important; }
     .lining-nums { font-variant-numeric: lining-nums tabular-nums; font-feature-settings: "lnum" 1, "tnum" 1; }
+
     .hero-mask { clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%); }
-    .premium-underline { position: absolute; bottom: 8px; left: 0; right: 0; height: 3px; background-color: rgba(197, 160, 89, 0.6); transform-origin: left; }
+    .premium-underline {
+        position: absolute;
+        bottom: 8px;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background-color: rgba(197, 160, 89, 0.6);
+        transform-origin: left;
+    }
+
     .strategy-card { transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
     .strategy-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px -12px rgba(197, 160, 89, 0.25); }
+    
     .control-card { transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
     .control-card:hover { background-color: rgba(255, 255, 255, 0.1); transform: translateY(-8px); border-color: var(--color-gold); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); }
-    .btn-premium { position: relative; overflow: hidden; transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1); display: inline-block; text-align: center; }
-    .btn-premium::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: 0.6s; }
+
+    .btn-premium { 
+        position: relative; 
+        overflow: hidden; 
+        transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1); 
+        display: inline-block; 
+        text-align: center; 
+    }
+    .btn-premium::after { 
+        content: ''; 
+        position: absolute; 
+        top: 0; 
+        left: -100%; 
+        width: 100%; 
+        height: 100%; 
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); 
+        transition: 0.6s; 
+    }
     .btn-premium:hover::after { left: 100%; }
     .btn-premium:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(197, 160, 89, 0.3); }
-    
+
     .nav-item { position: relative; padding: 20px 0; }
-    .nav-dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(15px); background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); border: 1px solid rgba(197, 160, 89, 0.2); min-width: 260px; opacity: 0; visibility: hidden; transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1); box-shadow: 0 20px 40px rgba(0,0,0,0.1); padding: 15px 0; z-index: 500; }
+    .nav-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(15px);
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(197, 160, 89, 0.2);
+        min-width: 260px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        padding: 15px 0;
+        z-index: 500;
+    }
     .nav-item:hover .nav-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
     .dropdown-link { display: block; padding: 10px 25px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #4b5563; transition: all 0.3s ease; cursor: pointer; text-align: left; }
     .dropdown-link:hover { color: var(--color-gold); background: rgba(197, 160, 89, 0.05); padding-left: 30px; }
@@ -64,10 +109,15 @@ const styles = `
     ::-webkit-scrollbar-thumb { background: var(--color-gold); border-radius: 10px; }
 
     /* Поля для SEO-статей */
-    .seo-article h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 700; color: #121212; margin-top: 2.5rem; margin-bottom: 1.25rem; line-height: 1.3; }
-    .seo-article p { margin-bottom: 1.5rem; line-height: 1.8; color: #4b5563; font-size: 1.05rem; }
-    .seo-article ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 2rem; color: #4b5563; font-size: 1.05rem; }
-    .seo-article li { margin-bottom: 0.75rem; leading-relaxed; }
+    .seo-article h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; color: #121212; margin-top: 2rem; margin-bottom: 1rem; line-height: 1.3; }
+    @media (min-width: 768px) {
+        .seo-article h3 { font-size: 1.75rem; margin-top: 2.5rem; margin-bottom: 1.25rem; }
+    }
+    .seo-article p { margin-bottom: 1.5rem; line-height: 1.8; color: #4b5563; font-size: 1rem; }
+    @media (min-width: 768px) { .seo-article p { font-size: 1.05rem; } }
+    .seo-article ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 2rem; color: #4b5563; font-size: 1rem; }
+    @media (min-width: 768px) { .seo-article ul { font-size: 1.05rem; } }
+    .seo-article li { margin-bottom: 0.75rem; }
     .seo-article strong { color: #121212; font-weight: 700; }
 `;
 
@@ -86,7 +136,7 @@ const translations = {
         testim: { title: 'Что говорят наши клиенты', more: 'Развернуть больше' },
         faq: { top: 'FAQ', title: 'Вопросы и ответы' },
         form: { title: 'Связаться с нами', subtitle: 'Сценарий вашей прибыли: от выбора объекта до выхода из сделки', name: 'Ваше имя', email: 'Ваш Email', phone: 'Телефон / WhatsApp', goal: 'Цель запроса', selGoal: 'Выберите цель', btn: 'Отправить заявку', goals: ['Переезд / Релокация', 'Инвестиции', 'Управление недвижимостью'], consent: 'Я соглашаюсь получать информацию о предложениях, сделках и услугах с этого веб-сайта (по желанию) и принимаю Политику конфиденциальности.' },
-        autoPopup: { title: 'Инвестируете в Дубай?', subtitle: 'Оставьте номер, и наш эксперт перезвонит, чтобы рассказать о скрытых жемчужинах рынка.', btn: 'Жду звонка' },
+        autoPopup: { title: 'Инвестируете в Дубай?', subtitle: 'Оставьте контакты, и наш эксперт свяжется с вами, чтобы рассказать о скрытых жемчужинах рынка.', btn: 'Жду звонка' },
         mortgage: { title: 'Ипотека для нерезидентов в ОАЭ', desc: 'Официальное финансирование до 50% от стоимости объекта. Процентная ставка от 4.5% годовых. Минимальный пакет документов. Мы полностью берем на себя процесс одобрения кредита (Mortgage Approval) в ведущих банках Дубая.', btn: 'Рассчитать ипотеку', hideBtn: 'Скрыть анкету', formTitle: 'Заявка на ипотеку', formSub: 'Оставьте данные, и наш ипотечный брокер свяжется с вами для расчета платежей' },
         valPage: { top: 'Property Valuation', heading: 'Оценка вашей недвижимости', subtitle: 'Наши аналитики подготовят точный отчет о рыночной стоимости вашего актива на основе актуальных транзакций Земельного Департамента Дубая.', name: 'Ваше имя', email: 'Ваш Email', loc: 'Локация / Комплекс', area: 'Площадь (Sq.ft) / Спален', phone: 'Телефон / WhatsApp', btn: 'Запросить оценку' },
         blog: { top: 'Блог', title: 'Блог Alpha Star', readBtn: 'Читать статью', notFound: 'Статья не найдена', back: 'Назад к статьям', ready: 'Готовы сделать шаг к успешным инвестициям?', reqBtn: 'Получить консультацию эксперта', imgText: 'Главное фото статьи' },
@@ -110,7 +160,7 @@ const translations = {
         testim: { title: 'What Our Clients Say', more: 'Show More' },
         faq: { top: 'FAQ', title: 'Questions & Answers' },
         form: { title: 'Contact Us', subtitle: 'Your profit scenario: from selecting an object to exiting the deal', name: 'Your Name', email: 'Your Email', phone: 'Phone / WhatsApp', goal: 'Inquiry Purpose', selGoal: 'Select Purpose', btn: 'Submit Request', goals: ['Relocation', 'Investments', 'Property Management'], consent: 'I agree to receive information about offers, deals, and services from this website (optional) and accept the Privacy Policy.' },
-        autoPopup: { title: 'Investing in Dubai?', subtitle: 'Leave your number and our expert will call you back to share hidden market gems.', btn: 'Call Me Back' },
+        autoPopup: { title: 'Investing in Dubai?', subtitle: 'Leave your contact info and our expert will call you back to share hidden market gems.', btn: 'Call Me Back' },
         mortgage: { title: 'Mortgage for Non-Residents in the UAE', desc: 'Official financing up to 50% of the property value. Interest rate from 4.5% per annum. Minimum document package. We fully handle the Mortgage Approval process in leading Dubai banks.', btn: 'Calculate Mortgage', hideBtn: 'Hide Form', formTitle: 'Mortgage Application', formSub: 'Leave your details, and our mortgage broker will contact you to calculate payments' },
         valPage: { top: 'Property Valuation', heading: 'Evaluate Your Property', subtitle: 'Our analysts will prepare an accurate report on the market value of your asset based on current Dubai Land Department transactions.', name: 'Your Name', email: 'Your Email', loc: 'Location / Complex', area: 'Area (Sq.ft) / Bedrooms', phone: 'Phone / WhatsApp', btn: 'Request Valuation' },
         blog: { top: 'Blog', title: 'Alpha Star Blog', readBtn: 'Read Article', notFound: 'Article not found', back: 'Back to Articles', ready: 'Ready to step into successful investments?', reqBtn: 'Get Expert Consultation', imgText: 'Article Main Photo' },
@@ -123,7 +173,7 @@ const translations = {
     }
 };
 
-// --- DATA ARRAYS ---
+// --- SEO КОНТЕНТ ---
 const seoData = {
     home: { title: "Элитная недвижимость в Дубае | Купить квартиру и виллу | Alpha Star", description: "Инвестиции в недвижимость Дубая. Элитные квартиры, виллы и таунхаусы. Сопровождение сделок Private Office, доступ к off-market лотам и высокая доходность (ROI)." },
     novostroyki: { title: "Новостройки Дубая от застройщика | Купить недвижимость Off-plan", heading: "Новостройки", subtitle: "Эксклюзивные предложения от топовых застройщиков ОАЭ.", seoText: "Покупка недвижимости на стадии строительства (Off-plan) — это один из самых надежных инструментов для получения максимальной доходности в Дубае. Прирост стоимости актива к моменту сдачи объекта может составлять от 20% до 50%." },
@@ -232,15 +282,15 @@ const getMockProps = (lang) => [
 ];
 
 const getBlogPosts = (lang) => lang === 'RU' ? [
-    { id: "dubai-market-2026", title: "Рынок недвижимости Дубая 2026: Главные прогнозы и тренды", date: "14 Октября, 2025", img: "./images/blog1.png", excerpt: "Узнайте, в каких районах ожидается максимальный рост капитала (ROI) и почему фокус смещается на Ultra-Luxury.", content: `<p>Вступая в 2026 год, многие задаются вопросом: сохранится ли двузначный рост стоимости активов? Разберем ключевые тренды.</p><h3>Смещение фокуса на Ultra-Luxury</h3><p>Спрос на элитную недвижимость со стороны HNWI бьет рекорды. Проекты от мировых брендов распродаются на пресейлах.</p><h3>Топ-3 района (ROI) в 2026 году</h3><ul><li><strong>Dubai Maritime City:</strong> Огромный потенциал для краткосрочной аренды.</li><li><strong>Dubai South:</strong> Лидеры по долгосрочной аренде (7.5% – 9.5% чистого ROI).</li><li><strong>Palm Jebel Ali:</strong> Флагманский мегапроект с гарантированной высокой капитализацией.</li></ul>` },
-    { id: "golden-visa-uae", title: "Как получить Золотую визу ОАЭ (Golden Visa) за инвестиции", date: "28 Сентября, 2025", img: "./images/blog2.png", excerpt: "Условия для инвесторов, налоги, порог входа и преимущества долгосрочного резидентства в 2026 году.", content: `<p>Государственная программа Golden Visa сроком на 10 лет стала магнитом для международных инвесторов.</p><h3>Главные преимущества</h3><ul><li>Долгосрочная безопасность и право продления.</li><li>Спонсирование семьи и персонала.</li><li>0% налога на доходы физических лиц.</li></ul><h3>Условия получения</h3><p>Необходимо купить недвижимость в Дубае на общую сумму не менее <strong>2 000 000 дирхамов</strong>. Допускается ипотека и объекты Off-plan.</p>` },
-    { id: "buy-property-dubai-step-by-step", title: "Пошаговое руководство: Как безопасно купить недвижимость в Дубае", date: "05 Сентября, 2025", img: "./images/blog3.png", excerpt: "Разбор каждого этапа сделки: от выбора объекта до получения Title Deed. Узнайте, как защищены деньги.", content: `<p>Дубай обладает одной из самых прозрачных правовых систем.</p><h3>Шаг 1: Бронирование (EOI)</h3><p>Внесение возвращаемого депозита.</p><h3>Шаг 2: Договор (SPA)</h3><p>Официальный договор с графиком платежей.</p><h3>Шаг 3: Escrow-счета</h3><p>Деньги лежат на эскроу-счетах, контролируемых государством.</p><h3>Шаг 4: Налоги</h3><p>Разовый сбор DLD — 4% от стоимости.</p>` },
-    { id: "dubai-taxes", title: "Налоги на недвижимость в Дубае: Полное руководство", date: "10 Августа, 2025", img: "./images/blog4.png", excerpt: "Все, что нужно знать инвестору о налогах в ОАЭ. Скрытые платежи, сборы DLD и налог на прибыль.", content: `<p>ОАЭ привлекает инвесторов благодаря отсутствию налогов на прибыль, однако существуют другие важные сборы.</p><h3>Регистрационный сбор DLD</h3><p>Главный платеж при покупке недвижимости в Дубае составляет 4% от стоимости объекта. Он уплачивается в Земельный Департамент.</p><h3>Содержание недвижимости</h3><p>Владельцы обязаны оплачивать Maintenance Fee — сбор за обслуживание здания, который зависит от площади и престижности комплекса.</p>` }
+    { id: "dubai-market-2026", title: "Рынок недвижимости Дубая 2026: Главные прогнозы и тренды", date: "14 Октября, 2025", readTime: "6 мин", img: "https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&q=80&w=1200", excerpt: "Узнайте, в каких районах ожидается максимальный рост капитала (ROI) и почему фокус смещается на Ultra-Luxury.", content: `<p>Вступая в 2026 год, многие задаются вопросом: сохранится ли двузначный рост стоимости активов? Разберем ключевые тренды.</p><h3>Смещение фокуса на Ultra-Luxury</h3><p>Спрос на элитную недвижимость со стороны HNWI бьет рекорды. Проекты от мировых брендов распродаются на пресейлах.</p><h3>Топ-3 района (ROI) в 2026 году</h3><ul><li><strong>Dubai Maritime City:</strong> Огромный потенциал для краткосрочной аренды.</li><li><strong>Dubai South:</strong> Лидеры по долгосрочной аренде (7.5% – 9.5% чистого ROI).</li><li><strong>Palm Jebel Ali:</strong> Флагманский мегапроект с гарантированной высокой капитализацией.</li></ul>` },
+    { id: "golden-visa-uae", title: "Как получить Золотую визу ОАЭ (Golden Visa) за инвестиции", date: "28 Сентября, 2025", readTime: "5 мин", img: "https://images.unsplash.com/photo-1549944850-84e00be4203b?auto=format&fit=crop&q=80&w=1200", excerpt: "Условия для инвесторов, налоги, порог входа и преимущества долгосрочного резидентства в 2026 году.", content: `<p>Государственная программа Golden Visa сроком на 10 лет стала магнитом для международных инвесторов.</p><h3>Главные преимущества</h3><ul><li>Долгосрочная безопасность и право продления.</li><li>Спонсирование семьи и персонала.</li><li>0% налога на доходы физических лиц.</li></ul><h3>Условия получения</h3><p>Необходимо купить недвижимость в Дубае на общую сумму не менее <strong>2 000 000 дирхамов</strong>. Допускается ипотека и объекты Off-plan.</p>` },
+    { id: "buy-property-dubai-step-by-step", title: "Пошаговое руководство: Как безопасно купить недвижимость в Дубае", date: "05 Сентября, 2025", readTime: "7 мин", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200", excerpt: "Разбор каждого этапа сделки: от выбора объекта до получения Title Deed. Узнайте, как защищены деньги.", content: `<p>Дубай обладает одной из самых прозрачных правовых систем.</p><h3>Шаг 1: Бронирование (EOI)</h3><p>Внесение возвращаемого депозита.</p><h3>Шаг 2: Договор (SPA)</h3><p>Официальный договор с графиком платежей.</p><h3>Шаг 3: Escrow-счета</h3><p>Деньги лежат на эскроу-счетах, контролируемых государством.</p><h3>Шаг 4: Налоги</h3><p>Разовый сбор DLD — 4% от стоимости.</p>` },
+    { id: "dubai-taxes", title: "Налоги на недвижимость в Дубае: Полное руководство", date: "10 Августа, 2025", readTime: "4 мин", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1200", excerpt: "Все, что нужно знать инвестору о налогах в ОАЭ. Скрытые платежи, сборы DLD и налог на прибыль.", content: `<p>ОАЭ привлекает инвесторов благодаря отсутствию налогов на прибыль, однако существуют другие важные сборы.</p><h3>Регистрационный сбор DLD</h3><p>Главный платеж при покупке недвижимости в Дубае составляет 4% от стоимости объекта. Он уплачивается в Земельный Департамент.</p><h3>Содержание недвижимости</h3><p>Владельцы обязаны оплачивать Maintenance Fee — сбор за обслуживание здания, который зависит от площади и престижности комплекса.</p>` }
 ] : [
-    { id: "dubai-market-2026", title: "Dubai Real Estate Market 2026: Forecasts and Trends", date: "Oct 14, 2025", img: "./images/blog1.png", excerpt: "Find out which areas expect maximum capital growth (ROI) and why the focus is shifting to Ultra-Luxury.", content: `<p>Entering 2026, many wonder: will the double-digit asset growth continue? Let's analyze key trends.</p><h3>Shift to Ultra-Luxury</h3><p>Demand for luxury real estate from HNWIs breaks records. World-brand projects sell out at pre-sales.</p><h3>Top 3 ROI Areas in 2026</h3><ul><li><strong>Dubai Maritime City:</strong> Huge short-term rental potential.</li><li><strong>Dubai South:</strong> Long-term rental leaders (7.5% – 9.5% net ROI).</li><li><strong>Palm Jebel Ali:</strong> Flagship megaproject with guaranteed high capitalization.</li></ul>` },
-    { id: "golden-visa-uae", title: "How to Get a UAE Golden Visa through Investments", date: "Sep 28, 2025", img: "./images/blog2.png", excerpt: "Conditions for investors, taxes, entry threshold, and benefits of long-term residency in 2026.", content: `<p>The 10-year Golden Visa program has become a magnet for international investors.</p><h3>Main Benefits</h3><ul><li>Long-term security and renewal rights.</li><li>Sponsorship of family and staff.</li><li>0% personal income tax.</li></ul><h3>Conditions</h3><p>Must buy property in Dubai worth at least <strong>2,000,000 AED</strong>. Mortgages and Off-plan objects are allowed.</p>` },
-    { id: "buy-property-dubai-step-by-step", title: "Step-by-step Guide: Safe Property Buying in Dubai", date: "Sep 05, 2025", img: "./images/blog3.png", excerpt: "Detailed breakdown of each stage: from object selection to getting the Title Deed.", content: `<p>Dubai has one of the most transparent legal systems.</p><h3>Step 1: Booking (EOI)</h3><p>Making a refundable deposit.</p><h3>Step 2: Agreement (SPA)</h3><p>Official agreement with a payment plan.</p><h3>Step 3: Escrow Accounts</h3><p>Money is held in state-controlled escrow accounts.</p><h3>Step 4: Taxes</h3><p>One-time DLD fee — 4% of the value.</p>` },
-    { id: "dubai-taxes", title: "Real Estate Taxes in Dubai: A Complete Guide", date: "Aug 10, 2025", img: "./images/blog4.png", excerpt: "Everything an investor needs to know about UAE taxes. Hidden fees, DLD charges, and income tax.", content: `<p>The UAE attracts investors due to the absence of income tax, but there are other important fees.</p><h3>DLD Registration Fee</h3><p>The main payment when buying property in Dubai is 4% of the property value, payable to the Land Department.</p><h3>Property Maintenance</h3><p>Owners must pay a Maintenance Fee for building upkeep, which depends on the size and prestige of the complex.</p>` }
+    { id: "dubai-market-2026", title: "Dubai Real Estate Market 2026: Forecasts and Trends", date: "Oct 14, 2025", readTime: "6 min", img: "https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&q=80&w=1200", excerpt: "Find out which areas expect maximum capital growth (ROI) and why the focus is shifting to Ultra-Luxury.", content: `<p>Entering 2026, many wonder: will the double-digit asset growth continue? Let's analyze key trends.</p><h3>Shift to Ultra-Luxury</h3><p>Demand for luxury real estate from HNWIs breaks records. World-brand projects sell out at pre-sales.</p><h3>Top 3 ROI Areas in 2026</h3><ul><li><strong>Dubai Maritime City:</strong> Huge short-term rental potential.</li><li><strong>Dubai South:</strong> Long-term rental leaders (7.5% – 9.5% net ROI).</li><li><strong>Palm Jebel Ali:</strong> Flagship megaproject with guaranteed high capitalization.</li></ul>` },
+    { id: "golden-visa-uae", title: "How to Get a UAE Golden Visa through Investments", date: "Sep 28, 2025", readTime: "5 min", img: "https://images.unsplash.com/photo-1549944850-84e00be4203b?auto=format&fit=crop&q=80&w=1200", excerpt: "Conditions for investors, taxes, entry threshold, and benefits of long-term residency in 2026.", content: `<p>The 10-year Golden Visa program has become a magnet for international investors.</p><h3>Main Benefits</h3><ul><li>Long-term security and renewal rights.</li><li>Sponsorship of family and staff.</li><li>0% personal income tax.</li></ul><h3>Conditions</h3><p>Must buy property in Dubai worth at least <strong>2,000,000 AED</strong>. Mortgages and Off-plan objects are allowed.</p>` },
+    { id: "buy-property-dubai-step-by-step", title: "Step-by-step Guide: Safe Property Buying in Dubai", date: "Sep 05, 2025", readTime: "7 min", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200", excerpt: "Detailed breakdown of each stage: from object selection to getting the Title Deed.", content: `<p>Dubai has one of the most transparent legal systems.</p><h3>Step 1: Booking (EOI)</h3><p>Making a refundable deposit.</p><h3>Step 2: Agreement (SPA)</h3><p>Official agreement with a payment plan.</p><h3>Step 3: Escrow Accounts</h3><p>Money is held in state-controlled escrow accounts.</p><h3>Step 4: Taxes</h3><p>One-time DLD fee — 4% of the value.</p>` },
+    { id: "dubai-taxes", title: "Real Estate Taxes in Dubai: A Complete Guide", date: "Aug 10, 2025", readTime: "4 min", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1200", excerpt: "Everything an investor needs to know about UAE taxes. Hidden fees, DLD charges, and income tax.", content: `<p>The UAE attracts investors due to the absence of income tax, but there are other important fees.</p><h3>DLD Registration Fee</h3><p>The main payment when buying property in Dubai is 4% of the property value, payable to the Land Department.</p><h3>Property Maintenance</h3><p>Owners must pay a Maintenance Fee for building upkeep, which depends on the size and prestige of the complex.</p>` }
 ];
 
 // --- КОНТЕКСТ ЛОКАЛИЗАЦИИ ---
@@ -386,15 +436,15 @@ const MortgageInfo = () => {
 const FAQItem = ({ question, answer }) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <div className="border-b border-gray-100 last:border-0">
+        <div className="border-b border-gray-100 last:border-0" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
             <button type="button" onClick={() => setIsOpen(!isOpen)} className="w-full py-5 md:py-6 flex items-center justify-between text-left group outline-none">
-                <span className="font-montserrat font-bold text-xs md:text-sm uppercase tracking-wider group-hover:text-[#C5A059] transition-colors pr-4">{question}</span>
+                <span itemProp="name" className="font-montserrat font-bold text-xs md:text-sm uppercase tracking-wider group-hover:text-[#C5A059] transition-colors pr-4">{question}</span>
                 <ChevronDown className={`w-4 h-4 text-gray-300 transition-transform duration-500 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`} />
             </button>
             <AnimatePresence>
                 {isOpen && (
-                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.4 }} className="overflow-hidden">
-                        <p className="pb-5 md:pb-6 text-gray-400 text-xs md:text-sm leading-relaxed">{answer}</p>
+                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.4 }} className="overflow-hidden" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                        <p itemProp="text" className="pb-5 md:pb-6 text-gray-400 text-xs md:text-sm leading-relaxed">{answer}</p>
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -407,9 +457,25 @@ const ContactModal = ({ isOpen, onClose }) => {
     return (
         <AnimatePresence>
             {isOpen && (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[2000] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto" onClick={onClose}>
-                    <motion.div initial={{ scale: 0.95, opacity: 0, y: 20 }} animate={{ scale: 1, opacity: 1, y: 0 }} exit={{ scale: 0.95, opacity: 0, y: 20 }} className="relative w-full max-w-2xl m-auto max-h-[95vh] overflow-y-auto rounded-sm" onClick={e => e.stopPropagation()}>
-                        <button onClick={onClose} className="absolute top-2 right-2 md:top-4 md:right-4 text-gray-400 hover:text-[#C5A059] transition-colors z-[60] bg-gray-50 rounded-full p-2 shadow-sm"><X size={20} /></button>
+                <motion.div 
+                    initial={{ opacity: 0 }} 
+                    animate={{ opacity: 1 }} 
+                    exit={{ opacity: 0 }} 
+                    transition={{ duration: 0.3 }}
+                    className="fixed inset-0 z-[2000] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto"
+                    onClick={onClose}
+                >
+                    <motion.div 
+                        initial={{ scale: 0.95, opacity: 0, y: 20 }} 
+                        animate={{ scale: 1, opacity: 1, y: 0 }} 
+                        exit={{ scale: 0.95, opacity: 0, y: 20 }} 
+                        transition={{ duration: 0.3 }}
+                        className="relative w-full max-w-2xl m-auto max-h-[95vh] overflow-y-auto rounded-sm"
+                        onClick={e => e.stopPropagation()}
+                    >
+                        <button onClick={onClose} className="absolute top-2 right-2 md:top-4 md:right-4 text-gray-400 hover:text-[#C5A059] transition-colors z-[60] bg-gray-50 rounded-full p-2 shadow-sm">
+                            <X size={20} />
+                        </button>
                         <LeadForm title={t.form.title} subtitle={t.form.subtitle} isModal={true} />
                     </motion.div>
                 </motion.div>
@@ -437,6 +503,10 @@ const CallbackModal = ({ isOpen, onClose }) => {
                                 <div className="space-y-1 md:space-y-2 font-montserrat">
                                     <label className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 ml-1">{t.form.name}</label>
                                     <input type="text" required className="w-full p-3 md:p-4 bg-gray-50 border border-gray-100 focus:border-[#C5A059] outline-none font-bold text-sm transition-all duration-300 focus:bg-white focus:shadow-md" />
+                                </div>
+                                <div className="space-y-1 md:space-y-2 font-montserrat">
+                                    <label className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 ml-1">{t.form.email}</label>
+                                    <input type="email" required className="w-full p-3 md:p-4 bg-gray-50 border border-gray-100 focus:border-[#C5A059] outline-none font-bold text-sm transition-all duration-300 focus:bg-white focus:shadow-md" />
                                 </div>
                                 <div className="space-y-1 md:space-y-2 font-montserrat">
                                     <label className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 ml-1">{t.form.phone}</label>
@@ -588,14 +658,14 @@ const Preloader = ({ onFinish }) => {
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const [phase, setPhase] = useState(0);
 
-    // Гарантируем загрузку конкретных начертаний перед стартом анимации
+    // Гарантируем загрузку конкретного тонкого начертания (400) перед стартом анимации
     useEffect(() => {
         let isMounted = true;
         
         const loadFonts = async () => {
             try {
                 if (document.fonts && document.fonts.load) {
-                    // Форсируем загрузку Cormorant Garamond 500 (Medium) и Montserrat 700 (Bold)
+                    // Форсируем загрузку именно Cormorant Garamond 400 (Medium)
                     await Promise.all([
                         document.fonts.load('500 16px "Cormorant Garamond"'),
                         document.fonts.load('700 16px "Montserrat"')
@@ -605,7 +675,7 @@ const Preloader = ({ onFinish }) => {
                 console.warn("Font preloading issue:", err);
             } finally {
                 if (isMounted) {
-                    // Даем браузеру 150мс на рендеринг (paint) после скачивания
+                    // Даем браузеру 150мс на рендеринг после скачивания
                     setTimeout(() => setFontsLoaded(true), 150);
                 }
             }
@@ -648,7 +718,7 @@ const Preloader = ({ onFinish }) => {
                 />
 
                 <div className="relative z-10 flex flex-col items-center justify-center mt-4" style={{ WebkitFontSmoothing: 'antialiased', transform: 'translateZ(0)' }}>
-                    {/* ЛОГОТИП (Шрифт и отступы ИДЕАЛЬНО совпадают с хедером) */}
+                    {/* ЛОГОТИП (Точно вес 500 как в хедере) */}
                     <motion.div 
                         initial="hidden"
                         animate="visible"
@@ -657,6 +727,7 @@ const Preloader = ({ onFinish }) => {
                             visible: { transition: { staggerChildren: 0.08 } }
                         }}
                         className="font-cormorant text-5xl md:text-7xl font-medium tracking-[0.15em] uppercase flex overflow-hidden px-4 pb-2 relative z-10"
+                        style={{ fontWeight: 500 }}
                     >
                         {"ALPHASTAR".split('').map((char, i) => (
                             <motion.span
@@ -920,6 +991,7 @@ const BlogPostPage = ({ onOpenModal }) => {
                 <div className="mb-8 md:mb-12">
                     <div className="flex flex-wrap items-center gap-4 md:gap-6 mb-4 md:mb-6 text-[9px] md:text-[10px] uppercase font-bold tracking-widest text-gray-400">
                         <span className="flex items-center gap-1 md:gap-2 text-[#C5A059]"><Calendar size={14} /> {post.date}</span>
+                        <span className="flex items-center gap-1 md:gap-2"><Clock size={14} /> {post.readTime} чтения</span>
                     </div>
                     <h1 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#121212]">{post.title}</h1>
                 </div>
@@ -974,7 +1046,7 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                     <h1 className="font-montserrat text-[8.5vw] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] mb-6 md:mb-8 uppercase tracking-tight text-center md:text-left">
                         {t.hero.title1} <br />
                         <span className="relative inline-block mt-1 md:mt-2">
-                            <span className="font-cormorant font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#C5A059] via-[#E2C384] to-[#C5A059] drop-shadow-[0_4px_12px_rgba(197,160,89,0.3)]">{t.hero.title2}</span>
+                            <span className="font-cormorant font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#C5A059] via-[#E2C384] to-[#C5A059] drop-shadow-[0_4px_12px_rgba(197,160,89,0.3)]" style={{ fontWeight: 500 }}>{t.hero.title2}</span>
                         </span>
                         <br /> {t.hero.title3}
                     </h1>
@@ -999,7 +1071,7 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                     </div>
                     <div className="relative order-1 lg:order-2 px-4 sm:px-12 lg:px-0">
                         <div className="hero-mask aspect-[4/5] md:aspect-square lg:aspect-[4/5] overflow-hidden shadow-2xl">
-                            <img src="https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?auto=format&fit=crop&q=80&w=800" alt="Архитектура" className="w-full h-full object-cover" />
+                            <img src="https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?auto=format&fit=crop&q=80&w=800" alt="Архитектура Дубая" className="w-full h-full object-cover" />
                         </div>
                         <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 w-32 h-32 md:w-48 md:h-48 bg-[#C5A059]/10 -z-10 rounded-full blur-2xl md:blur-3xl"></div>
                     </div>
@@ -1287,7 +1359,7 @@ const AppContent = () => {
             <header className={`fixed w-full z-[1000] transition-all duration-500 ${headerClass}`}>
                 <div className="max-w-7xl mx-auto px-5 md:px-8 flex justify-between items-center">
                     <Link to="/" className="flex flex-col cursor-pointer" onClick={() => setIsMobileMenuOpen(false)}>
-                        <span className="font-cormorant text-xl md:text-2xl lg:text-3xl font-medium tracking-[0.15em] uppercase">ALPHA<span className="gold-text">STAR</span></span>
+                        <span className="font-cormorant text-xl md:text-2xl lg:text-3xl font-medium tracking-[0.15em] uppercase" style={{ fontWeight: 500 }}>ALPHA<span className="gold-text">STAR</span></span>
                         <span className="text-[6px] md:text-[7px] lg:text-[8px] tracking-[0.4em] lg:tracking-[0.55em] font-bold uppercase gold-text -mt-1 text-left">PROPERTIES</span>
                     </Link>
                     
@@ -1334,7 +1406,7 @@ const AppContent = () => {
                     <motion.div initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }} transition={{ type: 'tween', duration: 0.3 }} className="fixed inset-0 bg-[#0A0A0A] z-[2000] flex flex-col px-6 py-8 overflow-y-auto">
                         <div className="flex justify-between items-center mb-10">
                             <div className="flex flex-col cursor-pointer text-white" onClick={() => handleNav('/')}>
-                                <span className="font-cormorant text-2xl font-medium tracking-[0.15em] uppercase">ALPHA<span className="gold-text">STAR</span></span>
+                                <span className="font-cormorant text-2xl font-medium tracking-[0.15em] uppercase" style={{ fontWeight: 500 }}>ALPHA<span className="gold-text">STAR</span></span>
                             </div>
                             <button onClick={() => setIsMobileMenuOpen(false)} className="text-white/50 hover:text-[#C5A059] p-2 -mr-2 bg-white/5 rounded-full"><X size={24} /></button>
                         </div>
@@ -1396,64 +1468,64 @@ const AppContent = () => {
             </main>
 
             {/* ФУТЕР */}
-            <footer className="bg-[#0A0A0A] text-white pt-12 md:pt-24 pb-6 md:pb-12 px-5 md:px-8 relative overflow-hidden border-t border-white/5">
+            <footer className="bg-[#0A0A0A] text-white pt-16 md:pt-24 pb-8 md:pb-12 px-5 md:px-8 relative overflow-hidden border-t border-white/5">
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-[#C5A059]/5 blur-[120px] pointer-events-none"></div>
                 <div className="max-w-7xl mx-auto relative z-10 text-left">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-16 mb-10 md:mb-20 text-left">
-                        <div className="lg:col-span-5 space-y-4 md:space-y-8 text-left">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 md:gap-16 mb-16 md:mb-20 text-left">
+                        <div className="lg:col-span-5 space-y-6 md:space-y-8 text-left">
                             <div className="flex flex-col text-left">
-                                <span className="font-cormorant text-2xl md:text-3xl font-medium tracking-[0.15em] uppercase">ALPHA<span className="gold-text">STAR</span></span>
+                                <span className="font-cormorant text-2xl md:text-3xl font-medium tracking-[0.15em] uppercase" style={{ fontWeight: 500 }}>ALPHA<span className="gold-text">STAR</span></span>
                                 <span className="text-[7px] md:text-[9px] tracking-[0.7em] md:tracking-[0.8em] font-bold uppercase gold-text -mt-1 ml-1 text-left">PROPERTIES</span>
                             </div>
-                            <p className="text-white/40 text-xs md:text-base leading-relaxed max-w-md font-medium font-cormorant border-l border-[#C5A059] pl-3 md:pl-6 text-left">{t.footer.quote}</p>
+                            <p className="text-white/40 text-sm md:text-base leading-relaxed max-w-md font-medium font-cormorant border-l border-[#C5A059] pl-4 md:pl-6 text-left">{t.footer.quote}</p>
                             
                             {/* Иконки соцсетей */}
-                            <div className="flex flex-wrap items-center gap-3 md:gap-4 pt-2 md:pt-4">
-                                <a href="https://wa.me/971521208414" target="_blank" rel="noopener noreferrer" className="w-8 h-8 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-[#C5A059] hover:text-[#C5A059] hover:bg-[#C5A059]/5 transition-all duration-500 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:-translate-y-1 group">
+                            <div className="flex flex-wrap items-center gap-4 pt-4">
+                                <a href="https://wa.me/971521208414" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-[#C5A059] hover:text-[#C5A059] hover:bg-[#C5A059]/5 transition-all duration-500 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:-translate-y-1 group">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-500 group-hover:scale-110"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                                 </a>
-                                <a href="https://t.me/dubai_bestprice" target="_blank" rel="noopener noreferrer" className="w-8 h-8 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-[#C5A059] hover:text-[#C5A059] hover:bg-[#C5A059]/5 transition-all duration-500 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:-translate-y-1 group">
+                                <a href="https://t.me/dubai_bestprice" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-[#C5A059] hover:text-[#C5A059] hover:bg-[#C5A059]/5 transition-all duration-500 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:-translate-y-1 group">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-500 group-hover:scale-110"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg>
                                 </a>
-                                <a href="https://www.instagram.com/alphastar.dubai?igsh=a3A5ajM2NjV2ajl6&utm_source=qr" target="_blank" rel="noopener noreferrer" className="w-8 h-8 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-[#C5A059] hover:text-[#C5A059] hover:bg-[#C5A059]/5 transition-all duration-500 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:-translate-y-1 group">
+                                <a href="https://www.instagram.com/alphastar.dubai?igsh=a3A5ajM2NjV2ajl6&utm_source=qr" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-[#C5A059] hover:text-[#C5A059] hover:bg-[#C5A059]/5 transition-all duration-500 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:-translate-y-1 group">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-500 group-hover:scale-110"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
                                 </a>
                             </div>
                         </div>
-                        <div className="lg:col-span-3 space-y-4 md:space-y-8 text-left hidden md:block">
+                        <div className="lg:col-span-3 space-y-6 md:space-y-8 text-left hidden md:block">
                             <h6 className="font-montserrat text-[9px] md:text-[10px] font-bold uppercase tracking-[0.4em] md:tracking-[0.5em] gold-text">{t.footer.nav}</h6>
-                            <ul className="space-y-2 md:space-y-4 text-xs md:text-sm font-bold uppercase tracking-widest text-white/30 text-left">
+                            <ul className="space-y-3 md:space-y-4 text-xs md:text-sm font-bold uppercase tracking-widest text-white/30 text-left">
                                 <li><span onClick={() => handleNav('/', 'about')} className="hover:text-white transition-colors cursor-pointer block">{t.footer.about}</span></li>
                                 <li><span onClick={() => handleNav('/', 'real-deals')} className="hover:text-white transition-colors cursor-pointer block">{t.footer.cases}</span></li>
                                 <li><Link to="/buy/off-plan" className="hover:text-white transition-colors cursor-pointer block">{t.footer.catalog}</Link></li>
                             </ul>
                         </div>
-                        <div className="lg:col-span-4 space-y-4 md:space-y-8 text-left mt-4 md:mt-0">
+                        <div className="lg:col-span-4 space-y-6 md:space-y-8 text-left">
                             <h6 className="font-montserrat text-[9px] md:text-[10px] font-bold uppercase tracking-[0.4em] md:tracking-[0.5em] gold-text">{t.footer.contacts}</h6>
-                            <div className="space-y-4 md:space-y-6 text-left">
-                                <div className="flex items-start gap-3 md:gap-4 text-left">
-                                    <MapPin className="gold-text mt-1 flex-shrink-0" size={16} />
-                                    <div className="space-y-2 md:space-y-3">
-                                        <p className="text-white/60 text-[9px] md:text-xs font-medium uppercase tracking-wider text-left">
-                                            <span className="text-[#C5A059] block mb-1 text-[7px] md:text-[9px]">Офис в Дубае:</span>
+                            <div className="space-y-5 md:space-y-6 text-left">
+                                <div className="flex items-start gap-4 text-left">
+                                    <MapPin className="gold-text mt-1 flex-shrink-0" size={18} />
+                                    <div className="space-y-3">
+                                        <p className="text-white/60 text-[10px] md:text-xs font-medium uppercase tracking-wider text-left">
+                                            <span className="text-[#C5A059] block mb-1 text-[8px] md:text-[9px]">Офис в Дубае:</span>
                                             EMAAR Business Park - Building 4<br/>Office 112, Floor 1, Dubai
                                         </p>
-                                        <p className="text-white/60 text-[9px] md:text-xs font-medium uppercase tracking-wider text-left">
-                                            <span className="text-[#C5A059] block mb-1 text-[7px] md:text-[9px]">Офис в Москве:</span>
+                                        <p className="text-white/60 text-[10px] md:text-xs font-medium uppercase tracking-wider text-left">
+                                            <span className="text-[#C5A059] block mb-1 text-[8px] md:text-[9px]">Офис в Москве:</span>
                                             ЗАО, район Можайский,<br/>метро Кунцевская
                                         </p>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-3 md:gap-4 group cursor-pointer text-left"><Phone className="gold-text flex-shrink-0" size={16} /><p className="text-white font-montserrat font-bold text-base md:text-xl tracking-tighter group-hover:text-[#C5A059] transition-colors text-left">+971 52 120 8414</p></div>
-                                <div className="flex items-center gap-3 md:gap-4 group cursor-pointer text-left"><Mail className="gold-text flex-shrink-0" size={16} /><p className="text-white/60 font-bold uppercase text-[8px] md:text-[10px] tracking-[0.2em] md:tracking-[0.3em] group-hover:text-white transition-colors text-left break-all">office@alphastar.ae</p></div>
+                                <div className="flex items-center gap-4 group cursor-pointer text-left"><Phone className="gold-text flex-shrink-0" size={18} /><p className="text-white font-montserrat font-bold text-lg md:text-xl tracking-tighter group-hover:text-[#C5A059] transition-colors text-left">+971 52 120 8414</p></div>
+                                <div className="flex items-center gap-4 group cursor-pointer text-left"><Mail className="gold-text flex-shrink-0" size={18} /><p className="text-white/60 font-bold uppercase text-[9px] md:text-[10px] tracking-[0.2em] md:tracking-[0.3em] group-hover:text-white transition-colors text-left break-all">office@alphastar.ae</p></div>
                             </div>
                         </div>
                     </div>
-                    <div className="pt-4 md:pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4">
-                        <div className="text-[7px] md:text-[9px] uppercase font-bold tracking-[0.2em] md:tracking-[0.4em] text-white/20 text-center md:text-left">
+                    <div className="pt-6 md:pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
+                        <div className="text-[8px] md:text-[9px] uppercase font-bold tracking-[0.3em] md:tracking-[0.4em] text-white/20 text-center md:text-left">
                             {t.footer.rights}
                         </div>
-                        <div className="flex items-center gap-3 md:gap-4 text-[7px] md:text-[9px] uppercase font-bold tracking-widest text-white/20">
+                        <div className="flex items-center gap-4 text-[8px] md:text-[9px] uppercase font-bold tracking-widest text-white/20">
                             <Link to="/privacy-policy" className="cursor-pointer hover:text-white transition-colors">{t.footer.privacy}</Link>
                             <span className="hidden md:inline">|</span>
                             <Link to="/terms-of-use" className="cursor-pointer hover:text-white transition-colors">{t.footer.terms}</Link>
@@ -1497,7 +1569,7 @@ export default function App() {
                     
                     <link rel="preconnect" href="https://fonts.googleapis.com" />
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-                    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
+                    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
                 </Helmet>
                 <Router>
                     <style>{styles}</style>
