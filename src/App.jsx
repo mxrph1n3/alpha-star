@@ -272,13 +272,13 @@ const categoryImages = {
 };
 
 const getMockProps = (lang) => [
-    { id: 1, type: 'novostroyki', beds: 1, title: 'Emaar Beachfront Residence', price: '1,500,000', location: 'Dubai Harbour', img: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800', dev: 'Emaar Properties', completion: 'Q4 2026', roi: '~8-10%' },
-    { id: 2, type: 'novostroyki', beds: 2, title: 'Cavalli Couture', price: '2,800,000', location: 'Dubai Water Canal', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800', dev: 'DAMAC Properties', completion: 'Q3 2025', roi: '~7-9%' },
-    { id: 3, type: 'villas', beds: 3, title: 'District One Villa', price: '5,500,000', location: 'MBR City', img: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800', dev: 'Meydan Group', completion: 'Готов', roi: '~6%' },
-    { id: 4, type: 'secondary', beds: 1, title: 'Downtown Views', price: '950,000', location: 'Downtown Dubai', img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800', dev: 'Emaar Properties', completion: 'Готов', roi: '~7.5%' },
-    { id: 5, type: 'commercial', beds: 0, title: 'Business Bay Office', price: '3,200,000', location: 'Business Bay', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800', dev: 'Omniyat', completion: 'Готов', roi: '~10%' },
-    { id: 6, type: 'invest', beds: 2, title: 'High ROI Apartment', price: '1,100,000', location: 'JVC', img: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=800', dev: 'Binghatti', completion: 'Q1 2026', roi: '~9-11%' },
-    { id: 7, type: 'plots', beds: 0, title: 'Pearl Jumeirah Plot', price: '12,500,000', location: 'Pearl Jumeirah', img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800', dev: 'Meraas', completion: 'Земля', roi: 'Капитализация' }
+    { id: 1, type: 'novostroyki', beds: 1, title: 'Emaar Beachfront Residence', price: '1,500,000', location: 'Dubai Harbour', img: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800', alt: 'Роскошные апартаменты с 1 спальней Emaar Beachfront в Дубае', dev: 'Emaar Properties', completion: 'Q4 2026', roi: '~8-10%' },
+    { id: 2, type: 'novostroyki', beds: 2, title: 'Cavalli Couture', price: '2,800,000', location: 'Dubai Water Canal', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800', alt: 'Элитная новостройка Cavalli Couture интерьер 2 спальни', dev: 'DAMAC Properties', completion: 'Q3 2025', roi: '~7-9%' },
+    { id: 3, type: 'villas', beds: 3, title: 'District One Villa', price: '5,500,000', location: 'MBR City', img: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800', alt: 'Купить виллу с 3 спальнями в District One Дубай', dev: 'Meydan Group', completion: 'Готов', roi: '~6%' },
+    { id: 4, type: 'secondary', beds: 1, title: 'Downtown Views', price: '950,000', location: 'Downtown Dubai', img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800', alt: 'Вторичное жилье апартаменты с видом на Бурдж Халифа', dev: 'Emaar Properties', completion: 'Готов', roi: '~7.5%' },
+    { id: 5, type: 'commercial', beds: 0, title: 'Business Bay Office', price: '3,200,000', location: 'Business Bay', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800', alt: 'Коммерческая недвижимость Дубай офис в Business Bay', dev: 'Omniyat', completion: 'Готов', roi: '~10%' },
+    { id: 6, type: 'invest', beds: 2, title: 'High ROI Apartment', price: '1,100,000', location: 'JVC', img: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=800', alt: 'Инвестиционные апартаменты в JVC с высокой доходностью', dev: 'Binghatti', completion: 'Q1 2026', roi: '~9-11%' },
+    { id: 7, type: 'plots', beds: 0, title: 'Pearl Jumeirah Plot', price: '12,500,000', location: 'Pearl Jumeirah', img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800', alt: 'Земельный участок Pearl Jumeirah Дубай', dev: 'Meraas', completion: 'Земля', roi: 'Капитализация' }
 ];
 
 const getBlogPosts = (lang) => lang === 'RU' ? [
@@ -496,8 +496,8 @@ const CallbackModal = ({ isOpen, onClose }) => {
                         <div className="relative bg-white shadow-2xl overflow-visible w-full p-8 md:p-12 rounded-sm border border-gray-100">
                             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1 gold-bg opacity-30"></div>
                             <div className="text-center mb-6 md:mb-8">
-                                <h2 className="font-montserrat text-xl md:text-2xl uppercase tracking-[0.2em] font-bold mb-2 md:mb-3 text-[#121212]">{t.autoPopup ? t.autoPopup.title : "Инвестируете в Дубай?"}</h2>
-                                <p className="font-cormorant text-base md:text-lg text-gray-400">{t.autoPopup ? t.autoPopup.subtitle : "Оставьте номер, и наш эксперт перезвонит, чтобы рассказать о скрытых жемчужинах рынка."}</p>
+                                <h2 className="font-montserrat text-xl md:text-2xl uppercase tracking-[0.2em] font-bold mb-2 md:mb-3 text-[#121212]">{t.autoPopup.title}</h2>
+                                <p className="font-cormorant text-base md:text-lg text-gray-400">{t.autoPopup.subtitle}</p>
                             </div>
                             <form className="flex flex-col gap-4 md:gap-5 text-left" onSubmit={e => { e.preventDefault(); onClose(); }}>
                                 <div className="space-y-1 md:space-y-2 font-montserrat">
@@ -517,7 +517,7 @@ const CallbackModal = ({ isOpen, onClose }) => {
                                     <label htmlFor="auto-consent" className="text-[9px] md:text-[10px] text-gray-400 font-montserrat leading-relaxed cursor-pointer">{t.form.consent}</label>
                                 </div>
                                 <div className="flex justify-center mt-2 md:mt-4">
-                                    <button type="submit" className="btn-premium w-full py-4 md:py-6 bg-[#C5A059] text-white font-montserrat uppercase tracking-widest font-bold shadow-lg text-xs md:text-sm">{t.autoPopup ? t.autoPopup.btn : "Жду звонка"}</button>
+                                    <button type="submit" className="btn-premium w-full py-4 md:py-6 bg-[#C5A059] text-white font-montserrat uppercase tracking-widest font-bold shadow-lg text-xs md:text-sm">{t.autoPopup.btn}</button>
                                 </div>
                             </form>
                         </div>
@@ -658,14 +658,13 @@ const Preloader = ({ onFinish }) => {
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const [phase, setPhase] = useState(0);
 
-    // Гарантируем загрузку конкретного тонкого начертания (400) перед стартом анимации
+    // Гарантируем загрузку конкретного тонкого начертания (500) перед стартом анимации
     useEffect(() => {
         let isMounted = true;
         
         const loadFonts = async () => {
             try {
                 if (document.fonts && document.fonts.load) {
-                    // Форсируем загрузку именно Cormorant Garamond 400 (Medium)
                     await Promise.all([
                         document.fonts.load('500 16px "Cormorant Garamond"'),
                         document.fonts.load('700 16px "Montserrat"')
@@ -675,7 +674,6 @@ const Preloader = ({ onFinish }) => {
                 console.warn("Font preloading issue:", err);
             } finally {
                 if (isMounted) {
-                    // Даем браузеру 150мс на рендеринг после скачивания
                     setTimeout(() => setFontsLoaded(true), 150);
                 }
             }
@@ -694,7 +692,6 @@ const Preloader = ({ onFinish }) => {
         return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
     }, [fontsLoaded, onFinish]);
 
-    // Пока шрифты скачиваются, висит абсолютно черный экран без скачущих букв
     if (!fontsLoaded) return <div className="fixed inset-0 z-[9999] bg-[#0A0A0A]"></div>;
 
     return (
@@ -709,7 +706,6 @@ const Preloader = ({ onFinish }) => {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="relative z-10 flex flex-col items-center justify-center w-full"
             >
-                {/* Фоновое премиальное свечение */}
                 <motion.div 
                     initial={{ opacity: 0, scale: 0.8 }} 
                     animate={{ opacity: 0.2, scale: 1 }} 
@@ -718,7 +714,6 @@ const Preloader = ({ onFinish }) => {
                 />
 
                 <div className="relative z-10 flex flex-col items-center justify-center mt-4" style={{ WebkitFontSmoothing: 'antialiased', transform: 'translateZ(0)' }}>
-                    {/* ЛОГОТИП (Точно вес 500 как в хедере) */}
                     <motion.div 
                         initial="hidden"
                         animate="visible"
@@ -744,7 +739,6 @@ const Preloader = ({ onFinish }) => {
                         ))}
                     </motion.div>
 
-                    {/* Слово PROPERTIES без линии, плавно выезжает снизу */}
                     <div className="overflow-hidden mt-1 md:mt-2 w-full flex justify-center">
                         <motion.div
                             initial={{ y: "100%", opacity: 0, letterSpacing: "0.2em" }}
@@ -1071,7 +1065,7 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                     </div>
                     <div className="relative order-1 lg:order-2 px-4 sm:px-12 lg:px-0">
                         <div className="hero-mask aspect-[4/5] md:aspect-square lg:aspect-[4/5] overflow-hidden shadow-2xl">
-                            <img src="https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?auto=format&fit=crop&q=80&w=800" alt="Архитектура Дубая" className="w-full h-full object-cover" />
+                            <img src="https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?auto=format&fit=crop&q=80&w=800" alt="Архитектура" className="w-full h-full object-cover" />
                         </div>
                         <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 w-32 h-32 md:w-48 md:h-48 bg-[#C5A059]/10 -z-10 rounded-full blur-2xl md:blur-3xl"></div>
                     </div>
@@ -1400,44 +1394,59 @@ const AppContent = () => {
                 </div>
             </header>
 
-            {/* MOBILE MENU */}
+            {/* MOBILE MENU FULLSCREEN */}
             <AnimatePresence>
                 {isMobileMenuOpen && (
-                    <motion.div initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }} transition={{ type: 'tween', duration: 0.3 }} className="fixed inset-0 bg-[#0A0A0A] z-[2000] flex flex-col px-6 py-8 overflow-y-auto">
+                    <motion.div
+                        initial={{ x: '100%' }}
+                        animate={{ x: 0 }}
+                        exit={{ x: '100%' }}
+                        transition={{ type: 'tween', duration: 0.3, ease: 'easeInOut' }}
+                        className="fixed inset-0 bg-[#0A0A0A] z-[2000] flex flex-col px-6 py-8 overflow-y-auto"
+                    >
                         <div className="flex justify-between items-center mb-10">
-                            <div className="flex flex-col cursor-pointer text-white" onClick={() => handleNav('/')}>
+                            <div className="flex flex-col cursor-pointer text-white" onClick={() => { handleNav('/'); setIsMobileMenuOpen(false); }}>
                                 <span className="font-cormorant text-2xl font-medium tracking-[0.15em] uppercase" style={{ fontWeight: 500 }}>ALPHA<span className="gold-text">STAR</span></span>
+                                <span className="text-[6px] tracking-[0.4em] font-bold uppercase gold-text -mt-1 text-left">PROPERTIES</span>
                             </div>
-                            <button onClick={() => setIsMobileMenuOpen(false)} className="text-white/50 hover:text-[#C5A059] p-2 -mr-2 bg-white/5 rounded-full"><X size={24} /></button>
+                            <button onClick={() => setIsMobileMenuOpen(false)} className="text-white/50 hover:text-[#C5A059] p-2 bg-white/5 rounded-full"><X size={24} /></button>
                         </div>
+
                         <nav className="flex flex-col gap-8 text-white font-montserrat">
                             <div className="border-b border-white/10 pb-6">
-                                <span className="gold-text text-[10px] uppercase tracking-widest font-bold mb-4 block opacity-70">{t.nav.buy}</span>
+                                <span className="gold-text text-[10px] uppercase tracking-widest font-bold mb-4 block opacity-70">Купить</span>
                                 <div className="flex flex-col gap-4 pl-2 text-sm font-semibold tracking-wide">
-                                    <Link to="/buy/off-plan" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#C5A059] transition-colors">{t.nav.offplan}</Link>
-                                    <Link to="/buy/secondary" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#C5A059] transition-colors">{t.nav.secondary}</Link>
-                                    <Link to="/buy/villas" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#C5A059] transition-colors">{t.nav.villas}</Link>
-                                    <Link to="/buy/invest" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#C5A059] transition-colors">{t.nav.invest}</Link>
-                                    <Link to="/buy/commercial" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#C5A059] transition-colors">{t.nav.comm}</Link>
-                                    <Link to="/buy/distress" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#C5A059] transition-colors text-red-400">{t.nav.distress}</Link>
+                                    <Link to="/buy/off-plan" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#C5A059] transition-colors">Новостройки</Link>
+                                    <Link to="/buy/secondary" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#C5A059] transition-colors">Вторичное жилье</Link>
+                                    <Link to="/buy/villas" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#C5A059] transition-colors">Виллы и Таунхаусы</Link>
+                                    <Link to="/buy/invest" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#C5A059] transition-colors">Инвестиции</Link>
+                                    <Link to="/buy/commercial" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#C5A059] transition-colors">Коммерция</Link>
+                                    <Link to="/buy/distress" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#C5A059] transition-colors text-red-400">Дистресс (Срочно)</Link>
+                                    <Link to="/valuation" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#C5A059] transition-colors gold-text">Оценка недвижимости</Link>
                                 </div>
                             </div>
+
                             <div className="border-b border-white/10 pb-6">
-                                <span className="gold-text text-[10px] uppercase tracking-widest font-bold mb-4 block opacity-70">{t.nav.rent}</span>
+                                <span className="gold-text text-[10px] uppercase tracking-widest font-bold mb-4 block opacity-70">Аренда</span>
                                 <div className="flex flex-col gap-4 pl-2 text-sm font-semibold tracking-wide">
-                                    <Link to="/rent/apartments" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#C5A059] transition-colors">{t.nav.apart}</Link>
-                                    <Link to="/rent/villas" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#C5A059] transition-colors">{t.nav.villas}</Link>
+                                    <Link to="/rent/apartments" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#C5A059] transition-colors">Апартаменты</Link>
+                                    <Link to="/rent/villas" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#C5A059] transition-colors">Виллы</Link>
+                                    <Link to="/rent/commercial" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#C5A059] transition-colors">Коммерция</Link>
+                                    <Link to="/valuation" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#C5A059] transition-colors gold-text">Оценка недвижимости</Link>
                                 </div>
                             </div>
+
                             <div className="pb-4">
-                                <span className="gold-text text-[10px] uppercase tracking-widest font-bold mb-4 block opacity-70">{t.nav.company}</span>
+                                <span className="gold-text text-[10px] uppercase tracking-widest font-bold mb-4 block opacity-70">Компания</span>
                                 <div className="flex flex-col gap-4 pl-2 text-sm font-semibold tracking-wide">
-                                    <span onClick={() => handleNav('/', 'about')} className="cursor-pointer hover:text-[#C5A059] transition-colors">{t.nav.about}</span>
-                                    <Link to="/blog" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#C5A059] transition-colors">{t.nav.blog}</Link>
-                                    <Link to="/valuation" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#C5A059] transition-colors gold-text">{t.nav.val}</Link>
+                                    <span onClick={() => handleNav('/', 'about')} className="cursor-pointer hover:text-[#C5A059] transition-colors">О нас</span>
+                                    <Link to="/blog" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[#C5A059] transition-colors">Аналитика рынка</Link>
                                 </div>
                             </div>
-                            <button type="button" onClick={() => { setIsMobileMenuOpen(false); setIsContactModalOpen(true); }} className="btn-premium bg-[#C5A059] text-white py-5 mt-2 text-xs uppercase tracking-widest font-bold shadow-lg w-full">{t.nav.btn}</button>
+
+                            <button type="button" onClick={() => { setIsMobileMenuOpen(false); setIsContactModalOpen(true); }} className="btn-premium bg-[#C5A059] text-white py-5 mt-2 text-xs uppercase tracking-widest font-bold shadow-lg w-full">
+                                Оставить заявку
+                            </button>
                         </nav>
                     </motion.div>
                 )}
@@ -1468,73 +1477,73 @@ const AppContent = () => {
             </main>
 
             {/* ФУТЕР */}
-            <footer className="bg-[#0A0A0A] text-white pt-16 md:pt-24 pb-8 md:pb-12 px-5 md:px-8 relative overflow-hidden border-t border-white/5">
+            <footer className="bg-[#0A0A0A] text-white pt-12 md:pt-24 pb-6 md:pb-12 px-6 md:px-8 relative overflow-hidden border-t border-white/5">
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-[#C5A059]/5 blur-[120px] pointer-events-none"></div>
                 <div className="max-w-7xl mx-auto relative z-10 text-left">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 md:gap-16 mb-16 md:mb-20 text-left">
-                        <div className="lg:col-span-5 space-y-6 md:space-y-8 text-left">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-16 mb-10 md:mb-20 text-left">
+                        <div className="lg:col-span-5 space-y-4 md:space-y-8 text-left">
                             <div className="flex flex-col text-left">
                                 <span className="font-cormorant text-2xl md:text-3xl font-medium tracking-[0.15em] uppercase" style={{ fontWeight: 500 }}>ALPHA<span className="gold-text">STAR</span></span>
                                 <span className="text-[7px] md:text-[9px] tracking-[0.7em] md:tracking-[0.8em] font-bold uppercase gold-text -mt-1 ml-1 text-left">PROPERTIES</span>
                             </div>
-                            <p className="text-white/40 text-sm md:text-base leading-relaxed max-w-md font-medium font-cormorant border-l border-[#C5A059] pl-4 md:pl-6 text-left">{t.footer.quote}</p>
+                            <p className="text-white/40 text-xs md:text-base leading-relaxed max-w-md font-medium italic border-l border-[#C5A059] pl-3 md:pl-6 text-left">Мы защищаем ваш капитал и создаем преимущество на самом динамичном рынке мира.</p>
                             
                             {/* Иконки соцсетей */}
-                            <div className="flex flex-wrap items-center gap-4 pt-4">
-                                <a href="https://wa.me/971521208414" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-[#C5A059] hover:text-[#C5A059] hover:bg-[#C5A059]/5 transition-all duration-500 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:-translate-y-1 group">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-500 group-hover:scale-110"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            <div className="flex flex-wrap items-center gap-3 md:gap-4 pt-2 md:pt-4">
+                                <a href="https://wa.me/971521208414" target="_blank" rel="noopener noreferrer" className="w-8 h-8 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-[#C5A059] hover:text-[#C5A059] hover:bg-[#C5A059]/5 transition-all duration-500 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:-translate-y-1 group">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-500 group-hover:scale-110">
+                                        <path d="m22 2-7 20-4-9-9-4Z"></path>
+                                        <path d="M22 2 11 13"></path>
+                                    </svg>
                                 </a>
-                                <a href="https://t.me/dubai_bestprice" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-[#C5A059] hover:text-[#C5A059] hover:bg-[#C5A059]/5 transition-all duration-500 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:-translate-y-1 group">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-500 group-hover:scale-110"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg>
-                                </a>
-                                <a href="https://www.instagram.com/alphastar.dubai?igsh=a3A5ajM2NjV2ajl6&utm_source=qr" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-[#C5A059] hover:text-[#C5A059] hover:bg-[#C5A059]/5 transition-all duration-500 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:-translate-y-1 group">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-500 group-hover:scale-110"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                                <a href="https://www.instagram.com/alphastar.dubai?igsh=a3A5ajM2NjV2ajl6&utm_source=qr" target="_blank" rel="noopener noreferrer" className="w-8 h-8 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-[#C5A059] hover:text-[#C5A059] hover:bg-[#C5A059]/5 transition-all duration-500 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:-translate-y-1 group">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-500 group-hover:scale-110">
+                                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                                    </svg>
                                 </a>
                             </div>
                         </div>
-                        <div className="lg:col-span-3 space-y-6 md:space-y-8 text-left hidden md:block">
-                            <h6 className="font-montserrat text-[9px] md:text-[10px] font-bold uppercase tracking-[0.4em] md:tracking-[0.5em] gold-text">{t.footer.nav}</h6>
-                            <ul className="space-y-3 md:space-y-4 text-xs md:text-sm font-bold uppercase tracking-widest text-white/30 text-left">
-                                <li><span onClick={() => handleNav('/', 'about')} className="hover:text-white transition-colors cursor-pointer block">{t.footer.about}</span></li>
-                                <li><span onClick={() => handleNav('/', 'real-deals')} className="hover:text-white transition-colors cursor-pointer block">{t.footer.cases}</span></li>
-                                <li><Link to="/buy/off-plan" className="hover:text-white transition-colors cursor-pointer block">{t.footer.catalog}</Link></li>
+                        <div className="lg:col-span-3 space-y-4 md:space-y-8 text-left hidden md:block">
+                            <h6 className="font-montserrat text-[9px] md:text-[10px] font-bold uppercase tracking-[0.4em] md:tracking-[0.5em] gold-text">Навигация</h6>
+                            <ul className="space-y-2 md:space-y-4 text-xs md:text-sm font-bold uppercase tracking-widest text-white/30 text-left">
+                                <li><span onClick={() => handleNav('/', 'about')} className="hover:text-white transition-colors cursor-pointer block">О компании</span></li>
+                                <li><span onClick={() => handleNav('/', 'real-deals')} className="hover:text-white transition-colors cursor-pointer block">Кейсы</span></li>
+                                <li><Link to="/buy/off-plan" className="hover:text-white transition-colors cursor-pointer block">Объекты</Link></li>
                             </ul>
                         </div>
-                        <div className="lg:col-span-4 space-y-6 md:space-y-8 text-left">
-                            <h6 className="font-montserrat text-[9px] md:text-[10px] font-bold uppercase tracking-[0.4em] md:tracking-[0.5em] gold-text">{t.footer.contacts}</h6>
-                            <div className="space-y-5 md:space-y-6 text-left">
-                                <div className="flex items-start gap-4 text-left">
-                                    <MapPin className="gold-text mt-1 flex-shrink-0" size={18} />
-                                    <div className="space-y-3">
-                                        <p className="text-white/60 text-[10px] md:text-xs font-medium uppercase tracking-wider text-left">
-                                            <span className="text-[#C5A059] block mb-1 text-[8px] md:text-[9px]">Офис в Дубае:</span>
-                                            EMAAR Business Park - Building 4<br/>Office 112, Floor 1, Dubai
-                                        </p>
-                                        <p className="text-white/60 text-[10px] md:text-xs font-medium uppercase tracking-wider text-left">
-                                            <span className="text-[#C5A059] block mb-1 text-[8px] md:text-[9px]">Офис в Москве:</span>
-                                            ЗАО, район Можайский,<br/>метро Кунцевская
+                        <div className="lg:col-span-4 space-y-4 md:space-y-8 text-left mt-2 md:mt-0">
+                            <h6 className="font-montserrat text-[9px] md:text-[10px] font-bold uppercase tracking-[0.4em] md:tracking-[0.5em] gold-text">Контакты</h6>
+                            <div className="space-y-4 md:space-y-6 text-left">
+                                <div className="flex items-start gap-3 md:gap-4 text-left">
+                                    <MapPin className="gold-text mt-1 flex-shrink-0" size={16} />
+                                    <div className="space-y-2 md:space-y-3">
+                                        <p className="text-white/60 text-[9px] md:text-xs font-medium uppercase tracking-wider text-left">
+                                            <span className="text-[#C5A059] block mb-1 text-[7px] md:text-[9px]">Офис в Дубае:</span>
+                                            Palm Jumeirah, Shoreline 10, <br/>Dubai, UAE
                                         </p>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-4 group cursor-pointer text-left"><Phone className="gold-text flex-shrink-0" size={18} /><p className="text-white font-montserrat font-bold text-lg md:text-xl tracking-tighter group-hover:text-[#C5A059] transition-colors text-left">+971 52 120 8414</p></div>
-                                <div className="flex items-center gap-4 group cursor-pointer text-left"><Mail className="gold-text flex-shrink-0" size={18} /><p className="text-white/60 font-bold uppercase text-[9px] md:text-[10px] tracking-[0.2em] md:tracking-[0.3em] group-hover:text-white transition-colors text-left break-all">office@alphastar.ae</p></div>
+                                <div className="flex items-center gap-3 md:gap-4 group cursor-pointer text-left"><Phone className="gold-text flex-shrink-0" size={16} /><p className="text-white font-montserrat font-bold text-base md:text-xl tracking-tighter group-hover:text-[#C5A059] transition-colors text-left">+971 50 000 0000</p></div>
+                                <div className="flex items-center gap-3 md:gap-4 group cursor-pointer text-left"><Mail className="gold-text flex-shrink-0" size={16} /><p className="text-white/60 font-bold uppercase text-[8px] md:text-[10px] tracking-[0.3em] group-hover:text-white transition-colors text-left break-all">office@alphastar.ae</p></div>
                             </div>
                         </div>
                     </div>
-                    <div className="pt-6 md:pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
-                        <div className="text-[8px] md:text-[9px] uppercase font-bold tracking-[0.3em] md:tracking-[0.4em] text-white/20 text-center md:text-left">
-                            {t.footer.rights}
+                    <div className="pt-6 md:pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4">
+                        <div className="text-[7px] md:text-[9px] uppercase font-bold tracking-[0.2em] md:tracking-[0.4em] text-white/20 text-center md:text-left">
+                            © 2026 Alpha Star Properties. Все права защищены.
                         </div>
-                        <div className="flex items-center gap-4 text-[8px] md:text-[9px] uppercase font-bold tracking-widest text-white/20">
-                            <Link to="/privacy-policy" className="cursor-pointer hover:text-white transition-colors">{t.footer.privacy}</Link>
+                        <div className="flex items-center gap-3 md:gap-4 text-[7px] md:text-[9px] uppercase font-bold tracking-widest text-white/20">
+                            <Link to="/privacy-policy" className="cursor-pointer hover:text-white transition-colors">Политика конфиденциальности</Link>
                             <span className="hidden md:inline">|</span>
-                            <Link to="/terms-of-use" className="cursor-pointer hover:text-white transition-colors">{t.footer.terms}</Link>
+                            <Link to="/terms-of-use" className="cursor-pointer hover:text-white transition-colors">Условия использования</Link>
                         </div>
                     </div>
                 </div>
             </footer>
 
-            <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[1500] flex flex-col gap-3">
+            <div className="fixed bottom-6 right-6 z-[1500]">
                 <AnimatePresence>
                     {showTopBtn && (
                         <motion.div 
@@ -1543,14 +1552,14 @@ const AppContent = () => {
                             exit={{ opacity: 0, scale: 0.5, y: 20 }} 
                             transition={{ duration: 0.3 }}
                         >
-                            <button type="button" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="w-10 h-10 md:w-12 md:h-12 bg-[#121212] text-[#C5A059] border border-white/10 rounded-full flex items-center justify-center shadow-lg hover:bg-[#C5A059] hover:text-white active:scale-95 transition-all mx-auto">
+                            <button type="button" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="w-10 h-10 md:w-12 md:h-12 bg-[#121212] text-[#C5A059] border border-white/10 rounded-full flex items-center justify-center shadow-lg hover:bg-[#C5A059] hover:text-white active:scale-95 transition-all mx-auto mb-3">
                                 <ArrowUp size={20} className="md:w-6 md:h-6" />
                             </button>
                         </motion.div>
                     )}
                 </AnimatePresence>
-                <button type="button" onClick={() => setIsContactModalOpen(true)} className="w-12 h-12 md:w-14 md:h-14 bg-[#C5A059] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform duration-300">
-                    <MessageCircle size={24} className="md:w-7 md:h-7" />
+                <button type="button" onClick={() => setIsContactModalOpen(true)} className="w-14 h-14 bg-[#C5A059] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform duration-300">
+                    <MessageCircle size={28} />
                 </button>
             </div>
         </>
