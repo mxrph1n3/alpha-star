@@ -14,14 +14,29 @@ const styles = `
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Raleway:wght@300;400;500;600&display=swap');
 
     :root { --color-gold: #C5A059; --color-gold-dark: #A67C37; --color-dark: #121212; }
-    body { font-family: 'Raleway', sans-serif; background-color: #ffffff; color: var(--color-dark); overflow-x: hidden; }
+    
+    /* ПРИНУДИТЕЛЬНО РОВНЫЕ ЦИФРЫ ДЛЯ ВСЕГО САЙТА */
+    *, *::before, *::after {
+        font-variant-numeric: lining-nums tabular-nums;
+        font-feature-settings: "lnum" 1, "tnum" 1;
+    }
+
+    body { 
+        font-family: 'Raleway', sans-serif; 
+        background-color: #ffffff; 
+        color: var(--color-dark); 
+        overflow-x: hidden; 
+        font-variant-numeric: lining-nums;
+        font-feature-settings: "lnum" 1;
+    }
+    
     .font-cormorant { font-family: 'Cormorant Garamond', serif; }
     .font-montserrat { font-family: 'Montserrat', sans-serif; }
     .font-playfair { font-family: 'Playfair Display', serif; }
     
     .gold-text { color: var(--color-gold) !important; }
     .gold-bg { background-color: var(--color-gold) !important; }
-    .lining-nums { font-variant-numeric: lining-nums; }
+    .lining-nums { font-variant-numeric: lining-nums tabular-nums; font-feature-settings: "lnum" 1, "tnum" 1; }
     .hero-mask { clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%); }
     .premium-underline { position: absolute; bottom: 8px; left: 0; right: 0; height: 3px; background-color: rgba(197, 160, 89, 0.6); transform-origin: left; }
     .strategy-card { transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
@@ -573,39 +588,43 @@ const Preloader = ({ onFinish }) => {
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const [phase, setPhase] = useState(0);
 
-    // Дожидаемся загрузки шрифта, чтобы избежать скачков
+    // Гарантируем загрузку конкретных начертаний перед стартом анимации
     useEffect(() => {
         let isMounted = true;
-        if (document.fonts && document.fonts.load) {
-            document.fonts.load('500 16px "Cormorant Garamond"').then(() => {
-                if (isMounted) setFontsLoaded(true);
-            }).catch(() => {
-                if (isMounted) setFontsLoaded(true);
-            });
-        } else {
-            setFontsLoaded(true);
-        }
-
-        // Страховочный таймер
-        const safetyTimer = setTimeout(() => {
-            if (isMounted) setFontsLoaded(true);
-        }, 1000);
-
-        return () => {
-            isMounted = false;
-            clearTimeout(safetyTimer);
+        
+        const loadFonts = async () => {
+            try {
+                if (document.fonts && document.fonts.load) {
+                    // Форсируем загрузку Cormorant Garamond 500 (Medium) и Montserrat 700 (Bold)
+                    await Promise.all([
+                        document.fonts.load('500 16px "Cormorant Garamond"'),
+                        document.fonts.load('700 16px "Montserrat"')
+                    ]);
+                }
+            } catch (err) {
+                console.warn("Font preloading issue:", err);
+            } finally {
+                if (isMounted) {
+                    // Даем браузеру 150мс на рендеринг (paint) после скачивания
+                    setTimeout(() => setFontsLoaded(true), 150);
+                }
+            }
         };
+
+        loadFonts();
+
+        return () => { isMounted = false; };
     }, []);
 
     useEffect(() => {
         if (!fontsLoaded) return;
-        const t1 = setTimeout(() => setPhase(1), 100);   // Анимация вылета
+        const t1 = setTimeout(() => setPhase(1), 50);    // Вылет букв
         const t2 = setTimeout(() => setPhase(2), 2500);  // Экран уезжает вверх
         const t3 = setTimeout(() => onFinish(), 3500);   // Демонтаж
         return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
     }, [fontsLoaded, onFinish]);
 
-    // Пока шрифт не загружен, показываем просто черный экран
+    // Пока шрифты скачиваются, висит абсолютно черный экран без скачущих букв
     if (!fontsLoaded) return <div className="fixed inset-0 z-[9999] bg-[#0A0A0A]"></div>;
 
     return (
@@ -628,8 +647,8 @@ const Preloader = ({ onFinish }) => {
                     className="absolute w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-[#C5A059] rounded-full blur-[100px] md:blur-[150px] pointer-events-none"
                 />
 
-                <div className="relative z-10 flex flex-col items-center justify-center mt-4">
-                    {/* ЛОГОТИП */}
+                <div className="relative z-10 flex flex-col items-center justify-center mt-4" style={{ WebkitFontSmoothing: 'antialiased', transform: 'translateZ(0)' }}>
+                    {/* ЛОГОТИП (Шрифт и отступы ИДЕАЛЬНО совпадают с хедером) */}
                     <motion.div 
                         initial="hidden"
                         animate="visible"
@@ -647,6 +666,7 @@ const Preloader = ({ onFinish }) => {
                                     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
                                 }}
                                 className={`inline-block origin-bottom ${i >= 5 ? 'text-[#C5A059]' : 'text-white'}`}
+                                style={{ willChange: 'transform, opacity' }}
                             >
                                 {char}
                             </motion.span>
@@ -654,12 +674,12 @@ const Preloader = ({ onFinish }) => {
                     </motion.div>
 
                     {/* Слово PROPERTIES без линии, плавно выезжает снизу */}
-                    <div className="overflow-hidden mt-1 md:mt-2">
+                    <div className="overflow-hidden mt-1 md:mt-2 w-full flex justify-center">
                         <motion.div
                             initial={{ y: "100%", opacity: 0, letterSpacing: "0.2em" }}
                             animate={phase >= 1 ? { y: 0, opacity: 1, letterSpacing: "0.55em" } : {}}
                             transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                            className="text-[10px] md:text-[12px] font-bold uppercase gold-text tracking-[0.55em] text-center ml-2 font-montserrat"
+                            className="text-[10px] md:text-[12px] font-bold uppercase gold-text text-center ml-2 font-montserrat"
                         >
                             PROPERTIES
                         </motion.div>
