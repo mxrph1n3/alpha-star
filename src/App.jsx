@@ -49,7 +49,7 @@ const styles = `
     ::-webkit-scrollbar-thumb { background: var(--color-gold); border-radius: 10px; }
 
     /* Поля для SEO-статей */
-    .seo-article h3 { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 700; color: #121212; margin-top: 2.5rem; margin-bottom: 1.25rem; line-height: 1.3; }
+    .seo-article h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 700; color: #121212; margin-top: 2.5rem; margin-bottom: 1.25rem; line-height: 1.3; }
     .seo-article p { margin-bottom: 1.5rem; line-height: 1.8; color: #4b5563; font-size: 1.05rem; }
     .seo-article ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 2rem; color: #4b5563; font-size: 1.05rem; }
     .seo-article li { margin-bottom: 0.75rem; leading-relaxed; }
@@ -89,7 +89,7 @@ const translations = {
         awards: { top: 'Our Awards', title: 'Top-tier Recognition' },
         strategy: { top: 'Our Strategy', title: 'Two Vectors of Success', card1Title: 'A Home for Your Family', card1Desc: 'Selection of areas from $300,000 focusing on infrastructure, top schools, and safety. We will find a place you can call home.', card1Btn: 'Find a Location', card2Title: 'Investment Capital', card2Desc: 'Strategies from $300,000. We generate rental income and capital appreciation in Dubai\'s most liquid zones.', card2Btn: 'Investment Packages' },
         process: { top: 'Why Choose Us', title: 'Control at Every Stage' },
-        deals: { title: 'Real Deals', private: 'Private', conf: 'Confidential Asset', roi: 'Annual ROI', entry: 'Entry', exit: 'Exit', cycle: 'Deal Completed', reqBtn: 'Request Details' },
+        deals: { title: 'Real Deals', private: 'Private', conf: 'Confidential Asset', roi: 'Annual ROI', entry: 'Entry (Launch)', exit: 'Exit (Sale)', cycle: 'Deal Completed', reqBtn: 'Request Details' },
         calc: { top: 'Profit Calculation', title: 'Calculate Your Success', invest: 'Investment ($)', roi: 'ROI (Forecast)', profit: 'Profit', term: 'Term', stOffplan: 'Off-plan', stRental: 'Rental', stFlip: 'Flipping' },
         guide: { top: 'Guide 2026', title: '2026 Analytical Report', desc: 'Find out which Dubai areas will show a 25% growth next year and how to avoid typical buying mistakes.', email: 'Your Email', btn: 'Get the Guide' },
         testim: { title: 'What Our Clients Say', more: 'Show More' },
@@ -109,20 +109,17 @@ const translations = {
 };
 
 // --- DATA ARRAYS ---
-const seoData = {
-    home: { title: "Элитная недвижимость в Дубае | Купить квартиру и виллу | Alpha Star", description: "Инвестиции в недвижимость Дубая. Элитные квартиры, виллы и таунхаусы. Сопровождение сделок Private Office, доступ к off-market лотам и высокая доходность (ROI)." },
-    novostroyki: { title: "Новостройки Дубая от застройщика | Купить недвижимость Off-plan", heading: "Новостройки", subtitle: "Эксклюзивные предложения от топовых застройщиков ОАЭ.", seoText: "Покупка недвижимости на стадии строительства (Off-plan) — это один из самых надежных инструментов для получения максимальной доходности в Дубае. Прирост стоимости актива к моменту сдачи объекта может составлять от 20% до 50%." },
-    secondary: { title: "Вторичное жилье в Дубае | Купить готовую квартиру", heading: "Вторичное жилье", subtitle: "Готовые объекты с полной юридической проверкой для заселения.", seoText: "Вторичный рынок недвижимости Дубая идеально подходит для инвесторов, желающих получать пассивный доход сразу после покупки, а также для тех, кто планирует быстрый переезд по программе резидентской визы (Golden Visa)." },
-    villas: { title: "Купить элитную виллу в Дубае | Таунхаусы премиум-класса", heading: "Виллы и Таунхаусы", subtitle: "Премиальные резиденции для вашей семьи.", seoText: "Рынок роскошных вилл и таунхаусов в Дубае переживает беспрецедентный бум. Элитные комьюнити, такие как Palm Jumeirah, Dubai Hills Estate и Emirates Hills, предлагают непревзойденный уровень приватности." },
-    commercial: { title: "Коммерческая недвижимость в Дубае | Купить офис", heading: "Коммерческая недвижимость", subtitle: "Офисы, ритейл и склады в лучших деловых районах Дубая.", seoText: "Коммерческая недвижимость в деловых центрах Дубая демонстрирует стабильно высокую доходность от аренды (до 8-12% годовых). Мы предлагаем премиальные офисные пространства." },
-    invest: { title: "Инвестиции в недвижимость Дубая | Высокий ROI", heading: "Инвестиционные пакеты", subtitle: "Высокодоходные активы с гарантированным ROI.", seoText: "Грамотно сформированный портфель недвижимости в Дубае позволяет не только сохранить капитал, но и диверсифицировать доходы за счет привязки к стабильной валюте." },
-    plots: { title: "Участки под застройку в Дубае | Купить землю", heading: "Участки под застройку", subtitle: "Земля в престижных локациях для девелоперских проектов.", seoText: "Приобретение земельного участка в Дубае — это редкая возможность создать премиальный проект по индивидуальному дизайну или реализовать прибыльный девелоперский проект." },
-    apartments_rent: { title: "Аренда элитных апартаментов в Дубае", heading: "Аренда апартаментов", subtitle: "Долгосрочная аренда в премиальных локациях.", seoText: "Мы предоставляем полный спектр услуг по подбору элитной недвижимости для долгосрочной аренды. Наши брокеры организуют просмотры и помогут согласовать условия." },
-    valuation: { title: "Оценка стоимости недвижимости в Дубае", heading: "Оценка вашей недвижимости", subtitle: "Наши аналитики подготовят точный отчет о рыночной стоимости вашего актива на основе актуальных транзакций Земельного Департамента Дубая." },
-    blog: { title: "Блог о недвижимости Дубая | Аналитика рынка ОАЭ 2026", description: "Свежие новости рынка недвижимости ОАЭ, аналитика цен, прогнозы на 2026 год." }
-};
-
-const getSeoData = (lang) => seoData;
+const getSeoData = (lang) => ({
+    home: { title: lang==='RU'?"Элитная недвижимость в Дубае | Alpha Star":"Luxury Real Estate in Dubai | Alpha Star", heading: "Boutique Agency", subtitle: "" },
+    novostroyki: { title: lang==='RU'?"Новостройки Дубая | Off-plan":"Off-plan Properties in Dubai", heading: lang==='RU'?"Новостройки":"Off-Plan Properties", subtitle: lang==='RU'?"Эксклюзивные предложения от топовых застройщиков ОАЭ.":"Exclusive offers from top UAE developers." },
+    secondary: { title: lang==='RU'?"Вторичное жилье в Дубае":"Secondary Market in Dubai", heading: lang==='RU'?"Вторичное жилье":"Secondary Market", subtitle: lang==='RU'?"Готовые объекты с полной юридической проверкой для заселения.":"Ready-to-move properties with full legal audit." },
+    villas: { title: lang==='RU'?"Виллы в Дубае":"Villas in Dubai", heading: lang==='RU'?"Виллы и Таунхаусы":"Villas & Townhouses", subtitle: lang==='RU'?"Премиальные резиденции для вашей семьи.":"Premium residences for your family." },
+    commercial: { title: lang==='RU'?"Коммерческая недвижимость в Дубае":"Commercial Property in Dubai", heading: lang==='RU'?"Коммерческая недвижимость":"Commercial Real Estate", subtitle: lang==='RU'?"Офисы, ритейл и склады в деловых районах Дубая.":"Offices, retail and warehouses in Dubai's business districts." },
+    invest: { title: lang==='RU'?"Инвестиции в недвижимость Дубая":"Investments in Dubai Real Estate", heading: lang==='RU'?"Инвестиционные пакеты":"Investment Packages", subtitle: lang==='RU'?"Высокодоходные активы с гарантированным ROI.":"High-yield assets with guaranteed ROI." },
+    plots: { title: lang==='RU'?"Участки под застройку":"Plots for Development", heading: lang==='RU'?"Участки под застройку":"Development Plots", subtitle: lang==='RU'?"Земля в престижных локациях.":"Land in prestigious locations." },
+    distress: { title: lang==='RU'?"Дистресс недвижимость":"Distress Deals", heading: lang==='RU'?"Дистресс-активы":"Distress Deals", subtitle: lang==='RU'?"Срочные продажи недвижимости ниже рыночной стоимости.":"Urgent property sales below market value." },
+    apartments_rent: { title: lang==='RU'?"Аренда апартаментов":"Apartments for Rent", heading: lang==='RU'?"Аренда апартаментов":"Apartments for Rent", subtitle: lang==='RU'?"Долгосрочная аренда в премиальных локациях.":"Long-term rental in premium locations." },
+});
 
 const getSteps = (lang) => [
     { icon: Search, title: lang==='RU'?"Глубокий анализ":"Deep Analysis", desc: lang==='RU'?"Анализируем лоты по 54 параметрам ликвидности до их выхода в паблик.":"We analyze lots by 54 liquidity parameters before public release." },
@@ -206,6 +203,16 @@ const categoryImages = {
     ]
 };
 
+const mockProperties = [
+    { id: 1, type: 'novostroyki', beds: 1, title: 'Emaar Beachfront Residence', price: '1,500,000', location: 'Dubai Harbour', img: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800', dev: 'Emaar Properties', completion: 'Q4 2026', roi: '~8-10%' },
+    { id: 2, type: 'novostroyki', beds: 2, title: 'Cavalli Couture', price: '2,800,000', location: 'Dubai Water Canal', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800', dev: 'DAMAC Properties', completion: 'Q3 2025', roi: '~7-9%' },
+    { id: 3, type: 'villas', beds: 3, title: 'District One Villa', price: '5,500,000', location: 'MBR City', img: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800', dev: 'Meydan Group', completion: 'Готов', roi: '~6%' },
+    { id: 4, type: 'secondary', beds: 1, title: 'Downtown Views', price: '950,000', location: 'Downtown Dubai', img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800', dev: 'Emaar Properties', completion: 'Готов', roi: '~7.5%' },
+    { id: 5, type: 'commercial', beds: 0, title: 'Business Bay Office', price: '3,200,000', location: 'Business Bay', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800', dev: 'Omniyat', completion: 'Готов', roi: '~10%' },
+    { id: 6, type: 'invest', beds: 2, title: 'High ROI Apartment', price: '1,100,000', location: 'JVC', img: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=800', dev: 'Binghatti', completion: 'Q1 2026', roi: '~9-11%' },
+    { id: 7, type: 'plots', beds: 0, title: 'Pearl Jumeirah Plot', price: '12,500,000', location: 'Pearl Jumeirah', img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800', dev: 'Meraas', completion: 'Земля', roi: 'Капитализация' }
+];
+
 // --- КОНТЕКСТ ЛОКАЛИЗАЦИИ ---
 const LanguageContext = createContext();
 
@@ -270,7 +277,7 @@ const LeadForm = ({ title, subtitle, isModal = false }) => {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1 gold-bg opacity-30"></div>
             <div className="text-center mb-6 md:mb-8">
                 <h2 className="font-montserrat text-xl md:text-3xl uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold mb-2 md:mb-3 text-[#121212]">{title}</h2>
-                <p className="font-playfair italic text-base md:text-lg text-gray-400">{subtitle}</p>
+                <p className="font-cormorant text-base md:text-lg text-gray-400">{subtitle}</p>
             </div>
             <form className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 text-left" onSubmit={e => e.preventDefault()}>
                 <div className="space-y-1 md:space-y-2 font-montserrat">
@@ -394,7 +401,7 @@ const CallbackModal = ({ isOpen, onClose }) => {
                             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1 gold-bg opacity-30"></div>
                             <div className="text-center mb-6 md:mb-8">
                                 <h2 className="font-montserrat text-xl md:text-2xl uppercase tracking-[0.2em] font-bold mb-2 md:mb-3 text-[#121212]">{t.autoPopup ? t.autoPopup.title : "Инвестируете в Дубай?"}</h2>
-                                <p className="font-playfair italic text-base md:text-lg text-gray-400">{t.autoPopup ? t.autoPopup.subtitle : "Оставьте номер, и наш эксперт перезвонит, чтобы рассказать о скрытых жемчужинах рынка."}</p>
+                                <p className="font-cormorant text-base md:text-lg text-gray-400">{t.autoPopup ? t.autoPopup.subtitle : "Оставьте номер, и наш эксперт перезвонит, чтобы рассказать о скрытых жемчужинах рынка."}</p>
                             </div>
                             <form className="flex flex-col gap-4 md:gap-5 text-left" onSubmit={e => { e.preventDefault(); onClose(); }}>
                                 <div className="space-y-1 md:space-y-2 font-montserrat">
@@ -546,6 +553,7 @@ const StarField = () => {
     return <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none opacity-40"></canvas>;
 };
 
+// ИДЕАЛЬНЫЙ ПРЕМИАЛЬНЫЙ ПРЕЛОАДЕР
 const Preloader = ({ onFinish }) => {
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const [phase, setPhase] = useState(0);
@@ -553,15 +561,24 @@ const Preloader = ({ onFinish }) => {
     // Дожидаемся загрузки шрифта, чтобы избежать скачков и FOUT
     useEffect(() => {
         let isMounted = true;
-        document.fonts.ready.then(() => {
+        if (document.fonts && document.fonts.load) {
+            document.fonts.load('500 16px "Cormorant Garamond"').then(() => {
+                if (isMounted) setFontsLoaded(true);
+            }).catch(() => {
+                if (isMounted) setFontsLoaded(true);
+            });
+        } else {
+            setFontsLoaded(true);
+        }
+
+        // Страховочный таймер
+        const safetyTimer = setTimeout(() => {
             if (isMounted) setFontsLoaded(true);
-        });
-        const fallback = setTimeout(() => {
-            if (isMounted) setFontsLoaded(true);
-        }, 1500);
+        }, 1000);
+
         return () => {
             isMounted = false;
-            clearTimeout(fallback);
+            clearTimeout(safetyTimer);
         };
     }, []);
 
@@ -573,7 +590,8 @@ const Preloader = ({ onFinish }) => {
         return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
     }, [fontsLoaded, onFinish]);
 
-    if (!fontsLoaded) return <div className="fixed inset-0 z-[9999] bg-[#0A0A0A]" />;
+    // Пока шрифт не загружен, показываем просто черный экран
+    if (!fontsLoaded) return <div className="fixed inset-0 z-[9999] bg-[#0A0A0A]"></div>;
 
     return (
         <motion.div 
@@ -596,7 +614,7 @@ const Preloader = ({ onFinish }) => {
                 />
 
                 <div className="relative z-10 flex flex-col items-center justify-center mt-4">
-                    {/* ЛОГОТИП (Шрифт Playfair Display, отступы ИДЕАЛЬНО совпадают с хедером) */}
+                    {/* ЛОГОТИП (Шрифт Cormorant Garamond, отступы ИДЕАЛЬНО совпадают с хедером) */}
                     <motion.div 
                         initial="hidden"
                         animate="visible"
@@ -604,13 +622,13 @@ const Preloader = ({ onFinish }) => {
                             hidden: { opacity: 1 },
                             visible: { transition: { staggerChildren: 0.08 } }
                         }}
-                        className="font-playfair text-5xl md:text-7xl tracking-[0.15em] uppercase flex overflow-hidden px-4 pb-2 relative z-10"
+                        className="font-cormorant font-medium text-5xl md:text-7xl tracking-[0.15em] uppercase flex overflow-hidden px-4 pb-2 relative z-10"
                     >
                         {"ALPHASTAR".split('').map((char, i) => (
                             <motion.span
                                 key={i}
                                 variants={{
-                                    hidden: { opacity: 0, y: 50 },
+                                    hidden: { opacity: 0, y: "100%" },
                                     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
                                 }}
                                 className={`inline-block origin-bottom ${i >= 5 ? 'text-[#C5A059]' : 'text-white'}`}
@@ -626,7 +644,7 @@ const Preloader = ({ onFinish }) => {
                             initial={{ y: "100%", opacity: 0 }}
                             animate={phase >= 1 ? { y: 0, opacity: 1 } : {}}
                             transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                            className="text-[10px] md:text-[12px] font-bold uppercase gold-text tracking-[0.55em] text-center ml-2"
+                            className="text-[10px] md:text-[12px] font-bold uppercase gold-text tracking-[0.55em] text-center ml-2 font-montserrat"
                         >
                             PROPERTIES
                         </motion.div>
@@ -637,7 +655,6 @@ const Preloader = ({ onFinish }) => {
     );
 };
 
-// --- WRAPPER FOR PAGE TRANSITIONS ---
 const PageWrapper = ({ children }) => (
     <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }} transition={{ duration: 0.4 }} className="w-full">
         {children}
@@ -711,7 +728,12 @@ const ListingPage = ({ category, onOpenModal }) => {
                                 <div className="p-6 md:p-8 flex-grow flex flex-col justify-between">
                                     <div>
                                         <p className="text-gold uppercase tracking-widest text-[8px] md:text-[9px] font-bold mb-1 md:mb-2">{item.location}</p>
-                                        <h4 className="font-montserrat font-bold text-base md:text-lg mb-4 md:mb-6 text-[#121212]">{item.title}</h4>
+                                        <h4 className="font-montserrat font-bold text-base md:text-lg mb-3 md:mb-4 text-[#121212]">{item.title}</h4>
+                                        <div className="flex flex-wrap gap-2 mb-4 md:mb-6">
+                                            {item.dev && <span className="bg-gray-50 text-gray-500 text-[8px] uppercase tracking-widest font-bold px-2 py-1 rounded-sm border border-gray-100">{item.dev}</span>}
+                                            {item.completion && <span className="bg-gray-50 text-gray-500 text-[8px] uppercase tracking-widest font-bold px-2 py-1 rounded-sm border border-gray-100">Сдача: {item.completion}</span>}
+                                            {item.roi && <span className="bg-[#C5A059]/10 text-[#C5A059] text-[8px] uppercase tracking-widest font-bold px-2 py-1 rounded-sm border border-[#C5A059]/20">ROI: {item.roi}</span>}
+                                        </div>
                                     </div>
                                     <button type="button" onClick={onOpenModal} className="btn-premium w-full py-3 md:py-4 text-[9px] md:text-[10px] text-white bg-[#121212] font-bold uppercase tracking-widest mt-auto">{t.listing.btn}</button>
                                 </div>
@@ -1046,17 +1068,17 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                                     </div>
                                     
                                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-8 md:mb-12 bg-gray-50/50 p-4 md:p-6 border border-gray-50 rounded-sm">
-                                        <div className="flex-1 w-full flex justify-between sm:block">
-                                            <span className="text-[8px] md:text-[9px] uppercase font-bold text-gray-400 tracking-widest block mb-1 sm:mb-2">1) {item.launchTitle || t.deals.entry}</span>
-                                            <span className="text-sm md:text-lg lg:text-xl font-montserrat font-bold text-[#121212] lining-nums whitespace-nowrap">{item.launch}</span>
+                                        <div className="flex-1 w-full flex items-center justify-between sm:block">
+                                            <span className="text-[8px] md:text-[9px] uppercase font-bold text-gray-400 tracking-widest block mb-0 sm:mb-2">{item.launchTitle || t.deals.entry}</span>
+                                            <span className="text-xs sm:text-sm md:text-lg lg:text-xl font-montserrat font-bold text-[#121212] lining-nums whitespace-nowrap">{item.launch}</span>
                                         </div>
                                         <div className="hidden sm:block w-8 md:w-16 lg:w-24 h-px bg-gray-300 relative mx-2">
                                             <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 border-t border-r border-[#C5A059] rotate-45"></div>
                                         </div>
                                         <div className="w-full sm:hidden h-px bg-gray-200 my-1"></div>
-                                        <div className="flex-1 w-full sm:text-right md:text-left flex justify-between sm:block">
-                                            <span className="text-[8px] md:text-[9px] uppercase font-bold gold-text tracking-widest block mb-1 sm:mb-2">2) {item.nowTitle || t.deals.exit}</span>
-                                            <span className="text-sm md:text-lg lg:text-xl font-montserrat font-bold text-[#121212] lining-nums whitespace-nowrap">{item.now}</span>
+                                        <div className="flex-1 w-full sm:text-right md:text-left flex items-center justify-between sm:block">
+                                            <span className="text-[8px] md:text-[9px] uppercase font-bold gold-text tracking-widest block mb-0 sm:mb-2">{item.nowTitle || t.deals.exit}</span>
+                                            <span className="text-xs sm:text-sm md:text-lg lg:text-xl font-montserrat font-bold text-[#121212] lining-nums whitespace-nowrap">{item.now}</span>
                                         </div>
                                     </div>
                                     
@@ -1185,7 +1207,7 @@ const AppContent = () => {
             const timer = setTimeout(() => {
                 setIsAutoModalOpen(true);
                 sessionStorage.setItem('popupShown', 'true');
-            }, 21000); // Ровно 21 секунда до автопопапа
+            }, 21000); // 21 Секунда
             return () => clearTimeout(timer);
         }
     }, []);
@@ -1230,7 +1252,7 @@ const AppContent = () => {
             <header className={`fixed w-full z-[1000] transition-all duration-500 ${headerClass}`}>
                 <div className="max-w-7xl mx-auto px-5 md:px-8 flex justify-between items-center">
                     <Link to="/" className="flex flex-col cursor-pointer" onClick={() => setIsMobileMenuOpen(false)}>
-                        <span className="font-cormorant text-xl md:text-2xl lg:text-3xl font-bold tracking-[0.15em] uppercase">ALPHA<span className="gold-text">STAR</span></span>
+                        <span className="font-cormorant text-xl md:text-2xl lg:text-3xl font-medium tracking-[0.15em] uppercase">ALPHA<span className="gold-text">STAR</span></span>
                         <span className="text-[6px] md:text-[7px] lg:text-[8px] tracking-[0.4em] lg:tracking-[0.55em] font-bold uppercase gold-text -mt-1 text-left">PROPERTIES</span>
                     </Link>
                     
@@ -1277,7 +1299,7 @@ const AppContent = () => {
                     <motion.div initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }} transition={{ type: 'tween', duration: 0.3 }} className="fixed inset-0 bg-[#0A0A0A] z-[2000] flex flex-col px-6 py-8 overflow-y-auto">
                         <div className="flex justify-between items-center mb-10">
                             <div className="flex flex-col cursor-pointer text-white" onClick={() => handleNav('/')}>
-                                <span className="font-cormorant text-2xl font-bold tracking-[0.15em] uppercase">ALPHA<span className="gold-text">STAR</span></span>
+                                <span className="font-cormorant text-2xl font-medium tracking-[0.15em] uppercase">ALPHA<span className="gold-text">STAR</span></span>
                             </div>
                             <button onClick={() => setIsMobileMenuOpen(false)} className="text-white/50 hover:text-[#C5A059] p-2 -mr-2 bg-white/5 rounded-full"><X size={24} /></button>
                         </div>
@@ -1345,58 +1367,58 @@ const AppContent = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 md:gap-16 mb-16 md:mb-20 text-left">
                         <div className="lg:col-span-5 space-y-6 md:space-y-8 text-left">
                             <div className="flex flex-col text-left">
-                                <span className="font-cormorant text-2xl md:text-3xl font-bold tracking-[0.15em] uppercase">ALPHA<span className="gold-text">STAR</span></span>
+                                <span className="font-cormorant text-2xl md:text-3xl font-medium tracking-[0.15em] uppercase">ALPHA<span className="gold-text">STAR</span></span>
                                 <span className="text-[7px] md:text-[9px] tracking-[0.7em] md:tracking-[0.8em] font-bold uppercase gold-text -mt-1 ml-1 text-left">PROPERTIES</span>
                             </div>
                             <p className="text-white/40 text-sm md:text-base leading-relaxed max-w-md font-medium font-cormorant border-l border-[#C5A059] pl-4 md:pl-6 text-left">{t.footer.quote}</p>
                             
                             {/* Иконки соцсетей */}
-                            <div className="flex flex-wrap items-center gap-4 pt-4">
-                                <a href="https://wa.me/971521208414" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-[#C5A059] hover:text-[#C5A059] hover:bg-[#C5A059]/5 transition-all duration-500 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:-translate-y-1 group">
+                            <div className="flex flex-wrap items-center gap-3 md:gap-4 pt-2 md:pt-4">
+                                <a href="https://wa.me/971521208414" target="_blank" rel="noopener noreferrer" className="w-8 h-8 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-[#C5A059] hover:text-[#C5A059] hover:bg-[#C5A059]/5 transition-all duration-500 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:-translate-y-1 group">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-500 group-hover:scale-110"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                                 </a>
-                                <a href="https://t.me/dubai_bestprice" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-[#C5A059] hover:text-[#C5A059] hover:bg-[#C5A059]/5 transition-all duration-500 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:-translate-y-1 group">
+                                <a href="https://t.me/dubai_bestprice" target="_blank" rel="noopener noreferrer" className="w-8 h-8 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-[#C5A059] hover:text-[#C5A059] hover:bg-[#C5A059]/5 transition-all duration-500 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:-translate-y-1 group">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-500 group-hover:scale-110"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg>
                                 </a>
-                                <a href="https://www.instagram.com/alphastar.dubai?igsh=a3A5ajM2NjV2ajl6&utm_source=qr" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-[#C5A059] hover:text-[#C5A059] hover:bg-[#C5A059]/5 transition-all duration-500 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:-translate-y-1 group">
+                                <a href="https://www.instagram.com/alphastar.dubai?igsh=a3A5ajM2NjV2ajl6&utm_source=qr" target="_blank" rel="noopener noreferrer" className="w-8 h-8 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-[#C5A059] hover:text-[#C5A059] hover:bg-[#C5A059]/5 transition-all duration-500 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:-translate-y-1 group">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-500 group-hover:scale-110"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
                                 </a>
                             </div>
                         </div>
-                        <div className="lg:col-span-3 space-y-6 md:space-y-8 text-left hidden md:block">
+                        <div className="lg:col-span-3 space-y-4 md:space-y-8 text-left hidden md:block">
                             <h6 className="font-montserrat text-[9px] md:text-[10px] font-bold uppercase tracking-[0.4em] md:tracking-[0.5em] gold-text">{t.footer.nav}</h6>
-                            <ul className="space-y-3 md:space-y-4 text-xs md:text-sm font-bold uppercase tracking-widest text-white/30 text-left">
+                            <ul className="space-y-2 md:space-y-4 text-xs md:text-sm font-bold uppercase tracking-widest text-white/30 text-left">
                                 <li><span onClick={() => handleNav('/', 'about')} className="hover:text-white transition-colors cursor-pointer block">{t.footer.about}</span></li>
                                 <li><span onClick={() => handleNav('/', 'real-deals')} className="hover:text-white transition-colors cursor-pointer block">{t.footer.cases}</span></li>
                                 <li><Link to="/buy/off-plan" className="hover:text-white transition-colors cursor-pointer block">{t.footer.catalog}</Link></li>
                             </ul>
                         </div>
-                        <div className="lg:col-span-4 space-y-6 md:space-y-8 text-left">
+                        <div className="lg:col-span-4 space-y-4 md:space-y-8 text-left mt-4 md:mt-0">
                             <h6 className="font-montserrat text-[9px] md:text-[10px] font-bold uppercase tracking-[0.4em] md:tracking-[0.5em] gold-text">{t.footer.contacts}</h6>
-                            <div className="space-y-5 md:space-y-6 text-left">
-                                <div className="flex items-start gap-4 text-left">
-                                    <MapPin className="gold-text mt-1 flex-shrink-0" size={18} />
-                                    <div className="space-y-3">
-                                        <p className="text-white/60 text-[10px] md:text-xs font-medium uppercase tracking-wider text-left">
-                                            <span className="text-[#C5A059] block mb-1 text-[8px] md:text-[9px]">Офис в Дубае:</span>
+                            <div className="space-y-4 md:space-y-6 text-left">
+                                <div className="flex items-start gap-3 md:gap-4 text-left">
+                                    <MapPin className="gold-text mt-1 flex-shrink-0" size={16} />
+                                    <div className="space-y-2 md:space-y-3">
+                                        <p className="text-white/60 text-[9px] md:text-xs font-medium uppercase tracking-wider text-left">
+                                            <span className="text-[#C5A059] block mb-1 text-[7px] md:text-[9px]">Офис в Дубае:</span>
                                             EMAAR Business Park - Building 4<br/>Office 112, Floor 1, Dubai
                                         </p>
-                                        <p className="text-white/60 text-[10px] md:text-xs font-medium uppercase tracking-wider text-left">
-                                            <span className="text-[#C5A059] block mb-1 text-[8px] md:text-[9px]">Офис в Москве:</span>
+                                        <p className="text-white/60 text-[9px] md:text-xs font-medium uppercase tracking-wider text-left">
+                                            <span className="text-[#C5A059] block mb-1 text-[7px] md:text-[9px]">Офис в Москве:</span>
                                             ЗАО, район Можайский,<br/>метро Кунцевская
                                         </p>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-4 group cursor-pointer text-left"><Phone className="gold-text flex-shrink-0" size={18} /><p className="text-white font-montserrat font-bold text-lg md:text-xl tracking-tighter group-hover:text-[#C5A059] transition-colors text-left">+971 52 120 8414</p></div>
-                                <div className="flex items-center gap-4 group cursor-pointer text-left"><Mail className="gold-text flex-shrink-0" size={18} /><p className="text-white/60 font-bold uppercase text-[9px] md:text-[10px] tracking-[0.2em] md:tracking-[0.3em] group-hover:text-white transition-colors text-left break-all">sales@alphastardubai.ae</p></div>
+                                <div className="flex items-center gap-3 md:gap-4 group cursor-pointer text-left"><Phone className="gold-text flex-shrink-0" size={16} /><p className="text-white font-montserrat font-bold text-base md:text-xl tracking-tighter group-hover:text-[#C5A059] transition-colors text-left">+971 52 120 8414</p></div>
+                                <div className="flex items-center gap-3 md:gap-4 group cursor-pointer text-left"><Mail className="gold-text flex-shrink-0" size={16} /><p className="text-white/60 font-bold uppercase text-[8px] md:text-[10px] tracking-[0.2em] md:tracking-[0.3em] group-hover:text-white transition-colors text-left break-all">office@alphastar.ae</p></div>
                             </div>
                         </div>
                     </div>
-                    <div className="pt-6 md:pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
-                        <div className="text-[8px] md:text-[9px] uppercase font-bold tracking-[0.3em] md:tracking-[0.4em] text-white/20 text-center md:text-left">
+                    <div className="pt-4 md:pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4">
+                        <div className="text-[7px] md:text-[9px] uppercase font-bold tracking-[0.2em] md:tracking-[0.4em] text-white/20 text-center md:text-left">
                             {t.footer.rights}
                         </div>
-                        <div className="flex items-center gap-4 text-[8px] md:text-[9px] uppercase font-bold tracking-widest text-white/20">
+                        <div className="flex items-center gap-3 md:gap-4 text-[7px] md:text-[9px] uppercase font-bold tracking-widest text-white/20">
                             <Link to="/privacy-policy" className="cursor-pointer hover:text-white transition-colors">{t.footer.privacy}</Link>
                             <span className="hidden md:inline">|</span>
                             <Link to="/terms-of-use" className="cursor-pointer hover:text-white transition-colors">{t.footer.terms}</Link>
@@ -1440,7 +1462,7 @@ export default function App() {
                     
                     <link rel="preconnect" href="https://fonts.googleapis.com" />
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-                    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Raleway:wght@300;400;500;600&display=block" rel="stylesheet" />
+                    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
                 </Helmet>
                 <Router>
                     <style>{styles}</style>
