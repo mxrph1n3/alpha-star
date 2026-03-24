@@ -203,16 +203,6 @@ const categoryImages = {
     ]
 };
 
-const mockProperties = [
-    { id: 1, type: 'novostroyki', beds: 1, title: 'Emaar Beachfront Residence', price: '1,500,000', location: 'Dubai Harbour', img: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800', dev: 'Emaar Properties', completion: 'Q4 2026', roi: '~8-10%' },
-    { id: 2, type: 'novostroyki', beds: 2, title: 'Cavalli Couture', price: '2,800,000', location: 'Dubai Water Canal', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800', dev: 'DAMAC Properties', completion: 'Q3 2025', roi: '~7-9%' },
-    { id: 3, type: 'villas', beds: 3, title: 'District One Villa', price: '5,500,000', location: 'MBR City', img: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800', dev: 'Meydan Group', completion: 'Готов', roi: '~6%' },
-    { id: 4, type: 'secondary', beds: 1, title: 'Downtown Views', price: '950,000', location: 'Downtown Dubai', img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800', dev: 'Emaar Properties', completion: 'Готов', roi: '~7.5%' },
-    { id: 5, type: 'commercial', beds: 0, title: 'Business Bay Office', price: '3,200,000', location: 'Business Bay', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800', dev: 'Omniyat', completion: 'Готов', roi: '~10%' },
-    { id: 6, type: 'invest', beds: 2, title: 'High ROI Apartment', price: '1,100,000', location: 'JVC', img: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=800', dev: 'Binghatti', completion: 'Q1 2026', roi: '~9-11%' },
-    { id: 7, type: 'plots', beds: 0, title: 'Pearl Jumeirah Plot', price: '12,500,000', location: 'Pearl Jumeirah', img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800', dev: 'Meraas', completion: 'Земля', roi: 'Капитализация' }
-];
-
 // --- КОНТЕКСТ ЛОКАЛИЗАЦИИ ---
 const LanguageContext = createContext();
 
@@ -553,12 +543,12 @@ const StarField = () => {
     return <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none opacity-40"></canvas>;
 };
 
-// ИДЕАЛЬНЫЙ ПРЕМИАЛЬНЫЙ ПРЕЛОАДЕР
+// ИДЕАЛЬНЫЙ ПРЕМИАЛЬНЫЙ ПРЕЛОАДЕР (С ЗАЩИТОЙ ОТ ПРЫГАЮЩИХ ШРИФТОВ И УХОДОМ ВВЕРХ)
 const Preloader = ({ onFinish }) => {
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const [phase, setPhase] = useState(0);
 
-    // Дожидаемся загрузки шрифта, чтобы избежать скачков и FOUT
+    // Дожидаемся загрузки шрифта, чтобы избежать скачков
     useEffect(() => {
         let isMounted = true;
         if (document.fonts && document.fonts.load) {
@@ -584,9 +574,9 @@ const Preloader = ({ onFinish }) => {
 
     useEffect(() => {
         if (!fontsLoaded) return;
-        const t1 = setTimeout(() => setPhase(1), 100);   // Анимация вылета букв снизу
-        const t2 = setTimeout(() => setPhase(2), 2200);  // Экран уезжает вверх
-        const t3 = setTimeout(() => onFinish(), 3200);   // Демонтаж компонента
+        const t1 = setTimeout(() => setPhase(1), 100);   // Анимация вылета
+        const t2 = setTimeout(() => setPhase(2), 2500);  // Экран уезжает вверх
+        const t3 = setTimeout(() => onFinish(), 3500);   // Демонтаж
         return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
     }, [fontsLoaded, onFinish]);
 
@@ -608,13 +598,13 @@ const Preloader = ({ onFinish }) => {
                 {/* Фоновое премиальное свечение */}
                 <motion.div 
                     initial={{ opacity: 0, scale: 0.8 }} 
-                    animate={{ opacity: 0.15, scale: 1 }} 
+                    animate={{ opacity: 0.2, scale: 1 }} 
                     transition={{ duration: 2.5, ease: "easeOut" }}
                     className="absolute w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-[#C5A059] rounded-full blur-[100px] md:blur-[150px] pointer-events-none"
                 />
 
                 <div className="relative z-10 flex flex-col items-center justify-center mt-4">
-                    {/* ЛОГОТИП (Шрифт Cormorant Garamond, отступы ИДЕАЛЬНО совпадают с хедером) */}
+                    {/* ЛОГОТИП */}
                     <motion.div 
                         initial="hidden"
                         animate="visible"
@@ -622,7 +612,7 @@ const Preloader = ({ onFinish }) => {
                             hidden: { opacity: 1 },
                             visible: { transition: { staggerChildren: 0.08 } }
                         }}
-                        className="font-cormorant font-medium text-5xl md:text-7xl tracking-[0.15em] uppercase flex overflow-hidden px-4 pb-2 relative z-10"
+                        className="font-cormorant text-5xl md:text-7xl font-medium tracking-[0.15em] uppercase flex overflow-hidden px-4 pb-2 relative z-10"
                     >
                         {"ALPHASTAR".split('').map((char, i) => (
                             <motion.span
@@ -641,8 +631,8 @@ const Preloader = ({ onFinish }) => {
                     {/* Слово PROPERTIES без линии, плавно выезжает снизу */}
                     <div className="overflow-hidden mt-1 md:mt-2">
                         <motion.div
-                            initial={{ y: "100%", opacity: 0 }}
-                            animate={phase >= 1 ? { y: 0, opacity: 1 } : {}}
+                            initial={{ y: "100%", opacity: 0, letterSpacing: "0.2em" }}
+                            animate={phase >= 1 ? { y: 0, opacity: 1, letterSpacing: "0.55em" } : {}}
                             transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
                             className="text-[10px] md:text-[12px] font-bold uppercase gold-text tracking-[0.55em] text-center ml-2 font-montserrat"
                         >
@@ -1361,16 +1351,16 @@ const AppContent = () => {
             </main>
 
             {/* ФУТЕР */}
-            <footer className="bg-[#0A0A0A] text-white pt-16 md:pt-24 pb-8 md:pb-12 px-5 md:px-8 relative overflow-hidden border-t border-white/5">
+            <footer className="bg-[#0A0A0A] text-white pt-12 md:pt-24 pb-6 md:pb-12 px-5 md:px-8 relative overflow-hidden border-t border-white/5">
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-[#C5A059]/5 blur-[120px] pointer-events-none"></div>
                 <div className="max-w-7xl mx-auto relative z-10 text-left">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 md:gap-16 mb-16 md:mb-20 text-left">
-                        <div className="lg:col-span-5 space-y-6 md:space-y-8 text-left">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-16 mb-10 md:mb-20 text-left">
+                        <div className="lg:col-span-5 space-y-4 md:space-y-8 text-left">
                             <div className="flex flex-col text-left">
                                 <span className="font-cormorant text-2xl md:text-3xl font-medium tracking-[0.15em] uppercase">ALPHA<span className="gold-text">STAR</span></span>
                                 <span className="text-[7px] md:text-[9px] tracking-[0.7em] md:tracking-[0.8em] font-bold uppercase gold-text -mt-1 ml-1 text-left">PROPERTIES</span>
                             </div>
-                            <p className="text-white/40 text-sm md:text-base leading-relaxed max-w-md font-medium font-cormorant border-l border-[#C5A059] pl-4 md:pl-6 text-left">{t.footer.quote}</p>
+                            <p className="text-white/40 text-xs md:text-base leading-relaxed max-w-md font-medium font-cormorant border-l border-[#C5A059] pl-3 md:pl-6 text-left">{t.footer.quote}</p>
                             
                             {/* Иконки соцсетей */}
                             <div className="flex flex-wrap items-center gap-3 md:gap-4 pt-2 md:pt-4">
