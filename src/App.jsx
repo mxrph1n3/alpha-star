@@ -1162,13 +1162,16 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                 </div>
             </section>
 
-            {/* 2.5. НАГРАДЫ */}
-            <section className="py-16 lg:py-24 bg-white px-5 md:px-8 border-y border-gray-100">
-                <div className="max-w-7xl mx-auto">
+            {/* 2.5. НАГРАДЫ (ПРЕМИАЛЬНЫЙ РЕАЛИСТИЧНЫЙ ДИЗАЙН) */}
+            <section className="relative py-16 lg:py-24 bg-[#121212] px-5 md:px-8 border-y border-white/5 overflow-hidden">
+                {/* Фоновое свечение для реалистичности */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] max-w-4xl h-[60%] bg-[#C5A059]/10 blur-[120px] pointer-events-none rounded-full"></div>
+
+                <div className="max-w-7xl mx-auto relative z-10">
                     <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 gap-4 md:gap-6">
-                        <div className="text-left">
+                        <div className="text-center md:text-left w-full">
                             <h2 className="text-[9px] md:text-[10px] gold-text uppercase tracking-[0.4em] md:tracking-[0.5em] font-bold font-montserrat mb-3">{t.awards.top}</h2>
-                            <h3 className="font-cormorant text-3xl md:text-4xl text-[#121212] font-bold">{t.awards.title}</h3>
+                            <h3 className="font-cormorant text-3xl md:text-4xl text-white font-bold">{t.awards.title}</h3>
                         </div>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
@@ -1180,14 +1183,23 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                                     initial={{ opacity: 0, y: 30 }} 
                                     whileInView={{ opacity: 1, y: 0 }} 
                                     viewport={{ once: true }} 
-                                    transition={{ duration: 0.8, delay: i * 0.1 }} 
-                                    className="group flex flex-col items-center text-center bg-white p-6 md:p-8 rounded-sm shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_40px_rgba(197,160,89,0.12)] border border-gray-50 hover:-translate-y-1 transition-all duration-500"
+                                    transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }} 
+                                    className="group flex flex-col items-center text-center bg-gradient-to-b from-white/[0.08] to-transparent p-8 md:p-10 rounded-sm border border-white/10 hover:border-[#C5A059]/50 transition-all duration-700 relative overflow-hidden"
                                 >
-                                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 group-hover:text-[#C5A059] group-hover:bg-[#C5A059]/10 transition-all duration-500 mb-4 md:mb-6">
-                                        <Icon size={28} strokeWidth={1.5} className="md:w-8 md:h-8" />
+                                    {/* Блик света на карточке */}
+                                    <div className="absolute top-0 left-[-100%] w-[50%] h-full bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-[-20deg] group-hover:left-[200%] transition-all duration-1000 ease-in-out"></div>
+                                    
+                                    {/* Реалистичный золотой медальон */}
+                                    <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-[#E2C384] via-[#C5A059] to-[#8c6b32] flex items-center justify-center text-[#121212] shadow-[0_10px_30px_rgba(197,160,89,0.3),inset_0_2px_4px_rgba(255,255,255,0.6)] mb-6 md:mb-8 group-hover:scale-110 group-hover:shadow-[0_15px_40px_rgba(197,160,89,0.5),inset_0_2px_4px_rgba(255,255,255,0.6)] transition-all duration-700 relative z-10">
+                                        <div className="absolute inset-1 rounded-full border border-[#121212]/20 shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)] pointer-events-none"></div>
+                                        <Icon size={32} strokeWidth={1.5} className="md:w-10 md:h-10 relative z-10 drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]" />
                                     </div>
-                                    <div className="w-8 h-px bg-gray-200 group-hover:bg-[#C5A059] transition-colors duration-500 mb-4 md:mb-6"></div>
-                                    <h4 className="font-montserrat font-bold text-[10px] md:text-[11px] uppercase tracking-[0.15em] text-[#121212] leading-relaxed group-hover:text-[#C5A059] transition-colors duration-500">
+                                    
+                                    {/* Разделительная линия */}
+                                    <div className="w-12 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent mb-6 md:mb-8 opacity-50 group-hover:opacity-100 group-hover:w-16 transition-all duration-500"></div>
+
+                                    {/* Текст */}
+                                    <h4 className="font-montserrat font-bold text-[11px] md:text-xs uppercase tracking-[0.15em] text-white/90 leading-relaxed group-hover:text-white transition-colors duration-500 relative z-10">
                                         {awardText}
                                     </h4>
                                 </motion.div>
