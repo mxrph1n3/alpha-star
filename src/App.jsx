@@ -721,7 +721,7 @@ const StarField = () => {
     return <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none opacity-40"></canvas>;
 };
 
-// ИДЕАЛЬНЫЙ ПРЕМИАЛЬНЫЙ ПРЕЛОАДЕР (С ЗАЩИТОЙ ОТ ПРЫГАЮЩИХ ШРИФТОВ И УХОДОМ ВВЕРХ)
+// ИДЕАЛЬНЫЙ ПРЕМИАЛЬНЫЙ ПРЕЛОАДЕР
 const Preloader = ({ onFinish }) => {
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const [phase, setPhase] = useState(0);
@@ -733,14 +733,12 @@ const Preloader = ({ onFinish }) => {
         const loadFonts = async () => {
             try {
                 if (document.fonts && document.fonts.load) {
-                    // Форсируем загрузку именно Cormorant Garamond 400 (Regular/Normal)
                     await document.fonts.load('400 16px "Cormorant Garamond"');
                 }
             } catch (err) {
                 console.warn("Font preloading issue:", err);
             } finally {
                 if (isMounted) {
-                    // Даем браузеру 150мс на рендеринг после скачивания
                     setTimeout(() => setFontsLoaded(true), 150);
                 }
             }
@@ -753,13 +751,12 @@ const Preloader = ({ onFinish }) => {
 
     useEffect(() => {
         if (!fontsLoaded) return;
-        const t1 = setTimeout(() => setPhase(1), 50);    // Вылет букв
-        const t2 = setTimeout(() => setPhase(2), 2500);  // Экран уезжает вверх
-        const t3 = setTimeout(() => onFinish(), 3500);   // Демонтаж
+        const t1 = setTimeout(() => setPhase(1), 50);    
+        const t2 = setTimeout(() => setPhase(2), 2500);  
+        const t3 = setTimeout(() => onFinish(), 3500);   
         return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
     }, [fontsLoaded, onFinish]);
 
-    // Пока шрифты скачиваются, висит абсолютно черный экран без скачущих букв
     if (!fontsLoaded) return <div className="fixed inset-0 z-[9999] bg-[#0A0A0A]"></div>;
 
     return (
@@ -852,8 +849,8 @@ const ListingPage = ({ category, onOpenModal }) => {
         <div className="bg-[#FBFBFB] min-h-screen">
             <Helmet><title>{seo.title}</title></Helmet>
 
-            {/* HERO SECTION ДЛЯ КАТАЛОГА (С отступом до ипотеки) */}
-            <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 px-5 md:px-8 flex flex-col items-center justify-center overflow-hidden bg-[#121212] text-white text-center min-h-[60vh]">
+            {/* HERO SECTION ДЛЯ КАТАЛОГА (Теперь он тянется вплоть до ипотеки) */}
+            <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 px-5 md:px-8 flex flex-col items-center justify-center overflow-hidden bg-[#121212] text-white text-center min-h-[65vh]">
                 <HeroSlider customImages={imagesToUse} />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-[#121212] z-10"></div>
                 <div className="relative z-30 max-w-4xl mx-auto mt-10 md:mt-0 flex flex-col items-center w-full">
@@ -877,8 +874,8 @@ const ListingPage = ({ category, onOpenModal }) => {
                 </div>
             </section>
 
-            <div className="max-w-7xl mx-auto text-center py-12 md:py-16 px-5 md:px-8 relative z-40">
-                {/* БЛОК ИПОТЕКИ С ОТСТУПОМ ОТ БАННЕРА */}
+            <div className="max-w-7xl mx-auto text-center py-16 md:py-20 px-5 md:px-8 relative z-40 -mt-16 md:-mt-20">
+                {/* БЛОК ИПОТЕКИ СРАЗУ ПОД БАННЕРОМ (Слегка наезжает на него) */}
                 {category !== 'plots' && category !== 'empty' && category !== 'distress' && <MortgageInfo />}
 
                 {showBeds && (
@@ -1512,6 +1509,19 @@ const AppContent = () => {
                                 </div>
                             </div>
                             <button type="button" onClick={() => { setIsMobileMenuOpen(false); setIsContactModalOpen(true); }} className="btn-premium bg-[#C5A059] text-white py-5 mt-2 text-xs uppercase tracking-widest font-bold shadow-lg w-full">{t.nav.btn}</button>
+
+                            {/* ИКОНКИ СОЦСЕТЕЙ В МОБИЛЬНОМ МЕНЮ */}
+                            <div className="flex justify-center items-center gap-5 pt-8 mt-4 border-t border-white/10">
+                                <a href="https://wa.me/971521208414" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-[#C5A059] hover:border-[#C5A059] bg-white/5 transition-all duration-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                </a>
+                                <a href="https://t.me/dubai_bestprice" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-[#C5A059] hover:border-[#C5A059] bg-white/5 transition-all duration-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg>
+                                </a>
+                                <a href="https://www.instagram.com/alphastar.dubai?igsh=a3A5ajM2NjV2ajl6&utm_source=qr" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-[#C5A059] hover:border-[#C5A059] bg-white/5 transition-all duration-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                                </a>
+                            </div>
                         </nav>
                     </motion.div>
                 )}
@@ -1617,7 +1627,7 @@ const AppContent = () => {
                 </div>
             </footer>
 
-            <div className="fixed bottom-6 right-6 z-[1500]">
+            <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[1500] flex flex-col gap-3">
                 <AnimatePresence>
                     {showTopBtn && (
                         <motion.div 
@@ -1632,8 +1642,8 @@ const AppContent = () => {
                         </motion.div>
                     )}
                 </AnimatePresence>
-                <button type="button" onClick={() => setIsContactModalOpen(true)} className="w-14 h-14 bg-[#C5A059] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform duration-300">
-                    <MessageCircle size={28} />
+                <button type="button" onClick={() => setIsContactModalOpen(true)} className="w-12 h-12 md:w-14 md:h-14 bg-[#C5A059] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform duration-300">
+                    <MessageCircle size={24} className="md:w-7 md:h-7" />
                 </button>
             </div>
         </>
