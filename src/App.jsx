@@ -6,7 +6,7 @@ import {
   Heart, Home as HomeIcon, TrendingUp, Coins, Globe, Download, 
   MapPin, Phone, Mail, MessageCircle, ChevronDown, 
   ShieldCheck, Search, FileCheck, Key, ArrowRight, Quote, Star, 
-  Calendar, Clock, ArrowLeft, Menu, X, ArrowUp
+  Calendar, Clock, ArrowLeft, Menu, X, ArrowUp, Award, Trophy, Crown
 } from 'lucide-react';
 
 // --- СТИЛИ ---
@@ -127,7 +127,16 @@ const translations = {
         nav: { buy: 'Купить', rent: 'Аренда', about: 'О нас', contact: 'Связаться с нами', offplan: 'Новостройки', secondary: 'Вторичное жилье', villas: 'Виллы и Таунхаусы', invest: 'Инвестиции', comm: 'Коммерция', plots: 'Участки', distress: 'Дистресс (Срочно)', apart: 'Апартаменты', val: 'Оценка недвижимости', blog: 'Аналитика рынка', company: 'Компания', btn: 'Оставить заявку' },
         hero: { boutique: 'Бутиковое Агентство', title1: 'Ваш путь к', title2: 'Недвижимости', title3: 'в Дубае', catBtn: 'Каталог объектов', anBtn: 'Аналитика 2026' },
         about: { top: 'Кто мы такие?', title: 'ALPHASTAR PROPERTIES', quote: '«Мы превращаем недвижимость в инструмент сохранения и приумножения капитала в самом стремительно растущем рынке мира.»', desc: 'Наше адвокатское сопровождение строится по принципам частного семейного офиса: максимальная конфиденциальность, прямой доступ к закрытым лотам вне рынка и контроль каждой стадии сделки.', btn: 'Наш подход' },
-        awards: { top: 'Наши награды', title: 'Признание на высшем уровне' },
+        awards: { 
+            top: 'Наши награды', 
+            title: 'Признание на высшем уровне',
+            list: [
+                'Больше всего успешных сделок за 2025 год',
+                'Агентство года по версии клиентов',
+                'Топ‑агентская команда по эксклюзивным объектам',
+                'Лучшее агентство по продаже новостроек'
+            ]
+        },
         strategy: { top: 'Наша стратегия', title: 'Два вектора успеха', card1Title: 'Дом для вашей семьи', card1Desc: 'Подбор районов от $300,000 с фокусом на инфраструктуру, лучшие школы и безопасность. Мы найдем место, которое вы назовете домом.', card1Btn: 'Подобрать локацию', card2Title: 'Инвестиционный капитал', card2Desc: 'Стратегии от $300,000. Формируем арендный доход и капитализацию объектов в самых ликвидных зонах Дубая.', card2Btn: 'Инвест-пакеты' },
         process: { top: 'Нас выбирают', title: 'Контроль на каждом этапе' },
         deals: { title: 'Реальные сделки', private: 'Private', conf: 'Confidential Asset', roi: 'ROI (Годовых)', entry: 'Вход (Ланч)', exit: 'Выход (Продажа)', cycle: 'Цикл завершен', reqBtn: 'Запросить детали' },
@@ -151,7 +160,7 @@ const translations = {
         },
         mortgage: { title: 'Ипотека для нерезидентов в ОАЭ', desc: 'Официальное финансирование до 50% от стоимости объекта. Процентная ставка от 4.5% годовых. Минимальный пакет документов. Мы полностью берем на себя процесс одобрения кредита (Mortgage Approval) в ведущих банках Дубая.', btn: 'Рассчитать ипотеку', hideBtn: 'Скрыть анкету', formTitle: 'Заявка на ипотеку', formSub: 'Оставьте данные, и наш ипотечный брокер свяжется с вами для расчета платежей' },
         valPage: { top: 'Property Valuation', heading: 'Оценка вашей недвижимости', subtitle: 'Наши аналитики подготовят точный отчет о рыночной стоимости вашего актива на основе актуальных транзакций Земельного Департамента Дубая.', name: 'Ваше имя', email: 'Ваш Email', loc: 'Локация / Комплекс', area: 'Площадь (Sq.ft) / Спален', phone: 'Телефон / WhatsApp', btn: 'Запросить оценку' },
-        blog: { top: 'Блог', title: 'Блог Alpha Star', readBtn: 'Читать статью', notFound: 'Статья не найдена', back: 'Назад к статьям', ready: 'Готовы сделать шаг к успешным инвестициям?', reqBtn: 'Получить консультацию эксперта', imgText: 'Главное фото статьи' },
+        blog: { top: 'Insights & Analytics', title: 'Блог Alpha Star', readBtn: 'Читать статью', notFound: 'Статья не найдена', back: 'Назад к статьям', ready: 'Готовы сделать шаг к успешным инвестициям?', reqBtn: 'Получить консультацию эксперта', imgText: 'Главное фото статьи' },
         footer: { quote: 'Мы защищаем ваш капитал и создаем преимущество на самом динамичном рынке мира.', nav: 'Навигация', contacts: 'Контакты', rights: '© 2026 Alpha Star Properties. Все права защищены.', privacy: 'Политика конфиденциальности', terms: 'Условия использования', about: 'О компании', cases: 'Кейсы', catalog: 'Объекты' },
         listing: { all: 'Все объекты', bed: 'Bedroom', notFound: 'По вашему запросу объектов не найдено.', missing: 'Не нашли идеальный объект?', missingSub: 'Оставьте заявку, и мы пришлем подборку эксклюзивных вариантов закрытых продаж вне рынка', btn: 'Смотреть детали' },
         legal: {
@@ -163,7 +172,16 @@ const translations = {
         nav: { buy: 'Buy', rent: 'Rent', about: 'About', contact: 'Contact Us', offplan: 'Off-plan', secondary: 'Secondary Market', villas: 'Villas & Townhouses', invest: 'Investments', comm: 'Commercial', plots: 'Plots', distress: 'Distress Deals', apart: 'Apartments', val: 'Property Valuation', blog: 'Market Analytics', company: 'Company', btn: 'Leave a Request' },
         hero: { boutique: 'Boutique Agency', title1: 'Your Path to', title2: 'Real Estate', title3: 'in Dubai', catBtn: 'Property Catalog', anBtn: '2026 Analytics' },
         about: { top: 'Who We Are?', title: 'ALPHASTAR PROPERTIES', quote: '«We turn real estate into a tool for preserving and multiplying capital in the world\'s fastest-growing market.»', desc: 'Our legal support is built on the principles of a private family office: maximum confidentiality, direct access to off-market assets, and strict control over every stage of the transaction.', btn: 'Our Approach' },
-        awards: { top: 'Our Awards', title: 'Top-tier Recognition' },
+        awards: { 
+            top: 'Our Awards', 
+            title: 'Top-tier Recognition',
+            list: [
+                'Most Successful Deals in 2025',
+                'Agency of the Year by Clients',
+                'Top Agency Team for Exclusive Properties',
+                'Best Agency for Off-Plan Sales'
+            ]
+        },
         strategy: { top: 'Our Strategy', title: 'Two Vectors of Success', card1Title: 'A Home for Your Family', card1Desc: 'Selection of areas from $300,000 focusing on infrastructure, top schools, and safety. We will find a place you can call home.', card1Btn: 'Find a Location', card2Title: 'Investment Capital', card2Desc: 'Strategies from $300,000. We generate rental income and capital appreciation in Dubai\'s most liquid zones.', card2Btn: 'Investment Packages' },
         process: { top: 'Why Choose Us', title: 'Control at Every Stage' },
         deals: { title: 'Real Deals', private: 'Private', conf: 'Confidential Asset', roi: 'Annual ROI', entry: 'Entry (Launch)', exit: 'Exit (Sale)', cycle: 'Deal Completed', reqBtn: 'Request Details' },
@@ -726,7 +744,6 @@ const Preloader = ({ onFinish }) => {
     const [fontsLoaded, setFontsLoaded] = useState(false);
     const [phase, setPhase] = useState(0);
 
-    // Гарантируем загрузку конкретного тонкого начертания (400) перед стартом анимации
     useEffect(() => {
         let isMounted = true;
         
@@ -771,7 +788,6 @@ const Preloader = ({ onFinish }) => {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="relative z-10 flex flex-col items-center justify-center w-full"
             >
-                {/* Фоновое премиальное свечение */}
                 <motion.div 
                     initial={{ opacity: 0, scale: 0.8 }} 
                     animate={{ opacity: 0.2, scale: 1 }} 
@@ -780,7 +796,6 @@ const Preloader = ({ onFinish }) => {
                 />
 
                 <div className="relative z-10 flex flex-col items-center justify-center mt-4" style={{ WebkitFontSmoothing: 'antialiased', transform: 'translateZ(0)' }}>
-                    {/* ЛОГОТИП (Точно вес 400 как в хедере) */}
                     <motion.div 
                         initial="hidden"
                         animate="visible"
@@ -806,7 +821,6 @@ const Preloader = ({ onFinish }) => {
                         ))}
                     </motion.div>
 
-                    {/* Слово PROPERTIES без линии, плавно выезжает снизу */}
                     <div className="overflow-hidden mt-1 md:mt-2 w-full flex justify-center">
                         <motion.div
                             initial={{ y: "100%", opacity: 0, letterSpacing: "0.2em" }}
@@ -849,7 +863,6 @@ const ListingPage = ({ category, onOpenModal }) => {
         <div className="bg-[#FBFBFB] min-h-screen">
             <Helmet><title>{seo.title}</title></Helmet>
 
-            {/* HERO SECTION ДЛЯ КАТАЛОГА (Теперь он тянется вплоть до ипотеки) */}
             <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 px-5 md:px-8 flex flex-col items-center justify-center overflow-hidden bg-[#121212] text-white text-center min-h-[65vh]">
                 <HeroSlider customImages={imagesToUse} />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-[#121212] z-10"></div>
@@ -875,7 +888,6 @@ const ListingPage = ({ category, onOpenModal }) => {
             </section>
 
             <div className="max-w-7xl mx-auto text-center py-16 md:py-20 px-5 md:px-8 relative z-40 -mt-16 md:-mt-20">
-                {/* БЛОК ИПОТЕКИ СРАЗУ ПОД БАННЕРОМ (Слегка наезжает на него) */}
                 {category !== 'plots' && category !== 'empty' && category !== 'distress' && <MortgageInfo />}
 
                 {showBeds && (
@@ -918,7 +930,6 @@ const ListingPage = ({ category, onOpenModal }) => {
                     <LeadForm title={t.listing.missing} subtitle={t.listing.missingSub} />
                 </div>
                 
-                {/* АНАЛИТИКА (Guide) НА СТРАНИЦЕ КАТАЛОГА */}
                 <div className="mt-16 md:mt-24 text-left">
                     <div className="bg-[#C5A059] rounded-sm p-6 md:p-10 lg:p-16 text-white flex flex-col lg:flex-row items-center gap-8 lg:gap-12 relative overflow-hidden text-left">
                         <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none hidden md:block"><Globe size={300} className="translate-x-1/2 -translate-y-1/4 lg:w-[400px] lg:h-[400px]" /></div>
@@ -1095,6 +1106,14 @@ const HomePage = ({ isLoading, onOpenModal }) => {
     const caseStudies = getCaseStudies(lang);
     const testimonials = getTestimonials(lang);
     const faqs = getFaqs(lang);
+    
+    const awardIcons = [Trophy, Star, Crown, Award];
+    const awardsList = t.awards.list || [
+        'Больше всего успешных сделок за 2025 год',
+        'Агентство года по версии клиентов',
+        'Топ‑агентская команда по эксклюзивным объектам',
+        'Лучшее агентство по продаже новостроек'
+    ];
 
     return (
         <div>
@@ -1152,16 +1171,28 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                             <h3 className="font-cormorant text-3xl md:text-4xl text-[#121212] font-bold">{t.awards.title}</h3>
                         </div>
                     </div>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-10">
-                        {[1,2,3,4].map((i) => (
-                            <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: i * 0.1 }} className="group flex flex-col items-center w-full">
-                                <div className="w-full aspect-[3/2] sm:aspect-[4/3] relative flex items-center justify-center">
-                                    <div className="absolute inset-0 bg-transparent border border-dashed border-gray-200 group-hover:border-[#C5A059] transition-colors duration-500 flex items-center justify-center p-4 rounded-sm">
-                                        <span className="text-gray-300 text-[8px] md:text-[10px] uppercase font-bold tracking-widest leading-relaxed text-center">Лого<br/>(PNG/JPG)</span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                        {awardsList.map((awardText, i) => {
+                            const Icon = awardIcons[i] || Award;
+                            return (
+                                <motion.div 
+                                    key={i} 
+                                    initial={{ opacity: 0, y: 30 }} 
+                                    whileInView={{ opacity: 1, y: 0 }} 
+                                    viewport={{ once: true }} 
+                                    transition={{ duration: 0.8, delay: i * 0.1 }} 
+                                    className="group flex flex-col items-center text-center bg-white p-6 md:p-8 rounded-sm shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_40px_rgba(197,160,89,0.12)] border border-gray-50 hover:-translate-y-1 transition-all duration-500"
+                                >
+                                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 group-hover:text-[#C5A059] group-hover:bg-[#C5A059]/10 transition-all duration-500 mb-4 md:mb-6">
+                                        <Icon size={28} strokeWidth={1.5} className="md:w-8 md:h-8" />
                                     </div>
-                                </div>
-                            </motion.div>
-                        ))}
+                                    <div className="w-8 h-px bg-gray-200 group-hover:bg-[#C5A059] transition-colors duration-500 mb-4 md:mb-6"></div>
+                                    <h4 className="font-montserrat font-bold text-[10px] md:text-[11px] uppercase tracking-[0.15em] text-[#121212] leading-relaxed group-hover:text-[#C5A059] transition-colors duration-500">
+                                        {awardText}
+                                    </h4>
+                                </motion.div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
@@ -1619,15 +1650,15 @@ const AppContent = () => {
                             © 2026 Alpha Star Properties. Все права защищены.
                         </div>
                         <div className="flex items-center gap-3 md:gap-4 text-[7px] md:text-[9px] uppercase font-bold tracking-widest text-white/20">
-                            <Link to="/privacy-policy" className="cursor-pointer hover:text-white transition-colors">{t.footer.privacy}</Link>
+                            <Link to="/privacy-policy" className="cursor-pointer hover:text-white transition-colors">Политика конфиденциальности</Link>
                             <span className="hidden md:inline">|</span>
-                            <Link to="/terms-of-use" className="cursor-pointer hover:text-white transition-colors">{t.footer.terms}</Link>
+                            <Link to="/terms-of-use" className="cursor-pointer hover:text-white transition-colors">Условия использования</Link>
                         </div>
                     </div>
                 </div>
             </footer>
 
-            <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[1500] flex flex-col gap-3">
+            <div className="fixed bottom-6 right-6 z-[1500]">
                 <AnimatePresence>
                     {showTopBtn && (
                         <motion.div 
@@ -1642,8 +1673,8 @@ const AppContent = () => {
                         </motion.div>
                     )}
                 </AnimatePresence>
-                <button type="button" onClick={() => setIsContactModalOpen(true)} className="w-12 h-12 md:w-14 md:h-14 bg-[#C5A059] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform duration-300">
-                    <MessageCircle size={24} className="md:w-7 md:h-7" />
+                <button type="button" onClick={() => setIsContactModalOpen(true)} className="w-14 h-14 bg-[#C5A059] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform duration-300">
+                    <MessageCircle size={28} />
                 </button>
             </div>
         </>
