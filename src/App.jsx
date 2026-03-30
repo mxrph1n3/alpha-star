@@ -32,6 +32,8 @@ const styles = `
         overflow-x: hidden;
         font-variant-numeric: lining-nums;
         font-feature-settings: "lnum" 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
 
     .font-cormorant { font-family: 'Cormorant Garamond', serif; }
@@ -124,7 +126,7 @@ const styles = `
 // --- ЛОКАЛИЗАЦИЯ (СЛОВАРИ) ---
 const translations = {
     RU: {
-        nav: { buy: 'Купить', rent: 'Аренда', about: 'О нас', contact: 'Связаться с нами', offplan: 'Новостройки', secondary: 'Вторичное жилье', villas: 'Виллы и Таунхаусы', invest: 'Инвестиции', comm: 'Коммерция', plots: 'Участки', distress: 'Дистресс (Срочно)', apart: 'Апартаменты', val: 'Оценка недвижимости', blog: 'Аналитика рынка', company: 'Компания', btn: 'Оставить заявку' },
+        nav: { buy: 'Купить', rent: 'Аренда', about: 'О нас', contact: 'Связаться с нами', offplan: 'Новостройки', secondary: 'Вторичное жилье', villas: 'Виллы и Таунхаусы', invest: 'Инвестиции', comm: 'Коммерция', plots: 'Участки', distress: 'Дистресс (Срочно)', apart: 'Апартаменты', val: 'Оценка недвижимости', blog: 'Блог', company: 'Компания', btn: 'Оставить заявку' },
         hero: { boutique: 'Бутиковое Агентство', title1: 'Ваш путь к', title2: 'Недвижимости', title3: 'в Дубае', catBtn: 'Каталог объектов', anBtn: 'Аналитика 2026' },
         about: { top: 'Кто мы такие?', title: 'ALPHASTAR PROPERTIES', quote: '«Мы превращаем недвижимость в инструмент сохранения и приумножения капитала в самом стремительно растущем рынке мира.»', desc: 'Наше адвокатское сопровождение строится по принципам частного семейного офиса: максимальная конфиденциальность, прямой доступ к закрытым лотам вне рынка и контроль каждой стадии сделки.', btn: 'Наш подход' },
         awards: { 
@@ -160,16 +162,16 @@ const translations = {
         },
         mortgage: { title: 'Ипотека для нерезидентов в ОАЭ', desc: 'Официальное финансирование до 50% от стоимости объекта. Процентная ставка от 4.5% годовых. Минимальный пакет документов. Мы полностью берем на себя процесс одобрения кредита (Mortgage Approval) в ведущих банках Дубая.', btn: 'Рассчитать ипотеку', hideBtn: 'Скрыть анкету', formTitle: 'Заявка на ипотеку', formSub: 'Оставьте данные, и наш ипотечный брокер свяжется с вами для расчета платежей' },
         valPage: { top: 'Property Valuation', heading: 'Оценка вашей недвижимости', subtitle: 'Наши аналитики подготовят точный отчет о рыночной стоимости вашего актива на основе актуальных транзакций Земельного Департамента Дубая.', name: 'Ваше имя', email: 'Ваш Email', loc: 'Локация / Комплекс', area: 'Площадь (Sq.ft) / Спален', phone: 'Телефон / WhatsApp', btn: 'Запросить оценку' },
-        blog: { top: 'Insights & Analytics', title: 'Блог Alpha Star', readBtn: 'Читать статью', notFound: 'Статья не найдена', back: 'Назад к статьям', ready: 'Готовы сделать шаг к успешным инвестициям?', reqBtn: 'Получить консультацию эксперта', imgText: 'Главное фото статьи' },
+        blog: { top: 'Блог', title: 'Блог Alpha Star', readBtn: 'Читать статью', notFound: 'Статья не найдена', back: 'Назад к статьям', ready: 'Готовы сделать шаг к успешным инвестициям?', reqBtn: 'Получить консультацию эксперта', imgText: 'Главное фото статьи' },
         footer: { quote: 'Мы защищаем ваш капитал и создаем преимущество на самом динамичном рынке мира.', nav: 'Навигация', contacts: 'Контакты', rights: '© 2026 Alpha Star Properties. Все права защищены.', privacy: 'Политика конфиденциальности', terms: 'Условия использования', about: 'О компании', cases: 'Кейсы', catalog: 'Объекты', office_dubai: 'Офис в Дубае:', office_moscow: 'Офис в Москве:' },
         listing: { all: 'Все объекты', bed: 'Bedroom', notFound: 'По вашему запросу объектов не найдено.', missing: 'Не нашли идеальный объект?', missingSub: 'Оставьте заявку, и мы пришлем подборку эксклюзивных вариантов закрытых продаж вне рынка', btn: 'Смотреть детали' },
         legal: {
             privacy: { title: 'Политика конфиденциальности', text: '<p>Настоящая Политика конфиденциальности описывает, как Alpha Star Properties собирает, использует и защищает вашу личную информацию.</p><p><strong>1. Сбор данных</strong><br/>Мы собираем данные (имя, email, телефон), когда вы оставляете заявку на сайте.</p><p><strong>2. Использование данных</strong><br/>Ваши данные используются исключительно для предоставления консультационных услуг в сфере недвижимости и не передаются третьим лицам без вашего прямого согласия.</p><p><strong>3. Защита информации</strong><br/>Мы применяем современные технологии шифрования для защиты ваших данных от несанкционированного доступа.</p>' },
-            terms: { title: 'Условия использования', text: '<p>Добро пожаловать на сайт Alpha Star Properties. Используя данный веб-сайт, вы соглашаетесь с нижеперечисленными условиями.</p><p><strong>1. Информация на сайте</strong><br/>Вся информация, представленная на сайте (включая цены, ROI, спецификации объектов), носит ознакомительный характер и не является публичной офертой.</p><p><strong>2. Интеллектуальная собственность</strong><br/>Весь контент (тексты, графика, логотипы) защищен авторским правом и принадлежит Alpha Star Properties. Копирование без разрешения запрещено.</p>' }
+            terms: { title: 'Условия использования', text: '<p>Добро пожаловать на сайт Alpha Star Properties. Используя данный веб-сайт, вы соглашаетесь с нижеперечисленными условиями.</p><p><strong>1. Информация на сайте</strong><br/>Вся информация, представленная на сайте (включая цены, ROI, спецификации объектов), носит ознакомительный характер и не является публичной офертой.</p><p><strong>2. Intellectual Property</strong><br/>Весь контент (тексты, графика, логотипы) защищен авторским правом и принадлежит Alpha Star Properties. Копирование без разрешения запрещено.</p>' }
         }
     },
     EN: {
-        nav: { buy: 'Buy', rent: 'Rent', about: 'About', contact: 'Contact Us', offplan: 'Off-plan', secondary: 'Secondary Market', villas: 'Villas & Townhouses', invest: 'Investments', comm: 'Commercial', plots: 'Plots', distress: 'Distress Deals', apart: 'Apartments', val: 'Property Valuation', blog: 'Market Analytics', company: 'Company', btn: 'Leave a Request' },
+        nav: { buy: 'Buy', rent: 'Rent', about: 'About', contact: 'Contact Us', offplan: 'Off-plan', secondary: 'Secondary Market', villas: 'Villas & Townhouses', invest: 'Investments', comm: 'Commercial', plots: 'Plots', distress: 'Distress Deals', apart: 'Apartments', val: 'Property Valuation', blog: 'Blog', company: 'Company', btn: 'Leave a Request' },
         hero: { boutique: 'Boutique Agency', title1: 'Your Path to', title2: 'Real Estate', title3: 'in Dubai', catBtn: 'Property Catalog', anBtn: '2026 Analytics' },
         about: { top: 'Who We Are?', title: 'ALPHASTAR PROPERTIES', quote: '«We turn real estate into a tool for preserving and multiplying capital in the world\'s fastest-growing market.»', desc: 'Our legal support is built on the principles of a private family office: maximum confidentiality, direct access to off-market assets, and strict control over every stage of the transaction.', btn: 'Our Approach' },
         awards: { 
@@ -205,7 +207,7 @@ const translations = {
         },
         mortgage: { title: 'Mortgage for Non-Residents in the UAE', desc: 'Official financing up to 50% of the property value. Interest rate from 4.5% per annum. Minimum document package. We fully handle the Mortgage Approval process in leading Dubai banks.', btn: 'Calculate Mortgage', hideBtn: 'Hide Form', formTitle: 'Mortgage Application', formSub: 'Leave your details, and our mortgage broker will contact you to calculate payments' },
         valPage: { top: 'Property Valuation', heading: 'Evaluate Your Property', subtitle: 'Our analysts will prepare an accurate report on the market value of your asset based on current Dubai Land Department transactions.', name: 'Your Name', email: 'Your Email', loc: 'Location / Complex', area: 'Area (Sq.ft) / Bedrooms', phone: 'Phone / WhatsApp', btn: 'Request Valuation' },
-        blog: { top: 'Insights & Analytics', title: 'Alpha Star Blog', readBtn: 'Read Article', notFound: 'Article not found', back: 'Back to Articles', ready: 'Ready to step into successful investments?', reqBtn: 'Get Expert Consultation', imgText: 'Article Main Photo' },
+        blog: { top: 'Blog', title: 'Alpha Star Blog', readBtn: 'Read Article', notFound: 'Article not found', back: 'Back to Articles', ready: 'Ready to step into successful investments?', reqBtn: 'Get Expert Consultation', imgText: 'Article Main Photo' },
         footer: { quote: 'We protect your capital and create an advantage in the world\'s most dynamic market.', nav: 'Navigation', contacts: 'Contacts', rights: '© 2026 Alpha Star Properties. All rights reserved.', privacy: 'Privacy Policy', terms: 'Terms of Use', about: 'About Us', cases: 'Case Studies', catalog: 'Properties', office_dubai: 'Dubai Office:', office_moscow: 'Moscow Office:' },
         listing: { all: 'All Properties', bed: 'Bedroom', notFound: 'No properties found for your request.', missing: 'Didn\'t find the perfect property?', missingSub: 'Leave a request, and we will send you a selection of exclusive off-market options', btn: 'View Details' },
         legal: {
@@ -538,7 +540,6 @@ const CallbackModal = ({ isOpen, onClose }) => {
         "https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?auto=format&fit=crop&q=80&w=800"  // Final: Контакты
     ];
 
-    // Сброс состояния при закрытии
     useEffect(() => {
         if (!isOpen) {
             const timer = setTimeout(() => { setStep(0); setAnswers({ q1: '', q2: '', q3: '' }); }, 300);
@@ -829,8 +830,8 @@ const Preloader = ({ onFinish }) => {
                             hidden: { opacity: 1 },
                             visible: { transition: { staggerChildren: 0.08 } }
                         }}
-                        className="font-cormorant text-5xl md:text-7xl font-normal tracking-[0.15em] uppercase flex overflow-hidden px-4 pb-2 relative z-10"
-                        style={{ fontWeight: 400 }}
+                        className="font-cormorant text-5xl md:text-7xl uppercase flex overflow-hidden px-4 pb-2 relative z-10 tracking-[0.15em]"
+                        style={{ fontWeight: 400, WebkitFontSmoothing: 'antialiased', MozOsxFontSmoothing: 'grayscale', transform: 'translateZ(0)' }}
                     >
                         {"ALPHASTAR".split('').map((char, i) => (
                             <motion.span
@@ -840,7 +841,7 @@ const Preloader = ({ onFinish }) => {
                                     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
                                 }}
                                 className={`inline-block origin-bottom ${i >= 5 ? 'text-[#C5A059]' : 'text-white'}`}
-                                style={{ willChange: 'transform, opacity' }}
+                                style={{ fontWeight: 400, backfaceVisibility: 'hidden', transform: 'translateZ(0)' }}
                             >
                                 {char}
                             </motion.span>
@@ -852,7 +853,7 @@ const Preloader = ({ onFinish }) => {
                             initial={{ y: "100%", opacity: 0, letterSpacing: "0.2em" }}
                             animate={phase >= 1 ? { y: 0, opacity: 1, letterSpacing: "0.55em" } : {}}
                             transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                            className="text-[10px] md:text-[12px] font-bold uppercase gold-text text-center ml-2 font-montserrat"
+                            className="text-[10px] md:text-[12px] font-bold uppercase gold-text text-center font-montserrat"
                         >
                             PROPERTIES
                         </motion.div>
@@ -1060,7 +1061,13 @@ const BlogPage = () => {
                     {posts.map((post) => (
                         <div key={post.id} className="group grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center border-b border-gray-100 pb-16 md:pb-20">
                             <Link to={`/blog/${post.id}`} className="block aspect-[4/3] bg-gray-50 overflow-hidden shadow-lg order-1 md:order-none relative">
-                                {post.img ? <img src={post.img} alt={post.alt || post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" /> : <div className="w-full h-full flex items-center justify-center border border-dashed border-gray-300"><span className="text-gray-400 text-[10px]">{t.blog.imgText}</span></div>}
+                                {post.img ? (
+                                    <img src={post.img} alt={post.alt || post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+                                ) : (
+                                    <div className="w-full h-full flex items-center justify-center border border-dashed border-gray-300 group-hover:border-[#C5A059] transition-colors duration-500">
+                                        <span className="text-gray-400 text-[10px] uppercase font-bold tracking-widest text-center leading-relaxed">Место для фото<br/>(1200x800)</span>
+                                    </div>
+                                )}
                             </Link>
                             <div className="text-left order-2 md:order-none">
                                 <div className="flex flex-wrap items-center gap-3 md:gap-4 mb-3 md:mb-4">
@@ -1114,9 +1121,21 @@ const BlogPostPage = ({ onOpenModal }) => {
                     <h1 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#121212]">{post.title}</h1>
                 </div>
                 <div className="aspect-video w-full mb-10 md:mb-16 overflow-hidden shadow-2xl rounded-sm bg-gray-50">
-                    {post.img ? <img src={post.img} alt={post.alt || post.title} className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center border border-dashed border-gray-300"><span className="text-gray-400 text-[10px] text-center">{t.blog.imgText}</span></div>}
+                    {post.img ? (
+                        <img src={post.img} alt={post.alt || post.title} className="w-full h-full object-cover" />
+                    ) : (
+                        <div className="w-full h-full flex items-center justify-center border border-dashed border-gray-300">
+                            <span className="text-gray-400 text-[10px] md:text-xs uppercase font-bold tracking-widest text-center leading-relaxed">Главное фото статьи<br/>(1200x800)</span>
+                        </div>
+                    )}
                 </div>
-                <div className="seo-article text-left px-2 md:px-0" dangerouslySetInnerHTML={{ __html: post.content }} />
+
+                {/* Контент статьи из HTML строки */}
+                <div 
+                    className="seo-article text-left"
+                    dangerouslySetInnerHTML={{ __html: post.content }}
+                />
+
                 <div className="mt-16 md:mt-20 pt-8 md:pt-10 border-t border-gray-100 text-center">
                     <p className="font-montserrat text-base md:text-lg font-bold mb-4 md:mb-6 px-4">{t.blog.ready}</p>
                     <button type="button" onClick={onOpenModal} className="btn-premium w-full md:w-auto px-8 md:px-12 py-4 md:py-5 bg-[#121212] text-white uppercase text-[10px] md:text-[11px] tracking-widest font-bold">{t.blog.reqBtn}</button>
@@ -1510,11 +1529,11 @@ const AppContent = () => {
             <header className={`fixed w-full z-[1000] transition-all duration-500 ${headerClass}`}>
                 <div className="max-w-7xl mx-auto px-5 md:px-8 flex justify-between items-center">
                     <Link to="/" className="flex flex-col cursor-pointer" onClick={() => setIsMobileMenuOpen(false)}>
-                        <span className="font-cormorant text-xl md:text-2xl lg:text-3xl font-normal tracking-[0.15em] uppercase" style={{ fontWeight: 400 }}>ALPHA<span className="gold-text">STAR</span></span>
+                        <span className="font-cormorant text-xl md:text-2xl lg:text-3xl font-normal tracking-[0.15em] uppercase" style={{ fontWeight: 400, WebkitFontSmoothing: 'antialiased', MozOsxFontSmoothing: 'grayscale', transform: 'translateZ(0)' }}>ALPHA<span className="gold-text">STAR</span></span>
                         <span className="text-[6px] md:text-[7px] lg:text-[8px] tracking-[0.4em] lg:tracking-[0.55em] font-bold uppercase gold-text -mt-1 text-left">PROPERTIES</span>
                     </Link>
                     
-                    <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8 text-[10px] font-bold uppercase tracking-widest">
+                    <nav className="hidden md:flex items-center space-x-4 lg:space-x-6 xl:space-x-8 text-[9px] lg:text-[10px] font-bold uppercase tracking-widest">
                         <NavDropdown label={t.nav.buy} items={[
                             { label: t.nav.offplan, path: '/buy/off-plan' },
                             { label: t.nav.secondary, path: '/buy/secondary' },
@@ -1537,15 +1556,15 @@ const AppContent = () => {
                             { label: t.nav.blog, path: '/blog' },
                             { label: t.nav.contact, onClick: () => setIsContactModalOpen(true) }
                         ]} />
-                        <div className="flex items-center gap-4 pl-4 border-l border-white/20">
+                        <div className="flex items-center gap-3 lg:gap-4 pl-3 lg:pl-4 border-l border-white/20">
                             <LanguageSwitcher />
-                            <button type="button" onClick={() => setIsContactModalOpen(true)} className="btn-premium bg-[#C5A059] text-white px-6 py-3 text-[9px] xl:text-[10px] uppercase font-bold tracking-widest shadow-lg">{t.nav.contact}</button>
+                            <button type="button" onClick={() => setIsContactModalOpen(true)} className="btn-premium bg-[#C5A059] text-white px-4 lg:px-6 py-2 lg:py-3 text-[8px] lg:text-[9px] xl:text-[10px] uppercase font-bold tracking-widest shadow-lg">{t.nav.contact}</button>
                         </div>
                     </nav>
-                    <div className="lg:hidden flex items-center gap-2">
+                    <div className="md:hidden flex items-center gap-2">
                         <LanguageSwitcher />
                         <button type="button" className="text-current hover:text-[#C5A059] transition-colors p-2 -mr-2" onClick={() => setIsMobileMenuOpen(true)}>
-                            <Menu size={24} className="md:w-7 md:h-7" />
+                            <Menu size={24} className="w-6 h-6" />
                         </button>
                     </div>
                 </div>
@@ -1560,7 +1579,7 @@ const AppContent = () => {
                     >
                         <div className="flex justify-between items-center mb-10">
                             <div className="flex flex-col cursor-pointer text-white" onClick={() => { handleNav('/'); setIsMobileMenuOpen(false); }}>
-                                <span className="font-cormorant text-2xl font-normal tracking-[0.15em] uppercase" style={{ fontWeight: 400 }}>ALPHA<span className="gold-text">STAR</span></span>
+                                <span className="font-cormorant text-2xl font-normal tracking-[0.15em] uppercase" style={{ fontWeight: 400, WebkitFontSmoothing: 'antialiased', MozOsxFontSmoothing: 'grayscale', transform: 'translateZ(0)' }}>ALPHA<span className="gold-text">STAR</span></span>
                                 <span className="text-[6px] tracking-[0.4em] font-bold uppercase gold-text -mt-1 text-left">PROPERTIES</span>
                             </div>
                             <button onClick={() => setIsMobileMenuOpen(false)} className="text-white/50 hover:text-[#C5A059] p-2 -mr-2 bg-white/5 rounded-full"><X size={24} /></button>
@@ -1641,10 +1660,10 @@ const AppContent = () => {
             <footer className="bg-[#0A0A0A] text-white pt-12 md:pt-24 pb-6 md:pb-12 px-6 md:px-8 relative overflow-hidden border-t border-white/5">
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-[#C5A059]/5 blur-[120px] pointer-events-none"></div>
                 <div className="max-w-7xl mx-auto relative z-10 text-left">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-16 mb-10 md:mb-20 text-left">
-                        <div className="lg:col-span-5 space-y-4 md:space-y-8 text-left">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-12 lg:gap-16 mb-10 md:mb-20 text-left">
+                        <div className="md:col-span-1 lg:col-span-4 space-y-4 md:space-y-8 text-left">
                             <div className="flex flex-col text-left">
-                                <span className="font-cormorant text-2xl md:text-3xl font-normal tracking-[0.15em] uppercase" style={{ fontWeight: 400 }}>ALPHA<span className="gold-text">STAR</span></span>
+                                <span className="font-cormorant text-2xl md:text-3xl font-normal tracking-[0.15em] uppercase" style={{ fontWeight: 400, WebkitFontSmoothing: 'antialiased', MozOsxFontSmoothing: 'grayscale', transform: 'translateZ(0)' }}>ALPHA<span className="gold-text">STAR</span></span>
                                 <span className="text-[7px] md:text-[9px] tracking-[0.7em] md:tracking-[0.8em] font-bold uppercase gold-text -mt-1 ml-1 text-left">PROPERTIES</span>
                             </div>
                             <p className="text-white/40 text-xs md:text-base leading-relaxed max-w-md font-medium italic border-l border-[#C5A059] pl-3 md:pl-6 text-left">{t.footer.quote}</p>
@@ -1671,7 +1690,7 @@ const AppContent = () => {
                                 </a>
                             </div>
                         </div>
-                        <div className="lg:col-span-3 space-y-4 md:space-y-8 text-left hidden md:block">
+                        <div className="md:col-span-1 lg:col-span-2 space-y-4 md:space-y-8 text-left hidden md:block">
                             <h6 className="font-montserrat text-[9px] md:text-[10px] font-bold uppercase tracking-[0.4em] md:tracking-[0.5em] gold-text">{t.footer.nav}</h6>
                             <ul className="space-y-2 md:space-y-4 text-xs md:text-sm font-bold uppercase tracking-widest text-white/30 text-left">
                                 <li><span onClick={() => handleNav('/', 'about')} className="hover:text-white transition-colors cursor-pointer block">{t.footer.about}</span></li>
@@ -1679,12 +1698,14 @@ const AppContent = () => {
                                 <li><Link to="/buy/off-plan" className="hover:text-white transition-colors cursor-pointer block">{t.footer.catalog}</Link></li>
                             </ul>
                         </div>
-                        <div className="lg:col-span-4 space-y-4 md:space-y-8 text-left mt-2 md:mt-0">
+                        <div className="md:col-span-2 lg:col-span-6 space-y-4 md:space-y-8 text-left mt-2 md:mt-0">
                             <h6 className="font-montserrat text-[9px] md:text-[10px] font-bold uppercase tracking-[0.4em] md:tracking-[0.5em] gold-text">{t.footer.contacts}</h6>
-                            <div className="space-y-4 md:space-y-6 text-left">
-                                <div className="flex items-start gap-3 md:gap-4 text-left">
+                            
+                            <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 lg:gap-12">
+                                {/* Левая часть: Адреса */}
+                                <div className="flex-1 flex items-start gap-3 md:gap-4 text-left">
                                     <MapPin className="gold-text mt-1 flex-shrink-0" size={16} />
-                                    <div className="space-y-2 md:space-y-3">
+                                    <div className="space-y-3 md:space-y-5">
                                         <p className="text-white/60 text-[9px] md:text-xs font-medium uppercase tracking-wider text-left">
                                             <span className="text-[#C5A059] block mb-1 text-[7px] md:text-[9px]">{t.footer.office_dubai}</span>
                                             EMAAR Business Park - Building 4<br/>Office 112, Floor 1, Dubai
@@ -1695,14 +1716,24 @@ const AppContent = () => {
                                         </p>
                                     </div>
                                 </div>
-                                <a href="tel:+971521208414" className="flex items-center gap-3 md:gap-4 group cursor-pointer text-left">
-                                    <Phone className="gold-text flex-shrink-0" size={16} />
-                                    <p className="text-white font-montserrat font-bold text-base md:text-xl tracking-tighter group-hover:text-[#C5A059] transition-colors text-left">+971 52 120 8414</p>
-                                </a>
-                                <a href="mailto:sales@alphastardubai.ae" className="flex items-center gap-3 md:gap-4 group cursor-pointer text-left">
-                                    <Mail className="gold-text flex-shrink-0" size={16} />
-                                    <p className="text-white/60 font-bold uppercase text-[8px] md:text-[10px] tracking-[0.2em] md:tracking-[0.3em] group-hover:text-white transition-colors text-left break-all">sales@alphastardubai.ae</p>
-                                </a>
+                                
+                                {/* Правая часть: Телефон и Почта */}
+                                <div className="flex-1 flex flex-col justify-start space-y-5 md:space-y-6 pt-2 sm:pt-0">
+                                    <a href="tel:+971521208414" className="flex items-center gap-3 md:gap-4 group cursor-pointer text-left">
+                                        <Phone className="gold-text flex-shrink-0" size={16} />
+                                        <div className="flex flex-col">
+                                            <span className="text-[#C5A059] text-[7px] md:text-[9px] uppercase tracking-wider font-bold mb-1">Позвонить нам:</span>
+                                            <p className="text-white font-montserrat font-bold text-base md:text-xl tracking-tighter group-hover:text-[#C5A059] transition-colors text-left">+971 52 120 8414</p>
+                                        </div>
+                                    </a>
+                                    <a href="mailto:sales@alphastardubai.ae" className="flex items-center gap-3 md:gap-4 group cursor-pointer text-left">
+                                        <Mail className="gold-text flex-shrink-0" size={16} />
+                                        <div className="flex flex-col">
+                                            <span className="text-[#C5A059] text-[7px] md:text-[9px] uppercase tracking-wider font-bold mb-1">Написать нам:</span>
+                                            <p className="text-white/60 font-bold uppercase text-[8px] md:text-[10px] tracking-[0.2em] md:tracking-[0.3em] group-hover:text-white transition-colors text-left break-all">sales@alphastardubai.ae</p>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
