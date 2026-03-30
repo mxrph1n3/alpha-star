@@ -919,7 +919,7 @@ const ListingPage = ({ category, onOpenModal }) => {
                 </div>
             </section>
 
-            <div className="max-w-7xl mx-auto text-center py-16 md:py-20 px-5 md:px-8 relative z-40 -mt-16 md:-mt-20">
+            <div className="max-w-7xl mx-auto text-center pt-12 md:pt-16 pb-16 md:pb-20 px-5 md:px-8 relative z-40">
                 {category !== 'plots' && category !== 'empty' && category !== 'distress' && <MortgageInfo />}
 
                 {showBeds && (
