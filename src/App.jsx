@@ -131,7 +131,7 @@ const translations = {
             top: 'Наши награды', 
             title: 'Признание на высшем уровне',
             list: [
-                'Больше всего успешных сделок за 2025 год',
+                'Лидер продаж элитной недвижимости',
                 'Агентство года по версии клиентов',
                 'Топ‑агентская команда по эксклюзивным объектам',
                 'Лучшее агентство по продаже новостроек'
@@ -144,7 +144,7 @@ const translations = {
         guide: { top: 'Guide 2026', title: 'Аналитический отчет 2026', desc: 'Узнайте, какие районы Дубая покажут рост в 25% за следующий год и как избежать типичных ошибок при покупке.', email: 'Ваш Email', btn: 'Получить гайд' },
         testim: { title: 'Что говорят наши клиенты', more: 'Развернуть больше' },
         faq: { top: 'FAQ', title: 'Вопросы и ответы' },
-        form: { title: 'Связаться с нами', subtitle: 'Сценарий вашей прибыли: от выбора объекта до выхода из сделки', name: 'Ваше имя', email: 'Ваш Email', phone: 'Телефон / WhatsApp', goal: 'Цель запроса', selGoal: 'Выберите цель', btn: 'Отправить заявку', goals: ['Переезд / Релокация', 'Инвестиции', 'Управление недвижимостью'], consent: 'Я соглашаюсь получать информацию о предложениях, сделках и услугах с этого веб-сайта (по желанию) и принимаю Политику конфиденциальности.' },
+        form: { title: 'Связаться с нами', subtitle: 'Сценарий вашей прибыли: от выбора объекта до выхода из сделки', name: 'Ваше имя', email: 'Ваш Email', phone: 'Телефон / WhatsApp', goal: 'Цель запроса', selGoal: 'Выберите цель', btn: 'Отправить заявку', goals: ['Переезд / Релокация', 'Инвестиции', 'Управление недвижимостью'], consent: 'Я соглашаюсь получать информацию о предложениях, сделках и услугах с этого веб-сайта и принимаю Политику конфиденциальности.' },
         quiz: {
             title: 'Инвестируете в Дубай?',
             q1: 'Что ищете в Дубае?',
@@ -161,7 +161,7 @@ const translations = {
         mortgage: { title: 'Ипотека для нерезидентов в ОАЭ', desc: 'Официальное финансирование до 50% от стоимости объекта. Процентная ставка от 4.5% годовых. Минимальный пакет документов. Мы полностью берем на себя процесс одобрения кредита (Mortgage Approval) в ведущих банках Дубая.', btn: 'Рассчитать ипотеку', hideBtn: 'Скрыть анкету', formTitle: 'Заявка на ипотеку', formSub: 'Оставьте данные, и наш ипотечный брокер свяжется с вами для расчета платежей' },
         valPage: { top: 'Property Valuation', heading: 'Оценка вашей недвижимости', subtitle: 'Наши аналитики подготовят точный отчет о рыночной стоимости вашего актива на основе актуальных транзакций Земельного Департамента Дубая.', name: 'Ваше имя', email: 'Ваш Email', loc: 'Локация / Комплекс', area: 'Площадь (Sq.ft) / Спален', phone: 'Телефон / WhatsApp', btn: 'Запросить оценку' },
         blog: { top: 'Insights & Analytics', title: 'Блог Alpha Star', readBtn: 'Читать статью', notFound: 'Статья не найдена', back: 'Назад к статьям', ready: 'Готовы сделать шаг к успешным инвестициям?', reqBtn: 'Получить консультацию эксперта', imgText: 'Главное фото статьи' },
-        footer: { quote: 'Мы защищаем ваш капитал и создаем преимущество на самом динамичном рынке мира.', nav: 'Навигация', contacts: 'Контакты', rights: '© 2026 Alpha Star Properties. Все права защищены.', privacy: 'Политика конфиденциальности', terms: 'Условия использования', about: 'О компании', cases: 'Кейсы', catalog: 'Объекты' },
+        footer: { quote: 'Мы защищаем ваш капитал и создаем преимущество на самом динамичном рынке мира.', nav: 'Навигация', contacts: 'Контакты', rights: '© 2026 Alpha Star Properties. Все права защищены.', privacy: 'Политика конфиденциальности', terms: 'Условия использования', about: 'О компании', cases: 'Кейсы', catalog: 'Объекты', office_dubai: 'Офис в Дубае:', office_moscow: 'Офис в Москве:' },
         listing: { all: 'Все объекты', bed: 'Bedroom', notFound: 'По вашему запросу объектов не найдено.', missing: 'Не нашли идеальный объект?', missingSub: 'Оставьте заявку, и мы пришлем подборку эксклюзивных вариантов закрытых продаж вне рынка', btn: 'Смотреть детали' },
         legal: {
             privacy: { title: 'Политика конфиденциальности', text: '<p>Настоящая Политика конфиденциальности описывает, как Alpha Star Properties собирает, использует и защищает вашу личную информацию.</p><p><strong>1. Сбор данных</strong><br/>Мы собираем данные (имя, email, телефон), когда вы оставляете заявку на сайте.</p><p><strong>2. Использование данных</strong><br/>Ваши данные используются исключительно для предоставления консультационных услуг в сфере недвижимости и не передаются третьим лицам без вашего прямого согласия.</p><p><strong>3. Защита информации</strong><br/>Мы применяем современные технологии шифрования для защиты ваших данных от несанкционированного доступа.</p>' },
@@ -176,7 +176,7 @@ const translations = {
             top: 'Our Awards', 
             title: 'Top-tier Recognition',
             list: [
-                'Most Successful Deals in 2025',
+                'Top Luxury Real Estate Broker',
                 'Agency of the Year by Clients',
                 'Top Agency Team for Exclusive Properties',
                 'Best Agency for Off-Plan Sales'
@@ -189,7 +189,7 @@ const translations = {
         guide: { top: 'Guide 2026', title: '2026 Analytical Report', desc: 'Find out which Dubai areas will show a 25% growth next year and how to avoid typical buying mistakes.', email: 'Your Email', btn: 'Get the Guide' },
         testim: { title: 'What Our Clients Say', more: 'Show More' },
         faq: { top: 'FAQ', title: 'Questions & Answers' },
-        form: { title: 'Contact Us', subtitle: 'Your profit scenario: from selecting an object to exiting the deal', name: 'Your Name', email: 'Your Email', phone: 'Phone / WhatsApp', goal: 'Inquiry Purpose', selGoal: 'Select Purpose', btn: 'Submit Request', goals: ['Relocation', 'Investments', 'Property Management'], consent: 'I agree to receive information about offers, deals, and services from this website (optional) and accept the Privacy Policy.' },
+        form: { title: 'Contact Us', subtitle: 'Your profit scenario: from selecting an object to exiting the deal', name: 'Your Name', email: 'Your Email', phone: 'Phone / WhatsApp', goal: 'Inquiry Purpose', selGoal: 'Select Purpose', btn: 'Submit Request', goals: ['Relocation', 'Investments', 'Property Management'], consent: 'I agree to receive information about offers, deals, and services from this website and accept the Privacy Policy.' },
         quiz: {
             title: 'Investing in Dubai?',
             q1: 'What are you looking for in Dubai?',
@@ -206,7 +206,7 @@ const translations = {
         mortgage: { title: 'Mortgage for Non-Residents in the UAE', desc: 'Official financing up to 50% of the property value. Interest rate from 4.5% per annum. Minimum document package. We fully handle the Mortgage Approval process in leading Dubai banks.', btn: 'Calculate Mortgage', hideBtn: 'Hide Form', formTitle: 'Mortgage Application', formSub: 'Leave your details, and our mortgage broker will contact you to calculate payments' },
         valPage: { top: 'Property Valuation', heading: 'Evaluate Your Property', subtitle: 'Our analysts will prepare an accurate report on the market value of your asset based on current Dubai Land Department transactions.', name: 'Your Name', email: 'Your Email', loc: 'Location / Complex', area: 'Area (Sq.ft) / Bedrooms', phone: 'Phone / WhatsApp', btn: 'Request Valuation' },
         blog: { top: 'Insights & Analytics', title: 'Alpha Star Blog', readBtn: 'Read Article', notFound: 'Article not found', back: 'Back to Articles', ready: 'Ready to step into successful investments?', reqBtn: 'Get Expert Consultation', imgText: 'Article Main Photo' },
-        footer: { quote: 'We protect your capital and create an advantage in the world\'s most dynamic market.', nav: 'Navigation', contacts: 'Contacts', rights: '© 2026 Alpha Star Properties. All rights reserved.', privacy: 'Privacy Policy', terms: 'Terms of Use', about: 'About Us', cases: 'Case Studies', catalog: 'Properties' },
+        footer: { quote: 'We protect your capital and create an advantage in the world\'s most dynamic market.', nav: 'Navigation', contacts: 'Contacts', rights: '© 2026 Alpha Star Properties. All rights reserved.', privacy: 'Privacy Policy', terms: 'Terms of Use', about: 'About Us', cases: 'Case Studies', catalog: 'Properties', office_dubai: 'Dubai Office:', office_moscow: 'Moscow Office:' },
         listing: { all: 'All Properties', bed: 'Bedroom', notFound: 'No properties found for your request.', missing: 'Didn\'t find the perfect property?', missingSub: 'Leave a request, and we will send you a selection of exclusive off-market options', btn: 'View Details' },
         legal: {
             privacy: { title: 'Privacy Policy', text: '<p>This Privacy Policy describes how Alpha Star Properties collects, uses, and protects your personal information.</p><p><strong>1. Data Collection</strong><br/>We collect data (name, email, phone) when you submit a request on the website.</p><p><strong>2. Data Usage</strong><br/>Your data is used solely to provide real estate consulting services and is not shared with third parties without your explicit consent.</p><p><strong>3. Information Security</strong><br/>We apply modern encryption technologies to protect your data from unauthorized access.</p>' },
@@ -216,20 +216,19 @@ const translations = {
 };
 
 // --- SEO КОНТЕНТ ---
-const seoData = {
-    home: { title: "Элитная недвижимость в Дубае | Купить квартиру и виллу | Alpha Star", description: "Инвестиции в недвижимость Дубая. Элитные квартиры, виллы и таунхаусы. Сопровождение сделок Private Office, доступ к off-market лотам и высокая доходность (ROI)." },
-    novostroyki: { title: "Новостройки Дубая от застройщика | Купить недвижимость Off-plan", heading: "Новостройки", subtitle: "Эксклюзивные предложения от топовых застройщиков ОАЭ.", seoText: "Покупка недвижимости на стадии строительства (Off-plan) — это один из самых надежных инструментов для получения максимальной доходности в Дубае. Прирост стоимости актива к моменту сдачи объекта может составлять от 20% до 50%." },
-    secondary: { title: "Вторичное жилье в Дубае | Купить готовую квартиру", heading: "Вторичное жилье", subtitle: "Готовые объекты с полной юридической проверкой для заселения.", seoText: "Вторичный рынок недвижимости Дубая идеально подходит для инвесторов, желающих получать пассивный доход сразу после покупки, а также для тех, кто планирует быстрый переезд по программе резидентской визы (Golden Visa)." },
-    villas: { title: "Купить элитную виллу в Дубае | Таунхаусы премиум-класса", heading: "Виллы и Таунхаусы", subtitle: "Премиальные резиденции для вашей семьи.", seoText: "Рынок роскошных вилл и таунхаусов в Дубае переживает беспрецедентный бум. Элитные комьюнити, такие как Palm Jumeirah, Dubai Hills Estate и Emirates Hills, предлагают непревзойденный уровень приватности." },
-    commercial: { title: "Коммерческая недвижимость в Дубае | Купить офис", heading: "Коммерческая недвижимость", subtitle: "Офисы, ритейл и склады в лучших деловых районах Дубая.", seoText: "Коммерческая недвижимость в деловых центрах Дубая демонстрирует стабильно высокую доходность от аренды (до 8-12% годовых). Мы предлагаем премиальные офисные пространства." },
-    invest: { title: "Инвестиции в недвижимость Дубая | Высокий ROI", heading: "Инвестиционные пакеты", subtitle: "Высокодоходные активы с гарантированным ROI.", seoText: "Грамотно сформированный портфель недвижимости в Дубае позволяет не только сохранить капитал, но и диверсифицировать доходы за счет привязки к стабильной валюте." },
-    plots: { title: "Участки под застройку в Дубае | Купить землю", heading: "Участки под застройку", subtitle: "Земля в престижных локациях для девелоперских проектов.", seoText: "Приобретение земельного участка в Дубае — это редкая возможность создать премиальный проект по индивидуальному дизайну или реализовать прибыльный девелоперский проект." },
-    apartments_rent: { title: "Аренда элитных апартаментов в Дубае", heading: "Аренда апартаментов", subtitle: "Долгосрочная аренда в премиальных локациях.", seoText: "Мы предоставляем полный спектр услуг по подбору элитной недвижимости для долгосрочной аренды. Наши брокеры организуют просмотры и помогут согласовать условия." },
-    valuation: { title: "Оценка стоимости недвижимости в Дубае", heading: "Оценка вашей недвижимости", subtitle: "Наши аналитики подготовят точный отчет о рыночной стоимости вашего актива на основе актуальных транзакций Земельного Департамента Дубая." },
-    blog: { title: "Блог о недвижимости Дубая | Аналитика рынка ОАЭ 2026", description: "Свежие новости рынка недвижимости ОАЭ, аналитика цен, прогнозы на 2026 год." }
-};
-
-const getSeoData = (lang) => seoData;
+const getSeoData = (lang) => ({
+    home: { title: lang==='RU'?"Элитная недвижимость в Дубае | Alpha Star":"Luxury Real Estate in Dubai | Alpha Star", description: lang==='RU'?"Инвестиции в недвижимость Дубая. Элитные квартиры, виллы и таунхаусы. Сопровождение сделок Private Office.":"Investments in Dubai real estate. Luxury apartments, villas and townhouses. Private Office transaction support." },
+    novostroyki: { title: lang==='RU'?"Новостройки Дубая | Off-plan":"Off-plan Properties in Dubai", heading: lang==='RU'?"Новостройки":"Off-Plan Properties", subtitle: lang==='RU'?"Эксклюзивные предложения от топовых застройщиков ОАЭ.":"Exclusive offers from top UAE developers.", seoText: lang==='RU'?"Покупка недвижимости на стадии строительства (Off-plan) — это один из самых надежных инструментов для получения максимальной доходности в Дубае. Прирост стоимости актива к моменту сдачи объекта может составлять от 20% до 50%.":"Buying off-plan properties is one of the most reliable tools to get maximum returns in Dubai. The asset value increase by handover can range from 20% to 50%." },
+    secondary: { title: lang==='RU'?"Вторичное жилье в Дубае":"Secondary Market in Dubai", heading: lang==='RU'?"Вторичное жилье":"Secondary Market", subtitle: lang==='RU'?"Готовые объекты с полной юридической проверкой для заселения.":"Ready-to-move properties with full legal audit.", seoText: lang==='RU'?"Вторичный рынок недвижимости Дубая идеально подходит для инвесторов, желающих получать пассивный доход сразу после покупки, а также для тех, кто планирует быстрый переезд по программе резидентской визы (Golden Visa).":"The secondary market in Dubai is perfect for investors wanting passive income immediately, as well as those planning a quick relocation via the Golden Visa program." },
+    villas: { title: lang==='RU'?"Виллы в Дубае":"Villas in Dubai", heading: lang==='RU'?"Виллы и Таунхаусы":"Villas & Townhouses", subtitle: lang==='RU'?"Премиальные резиденции для вашей семьи.":"Premium residences for your family.", seoText: lang==='RU'?"Рынок роскошных вилл и таунхаусов в Дубае переживает беспрецедентный бум. Элитные комьюнити предлагают непревзойденный уровень приватности.":"The luxury villas and townhouses market in Dubai is booming. Premium communities offer unmatched privacy levels." },
+    commercial: { title: lang==='RU'?"Коммерческая недвижимость в Дубае":"Commercial Property in Dubai", heading: lang==='RU'?"Коммерческая недвижимость":"Commercial Real Estate", subtitle: lang==='RU'?"Офисы, ритейл и склады в деловых районах Дубая.":"Offices, retail and warehouses in Dubai's business districts.", seoText: lang==='RU'?"Коммерческая недвижимость в деловых центрах Дубая демонстрирует стабильно высокую доходность от аренды (до 8-12% годовых). Мы предлагаем премиальные офисные пространства.":"Commercial property in Dubai's business centers shows consistently high rental yields (up to 8-12% ROI). We offer premium office spaces." },
+    invest: { title: lang==='RU'?"Инвестиции в недвижимость Дубая":"Investments in Dubai Real Estate", heading: lang==='RU'?"Инвестиционные пакеты":"Investment Packages", subtitle: lang==='RU'?"Высокодоходные активы с гарантированным ROI.":"High-yield assets with guaranteed ROI.", seoText: lang==='RU'?"Грамотно сформированный портфель недвижимости в Дубае позволяет не только сохранить капитал, но и диверсифицировать доходы за счет привязки к стабильной валюте.":"A well-structured real estate portfolio in Dubai allows you to not only preserve capital but also diversify income by pegging it to a stable currency." },
+    plots: { title: lang==='RU'?"Участки под застройку":"Plots for Development", heading: lang==='RU'?"Участки под застройку":"Development Plots", subtitle: lang==='RU'?"Земля в престижных локациях.":"Land in prestigious locations.", seoText: lang==='RU'?"Приобретение земельного участка в Дубае — это редкая возможность создать премиальный проект по индивидуальному дизайну или реализовать прибыльный девелоперский проект.":"Acquiring land in Dubai is a rare opportunity to create a premium custom project or a profitable development." },
+    distress: { title: lang==='RU'?"Дистресс недвижимость":"Distress Deals", heading: lang==='RU'?"Дистресс-активы":"Distress Deals", subtitle: lang==='RU'?"Срочные продажи недвижимости ниже рыночной стоимости.":"Urgent property sales below market value." },
+    apartments_rent: { title: lang==='RU'?"Аренда апартаментов":"Apartments for Rent", heading: lang==='RU'?"Аренда апартаментов":"Apartments for Rent", subtitle: lang==='RU'?"Долгосрочная аренда в премиальных локациях.":"Long-term rental in premium locations.", seoText: lang==='RU'?"Мы предоставляем полный спектр услуг по подбору элитной недвижимости для долгосрочной аренды. Наши брокеры организуют просмотры и помогут согласовать условия.":"We provide full service in finding luxury real estate for long-term rent. Our brokers organize viewings and help negotiate terms." },
+    valuation: { title: lang==='RU'?"Оценка стоимости недвижимости":"Property Valuation", heading: lang==='RU'?"Оценка недвижимости":"Property Valuation" },
+    blog: { title: lang==='RU'?"Блог о недвижимости Дубая":"Dubai Real Estate Blog" }
+});
 
 const getSteps = (lang) => [
     { icon: Search, title: lang==='RU'?"Глубокий анализ":"Deep Analysis", desc: lang==='RU'?"Анализируем лоты по 54 параметрам ликвидности до их выхода в паблик.":"We analyze lots by 54 liquidity parameters before public release." },
@@ -239,11 +238,11 @@ const getSteps = (lang) => [
 ];
 
 const getCaseStudies = (lang) => [
-    { img: "./images/case1.png", roi: '25%', location: 'Bluewaters Island', title: 'BLUEWATERS RESIDENCES', project: lang==='RU'?'1 BEDROOM (РАЙОН)':'1 BEDROOM (AREA)', launchTitle: lang==='RU'?'Вход (Ланч 2018)':'Entry (Launch 2018)', launch: '1.9М — 2.2М AED', nowTitle: lang==='RU'?'Выход (Продажа 2025)':'Exit (Sale 2025)', now: '4.7М — 6.8М AED' },
-    { img: "./images/case2.png", roi: '21%', location: 'Dubai Hills Estate', title: 'ELLINGTON HOUSE', project: lang==='RU'?'3 BEDROOM (ПРОЕКТ)':'3 BEDROOM (PROJECT)', launchTitle: lang==='RU'?'Вход (Ланч 2022)':'Entry (Launch 2022)', launch: '3.3М — 4.0М AED', nowTitle: lang==='RU'?'Выход (Продажа 2025)':'Exit (Sale 2025)', now: '5.5М — 6.5М AED' },
-    { img: "./images/case3.png", roi: '22%', location: 'Emaar Beachfront', title: 'BEACH ISLE', project: lang==='RU'?'3 BEDROOM (ПРОЕКТ)':'3 BEDROOM (PROJECT)', launchTitle: lang==='RU'?'Вход (Ланч 2020)':'Entry (Launch 2020)', launch: '4.5М AED', nowTitle: lang==='RU'?'Выход (Продажа 2025)':'Exit (Sale 2025)', now: '8.5М — 10.3М AED' },
-    { img: "./images/case4.png", roi: '20%', location: 'JVC', title: 'BINGHATTI CORNER', project: lang==='RU'?'1 BEDROOM (ПРОЕКТ)':'1 BEDROOM (PROJECT)', launchTitle: lang==='RU'?'Вход (Ланч 2022)':'Entry (Launch 2022)', launch: '600,000 AED', nowTitle: lang==='RU'?'Выход (Продажа 2025)':'Exit (Sale 2025)', now: '1М AED' },
-    { img: "./images/case5.png", roi: '18%', location: 'Dubai Creek Harbour', title: 'DUBAI CREEK HARBOUR', project: lang==='RU'?'2 BEDROOM (РАЙОН)':'2 BEDROOM (AREA)', launchTitle: lang==='RU'?'Вход (Ланч 2019)':'Entry (Launch 2019)', launch: '1.3M — 1.7M AED', nowTitle: lang==='RU'?'Выход (Продажа 2025)':'Exit (Sale 2025)', now: '2.5М — 3.3M AED' }
+    { img: "./images/case1.png", roi: '25%', location: 'Bluewaters Island', title: 'BLUEWATERS RESIDENCES', project: lang==='RU'?'1 BEDROOM (РАЙОН)':'1 BEDROOM (AREA)', launchTitle: lang==='RU'?'Вход (Ланч 2018)':'Entry (Launch 2018)', launch: '1.9М — 2.2М AED', nowTitle: lang==='RU'?'Выход (Продажа 2025)':'Exit (Sale 2025)', now: '4.7М — 6.8М AED', alt: 'Bluewaters Island Dubai' },
+    { img: "./images/case2.png", roi: '21%', location: 'Dubai Hills Estate', title: 'ELLINGTON HOUSE', project: lang==='RU'?'3 BEDROOM (ПРОЕКТ)':'3 BEDROOM (PROJECT)', launchTitle: lang==='RU'?'Вход (Ланч 2022)':'Entry (Launch 2022)', launch: '3.3М — 4.0М AED', nowTitle: lang==='RU'?'Выход (Продажа 2025)':'Exit (Sale 2025)', now: '5.5М — 6.5М AED', alt: 'Dubai Hills Estate' },
+    { img: "./images/case3.png", roi: '22%', location: 'Emaar Beachfront', title: 'BEACH ISLE', project: lang==='RU'?'3 BEDROOM (ПРОЕКТ)':'3 BEDROOM (PROJECT)', launchTitle: lang==='RU'?'Вход (Ланч 2020)':'Entry (Launch 2020)', launch: '4.5М AED', nowTitle: lang==='RU'?'Выход (Продажа 2025)':'Exit (Sale 2025)', now: '8.5М — 10.3М AED', alt: 'Emaar Beachfront Dubai' },
+    { img: "./images/case4.png", roi: '20%', location: 'JVC', title: 'BINGHATTI CORNER', project: lang==='RU'?'1 BEDROOM (ПРОЕКТ)':'1 BEDROOM (PROJECT)', launchTitle: lang==='RU'?'Вход (Ланч 2022)':'Entry (Launch 2022)', launch: '600,000 AED', nowTitle: lang==='RU'?'Выход (Продажа 2025)':'Exit (Sale 2025)', now: '1М AED', alt: 'Jumeirah Village Circle' },
+    { img: "./images/case5.png", roi: '18%', location: 'Dubai Creek Harbour', title: 'DUBAI CREEK HARBOUR', project: lang==='RU'?'2 BEDROOM (РАЙОН)':'2 BEDROOM (AREA)', launchTitle: lang==='RU'?'Вход (Ланч 2019)':'Entry (Launch 2019)', launch: '1.3M — 1.7M AED', nowTitle: lang==='RU'?'Выход (Продажа 2025)':'Exit (Sale 2025)', now: '2.5М — 3.3M AED', alt: 'Dubai Creek Harbour' }
 ];
 
 const getTestimonials = (lang) => [
@@ -314,25 +313,25 @@ const categoryImages = {
 };
 
 const getMockProps = (lang) => [
-    { id: 1, type: 'novostroyki', beds: 1, title: 'Emaar Beachfront Residence', price: '1,500,000', location: 'Dubai Harbour', img: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800', dev: 'Emaar Properties', completion: 'Q4 2026', roi: '~8-10%' },
-    { id: 2, type: 'novostroyki', beds: 2, title: 'Cavalli Couture', price: '2,800,000', location: 'Dubai Water Canal', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800', dev: 'DAMAC Properties', completion: 'Q3 2025', roi: '~7-9%' },
-    { id: 3, type: 'villas', beds: 3, title: 'District One Villa', price: '5,500,000', location: 'MBR City', img: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800', dev: 'Meydan Group', completion: 'Готов', roi: '~6%' },
-    { id: 4, type: 'secondary', beds: 1, title: 'Downtown Views', price: '950,000', location: 'Downtown Dubai', img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800', dev: 'Emaar Properties', completion: 'Готов', roi: '~7.5%' },
-    { id: 5, type: 'commercial', beds: 0, title: 'Business Bay Office', price: '3,200,000', location: 'Business Bay', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800', dev: 'Omniyat', completion: 'Готов', roi: '~10%' },
-    { id: 6, type: 'invest', beds: 2, title: 'High ROI Apartment', price: '1,100,000', location: 'JVC', img: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=800', dev: 'Binghatti', completion: 'Q1 2026', roi: '~9-11%' },
-    { id: 7, type: 'plots', beds: 0, title: 'Pearl Jumeirah Plot', price: '12,500,000', location: 'Pearl Jumeirah', img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800', dev: 'Meraas', completion: 'Земля', roi: 'Капитализация' }
+    { id: 1, type: 'novostroyki', beds: 1, title: 'Emaar Beachfront Residence', price: '1,500,000', location: 'Dubai Harbour', img: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800', dev: 'Emaar Properties', completion: 'Q4 2026', roi: '~8-10%', alt: lang==='RU'?'Роскошные апартаменты Emaar Beachfront в Дубае':'Luxury Emaar Beachfront apartments in Dubai' },
+    { id: 2, type: 'novostroyki', beds: 2, title: 'Cavalli Couture', price: '2,800,000', location: 'Dubai Water Canal', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800', dev: 'DAMAC Properties', completion: 'Q3 2025', roi: '~7-9%', alt: lang==='RU'?'Элитная новостройка Cavalli Couture':'Luxury new building Cavalli Couture' },
+    { id: 3, type: 'villas', beds: 3, title: 'District One Villa', price: '5,500,000', location: 'MBR City', img: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800', dev: 'Meydan Group', completion: 'Готов', roi: '~6%', alt: lang==='RU'?'Вилла с 3 спальнями в District One Дубай':'3 bedroom villa in District One Dubai' },
+    { id: 4, type: 'secondary', beds: 1, title: 'Downtown Views', price: '950,000', location: 'Downtown Dubai', img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800', dev: 'Emaar Properties', completion: 'Готов', roi: '~7.5%', alt: lang==='RU'?'Вторичное жилье апартаменты с видом на Бурдж Халифа':'Secondary market apartments with Burj Khalifa view' },
+    { id: 5, type: 'commercial', beds: 0, title: 'Business Bay Office', price: '3,200,000', location: 'Business Bay', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800', dev: 'Omniyat', completion: 'Готов', roi: '~10%', alt: lang==='RU'?'Коммерческая недвижимость Дубай офис в Business Bay':'Commercial property office in Business Bay Dubai' },
+    { id: 6, type: 'invest', beds: 2, title: 'High ROI Apartment', price: '1,100,000', location: 'JVC', img: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=800', dev: 'Binghatti', completion: 'Q1 2026', roi: '~9-11%', alt: lang==='RU'?'Инвестиционные апартаменты в JVC с высокой доходностью':'High ROI investment apartments in JVC' },
+    { id: 7, type: 'plots', beds: 0, title: 'Pearl Jumeirah Plot', price: '12,500,000', location: 'Pearl Jumeirah', img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800', dev: 'Meraas', completion: 'Земля', roi: 'Капитализация', alt: lang==='RU'?'Земельный участок Pearl Jumeirah Дубай':'Pearl Jumeirah plot in Dubai' }
 ];
 
 const getBlogPosts = (lang) => lang === 'RU' ? [
-    { id: "dubai-market-2026", title: "Рынок недвижимости Дубая 2026: Главные прогнозы и тренды", date: "14 Октября, 2025", readTime: "6 мин", img: "https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&q=80&w=1200", excerpt: "Узнайте, в каких районах ожидается максимальный рост капитала (ROI) и почему фокус смещается на Ultra-Luxury.", content: `<p>Вступая в 2026 год, многие задаются вопросом: сохранится ли двузначный рост стоимости активов? Разберем ключевые тренды.</p><h3>Смещение фокуса на Ultra-Luxury</h3><p>Спрос на элитную недвижимость со стороны HNWI бьет рекорды. Проекты от мировых брендов распродаются на пресейлах.</p><h3>Топ-3 района (ROI) в 2026 году</h3><ul><li><strong>Dubai Maritime City:</strong> Огромный потенциал для краткосрочной аренды.</li><li><strong>Dubai South:</strong> Лидеры по долгосрочной аренде (7.5% – 9.5% чистого ROI).</li><li><strong>Palm Jebel Ali:</strong> Флагманский мегапроект с гарантированной высокой капитализацией.</li></ul>` },
-    { id: "golden-visa-uae", title: "Как получить Золотую визу ОАЭ (Golden Visa) за инвестиции", date: "28 Сентября, 2025", readTime: "5 мин", img: "https://images.unsplash.com/photo-1549944850-84e00be4203b?auto=format&fit=crop&q=80&w=1200", excerpt: "Условия для инвесторов, налоги, порог входа и преимущества долгосрочного резидентства в 2026 году.", content: `<p>Государственная программа Golden Visa сроком на 10 лет стала магнитом для международных инвесторов.</p><h3>Главные преимущества</h3><ul><li>Долгосрочная безопасность и право продления.</li><li>Спонсирование семьи и персонала.</li><li>0% налога на доходы физических лиц.</li></ul><h3>Условия получения</h3><p>Необходимо купить недвижимость в Дубае на общую сумму не менее <strong>2 000 000 дирхамов</strong>. Допускается ипотека и объекты Off-plan.</p>` },
-    { id: "buy-property-dubai-step-by-step", title: "Пошаговое руководство: Как безопасно купить недвижимость в Дубае", date: "05 Сентября, 2025", readTime: "7 мин", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200", excerpt: "Разбор каждого этапа сделки: от выбора объекта до получения Title Deed. Узнайте, как защищены деньги.", content: `<p>Дубай обладает одной из самых прозрачных правовых систем.</p><h3>Шаг 1: Бронирование (EOI)</h3><p>Внесение возвращаемого депозита.</p><h3>Шаг 2: Договор (SPA)</h3><p>Официальный договор с графиком платежей.</p><h3>Шаг 3: Escrow-счета</h3><p>Деньги лежат на эскроу-счетах, контролируемых государством.</p><h3>Шаг 4: Налоги</h3><p>Разовый сбор DLD — 4% от стоимости.</p>` },
-    { id: "dubai-taxes", title: "Налоги на недвижимость в Дубае: Полное руководство", date: "10 Августа, 2025", readTime: "4 мин", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1200", excerpt: "Все, что нужно знать инвестору о налогах в ОАЭ. Скрытые платежи, сборы DLD и налог на прибыль.", content: `<p>ОАЭ привлекает инвесторов благодаря отсутствию налогов на прибыль, однако существуют другие важные сборы.</p><h3>Регистрационный сбор DLD</h3><p>Главный платеж при покупке недвижимости в Дубае составляет 4% от стоимости объекта. Он уплачивается в Земельный Департамент.</p><h3>Содержание недвижимости</h3><p>Владельцы обязаны оплачивать Maintenance Fee — сбор за обслуживание здания, который зависит от площади и престижности комплекса.</p>` }
+    { id: "dubai-market-2026", title: "Рынок недвижимости Дубая 2026: Главные прогнозы и тренды", date: "14 Октября, 2025", readTime: "6 мин", img: "./images/blog1.png", excerpt: "Узнайте, в каких районах ожидается максимальный рост капитала (ROI) и почему фокус смещается на Ultra-Luxury.", content: `<p>Вступая в 2026 год, многие задаются вопросом: сохранится ли двузначный рост стоимости активов? Разберем ключевые тренды.</p><h3>Смещение фокуса на Ultra-Luxury</h3><p>Спрос на элитную недвижимость со стороны HNWI бьет рекорды. Проекты от мировых брендов распродаются на пресейлах.</p><h3>Топ-3 района (ROI) в 2026 году</h3><ul><li><strong>Dubai Maritime City:</strong> Огромный потенциал для краткосрочной аренды.</li><li><strong>Dubai South:</strong> Лидеры по долгосрочной аренде (7.5% – 9.5% чистого ROI).</li><li><strong>Palm Jebel Ali:</strong> Флагманский мегапроект с гарантированной высокой капитализацией.</li></ul>` },
+    { id: "golden-visa-uae", title: "Как получить Золотую визу ОАЭ (Golden Visa) за инвестиции", date: "28 Сентября, 2025", readTime: "5 мин", img: "./images/blog2.png", excerpt: "Условия для инвесторов, налоги, порог входа и преимущества долгосрочного резидентства в 2026 году.", content: `<p>Государственная программа Golden Visa сроком на 10 лет стала магнитом для международных инвесторов.</p><h3>Главные преимущества</h3><ul><li>Долгосрочная безопасность и право продления.</li><li>Спонсирование семьи и персонала.</li><li>0% налога на доходы физических лиц.</li></ul><h3>Условия получения</h3><p>Необходимо купить недвижимость в Дубае на общую сумму не менее <strong>2 000 000 дирхамов</strong>. Допускается ипотека и объекты Off-plan.</p>` },
+    { id: "buy-property-dubai-step-by-step", title: "Пошаговое руководство: Как безопасно купить недвижимость в Дубае", date: "05 Сентября, 2025", readTime: "7 мин", img: "./images/blog3.png", excerpt: "Разбор каждого этапа сделки: от выбора объекта до получения Title Deed. Узнайте, как защищены деньги.", content: `<p>Дубай обладает одной из самых прозрачных правовых систем.</p><h3>Шаг 1: Бронирование (EOI)</h3><p>Внесение возвращаемого депозита.</p><h3>Шаг 2: Договор (SPA)</h3><p>Официальный договор с графиком платежей.</p><h3>Шаг 3: Escrow-счета</h3><p>Деньги лежат на эскроу-счетах, контролируемых государством.</p><h3>Шаг 4: Налоги</h3><p>Разовый сбор DLD — 4% от стоимости.</p>` },
+    { id: "dubai-taxes", title: "Налоги на недвижимость в Дубае: Полное руководство", date: "10 Августа, 2025", readTime: "4 мин", img: "./images/blog4.png", excerpt: "Все, что нужно знать инвестору о налогах в ОАЭ. Скрытые платежи, сборы DLD и налог на прибыль.", content: `<p>ОАЭ привлекает инвесторов благодаря отсутствию налогов на прибыль, однако существуют другие важные сборы.</p><h3>Регистрационный сбор DLD</h3><p>Главный платеж при покупке недвижимости в Дубае составляет 4% от стоимости объекта. Он уплачивается в Земельный Департамент.</p><h3>Содержание недвижимости</h3><p>Владельцы обязаны оплачивать Maintenance Fee — сбор за обслуживание здания, который зависит от площади и престижности комплекса.</p>` }
 ] : [
-    { id: "dubai-market-2026", title: "Dubai Real Estate Market 2026: Forecasts and Trends", date: "Oct 14, 2025", readTime: "6 min", img: "https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&q=80&w=1200", excerpt: "Find out which areas expect maximum capital growth (ROI) and why the focus is shifting to Ultra-Luxury.", content: `<p>Entering 2026, many wonder: will the double-digit asset growth continue? Let's analyze key trends.</p><h3>Shift to Ultra-Luxury</h3><p>Demand for luxury real estate from HNWIs breaks records. World-brand projects sell out at pre-sales.</p><h3>Top 3 ROI Areas in 2026</h3><ul><li><strong>Dubai Maritime City:</strong> Huge short-term rental potential.</li><li><strong>Dubai South:</strong> Long-term rental leaders (7.5% – 9.5% net ROI).</li><li><strong>Palm Jebel Ali:</strong> Flagship megaproject with guaranteed high capitalization.</li></ul>` },
-    { id: "golden-visa-uae", title: "How to Get a UAE Golden Visa through Investments", date: "Sep 28, 2025", readTime: "5 min", img: "https://images.unsplash.com/photo-1549944850-84e00be4203b?auto=format&fit=crop&q=80&w=1200", excerpt: "Conditions for investors, taxes, entry threshold, and benefits of long-term residency in 2026.", content: `<p>The 10-year Golden Visa program has become a magnet for international investors.</p><h3>Main Benefits</h3><ul><li>Long-term security and renewal rights.</li><li>Sponsorship of family and staff.</li><li>0% personal income tax.</li></ul><h3>Conditions</h3><p>Must buy property in Dubai worth at least <strong>2,000,000 AED</strong>. Mortgages and Off-plan objects are allowed.</p>` },
-    { id: "buy-property-dubai-step-by-step", title: "Step-by-step Guide: Safe Property Buying in Dubai", date: "Sep 05, 2025", readTime: "7 min", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200", excerpt: "Detailed breakdown of each stage: from object selection to getting the Title Deed.", content: `<p>Dubai has one of the most transparent legal systems.</p><h3>Step 1: Booking (EOI)</h3><p>Making a refundable deposit.</p><h3>Step 2: Agreement (SPA)</h3><p>Official agreement with a payment plan.</p><h3>Step 3: Escrow Accounts</h3><p>Money is held in state-controlled escrow accounts.</p><h3>Step 4: Taxes</h3><p>One-time DLD fee — 4% of the value.</p>` },
-    { id: "dubai-taxes", title: "Real Estate Taxes in Dubai: A Complete Guide", date: "Aug 10, 2025", readTime: "4 min", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1200", excerpt: "Everything an investor needs to know about UAE taxes. Hidden fees, DLD charges, and income tax.", content: `<p>The UAE attracts investors due to the absence of income tax, but there are other important fees.</p><h3>DLD Registration Fee</h3><p>The main payment when buying property in Dubai is 4% of the property value, payable to the Land Department.</p><h3>Property Maintenance</h3><p>Owners must pay a Maintenance Fee for building upkeep, which depends on the size and prestige of the complex.</p>` }
+    { id: "dubai-market-2026", title: "Dubai Real Estate Market 2026: Forecasts and Trends", date: "Oct 14, 2025", readTime: "6 min", img: "./images/blog1.png", excerpt: "Find out which areas expect maximum capital growth (ROI) and why the focus is shifting to Ultra-Luxury.", content: `<p>Entering 2026, many wonder: will the double-digit asset growth continue? Let's analyze key trends.</p><h3>Shift to Ultra-Luxury</h3><p>Demand for luxury real estate from HNWIs breaks records. World-brand projects sell out at pre-sales.</p><h3>Top 3 ROI Areas in 2026</h3><ul><li><strong>Dubai Maritime City:</strong> Huge short-term rental potential.</li><li><strong>Dubai South:</strong> Long-term rental leaders (7.5% – 9.5% net ROI).</li><li><strong>Palm Jebel Ali:</strong> Flagship megaproject with guaranteed high capitalization.</li></ul>` },
+    { id: "golden-visa-uae", title: "How to Get a UAE Golden Visa through Investments", date: "Sep 28, 2025", readTime: "5 min", img: "./images/blog2.png", excerpt: "Conditions for investors, taxes, entry threshold, and benefits of long-term residency in 2026.", content: `<p>The 10-year Golden Visa program has become a magnet for international investors.</p><h3>Main Benefits</h3><ul><li>Long-term security and renewal rights.</li><li>Sponsorship of family and staff.</li><li>0% personal income tax.</li></ul><h3>Conditions</h3><p>Must buy property in Dubai worth at least <strong>2,000,000 AED</strong>. Mortgages and Off-plan objects are allowed.</p>` },
+    { id: "buy-property-dubai-step-by-step", title: "Step-by-step Guide: Safe Property Buying in Dubai", date: "Sep 05, 2025", readTime: "7 min", img: "./images/blog3.png", excerpt: "Detailed breakdown of each stage: from object selection to getting the Title Deed.", content: `<p>Dubai has one of the most transparent legal systems.</p><h3>Step 1: Booking (EOI)</h3><p>Making a refundable deposit.</p><h3>Step 2: Agreement (SPA)</h3><p>Official agreement with a payment plan.</p><h3>Step 3: Escrow Accounts</h3><p>Money is held in state-controlled escrow accounts.</p><h3>Step 4: Taxes</h3><p>One-time DLD fee — 4% of the value.</p>` },
+    { id: "dubai-taxes", title: "Real Estate Taxes in Dubai: A Complete Guide", date: "Aug 10, 2025", readTime: "4 min", img: "./images/blog4.png", excerpt: "Everything an investor needs to know about UAE taxes. Hidden fees, DLD charges, and income tax.", content: `<p>The UAE attracts investors due to the absence of income tax, but there are other important fees.</p><h3>DLD Registration Fee</h3><p>The main payment when buying property in Dubai is 4% of the property value, payable to the Land Department.</p><h3>Property Maintenance</h3><p>Owners must pay a Maintenance Fee for building upkeep, which depends on the size and prestige of the complex.</p>` }
 ];
 
 // --- КОНТЕКСТ ЛОКАЛИЗАЦИИ ---
@@ -532,6 +531,13 @@ const CallbackModal = ({ isOpen, onClose }) => {
     const [step, setStep] = useState(0);
     const [answers, setAnswers] = useState({ q1: '', q2: '', q3: '' });
 
+    const quizImages = [
+        "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=800", // Q1: Ищем недвижимость
+        "https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80&w=800", // Q2: Бюджет
+        "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800", // Q3: Район (Пальма)
+        "https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?auto=format&fit=crop&q=80&w=800"  // Final: Контакты
+    ];
+
     // Сброс состояния при закрытии
     useEffect(() => {
         if (!isOpen) {
@@ -549,63 +555,83 @@ const CallbackModal = ({ isOpen, onClose }) => {
         <AnimatePresence>
             {isOpen && (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[2500] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto" onClick={onClose}>
-                    <motion.div initial={{ scale: 0.95, opacity: 0, y: 20 }} animate={{ scale: 1, opacity: 1, y: 0 }} exit={{ scale: 0.95, opacity: 0, y: 20 }} className="relative w-full max-w-lg m-auto" onClick={e => e.stopPropagation()}>
-                        <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-[#C5A059] transition-colors z-[60] bg-gray-50 rounded-full p-2 shadow-sm"><X size={20} /></button>
+                    <motion.div initial={{ scale: 0.95, opacity: 0, y: 20 }} animate={{ scale: 1, opacity: 1, y: 0 }} exit={{ scale: 0.95, opacity: 0, y: 20 }} className="relative w-full max-w-4xl m-auto" onClick={e => e.stopPropagation()}>
+                        <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-[#C5A059] transition-colors z-[60] bg-gray-50/80 backdrop-blur-md rounded-full p-2 shadow-sm"><X size={20} /></button>
                         
-                        <div className="relative bg-white shadow-2xl overflow-visible w-full p-8 md:p-12 rounded-sm border border-gray-100 min-h-[450px] flex flex-col">
-                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1 gold-bg opacity-30"></div>
+                        <div className="relative bg-white shadow-2xl overflow-hidden w-full rounded-sm border border-gray-100 min-h-[450px] flex flex-col md:flex-row">
+                            {/* Левая часть с меняющейся картинкой (скрыта на мобильных) */}
+                            <div className="hidden md:block md:w-2/5 relative bg-gray-100">
+                                <AnimatePresence mode="wait">
+                                    <motion.img 
+                                        key={step}
+                                        src={quizImages[step]}
+                                        initial={{ opacity: 0, scale: 1.05 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        transition={{ duration: 0.5 }}
+                                        className="absolute inset-0 w-full h-full object-cover"
+                                        alt="Dubai Quiz Step"
+                                    />
+                                </AnimatePresence>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                            </div>
                             
-                            {step < 3 ? (
-                                <motion.div key="quiz" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="flex-1 flex flex-col text-left">
-                                    <div className="text-[10px] gold-text uppercase font-bold tracking-widest mb-6 flex items-center justify-between">
-                                        <span>{t.quiz.step} {step + 1} / 3</span>
-                                        {step > 0 && <button onClick={() => setStep(step - 1)} className="hover:text-[#121212] transition-colors">{t.quiz.back}</button>}
-                                    </div>
-                                    <h2 className="font-montserrat text-xl md:text-2xl uppercase tracking-[0.1em] font-bold mb-8 text-[#121212]">
-                                        {step === 0 ? t.quiz.q1 : step === 1 ? t.quiz.q2 : t.quiz.q3}
-                                    </h2>
-                                    <div className="flex flex-col gap-3">
-                                        {(step === 0 ? t.quiz.a1 : step === 1 ? t.quiz.a2 : t.quiz.a3).map((opt, i) => (
-                                            <button 
-                                                key={i} 
-                                                type="button"
-                                                onClick={() => handleSelect(`q${step+1}`, opt)}
-                                                className={`p-4 text-left border rounded-sm font-montserrat text-sm font-semibold transition-all duration-300 hover:border-[#C5A059] hover:bg-gray-50 ${answers[`q${step+1}`] === opt ? 'border-[#C5A059] bg-gray-50 gold-text' : 'border-gray-200 text-gray-700'}`}
-                                            >
-                                                {opt}
-                                            </button>
-                                        ))}
-                                    </div>
-                                </motion.div>
-                            ) : (
-                                <motion.div key="form" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="flex-1 flex flex-col text-left">
-                                    <div className="text-center mb-6 md:mb-8">
-                                        <h2 className="font-montserrat text-xl md:text-2xl uppercase tracking-[0.2em] font-bold mb-2 md:mb-3 text-[#121212]">{t.quiz.finalTitle}</h2>
-                                        <p className="font-cormorant text-base md:text-lg text-gray-400 font-medium">{t.quiz.finalSub}</p>
-                                    </div>
-                                    <form className="flex flex-col gap-4 md:gap-5 text-left" onSubmit={e => { e.preventDefault(); onClose(); }}>
-                                        <div className="space-y-1 md:space-y-2 font-montserrat">
-                                            <label className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 ml-1">{t.form.name}</label>
-                                            <input type="text" required className="w-full p-3 md:p-4 bg-gray-50 border border-gray-100 focus:border-[#C5A059] outline-none font-bold text-sm transition-all duration-300 focus:bg-white focus:shadow-md" />
+                            {/* Правая часть с вопросами */}
+                            <div className="w-full md:w-3/5 p-8 md:p-12 flex flex-col relative">
+                                <div className="absolute top-0 left-0 w-full h-1 gold-bg opacity-30"></div>
+                                
+                                {step < 3 ? (
+                                    <motion.div key="quiz" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="flex-1 flex flex-col text-left">
+                                        <div className="text-[10px] gold-text uppercase font-bold tracking-widest mb-6 flex items-center justify-between">
+                                            <span>{t.quiz.step} {step + 1} / 3</span>
+                                            {step > 0 && <button onClick={() => setStep(step - 1)} className="hover:text-[#121212] transition-colors">{t.quiz.back}</button>}
                                         </div>
-                                        <div className="space-y-1 md:space-y-2 font-montserrat">
-                                            <label className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 ml-1">{t.form.email}</label>
-                                            <input type="email" required className="w-full p-3 md:p-4 bg-gray-50 border border-gray-100 focus:border-[#C5A059] outline-none font-bold text-sm transition-all duration-300 focus:bg-white focus:shadow-md" />
+                                        <h2 className="font-montserrat text-xl md:text-2xl uppercase tracking-[0.1em] font-bold mb-8 text-[#121212]">
+                                            {step === 0 ? t.quiz.q1 : step === 1 ? t.quiz.q2 : t.quiz.q3}
+                                        </h2>
+                                        <div className="flex flex-col gap-3">
+                                            {(step === 0 ? t.quiz.a1 : step === 1 ? t.quiz.a2 : t.quiz.a3).map((opt, i) => (
+                                                <button 
+                                                    key={i} 
+                                                    type="button"
+                                                    onClick={() => handleSelect(`q${step+1}`, opt)}
+                                                    className={`p-4 text-left border rounded-sm font-montserrat text-sm font-semibold transition-all duration-300 hover:border-[#C5A059] hover:bg-gray-50 ${answers[`q${step+1}`] === opt ? 'border-[#C5A059] bg-gray-50 gold-text' : 'border-gray-200 text-gray-700'}`}
+                                                >
+                                                    {opt}
+                                                </button>
+                                            ))}
                                         </div>
-                                        <div className="space-y-1 md:space-y-2 font-montserrat">
-                                            <label className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 ml-1">{t.form.phone}</label>
-                                            <input type="tel" required onInput={(e) => e.target.value = e.target.value.replace(/[^0-9+]/g, '')} className="w-full p-3 md:p-4 bg-gray-50 border border-gray-100 focus:border-[#C5A059] outline-none font-bold text-sm transition-all duration-300 focus:bg-white focus:shadow-md" placeholder="+971..." />
+                                    </motion.div>
+                                ) : (
+                                    <motion.div key="form" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="flex-1 flex flex-col text-left">
+                                        <div className="text-center mb-6 md:mb-8 mt-4 md:mt-0">
+                                            <h2 className="font-montserrat text-xl md:text-2xl uppercase tracking-[0.2em] font-bold mb-2 md:mb-3 text-[#121212]">{t.quiz.finalTitle}</h2>
+                                            <p className="font-cormorant text-base md:text-lg text-gray-400 font-medium">{t.quiz.finalSub}</p>
                                         </div>
-                                        <div className="mt-2 flex items-start gap-3">
-                                            <input type="checkbox" id="auto-consent" className="mt-1 accent-[#C5A059] w-4 h-4 flex-shrink-0 cursor-pointer" defaultChecked required />
-                                            <label htmlFor="auto-consent" className="text-[9px] md:text-[10px] text-gray-400 font-montserrat leading-relaxed cursor-pointer">{t.form.consent}</label>
-                                        </div>
-                                        <div className="flex justify-center mt-2 md:mt-4">
-                                            <button type="submit" className="btn-premium w-full py-4 md:py-6 bg-[#C5A059] text-white font-montserrat uppercase tracking-widest font-bold shadow-lg text-xs md:text-sm">{t.form.btn}</button>
-                                        </div>
-                                    </form>
-                                </motion.div>
-                            )}
+                                        <form className="flex flex-col gap-4 md:gap-5 text-left" onSubmit={e => { e.preventDefault(); onClose(); }}>
+                                            <div className="space-y-1 md:space-y-2 font-montserrat">
+                                                <label className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 ml-1">{t.form.name}</label>
+                                                <input type="text" required className="w-full p-3 md:p-4 bg-gray-50 border border-gray-100 focus:border-[#C5A059] outline-none font-bold text-sm transition-all duration-300 focus:bg-white focus:shadow-md" />
+                                            </div>
+                                            <div className="space-y-1 md:space-y-2 font-montserrat">
+                                                <label className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 ml-1">{t.form.email}</label>
+                                                <input type="email" required className="w-full p-3 md:p-4 bg-gray-50 border border-gray-100 focus:border-[#C5A059] outline-none font-bold text-sm transition-all duration-300 focus:bg-white focus:shadow-md" />
+                                            </div>
+                                            <div className="space-y-1 md:space-y-2 font-montserrat">
+                                                <label className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 ml-1">{t.form.phone}</label>
+                                                <input type="tel" required onInput={(e) => e.target.value = e.target.value.replace(/[^0-9+]/g, '')} className="w-full p-3 md:p-4 bg-gray-50 border border-gray-100 focus:border-[#C5A059] outline-none font-bold text-sm transition-all duration-300 focus:bg-white focus:shadow-md" placeholder="+971..." />
+                                            </div>
+                                            <div className="mt-2 flex items-start gap-3">
+                                                <input type="checkbox" id="auto-consent" className="mt-1 accent-[#C5A059] w-4 h-4 flex-shrink-0 cursor-pointer" defaultChecked required />
+                                                <label htmlFor="auto-consent" className="text-[9px] md:text-[10px] text-gray-400 font-montserrat leading-relaxed cursor-pointer">{t.form.consent}</label>
+                                            </div>
+                                            <div className="flex justify-center mt-2 md:mt-4">
+                                                <button type="submit" className="btn-premium w-full py-4 md:py-6 bg-[#C5A059] text-white font-montserrat uppercase tracking-widest font-bold shadow-lg text-xs md:text-sm">{t.form.btn}</button>
+                                            </div>
+                                        </form>
+                                    </motion.div>
+                                )}
+                            </div>
                         </div>
                     </motion.div>
                 </motion.div>
@@ -674,7 +700,7 @@ const InvestmentCalculator = () => {
     );
 };
 
-const HeroSlider = ({ customImages }) => {
+const HeroSlider = ({ customImages, defaultAlt = "Недвижимость в Дубае" }) => {
     const [current, setCurrent] = useState(0);
     const defaultImages = [
         { src: 'https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&q=80&w=2000' },
@@ -695,7 +721,7 @@ const HeroSlider = ({ customImages }) => {
                 <img 
                     key={i} 
                     src={img.src} 
-                    alt="bg" 
+                    alt={img.alt || defaultAlt} 
                     className={`absolute inset-0 w-full h-full object-cover transition-all duration-[10000ms] ease-out ${i === current ? 'opacity-100 scale-105' : 'opacity-0 scale-100'}`} 
                 />
             ))}
@@ -853,7 +879,9 @@ const ListingPage = ({ category, onOpenModal }) => {
     let items = propsData.filter(p => category === 'all' || p.type === category || (category === 'villas' && p.type === 'villas'));
     if (activeBed !== 'all') items = items.filter(p => p.beds === Number(activeBed));
 
-    const seo = getSeoData(lang)[category] || getSeoData(lang).novostroyki;
+    const seoDataDict = getSeoData(lang);
+    const seo = seoDataDict[category] || seoDataDict.novostroyki;
+    
     const showBeds = category !== 'commercial' && category !== 'invest' && category !== 'plots' && category !== 'distress' && category !== 'empty';
     const showValuationBtn = category === 'secondary' || category === 'apartments_rent';
 
@@ -861,10 +889,13 @@ const ListingPage = ({ category, onOpenModal }) => {
 
     return (
         <div className="bg-[#FBFBFB] min-h-screen">
-            <Helmet><title>{seo.title}</title></Helmet>
+            <Helmet>
+                <title>{seo.title}</title>
+                <meta name="description" content={seo.description} />
+            </Helmet>
 
             <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 px-5 md:px-8 flex flex-col items-center justify-center overflow-hidden bg-[#121212] text-white text-center min-h-[65vh]">
-                <HeroSlider customImages={imagesToUse} />
+                <HeroSlider customImages={imagesToUse} defaultAlt={seo.heading} />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-[#121212] z-10"></div>
                 <div className="relative z-30 max-w-4xl mx-auto mt-10 md:mt-0 flex flex-col items-center w-full">
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="w-full">
@@ -905,7 +936,7 @@ const ListingPage = ({ category, onOpenModal }) => {
                         {items.map(item => (
                             <motion.div key={item.id} layout initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} className="bg-white shadow-xl hover:shadow-2xl transition-all duration-500 rounded-sm overflow-hidden text-left flex flex-col">
                                 <div className="aspect-video bg-gray-200 overflow-hidden relative">
-                                    <img src={item.img} alt={item.title} className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
+                                    <img src={item.img} alt={item.alt || item.title} className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
                                     <div className="absolute top-3 left-3 md:top-4 md:left-4 bg-black/80 backdrop-blur-md px-2 py-1 md:px-3 md:py-1 text-white text-[8px] md:text-[9px] font-bold uppercase tracking-widest">${item.price}</div>
                                 </div>
                                 <div className="p-6 md:p-8 flex-grow flex flex-col justify-between">
@@ -977,11 +1008,15 @@ const ListingPage = ({ category, onOpenModal }) => {
 };
 
 const ValuationPage = () => {
-    const { t } = useLang();
+    const { lang, t } = useLang();
+    const seoDataDict = getSeoData(lang);
     const seo = t.valPage;
     return (
         <div className="pt-32 pb-16 md:pt-40 md:pb-24 px-5 md:px-8 bg-[#121212] text-white min-h-screen flex items-center">
-            <Helmet><title>{seo.top}</title></Helmet>
+            <Helmet>
+                <title>{seoDataDict.valuation.title}</title>
+                <meta name="description" content={seoDataDict.valuation.description || seo.subtitle} />
+            </Helmet>
             <div className="max-w-4xl mx-auto text-center w-full">
                 <h1 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">{seo.heading}</h1>
                 <p className="text-white/60 mb-10 md:mb-16 text-sm md:text-lg font-raleway max-w-2xl mx-auto px-2">{seo.subtitle}</p>
@@ -1012,16 +1047,20 @@ const ValuationPage = () => {
 const BlogPage = () => {
     const { lang, t } = useLang();
     const posts = getBlogPosts(lang);
+    const seoDataDict = getSeoData(lang);
     return (
         <div className="pt-32 pb-16 md:pt-40 md:pb-24 px-5 md:px-8 bg-white min-h-screen">
-            <Helmet><title>{t.blog.title}</title></Helmet>
+            <Helmet>
+                <title>{seoDataDict.blog.title}</title>
+                <meta name="description" content={seoDataDict.blog.description} />
+            </Helmet>
             <div className="max-w-5xl mx-auto">
                 <SectionHeading top={t.blog.top} main={t.blog.title} />
                 <div className="grid gap-16 md:gap-20">
                     {posts.map((post) => (
                         <div key={post.id} className="group grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center border-b border-gray-100 pb-16 md:pb-20">
                             <Link to={`/blog/${post.id}`} className="block aspect-[4/3] bg-gray-50 overflow-hidden shadow-lg order-1 md:order-none relative">
-                                {post.img ? <img src={post.img} alt="blog" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" /> : <div className="w-full h-full flex items-center justify-center border border-dashed border-gray-300"><span className="text-gray-400 text-[10px]">{t.blog.imgText}</span></div>}
+                                {post.img ? <img src={post.img} alt={post.alt || post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" /> : <div className="w-full h-full flex items-center justify-center border border-dashed border-gray-300"><span className="text-gray-400 text-[10px]">{t.blog.imgText}</span></div>}
                             </Link>
                             <div className="text-left order-2 md:order-none">
                                 <div className="flex flex-wrap items-center gap-3 md:gap-4 mb-3 md:mb-4">
@@ -1059,7 +1098,10 @@ const BlogPostPage = ({ onOpenModal }) => {
 
     return (
         <div className="pt-28 pb-16 md:pt-32 md:pb-24 bg-white min-h-screen">
-            <Helmet><title>{post.title}</title></Helmet>
+            <Helmet>
+                <title>{post.title} | {t.blog.title}</title>
+                <meta name="description" content={post.excerpt} />
+            </Helmet>
             <article className="max-w-4xl mx-auto px-5 md:px-8">
                 <Link to="/blog" className="inline-flex items-center gap-2 text-gray-400 hover:text-[#C5A059] transition-colors mb-8 md:mb-12 text-[9px] md:text-[10px] uppercase font-bold tracking-widest">
                     <ArrowLeft size={14} /> {t.blog.back}
@@ -1072,7 +1114,7 @@ const BlogPostPage = ({ onOpenModal }) => {
                     <h1 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-[#121212]">{post.title}</h1>
                 </div>
                 <div className="aspect-video w-full mb-10 md:mb-16 overflow-hidden shadow-2xl rounded-sm bg-gray-50">
-                    {post.img ? <img src={post.img} alt="blog" className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center border border-dashed border-gray-300"><span className="text-gray-400 text-[10px] text-center">{t.blog.imgText}</span></div>}
+                    {post.img ? <img src={post.img} alt={post.alt || post.title} className="w-full h-full object-cover" /> : <div className="w-full h-full flex items-center justify-center border border-dashed border-gray-300"><span className="text-gray-400 text-[10px] text-center">{t.blog.imgText}</span></div>}
                 </div>
                 <div className="seo-article text-left px-2 md:px-0" dangerouslySetInnerHTML={{ __html: post.content }} />
                 <div className="mt-16 md:mt-20 pt-8 md:pt-10 border-t border-gray-100 text-center">
@@ -1102,14 +1144,17 @@ const LegalPage = ({ type }) => {
 const HomePage = ({ isLoading, onOpenModal }) => {
     const { lang, t } = useLang();
     const [showAllTestimonials, setShowAllTestimonials] = useState(false);
+    
     const steps = getSteps(lang);
     const caseStudies = getCaseStudies(lang);
     const testimonials = getTestimonials(lang);
     const faqs = getFaqs(lang);
+    const seoDataDict = getSeoData(lang);
+    const seo = seoDataDict.home;
     
     const awardIcons = [Trophy, Star, Crown, Award];
     const awardsList = t.awards.list || [
-        'Больше всего успешных сделок за 2025 год',
+        'Лидер продаж элитной недвижимости',
         'Агентство года по версии клиентов',
         'Топ‑агентская команда по эксклюзивным объектам',
         'Лучшее агентство по продаже новостроек'
@@ -1117,11 +1162,15 @@ const HomePage = ({ isLoading, onOpenModal }) => {
 
     return (
         <div>
-            <Helmet><title>{getSeoData(lang).home.title}</title></Helmet>
+            <Helmet>
+                <title>{seo.title}</title>
+                <meta name="description" content={seo.description} />
+            </Helmet>
 
             {/* 1. HERO */}
             <section className="relative h-[100svh] flex items-center justify-center overflow-hidden bg-[#121212] text-white text-left">
-                <HeroSlider /><StarField />
+                <HeroSlider defaultAlt={seo.title} />
+                <StarField />
                 <div className="relative z-30 w-full max-w-7xl px-5 md:px-8">
                     <div className="flex items-center gap-3 md:gap-4 mb-4 justify-center md:justify-start">
                         <div className="w-8 md:w-12 h-px gold-bg"></div>
@@ -1155,7 +1204,7 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                     </div>
                     <div className="relative order-1 lg:order-2 px-4 sm:px-12 lg:px-0">
                         <div className="hero-mask aspect-[4/5] md:aspect-square lg:aspect-[4/5] overflow-hidden shadow-2xl">
-                            <img src="https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?auto=format&fit=crop&q=80&w=800" alt="Архитектура Дубая" className="w-full h-full object-cover" />
+                            <img src="https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?auto=format&fit=crop&q=80&w=800" alt="Архитектура Дубая премиум класс" className="w-full h-full object-cover" />
                         </div>
                         <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 w-32 h-32 md:w-48 md:h-48 bg-[#C5A059]/10 -z-10 rounded-full blur-2xl md:blur-3xl"></div>
                     </div>
@@ -1164,9 +1213,7 @@ const HomePage = ({ isLoading, onOpenModal }) => {
 
             {/* 2.5. НАГРАДЫ (ПРЕМИАЛЬНЫЙ РЕАЛИСТИЧНЫЙ ДИЗАЙН) */}
             <section className="relative py-16 lg:py-24 bg-[#121212] px-5 md:px-8 border-y border-white/5 overflow-hidden">
-                {/* Фоновое свечение для реалистичности */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] max-w-4xl h-[60%] bg-[#C5A059]/10 blur-[120px] pointer-events-none rounded-full"></div>
-
                 <div className="max-w-7xl mx-auto relative z-10">
                     <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 gap-4 md:gap-6">
                         <div className="text-center md:text-left w-full">
@@ -1186,19 +1233,15 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                                     transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }} 
                                     className="group flex flex-col items-center text-center bg-gradient-to-b from-white/[0.08] to-transparent p-8 md:p-10 rounded-sm border border-white/10 hover:border-[#C5A059]/50 transition-all duration-700 relative overflow-hidden"
                                 >
-                                    {/* Блик света на карточке */}
                                     <div className="absolute top-0 left-[-100%] w-[50%] h-full bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-[-20deg] group-hover:left-[200%] transition-all duration-1000 ease-in-out"></div>
                                     
-                                    {/* Реалистичный золотой медальон */}
                                     <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-[#E2C384] via-[#C5A059] to-[#8c6b32] flex items-center justify-center text-[#121212] shadow-[0_10px_30px_rgba(197,160,89,0.3),inset_0_2px_4px_rgba(255,255,255,0.6)] mb-6 md:mb-8 group-hover:scale-110 group-hover:shadow-[0_15px_40px_rgba(197,160,89,0.5),inset_0_2px_4px_rgba(255,255,255,0.6)] transition-all duration-700 relative z-10">
                                         <div className="absolute inset-1 rounded-full border border-[#121212]/20 shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)] pointer-events-none"></div>
                                         <Icon size={32} strokeWidth={1.5} className="md:w-10 md:h-10 relative z-10 drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]" />
                                     </div>
                                     
-                                    {/* Разделительная линия */}
                                     <div className="w-12 h-[2px] bg-gradient-to-r from-transparent via-[#C5A059] to-transparent mb-6 md:mb-8 opacity-50 group-hover:opacity-100 group-hover:w-16 transition-all duration-500"></div>
 
-                                    {/* Текст */}
                                     <h4 className="font-montserrat font-bold text-[11px] md:text-xs uppercase tracking-[0.15em] text-white/90 leading-relaxed group-hover:text-white transition-colors duration-500 relative z-10">
                                         {awardText}
                                     </h4>
@@ -1267,7 +1310,7 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                             <div key={i} className="bg-white shadow-[0_10px_40px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_60px_rgba(197,160,89,0.12)] transition-all duration-700 group border border-gray-50 flex flex-col lg:flex-row overflow-hidden hover:-translate-y-1 rounded-sm">
                                 <div className="w-full lg:w-2/5 bg-[#0A0A0A] aspect-video md:aspect-[4/3] lg:aspect-auto flex flex-col items-center justify-center relative overflow-hidden p-6 md:p-8 min-h-[200px]">
                                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#C5A059]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                                    <img src={item.img} alt={item.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-90" />
+                                    <img src={item.img} alt={item.alt || item.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-90" />
                                 </div>
                                 <div className="w-full lg:w-3/5 p-6 md:p-10 lg:p-14 flex flex-col justify-center relative bg-white">
                                     <div className="flex flex-col sm:flex-row sm:items-start justify-between mb-6 md:mb-8 gap-4 md:gap-6">
@@ -1445,10 +1488,10 @@ const AppContent = () => {
             <div className="nav-dropdown">
                 {items.map((item, idx) => {
                     if (item.divider) return <div key={idx} className="h-px bg-gray-100 my-2 mx-4"></div>;
-                    if (item.special) return <Link key={idx} to={item.path} className="dropdown-link dropdown-special-btn block">{item.label}</Link>;
+                    if (item.special) return <Link key={idx} to={item.path || '#'} className="dropdown-link dropdown-special-btn block">{item.label}</Link>;
                     if (item.onClick) return <span key={idx} onClick={item.onClick} className="dropdown-link">{item.label}</span>;
                     if (item.anchor) return <span key={idx} onClick={() => handleNav('/', item.anchor)} className="dropdown-link">{item.label}</span>;
-                    return <Link key={idx} to={item.path} className={`dropdown-link ${item.gold ? 'gold-text font-bold' : ''}`}>{item.label}</Link>;
+                    return <Link key={idx} to={item.path || '#'} className={`dropdown-link ${item.gold ? 'gold-text font-bold' : ''}`}>{item.label}</Link>;
                 })}
             </div>
         </div>
@@ -1643,17 +1686,23 @@ const AppContent = () => {
                                     <MapPin className="gold-text mt-1 flex-shrink-0" size={16} />
                                     <div className="space-y-2 md:space-y-3">
                                         <p className="text-white/60 text-[9px] md:text-xs font-medium uppercase tracking-wider text-left">
-                                            <span className="text-[#C5A059] block mb-1 text-[7px] md:text-[9px]">Офис в Дубае:</span>
+                                            <span className="text-[#C5A059] block mb-1 text-[7px] md:text-[9px]">{t.footer.office_dubai}</span>
                                             EMAAR Business Park - Building 4<br/>Office 112, Floor 1, Dubai
                                         </p>
                                         <p className="text-white/60 text-[9px] md:text-xs font-medium uppercase tracking-wider text-left">
-                                            <span className="text-[#C5A059] block mb-1 text-[7px] md:text-[9px]">Офис в Москве:</span>
+                                            <span className="text-[#C5A059] block mb-1 text-[7px] md:text-[9px]">{t.footer.office_moscow}</span>
                                             ЗАО, район Можайский,<br/>метро Кунцевская
                                         </p>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-3 md:gap-4 group cursor-pointer text-left"><Phone className="gold-text flex-shrink-0" size={16} /><p className="text-white font-montserrat font-bold text-base md:text-xl tracking-tighter group-hover:text-[#C5A059] transition-colors text-left">+971 52 120 8414</p></div>
-                                <div className="flex items-center gap-3 md:gap-4 group cursor-pointer text-left"><Mail className="gold-text flex-shrink-0" size={16} /><p className="text-white/60 font-bold uppercase text-[8px] md:text-[10px] tracking-[0.3em] group-hover:text-white transition-colors text-left break-all">sales@alphastardubai.ae</p></div>
+                                <a href="tel:+971521208414" className="flex items-center gap-3 md:gap-4 group cursor-pointer text-left">
+                                    <Phone className="gold-text flex-shrink-0" size={16} />
+                                    <p className="text-white font-montserrat font-bold text-base md:text-xl tracking-tighter group-hover:text-[#C5A059] transition-colors text-left">+971 52 120 8414</p>
+                                </a>
+                                <a href="mailto:sales@alphastardubai.ae" className="flex items-center gap-3 md:gap-4 group cursor-pointer text-left">
+                                    <Mail className="gold-text flex-shrink-0" size={16} />
+                                    <p className="text-white/60 font-bold uppercase text-[8px] md:text-[10px] tracking-[0.2em] md:tracking-[0.3em] group-hover:text-white transition-colors text-left break-all">sales@alphastardubai.ae</p>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1662,15 +1711,15 @@ const AppContent = () => {
                             © 2026 Alpha Star Properties. Все права защищены.
                         </div>
                         <div className="flex items-center gap-3 md:gap-4 text-[7px] md:text-[9px] uppercase font-bold tracking-widest text-white/20">
-                            <Link to="/privacy-policy" className="cursor-pointer hover:text-white transition-colors">Политика конфиденциальности</Link>
+                            <Link to="/privacy-policy" className="cursor-pointer hover:text-white transition-colors">{t.footer.privacy}</Link>
                             <span className="hidden md:inline">|</span>
-                            <Link to="/terms-of-use" className="cursor-pointer hover:text-white transition-colors">Условия использования</Link>
+                            <Link to="/terms-of-use" className="cursor-pointer hover:text-white transition-colors">{t.footer.terms}</Link>
                         </div>
                     </div>
                 </div>
             </footer>
 
-            <div className="fixed bottom-6 right-6 z-[1500]">
+            <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[1500] flex flex-col gap-3">
                 <AnimatePresence>
                     {showTopBtn && (
                         <motion.div 
@@ -1685,8 +1734,8 @@ const AppContent = () => {
                         </motion.div>
                     )}
                 </AnimatePresence>
-                <button type="button" onClick={() => setIsContactModalOpen(true)} className="w-14 h-14 bg-[#C5A059] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform duration-300">
-                    <MessageCircle size={28} />
+                <button type="button" onClick={() => setIsContactModalOpen(true)} className="w-12 h-12 md:w-14 md:h-14 bg-[#C5A059] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-transform duration-300">
+                    <MessageCircle size={24} className="md:w-7 md:h-7" />
                 </button>
             </div>
         </>
