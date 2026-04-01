@@ -585,12 +585,11 @@ const CallbackModal = ({ isOpen, onClose }) => {
                                     <motion.div key="quiz" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="flex-1 flex flex-col text-left">
                                         <div className="text-[10px] gold-text uppercase font-bold tracking-widest mb-6 flex items-center justify-between">
                                             <span>{t.quiz.step} {step + 1} / 3</span>
-                                            {step > 0 && <button onClick={() => setStep(step - 1)} className="hover:text-[#121212] transition-colors">{t.quiz.back}</button>}
                                         </div>
                                         <h2 className="font-montserrat text-xl md:text-2xl uppercase tracking-[0.1em] font-bold mb-8 text-[#121212]">
                                             {step === 0 ? t.quiz.q1 : step === 1 ? t.quiz.q2 : t.quiz.q3}
                                         </h2>
-                                        <div className="flex flex-col gap-3">
+                                        <div className="flex flex-col gap-3 flex-grow">
                                             {(step === 0 ? t.quiz.a1 : step === 1 ? t.quiz.a2 : t.quiz.a3).map((opt, i) => (
                                                 <button 
                                                     key={i} 
@@ -602,6 +601,15 @@ const CallbackModal = ({ isOpen, onClose }) => {
                                                 </button>
                                             ))}
                                         </div>
+                                        
+                                        {/* Кнопка Назад перемещена вниз слева */}
+                                        {step > 0 && (
+                                            <div className="mt-8 flex justify-start">
+                                                <button onClick={() => setStep(step - 1)} className="text-[10px] uppercase font-bold tracking-widest text-gray-400 hover:text-[#C5A059] transition-colors flex items-center gap-2">
+                                                    <ArrowLeft size={14} /> {t.quiz.back}
+                                                </button>
+                                            </div>
+                                        )}
                                     </motion.div>
                                 ) : (
                                     <motion.div key="form" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="flex-1 flex flex-col text-left">
@@ -1787,6 +1795,7 @@ export default function App() {
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
                     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
                 </Helmet>
+
                 <Router>
                     <style>{styles}</style>
                     <AppContent />
