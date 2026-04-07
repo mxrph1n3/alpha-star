@@ -167,7 +167,7 @@ const translations = {
         listing: { all: 'Все объекты', bed: 'Bedroom', notFound: 'По вашему запросу объектов не найдено.', missing: 'Не нашли идеальный объект?', missingSub: 'Оставьте заявку, и мы пришлем подборку эксклюзивных вариантов закрытых продаж вне рынка', btn: 'Смотреть детали' },
         legal: {
             privacy: { title: 'Политика конфиденциальности', text: '<p>Настоящая Политика конфиденциальности описывает, как Alpha Star Properties собирает, использует и защищает вашу личную информацию.</p><p><strong>1. Сбор данных</strong><br/>Мы собираем данные (имя, email, телефон), когда вы оставляете заявку на сайте.</p><p><strong>2. Использование данных</strong><br/>Ваши данные используются исключительно для предоставления консультационных услуг в сфере недвижимости и не передаются третьим лицам без вашего прямого согласия.</p><p><strong>3. Защита информации</strong><br/>Мы применяем современные технологии шифрования для защиты ваших данных от несанкционированного доступа.</p>' },
-            terms: { title: 'Условия использования', text: '<p>Добро пожаловать на сайт Alpha Star Properties. Используя данный веб-сайт, вы соглашаетесь с нижеперечисленными условиями.</p><p><strong>1. Информация на сайте</strong><br/>Вся информация, представленная на сайте (включая цены, ROI, спецификации объектов), носит ознакомительный характер и не является публичной офертой.</p><p><strong>2. Intellectual Property</strong><br/>Весь контент (тексты, графика, логотипы) защищен авторским правом и принадлежит Alpha Star Properties. Copying без разрешения запрещено.</p>' }
+            terms: { title: 'Условия использования', text: '<p>Добро пожаловать на сайт Alpha Star Properties. Используя данный веб-сайт, вы соглашаетесь с нижеперечисленными условиями.</p><p><strong>1. Информация на сайте</strong><br/>Вся информация, представленная на сайте (включая цены, ROI, спецификации объектов), носит ознакомительный характер и не является публичной офертой.</p><p><strong>2. Intellectual Property</strong><br/>Весь контент (тексты, графика, логотипы) защищен авторским правом и принадлежит Alpha Star Properties. Копирование без разрешения запрещено.</p>' }
         }
     },
     EN: {
@@ -601,7 +601,7 @@ const CallbackModal = ({ isOpen, onClose }) => {
                                                 </button>
                                             ))}
                                         </div>
-                                        
+
                                         {/* Кнопка Назад перемещена вниз слева */}
                                         {step > 0 && (
                                             <div className="mt-8 flex justify-start">
@@ -1625,7 +1625,7 @@ const AppContent = () => {
 
                             {/* ИКОНКИ СОЦСЕТЕЙ В МОБИЛЬНОМ МЕНЮ */}
                             <div className="flex justify-center items-center gap-5 pt-8 mt-4 border-t border-white/10">
-                                <a href="https://wa.me/971521208414" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-[#C5A059] hover:border-[#C5A059] bg-white/5 transition-all duration-300">
+                                <a href="https://wa.me/971525924207" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-[#C5A059] hover:border-[#C5A059] bg-white/5 transition-all duration-300">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                                 </a>
                                 <a href="https://t.me/dubai_bestprice" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-[#C5A059] hover:border-[#C5A059] bg-white/5 transition-all duration-300">
@@ -1678,7 +1678,7 @@ const AppContent = () => {
                             
                             {/* Иконки соцсетей */}
                             <div className="flex items-center gap-3 pt-2 md:pt-4">
-                                <a href="https://wa.me/971521208414" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-[#C5A059] hover:text-[#C5A059] hover:bg-[#C5A059]/5 transition-all duration-500 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:-translate-y-1 group">
+                                <a href="https://wa.me/971525924207" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:border-[#C5A059] hover:text-[#C5A059] hover:bg-[#C5A059]/5 transition-all duration-500 hover:shadow-[0_0_20px_rgba(197,160,89,0.15)] hover:-translate-y-1 group">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-500 group-hover:scale-110">
                                         <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                                     </svg>
@@ -1720,25 +1720,25 @@ const AppContent = () => {
                                         </p>
                                         <p className="text-white/60 text-[9px] md:text-xs font-medium uppercase tracking-wider text-left">
                                             <span className="text-[#C5A059] block mb-1 text-[7px] md:text-[9px]">{t.footer.office_moscow}</span>
-                                            ЗАО, район Можайский,<br/>метро Кунцевская
+                                            Москва, Центральный АО, район Тверской,<br/>Леонтьевский переулок, 25, каб. 106, 1-й этаж
                                         </p>
                                     </div>
                                 </div>
                                 
                                 {/* Правая часть: Телефон и Почта */}
                                 <div className="flex-1 flex flex-col justify-start space-y-5 md:space-y-6 pt-2 sm:pt-0">
-                                    <a href="tel:+971521208414" className="flex items-center gap-3 md:gap-4 group cursor-pointer text-left">
+                                    <a href="tel:+971525924207" className="flex items-center gap-3 md:gap-4 group cursor-pointer text-left">
                                         <Phone className="gold-text flex-shrink-0" size={16} />
                                         <div className="flex flex-col">
                                             <span className="text-[#C5A059] text-[7px] md:text-[9px] uppercase tracking-wider font-bold mb-1">Позвонить нам:</span>
-                                            <p className="text-white font-montserrat font-bold text-base md:text-xl tracking-tighter group-hover:text-[#C5A059] transition-colors text-left">+971 52 120 8414</p>
+                                            <p className="text-white font-montserrat font-bold text-base md:text-xl tracking-tighter group-hover:text-[#C5A059] transition-colors text-left">+971 52 592 4207</p>
                                         </div>
                                     </a>
-                                    <a href="mailto:sales@alphastardubai.ae" className="flex items-center gap-3 md:gap-4 group cursor-pointer text-left">
+                                    <a href="mailto:admin@alphastardubai.ae" className="flex items-center gap-3 md:gap-4 group cursor-pointer text-left">
                                         <Mail className="gold-text flex-shrink-0" size={16} />
                                         <div className="flex flex-col">
                                             <span className="text-[#C5A059] text-[7px] md:text-[9px] uppercase tracking-wider font-bold mb-1">Написать нам:</span>
-                                            <p className="text-white/60 font-bold uppercase text-[8px] md:text-[10px] tracking-[0.2em] md:tracking-[0.3em] group-hover:text-white transition-colors text-left break-all">sales@alphastardubai.ae</p>
+                                            <p className="text-white/60 font-bold uppercase text-[8px] md:text-[10px] tracking-[0.2em] md:tracking-[0.3em] group-hover:text-white transition-colors text-left break-all">admin@alphastardubai.ae</p>
                                         </div>
                                     </a>
                                 </div>
@@ -1795,7 +1795,6 @@ export default function App() {
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
                     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
                 </Helmet>
-
                 <Router>
                     <style>{styles}</style>
                     <AppContent />
