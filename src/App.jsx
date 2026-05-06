@@ -4,7 +4,7 @@ import { HashRouter as Router, Routes, Route, Link, useNavigate, useLocation, us
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { 
   Heart, Home as HomeIcon, TrendingUp, Coins, Globe, Download, 
-  MapPin, Phone, Mail, MessageCircle, ChevronDown, 
+  MapPin, Phone, Mail, MessageCircle, ChevronDown, Check,
   ShieldCheck, Search, FileCheck, Key, ArrowRight, Quote, Star, 
   Calendar, Clock, ArrowLeft, Menu, X, ArrowUp, Award, Trophy, Crown
 } from 'lucide-react';
@@ -167,7 +167,7 @@ const translations = {
         listing: { all: 'Все объекты', bed: 'Bedroom', notFound: 'По вашему запросу объектов не найдено.', missing: 'Не нашли идеальный объект?', missingSub: 'Оставьте заявку, и мы пришлем подборку эксклюзивных вариантов закрытых продаж вне рынка', btn: 'Смотреть детали' },
         legal: {
             privacy: { title: 'Политика конфиденциальности', text: '<p>Настоящая Политика конфиденциальности описывает, как Alpha Star Properties собирает, использует и защищает вашу личную информацию.</p><p><strong>1. Сбор данных</strong><br/>Мы собираем данные (имя, email, телефон), когда вы оставляете заявку на сайте.</p><p><strong>2. Использование данных</strong><br/>Ваши данные используются исключительно для предоставления консультационных услуг в сфере недвижимости и не передаются третьим лицам без вашего прямого согласия.</p><p><strong>3. Защита информации</strong><br/>Мы применяем современные технологии шифрования для защиты ваших данных от несанкционированного доступа.</p>' },
-            terms: { title: 'Условия использования', text: '<p>Добро пожаловать на сайт Alpha Star Properties. Используя данный веб-сайт, вы соглашаетесь с нижеперечисленными условиями.</p><p><strong>1. Информация на сайте</strong><br/>Вся информация, представленная на сайте (включая цены, ROI, спецификации объектов), носит ознакомительный характер и не является публичной офертой.</p><p><strong>2. Intellectual Property</strong><br/>Весь контент (тексты, графика, логотипы) защищен авторским правом и принадлежит Alpha Star Properties. Копирование без разрешения запрещено.</p>' }
+            terms: { title: 'Условия использования', text: '<p>Добро пожаловать на сайт Alpha Star Properties. Используя данный веб-сайт, вы соглашаетесь с нижеперечисленными условиями.</p><p><strong>1. Информация на сайте</strong><br/>Вся информация, представленная на сайте (включая цены, ROI, спецификации объектов), носит ознакомительный характер и не является публичной офертой.</p><p><strong>2. Intellectual Property</strong><br/>Весь контент (texts, graphics, logos) защищен авторским правом и принадлежит Alpha Star Properties. Копирование без разрешения запрещено.</p>' }
         }
     },
     EN: {
@@ -388,12 +388,77 @@ const SectionHeading = ({ top, main, light = false }) => (
     </motion.div>
 );
 
+// --- ИНТЕГРАЦИЯ С БИТРИКС24 ---
+const sendToBitrix24 = async (data) => {
+    // ВНИМАНИЕ: Вставьте сюда скопированный URL входящего вебхука из Битрикс24
+    // Пример: 'https://b24-xxxxxx.bitrix24.ru/rest/1/xxxxxxxxx/crm.lead.add.json'
+    const BITRIX_WEBHOOK_URL = 'https://ВАША_КОМПАНИЯ.bitrix24.ru/rest/1/ВАШ_ТОКЕН/crm.lead.add.json';
+    
+    // Заглушка, если ссылка не заменена
+    if (BITRIX_WEBHOOK_URL.includes('ВАША_КОМПАНИЯ')) {
+        console.log("Отправка в Битрикс (Симуляция):", data);
+        return true; 
+    }
+
+    try {
+        const fields = {
+            TITLE: data.title || "Заявка с сайта Alpha Star",
+            NAME: data.name || "Без имени",
+            COMMENTS: data.comments || "",
+            SOURCE_ID: "WEB"
+        };
+        
+        if (data.email) fields.EMAIL = [{ VALUE: data.email, VALUE_TYPE: "WORK" }];
+        if (data.phone) fields.PHONE = [{ VALUE: data.phone, VALUE_TYPE: "WORK" }];
+
+        const response = await fetch(BITRIX_WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                fields: fields,
+                params: { REGISTER_SONET_EVENT: "Y" }
+            })
+        });
+        return response.ok;
+    } catch (error) {
+        console.error("Ошибка отправки в Битрикс24:", error);
+        return false;
+    }
+};
+
 const LeadForm = ({ title, subtitle, isModal = false }) => {
     const { t } = useLang();
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [selectedGoal, setSelectedGoal] = useState(t.form.selGoal);
+    const [status, setStatus] = useState('idle'); // idle, loading, success, error
 
     useEffect(() => { setSelectedGoal(t.form.selGoal); }, [t]);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus('loading');
+        
+        const formData = new FormData(e.target);
+        const data = {
+            title: `Заявка: ${title}`,
+            name: formData.get('name'),
+            email: formData.get('email'),
+            phone: formData.get('phone'),
+            comments: `Интересующая цель: ${selectedGoal !== t.form.selGoal ? selectedGoal : 'Не указана'}`
+        };
+
+        const success = await sendToBitrix24(data);
+        
+        if (success) {
+            setStatus('success');
+            e.target.reset();
+            setSelectedGoal(t.form.selGoal);
+            setTimeout(() => setStatus('idle'), 5000);
+        } else {
+            setStatus('error');
+            setTimeout(() => setStatus('idle'), 3000);
+        }
+    };
 
     return (
         <div className={`relative bg-white shadow-2xl overflow-visible w-full ${isModal ? 'p-6 md:p-14 rounded-sm' : 'max-w-4xl mx-auto p-6 md:px-16 md:py-12 border border-gray-100'}`}>
@@ -402,51 +467,112 @@ const LeadForm = ({ title, subtitle, isModal = false }) => {
                 <h2 className="font-montserrat text-xl md:text-3xl uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold mb-2 md:mb-3 text-[#121212]">{title}</h2>
                 <p className="font-cormorant text-base md:text-lg text-gray-400 font-medium">{subtitle}</p>
             </div>
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 text-left" onSubmit={e => e.preventDefault()}>
-                <div className="space-y-1 md:space-y-2 font-montserrat">
-                    <label className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 ml-1">{t.form.name}</label>
-                    <input type="text" required className="w-full p-3 md:p-4 bg-gray-50 border border-gray-100 focus:border-[#C5A059] outline-none font-bold text-sm transition-all duration-300 focus:bg-white focus:shadow-md" />
-                </div>
-                <div className="space-y-1 md:space-y-2 font-montserrat">
-                    <label className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 ml-1">{t.form.email}</label>
-                    <input type="email" required className="w-full p-3 md:p-4 bg-gray-50 border border-gray-100 focus:border-[#C5A059] outline-none font-bold text-sm transition-all duration-300 focus:bg-white focus:shadow-md" />
-                </div>
-                <div className="space-y-1 md:space-y-2 font-montserrat">
-                    <label className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 ml-1">{t.form.phone}</label>
-                    <input type="tel" required onInput={(e) => e.target.value = e.target.value.replace(/[^0-9+]/g, '')} className="w-full p-3 md:p-4 bg-gray-50 border border-gray-100 focus:border-[#C5A059] outline-none font-bold text-sm transition-all duration-300 focus:bg-white focus:shadow-md" placeholder="+971..." />
-                </div>
-                <div className="space-y-1 md:space-y-2 font-montserrat relative">
-                    <label className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 ml-1 mb-1 md:mb-2 block">{t.form.goal}</label>
-                    <div className="relative">
-                        <div className={`w-full p-3 md:p-4 bg-gray-50 border cursor-pointer transition-all duration-300 flex items-center justify-between ${dropdownOpen ? 'border-[#C5A059] bg-white shadow-md' : 'border-gray-100 hover:border-gray-300'}`} onClick={() => setDropdownOpen(!dropdownOpen)}>
-                            <span className={`text-sm font-bold transition-colors ${selectedGoal !== t.form.selGoal ? 'text-[#121212]' : 'text-gray-400'}`}>{selectedGoal}</span>
-                            <ChevronDown className={`w-4 h-4 md:w-5 md:h-5 text-[#C5A059] transition-transform duration-500 ${dropdownOpen ? 'rotate-180' : ''}`} />
-                        </div>
-                        <AnimatePresence>
-                            {dropdownOpen && (
-                                <motion.div initial={{ opacity: 0, y: -10, scaleY: 0.95 }} animate={{ opacity: 1, y: 0, scaleY: 1 }} exit={{ opacity: 0, y: -10, scaleY: 0.95 }} transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }} className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-100 shadow-2xl z-[100] origin-top rounded-sm overflow-hidden">
-                                    {t.form.goals.map((item, idx) => (
-                                        <div key={idx} onClick={() => { setSelectedGoal(item); setDropdownOpen(false); }} className="p-3 md:p-4 border-b border-gray-50 hover:bg-gray-50 cursor-pointer text-sm font-bold text-[#121212] transition-colors flex items-center justify-between group">
-                                            <span className="group-hover:text-[#C5A059] transition-colors">{item}</span>
-                                            {selectedGoal === item && <div className="w-2 h-2 rounded-full bg-[#C5A059]"></div>}
-                                        </div>
-                                    ))}
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
+            
+            {status === 'success' ? (
+                <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-10">
+                    <div className="w-16 h-16 bg-[#C5A059]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <Check size={32} className="text-[#C5A059]" />
                     </div>
-                </div>
-                <div className="md:col-span-2 mt-2 flex items-start gap-3">
-                    <input type="checkbox" id="consent" className="mt-1 accent-[#C5A059] w-4 h-4 flex-shrink-0 cursor-pointer" defaultChecked required />
-                    <label htmlFor="consent" className="text-[9px] md:text-[10px] text-gray-400 font-montserrat leading-relaxed cursor-pointer">
-                        {t.form.consent}
-                    </label>
-                </div>
-                <div className="md:col-span-2 flex justify-center mt-2 md:mt-4">
-                    <button type="submit" className="btn-premium w-full md:w-3/4 py-4 md:py-6 bg-[#C5A059] text-white font-montserrat uppercase tracking-widest font-bold shadow-lg text-xs md:text-sm">{t.form.btn}</button>
-                </div>
-            </form>
+                    <h3 className="font-montserrat text-xl font-bold mb-2 text-[#121212]">Спасибо за заявку!</h3>
+                    <p className="text-gray-500 text-sm">Наш эксперт свяжется с вами в ближайшее время.</p>
+                </motion.div>
+            ) : (
+                <form className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 text-left" onSubmit={handleSubmit}>
+                    <div className="space-y-1 md:space-y-2 font-montserrat">
+                        <label className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 ml-1">{t.form.name}</label>
+                        <input type="text" name="name" required className="w-full p-3 md:p-4 bg-gray-50 border border-gray-100 focus:border-[#C5A059] outline-none font-bold text-sm transition-all duration-300 focus:bg-white focus:shadow-md" />
+                    </div>
+                    <div className="space-y-1 md:space-y-2 font-montserrat">
+                        <label className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 ml-1">{t.form.email}</label>
+                        <input type="email" name="email" required className="w-full p-3 md:p-4 bg-gray-50 border border-gray-100 focus:border-[#C5A059] outline-none font-bold text-sm transition-all duration-300 focus:bg-white focus:shadow-md" />
+                    </div>
+                    <div className="space-y-1 md:space-y-2 font-montserrat">
+                        <label className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 ml-1">{t.form.phone}</label>
+                        <input type="tel" name="phone" required onInput={(e) => e.target.value = e.target.value.replace(/[^0-9+]/g, '')} className="w-full p-3 md:p-4 bg-gray-50 border border-gray-100 focus:border-[#C5A059] outline-none font-bold text-sm transition-all duration-300 focus:bg-white focus:shadow-md" placeholder="+971..." />
+                    </div>
+                    <div className="space-y-1 md:space-y-2 font-montserrat relative">
+                        <label className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 ml-1 mb-1 md:mb-2 block">{t.form.goal}</label>
+                        <div className="relative">
+                            <div className={`w-full p-3 md:p-4 bg-gray-50 border cursor-pointer transition-all duration-300 flex items-center justify-between ${dropdownOpen ? 'border-[#C5A059] bg-white shadow-md' : 'border-gray-100 hover:border-gray-300'}`} onClick={() => setDropdownOpen(!dropdownOpen)}>
+                                <span className={`text-sm font-bold transition-colors ${selectedGoal !== t.form.selGoal ? 'text-[#121212]' : 'text-gray-400'}`}>{selectedGoal}</span>
+                                <ChevronDown className={`w-4 h-4 md:w-5 md:h-5 text-[#C5A059] transition-transform duration-500 ${dropdownOpen ? 'rotate-180' : ''}`} />
+                            </div>
+                            <AnimatePresence>
+                                {dropdownOpen && (
+                                    <motion.div initial={{ opacity: 0, y: -10, scaleY: 0.95 }} animate={{ opacity: 1, y: 0, scaleY: 1 }} exit={{ opacity: 0, y: -10, scaleY: 0.95 }} transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }} className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-100 shadow-2xl z-[100] origin-top rounded-sm overflow-hidden">
+                                        {t.form.goals.map((item, idx) => (
+                                            <div key={idx} onClick={() => { setSelectedGoal(item); setDropdownOpen(false); }} className="p-3 md:p-4 border-b border-gray-50 hover:bg-gray-50 cursor-pointer text-sm font-bold text-[#121212] transition-colors flex items-center justify-between group">
+                                                <span className="group-hover:text-[#C5A059] transition-colors">{item}</span>
+                                                {selectedGoal === item && <div className="w-2 h-2 rounded-full bg-[#C5A059]"></div>}
+                                            </div>
+                                        ))}
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
+                    </div>
+                    <div className="md:col-span-2 mt-2 flex items-start gap-3">
+                        <input type="checkbox" id="consent" className="mt-1 accent-[#C5A059] w-4 h-4 flex-shrink-0 cursor-pointer" defaultChecked required />
+                        <label htmlFor="consent" className="text-[9px] md:text-[10px] text-gray-400 font-montserrat leading-relaxed cursor-pointer">
+                            {t.form.consent}
+                        </label>
+                    </div>
+                    <div className="md:col-span-2 flex justify-center mt-2 md:mt-4">
+                        <button type="submit" disabled={status === 'loading'} className="btn-premium w-full md:w-3/4 py-4 md:py-6 bg-[#C5A059] text-white font-montserrat uppercase tracking-widest font-bold shadow-lg text-xs md:text-sm disabled:opacity-70">
+                            {status === 'loading' ? 'Отправка...' : status === 'error' ? 'Ошибка (Повторить)' : t.form.btn}
+                        </button>
+                    </div>
+                </form>
+            )}
         </div>
+    );
+};
+
+// Форма скачивания гайда
+const GuideForm = () => {
+    const { t } = useLang();
+    const [status, setStatus] = useState('idle');
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus('loading');
+        
+        const formData = new FormData(e.target);
+        const data = {
+            title: "СКАЧИВАНИЕ ГАЙДА",
+            email: formData.get('email'),
+            comments: "Клиент запросил аналитический отчет 2026."
+        };
+
+        const success = await sendToBitrix24(data);
+        
+        if (success) {
+            setStatus('success');
+            e.target.reset();
+            setTimeout(() => setStatus('idle'), 5000);
+        } else {
+            setStatus('error');
+            setTimeout(() => setStatus('idle'), 3000);
+        }
+    };
+
+    return (
+        <form className="flex flex-col sm:flex-row gap-3 md:gap-4" onSubmit={handleSubmit}>
+            {status === 'success' ? (
+                <div className="bg-white/20 border border-white/30 p-4 md:p-5 flex-grow text-white font-montserrat rounded-sm flex items-center justify-center gap-2 text-sm font-bold shadow-md">
+                    <Check size={18} /> Гайд отправлен на почту!
+                </div>
+            ) : (
+                <>
+                    <input type="email" name="email" required placeholder={t.guide.email} className="bg-white/20 border border-white/30 p-4 md:p-5 px-5 md:px-6 outline-none placeholder:text-white/60 flex-grow text-white font-montserrat rounded-sm transition-all focus:bg-white/30 text-sm" />
+                    <button type="submit" disabled={status === 'loading'} className="btn-premium !bg-[#121212] !text-white whitespace-nowrap !py-4 px-8 md:px-12 uppercase tracking-widest font-bold text-xs w-full sm:w-auto disabled:opacity-70">
+                        <span className="flex items-center justify-center gap-2 md:gap-3">
+                            {status === 'loading' ? 'Отправка...' : <>{t.guide.btn} <Download size={14} className="md:w-4 md:h-4" /></>}
+                        </span>
+                    </button>
+                </>
+            )}
+        </form>
     );
 };
 
@@ -532,6 +658,7 @@ const CallbackModal = ({ isOpen, onClose }) => {
     const { t } = useLang();
     const [step, setStep] = useState(0);
     const [answers, setAnswers] = useState({ q1: '', q2: '', q3: '' });
+    const [status, setStatus] = useState('idle');
 
     const quizImages = [
         "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=800", // Q1: Ищем недвижимость
@@ -542,7 +669,11 @@ const CallbackModal = ({ isOpen, onClose }) => {
 
     useEffect(() => {
         if (!isOpen) {
-            const timer = setTimeout(() => { setStep(0); setAnswers({ q1: '', q2: '', q3: '' }); }, 300);
+            const timer = setTimeout(() => { 
+                setStep(0); 
+                setAnswers({ q1: '', q2: '', q3: '' }); 
+                setStatus('idle');
+            }, 300);
             return () => clearTimeout(timer);
         }
     }, [isOpen]);
@@ -550,6 +681,32 @@ const CallbackModal = ({ isOpen, onClose }) => {
     const handleSelect = (key, value) => {
         setAnswers(prev => ({ ...prev, [key]: value }));
         setTimeout(() => setStep(step + 1), 300);
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus('loading');
+        
+        const formData = new FormData(e.target);
+        const quizResults = `Ответы на Квиз:\n1. Цель: ${answers.q1}\n2. Бюджет: ${answers.q2}\n3. Район: ${answers.q3}`;
+        
+        const data = {
+            title: "Заявка с Квиза (Инвестиции)",
+            name: formData.get('name'),
+            email: formData.get('email'),
+            phone: formData.get('phone'),
+            comments: quizResults
+        };
+
+        const success = await sendToBitrix24(data);
+        
+        if (success) {
+            setStatus('success');
+            setTimeout(() => onClose(), 3000);
+        } else {
+            setStatus('error');
+            setTimeout(() => setStatus('idle'), 3000);
+        }
     };
 
     return (
@@ -611,31 +768,41 @@ const CallbackModal = ({ isOpen, onClose }) => {
                                             </div>
                                         )}
                                     </motion.div>
+                                ) : status === 'success' ? (
+                                    <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="flex-1 flex flex-col justify-center items-center text-center">
+                                        <div className="w-16 h-16 bg-[#C5A059]/10 rounded-full flex items-center justify-center mb-4">
+                                            <Check size={32} className="text-[#C5A059]" />
+                                        </div>
+                                        <h2 className="font-montserrat text-2xl uppercase font-bold mb-2 text-[#121212]">Заявка принята</h2>
+                                        <p className="font-cormorant text-lg text-gray-500">Наш эксперт уже анализирует рынок под ваши критерии и скоро позвонит!</p>
+                                    </motion.div>
                                 ) : (
                                     <motion.div key="form" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="flex-1 flex flex-col text-left">
                                         <div className="text-center mb-6 md:mb-8 mt-4 md:mt-0">
                                             <h2 className="font-montserrat text-xl md:text-2xl uppercase tracking-[0.2em] font-bold mb-2 md:mb-3 text-[#121212]">{t.quiz.finalTitle}</h2>
                                             <p className="font-cormorant text-base md:text-lg text-gray-400 font-medium">{t.quiz.finalSub}</p>
                                         </div>
-                                        <form className="flex flex-col gap-4 md:gap-5 text-left" onSubmit={e => { e.preventDefault(); onClose(); }}>
+                                        <form className="flex flex-col gap-4 md:gap-5 text-left" onSubmit={handleSubmit}>
                                             <div className="space-y-1 md:space-y-2 font-montserrat">
                                                 <label className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 ml-1">{t.form.name}</label>
-                                                <input type="text" required className="w-full p-3 md:p-4 bg-gray-50 border border-gray-100 focus:border-[#C5A059] outline-none font-bold text-sm transition-all duration-300 focus:bg-white focus:shadow-md" />
+                                                <input type="text" name="name" required className="w-full p-3 md:p-4 bg-gray-50 border border-gray-100 focus:border-[#C5A059] outline-none font-bold text-sm transition-all duration-300 focus:bg-white focus:shadow-md" />
                                             </div>
                                             <div className="space-y-1 md:space-y-2 font-montserrat">
                                                 <label className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 ml-1">{t.form.email}</label>
-                                                <input type="email" required className="w-full p-3 md:p-4 bg-gray-50 border border-gray-100 focus:border-[#C5A059] outline-none font-bold text-sm transition-all duration-300 focus:bg-white focus:shadow-md" />
+                                                <input type="email" name="email" required className="w-full p-3 md:p-4 bg-gray-50 border border-gray-100 focus:border-[#C5A059] outline-none font-bold text-sm transition-all duration-300 focus:bg-white focus:shadow-md" />
                                             </div>
                                             <div className="space-y-1 md:space-y-2 font-montserrat">
                                                 <label className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 ml-1">{t.form.phone}</label>
-                                                <input type="tel" required onInput={(e) => e.target.value = e.target.value.replace(/[^0-9+]/g, '')} className="w-full p-3 md:p-4 bg-gray-50 border border-gray-100 focus:border-[#C5A059] outline-none font-bold text-sm transition-all duration-300 focus:bg-white focus:shadow-md" placeholder="+971..." />
+                                                <input type="tel" name="phone" required onInput={(e) => e.target.value = e.target.value.replace(/[^0-9+]/g, '')} className="w-full p-3 md:p-4 bg-gray-50 border border-gray-100 focus:border-[#C5A059] outline-none font-bold text-sm transition-all duration-300 focus:bg-white focus:shadow-md" placeholder="+971..." />
                                             </div>
                                             <div className="mt-2 flex items-start gap-3">
                                                 <input type="checkbox" id="auto-consent" className="mt-1 accent-[#C5A059] w-4 h-4 flex-shrink-0 cursor-pointer" defaultChecked required />
                                                 <label htmlFor="auto-consent" className="text-[9px] md:text-[10px] text-gray-400 font-montserrat leading-relaxed cursor-pointer">{t.form.consent}</label>
                                             </div>
                                             <div className="flex justify-center mt-2 md:mt-4">
-                                                <button type="submit" className="btn-premium w-full py-4 md:py-6 bg-[#C5A059] text-white font-montserrat uppercase tracking-widest font-bold shadow-lg text-xs md:text-sm">{t.form.btn}</button>
+                                                <button type="submit" disabled={status === 'loading'} className="btn-premium w-full py-4 md:py-6 bg-[#C5A059] text-white font-montserrat uppercase tracking-widest font-bold shadow-lg text-xs md:text-sm disabled:opacity-70">
+                                                    {status === 'loading' ? 'Отправка...' : status === 'error' ? 'Ошибка (Повторить)' : t.form.btn}
+                                                </button>
                                             </div>
                                         </form>
                                     </motion.div>
@@ -976,12 +1143,7 @@ const ListingPage = ({ category, onOpenModal }) => {
                         <div className="w-full lg:w-2/3 relative z-10 text-left">
                             <h3 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 lining-nums">{t.guide.title}</h3>
                             <p className="mb-6 md:mb-10 opacity-90 text-sm md:text-lg leading-relaxed max-w-lg font-raleway text-left">{t.guide.desc}</p>
-                            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-                                <input type="email" placeholder={t.guide.email} className="bg-white/20 border border-white/30 p-4 md:p-5 px-5 md:px-6 outline-none placeholder:text-white/60 flex-grow text-white font-montserrat rounded-sm transition-all focus:bg-white/30 text-sm" />
-                                <button type="button" className="btn-premium !bg-[#121212] !text-white whitespace-nowrap !py-4 px-8 md:px-12 uppercase tracking-widest font-bold text-xs w-full sm:w-auto">
-                                    <span className="flex items-center justify-center gap-2 md:gap-3">{t.guide.btn} <Download size={14} className="md:w-4 md:h-4" /></span>
-                                </button>
-                            </div>
+                            <GuideForm />
                         </div>
                         <div className="w-full lg:w-1/3 flex justify-center relative h-64 md:h-80 mt-8 lg:mt-0 hidden sm:flex">
                             <div className="absolute w-40 md:w-48 h-56 md:h-64 bg-[#121212] shadow-2xl border-4 border-white/10 p-5 md:p-6 flex flex-col justify-between z-10 -rotate-12 translate-x-[-20px] md:translate-x-[-40px] overflow-hidden group">
@@ -1020,6 +1182,33 @@ const ValuationPage = () => {
     const { lang, t } = useLang();
     const seoDataDict = getSeoData(lang);
     const seo = t.valPage;
+    const [status, setStatus] = useState('idle');
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus('loading');
+        
+        const formData = new FormData(e.target);
+        const data = {
+            title: "Заявка: Оценка недвижимости",
+            name: formData.get('name'),
+            email: formData.get('email'),
+            phone: formData.get('phone'),
+            comments: `Локация / Комплекс: ${formData.get('loc') || 'Не указана'}\nПлощадь / Спален: ${formData.get('area') || 'Не указана'}`
+        };
+
+        const success = await sendToBitrix24(data);
+        
+        if (success) {
+            setStatus('success');
+            e.target.reset();
+            setTimeout(() => setStatus('idle'), 5000);
+        } else {
+            setStatus('error');
+            setTimeout(() => setStatus('idle'), 3000);
+        }
+    };
+
     return (
         <div className="pt-32 pb-16 md:pt-40 md:pb-24 px-5 md:px-8 bg-[#121212] text-white min-h-screen flex items-center">
             <Helmet>
@@ -1032,21 +1221,34 @@ const ValuationPage = () => {
                 
                 <div className="bg-white/5 p-6 md:p-10 lg:p-16 border border-white/10 text-left shadow-2xl relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-[#C5A059] opacity-10 blur-[100px] pointer-events-none"></div>
-                    <form className="space-y-6 md:space-y-8 relative z-10" onSubmit={e => e.preventDefault()}>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                            <div className="space-y-1 md:space-y-2"><label className="text-[9px] md:text-[10px] uppercase font-bold text-white/40 tracking-widest">{seo.name}</label><input type="text" className="w-full bg-transparent border-b border-white/20 p-3 md:p-4 outline-none focus:border-[#C5A059] transition-colors text-sm" required/></div>
-                            <div className="space-y-1 md:space-y-2"><label className="text-[9px] md:text-[10px] uppercase font-bold text-white/40 tracking-widest">{seo.email}</label><input type="email" className="w-full bg-transparent border-b border-white/20 p-3 md:p-4 outline-none focus:border-[#C5A059] transition-colors text-sm" required/></div>
-                            <div className="space-y-1 md:space-y-2"><label className="text-[9px] md:text-[10px] uppercase font-bold text-white/40 tracking-widest">{seo.loc}</label><input type="text" className="w-full bg-transparent border-b border-white/20 p-3 md:p-4 outline-none focus:border-[#C5A059] transition-colors text-sm" /></div>
-                            <div className="space-y-1 md:space-y-2"><label className="text-[9px] md:text-[10px] uppercase font-bold text-white/40 tracking-widest">{seo.area}</label><input type="text" className="w-full bg-transparent border-b border-white/20 p-3 md:p-4 outline-none focus:border-[#C5A059] transition-colors text-sm" /></div>
-                            <div className="space-y-1 md:space-y-2 md:col-span-2 max-w-md mx-auto w-full">
-                                <label className="text-[9px] md:text-[10px] uppercase font-bold text-white/40 tracking-widest">{seo.phone}</label>
-                                <input type="tel" required onInput={(e) => e.target.value = e.target.value.replace(/[^0-9+]/g, '')} className="w-full bg-transparent border-b border-white/20 p-3 md:p-4 outline-none focus:border-[#C5A059] transition-colors text-sm" placeholder="+971..." />
+                    
+                    {status === 'success' ? (
+                        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-10 relative z-10">
+                            <div className="w-16 h-16 bg-[#C5A059]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <Check size={32} className="text-[#C5A059]" />
                             </div>
-                        </div>
-                        <div className="flex justify-center pt-4 md:pt-8">
-                            <button type="submit" className="btn-premium px-12 md:px-24 py-4 md:py-6 bg-[#C5A059] text-white uppercase font-bold text-[10px] md:text-[11px] tracking-widest shadow-2xl w-full md:w-auto">{seo.btn}</button>
-                        </div>
-                    </form>
+                            <h3 className="font-montserrat text-xl font-bold mb-2 text-white">Заявка принята!</h3>
+                            <p className="text-white/60 text-sm">Наши аналитики свяжутся с вами в ближайшее время.</p>
+                        </motion.div>
+                    ) : (
+                        <form className="space-y-6 md:space-y-8 relative z-10" onSubmit={handleSubmit}>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                                <div className="space-y-1 md:space-y-2"><label className="text-[9px] md:text-[10px] uppercase font-bold text-white/40 tracking-widest">{seo.name}</label><input type="text" name="name" className="w-full bg-transparent border-b border-white/20 p-3 md:p-4 outline-none focus:border-[#C5A059] transition-colors text-sm" required/></div>
+                                <div className="space-y-1 md:space-y-2"><label className="text-[9px] md:text-[10px] uppercase font-bold text-white/40 tracking-widest">{seo.email}</label><input type="email" name="email" className="w-full bg-transparent border-b border-white/20 p-3 md:p-4 outline-none focus:border-[#C5A059] transition-colors text-sm" required/></div>
+                                <div className="space-y-1 md:space-y-2"><label className="text-[9px] md:text-[10px] uppercase font-bold text-white/40 tracking-widest">{seo.loc}</label><input type="text" name="loc" className="w-full bg-transparent border-b border-white/20 p-3 md:p-4 outline-none focus:border-[#C5A059] transition-colors text-sm" /></div>
+                                <div className="space-y-1 md:space-y-2"><label className="text-[9px] md:text-[10px] uppercase font-bold text-white/40 tracking-widest">{seo.area}</label><input type="text" name="area" className="w-full bg-transparent border-b border-white/20 p-3 md:p-4 outline-none focus:border-[#C5A059] transition-colors text-sm" /></div>
+                                <div className="space-y-1 md:space-y-2 md:col-span-2 max-w-md mx-auto w-full">
+                                    <label className="text-[9px] md:text-[10px] uppercase font-bold text-white/40 tracking-widest">{seo.phone}</label>
+                                    <input type="tel" name="phone" required onInput={(e) => e.target.value = e.target.value.replace(/[^0-9+]/g, '')} className="w-full bg-transparent border-b border-white/20 p-3 md:p-4 outline-none focus:border-[#C5A059] transition-colors text-sm" placeholder="+971..." />
+                                </div>
+                            </div>
+                            <div className="flex justify-center pt-4 md:pt-8">
+                                <button type="submit" disabled={status === 'loading'} className="btn-premium px-12 md:px-24 py-4 md:py-6 bg-[#C5A059] text-white uppercase font-bold text-[10px] md:text-[11px] tracking-widest shadow-2xl w-full md:w-auto disabled:opacity-70">
+                                    {status === 'loading' ? 'Отправка...' : status === 'error' ? 'Ошибка (Повторить)' : seo.btn}
+                                </button>
+                            </div>
+                        </form>
+                    )}
                 </div>
             </div>
         </div>
@@ -1390,12 +1592,7 @@ const HomePage = ({ isLoading, onOpenModal }) => {
                     <div className="w-full lg:w-2/3 relative z-10 text-left">
                         <h3 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 lining-nums">{t.guide.title}</h3>
                         <p className="mb-6 md:mb-10 opacity-90 text-sm md:text-lg leading-relaxed max-w-lg font-raleway text-left">{t.guide.desc}</p>
-                        <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-                            <input type="email" placeholder={t.guide.email} className="bg-white/20 border border-white/30 p-4 md:p-5 px-5 md:px-6 outline-none placeholder:text-white/60 flex-grow text-white font-montserrat rounded-sm transition-all focus:bg-white/30 text-sm" />
-                            <button type="button" className="btn-premium !bg-[#121212] !text-white whitespace-nowrap !py-4 px-8 md:px-12 uppercase tracking-widest font-bold text-xs w-full sm:w-auto">
-                                <span className="flex items-center justify-center gap-2 md:gap-3">{t.guide.btn} <Download size={14} className="md:w-4 md:h-4" /></span>
-                            </button>
-                        </div>
+                        <GuideForm />
                     </div>
                     <div className="w-full lg:w-1/3 flex justify-center relative h-64 md:h-80 mt-8 lg:mt-0 hidden sm:flex">
                         <div className="absolute w-40 md:w-48 h-56 md:h-64 bg-[#121212] shadow-2xl border-4 border-white/10 p-5 md:p-6 flex flex-col justify-between z-10 -rotate-12 translate-x-[-20px] md:translate-x-[-40px] overflow-hidden group">
